@@ -1,0 +1,258 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: black;
+  font-family: monospace;
+  background-image: url('backgroundA.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#effectCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+  z-index: 0;
+}
+
+#root > div > nav {
+  background-color: rgba(17, 24, 39, 0.6);
+  z-index: 1000;
+  position: fixed;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background: transparent;
+}
+
+.intro {
+  margin-top: 15vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.landing-section {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.genome-pic {
+  opacity: 0.6;
+}
+
+.hero-section {
+  min-height: 80vh;
+  justify-content: flex-start;
+  padding-left: 15vh;
+  padding-right: 15vh;
+}
+
+.main-statement {
+  font-size: 1.5em;
+  line-height: 3.5em;
+  padding-top: 3rem;
+}
+
+.intro-statements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.intro-statement {
+  border: 1px solid black;
+  padding: 3rem;
+  border-radius: 8px;
+  background-color: rgb(17 24 39 / 60%);
+  color: white;
+  margin: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.intro-statements .left-top:hover {
+  box-shadow: -8px -8px 0px 2px #000000c7;
+}
+
+.intro-statements .right-top:hover {
+  box-shadow: 8px -8px 0px 2px #000000c7;
+}
+
+.intro-statements .left-middle:hover {
+  box-shadow: -8px 0px 0px 2px #000000c7;
+}
+
+.intro-statements .right-middle:hover {
+  box-shadow: 8px 0px 0px 2px #000000c7;
+}
+
+.intro-statements .left-bottom:hover {
+  box-shadow: -8px 8px 0px 2px #000000c7;
+}
+
+.intro-statements .right-bottom:hover {
+  box-shadow: 8px 8px 0px 2px #000000c7;
+}
+
+.intro-statement .title {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .intro-statement .description {
+      margin: 0;
+      font-size: 16px;
+    }
+    .intro-statement .detail {
+      display: none;
+      font-size: 14px;
+      margin-top: 10px;
+      line-height: 1.5;
+      text-align: left;
+      overflow-y: auto;
+    }
+    .intro-statement:hover .title,
+    .intro-statement:hover .description {
+      display: none;
+    }
+    .intro-statement:hover .detail {
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .intro-statements {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .intro-statement {
+        height: auto;
+      }
+      .intro-statement .detail {
+        overflow-y: visible;
+      }
+    }
+
+.scroll-down {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-size: 1em;
+}
+
+.scroll-down:after {
+  content: "";
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 5px auto 0;
+  background-image: url("arrow-down-svgrepo-com.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: jump 1.5s infinite ease-in-out;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.projects-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.project-item img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  max-width: none;
+}
+
+.footer-section {
+  min-height: 20vh;
+  color: white;
+  background-color: rgba(17, 24, 39, 0.8);
+  z-index: 1000;
+  position: relative;
+  margin-top: 10vh;
+}
+
+.footer-section a:hover {
+  color: #00ceff;
+}
+
+*::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 3px solid #F0F0F0;
+  border-radius: 10px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  z-index: 9999;
+}
+
+.text-left {
+  margin-left: 2rem;
+  max-width: 20rem;
+}
+
+.text-right {
+  margin-right: 2rem;
+  max-width: 20rem;
+}
+
+.outro-parent {
+  display: flex;
+  flex-direction: column;
+}

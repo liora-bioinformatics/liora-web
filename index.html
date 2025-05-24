@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liora Bioinformatics</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <canvas id="effectCanvas"></canvas>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    // Navigation Bar Component
+    function Navbar() {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <nav className="bg-gray-900 text-white fixed w-full top-0 z-50 shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex items-center">
+                <h1 className="text-2xl font-bold">Liora Bioinformatics</h1>
+              </div>
+              <div className="hidden md:flex space-x-8 items-center">
+                <a href="#home" className="hover:text-gray-300 transition">Home</a>
+                <a href="#about" className="hover:text-gray-300 transition">About</a>
+                <a href="#services" className="hover:text-gray-300 transition">Services</a>
+                <a href="#contact" className="hover:text-gray-300 transition">Contact</a>
+              </div>
+              <div className="md:hidden flex items-center">
+                <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          {isOpen && (
+            <div className="md:hidden bg-gray-800">
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+                <a href="#about" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
+                <a href="#services" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
+                <a href="#contact" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+              </div>
+            </div>
+          )}
+        </nav>
+      );
+    }
+    
+    // Landing section
+    function Landing() {
+      return (
+        <section className="section landing-section">
+          <div className="purpose">
+          </div>
+          <img
+            class="genome-pic"
+            src="genome.png"
+            alt=""
+          />
+        </section>
+      )
+    }
+
+    // Hero Section Component
+    function Hero() {
+      return (
+        <section className="section hero-section">
+          <div className="intro">
+            <p className="main-statement">
+              <span style={{ fontSize: '3em', paddingLeft: '2.6em'}}>From</span> <br />
+              <span style={{ fontSize: '5em'}}>Data</span> <br />
+              <span style={{ fontSize: '3em', lineHeight: '2em', paddingLeft: '1.8em'}}>to</span> <br />
+              <span style={{ fontSize: '6em', lineHeight: '1.5em', paddingLeft: '0.2em'}}>Discovery</span>
+            </p>
+            <div className="intro-statements">
+              <p className="intro-statement left-top">
+                <span className="title">44 Zettabytes Yearly</span>
+                <span className="description">Healthcare generates enough data to fill 44 billion hard drives annually.</span>
+                <span className="detail">
+                  The healthcare sector produces an estimated 44 zettabytes of data annually, driven by electronic health records, imaging, and genomic sequencing. To grasp this, imagine filling over 44 billion 1-terabyte hard drives, enough to store the entire internet multiple times.
+                </span>
+              </p>
+              <p className="intro-statement right-top">
+                <span className="title">Up to 2 Billion Genomes</span>
+                <span className="description">By 2025, 100M–2B human genomes may be sequenced, unlike the single genome of 2003.</span>
+                <span className="detail">
+                  By 2025, projections suggest 100 million to 2 billion human genomes will have been sequenced, a massive leap from the single genome sequenced over 13 years by the Human Genome Project. This scale reflects advancements in high-throughput sequencing and AI-driven data processing.
+                </span>
+              </p>
+              <p className="intro-statement left-middle">
+                <span className="title">5-Hour Sequencing</span>
+                <span className="description">A human genome can now be sequenced in just 5 hours and 2 minutes.</span>
+                <span className="detail">
+                  In 2022, Stanford researchers set a record by sequencing a human genome in just 5 hours and 2 minutes using Oxford Nanopore’s PromethION and cloud-based computing. This is a dramatic improvement over the decade-plus required for the first genome, showcasing modern hardware and software capabilities.
+                </span>
+              </p>
+              <p className="intro-statement right-middle">
+                <span className="title">8-Hour Analysis</span>
+                <span className="description">AI enables genome sequencing and analysis in under 8 hours for rapid diagnosis.</span>
+                <span className="detail">
+                  AI and machine learning have slashed genome analysis time, enabling sequencing and interpretation in under 8 hours. This speed, achieved with tools like the DRAGEN platform, allows rapid diagnosis of genetic diseases, transforming clinical care.
+                </span>
+              </p>
+              <p className="intro-statement left-bottom">
+                <span className="title">$100 Genome</span>
+                <span className="description">Sequencing costs dropped from $3B to $100, a 30-million-fold reduction.</span>
+                <span className="detail">
+                  The cost of sequencing a human genome has plummeted from $3 billion in 2003 to around $100 in 2025, a 30-million-fold decrease. This affordability, driven by technologies like Illumina’s NovaSeq X, makes genomic medicine accessible to millions.
+                </span>
+              </p>
+              <p className="intro-statement right-bottom">
+                <span className="title">20 Petabytes of Data</span>
+                <span className="description">The SRA holds data equivalent to 200M human genome sequences.</span>
+                <span className="detail">
+                  The Sequence Read Archive (SRA) stores over 20 petabytes of sequencing data, equivalent to the raw data from sequencing over 200 million human genomes. This vast repository supports global research with cloud-based AI analysis.
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="scroll-down">
+            <p>Scroll for More</p>
+          </div>
+        </section>
+      );
+    }
+
+
+    // Projects Component
+    function Projects() {
+    const projectsRef = useRef(null);
+    const projects = [
+      { id: 1, logoSrc: "dark_white_green_wname.svg", 
+      description: "<span class='font-bold'>PhyloTrace</span> - all-in-one platform to perform and manage decentralized, hashed bacterial surveillance" },
+      { id: 4, logoSrc: "hex-MKinfer.png", 
+      description: "<span class='font-bold'>MKinfer</span> - comprehensive suite of methods for statistical analysis of clinical data and biomedical experiments" },
+      { id: 3, logoSrc: "hex-LFApp.png", 
+      description: "<span class='font-bold'>LFApp</span> - modular application for quantitative image analysis of lateral flow assays" },
+      { id: 5, logoSrc: "hex-MKdescr.png", 
+      description: "<span class='font-bold'>MKdescr</span> - package providing functions to compute and visualize robust and standardized descriptive statistics" },
+      { id: 2, logoSrc: "logo_name.svg", 
+      description: "<span class='font-bold'>KiwiFlow</span> - interactive pipeline to facilitate processing and analysis of proteomic mass spectrometry assays" },
+      { id: 8, logoSrc: "hex-MKomics.png", 
+      description: "<span class='font-bold'>MKomics</span> - toolkit enabling quality control, processing and evaluation of Omics experiments" },
+      { id: 6, logoSrc: "hex-MADApp.png", 
+      description: "<span class='font-bold'>MADapp</span> - intuitive workflow for image-based analysis of microarrays" },
+      { id: 7, logoSrc: "hex-rmx.png", 
+      description: "<span class='font-bold'>rmx</span> - offers fast, optimally robust estimators for reliable parameter estimation in the presence of model deviations" },
+      { id: 9, logoSrc: "hex-MKpower.png", 
+      description: "<span class='font-bold'>MKpower</span> - supports power analysis and sample size calculation for planning experiments, diagnostic studies, and clinical evaluations" },
+    ];
+
+    useEffect(() => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const projectItems = projectsRef.current.querySelectorAll('.project-item');
+
+      // Pin the projects section
+      ScrollTrigger.create({
+        trigger: projectsRef.current,
+        start: "top top",
+        end: `+=${window.innerHeight * (projects.length - 1)}`,
+        pin: true,
+        pinSpacing: true,
+        scrub: true,
+      });
+
+      // Create a timeline for fading projects in and out with increased overlap
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: projectsRef.current,
+          start: "top top",
+          end: `+=${window.innerHeight * (projects.length - 1)}`,
+          scrub: 0.5,
+          snap: {
+            snapTo: 1 / (projects.length - 1),
+            duration: 0.3,
+            ease: "power1.inOut"
+          },
+        }
+      });
+
+      // Animate each project item with increased overlap and alternating offset
+      projectItems.forEach((item, index) => {
+        if (index === 0) {
+          gsap.set(item, { opacity: 1 }); // Start with first project visible
+        } else {
+          tl.to(projectItems[index - 1], { opacity: 0, duration: 0.5 }) // Fade out previous item
+            .to(item, { opacity: 1, duration: 0.5 }, "-=0.8"); // Fade in next item with increased overlap
+        }
+      });
+
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }, []);
+
+    return (
+      <section ref={projectsRef} className="section projects-section">
+        <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-center relative">
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className="project-item"
+              style={{
+                left: ['-50vh', '25vh', '-50vh', '50vh', '-25vh', '50vh'][(index % 6)],
+                top: ['-15vh', '0vh', '15vh', '-15vh', '0vh', '15vh'][(index % 6)],
+                position: 'absolute',
+              }}
+            >
+              <div className="flex items-center justify-center" style={{ width: '800px' }}> {/* Increased width for flex container */}
+                  {index % 2 === 0 ? (
+                    <>
+                      <img src={project.logoSrc} alt={project.description} />
+                      <p 
+                        className="text-left text-lg"
+                        dangerouslySetInnerHTML={{ __html: project.description }}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p 
+                        className="text-right text-lg"
+                        dangerouslySetInnerHTML={{ __html: project.description }}
+                      />
+                      <img src={project.logoSrc} alt={project.description} />
+                    </>
+                  )}
+                </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+    // Footer Component
+    function Footer() {
+      return (
+        <section className="section footer-section">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
+            <div className="mt-4 flex justify-center space-x-6">
+              <a href="#" className="hover:text-gray-300">Privacy Policy</a>
+              <a href="#" className="hover:text-gray-300">Terms of Service</a>
+              <a href="#contact" className="hover:text-gray-300">Contact Us</a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Main App Component
+    function App() {
+      return (
+        <div>
+          <Navbar />
+          <Landing />
+          <Hero />
+          <Projects />
+          <Footer />
+        </div>
+      );
+    }
+
+    // Render the App
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+
+  <script>
+    const canvas = document.getElementById('effectCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size to match window
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Variables for delayed effect
+    let targetMouseX = canvas.width / 2;
+    let targetMouseY = canvas.height / 2;
+    let currentMouseX = targetMouseX;
+    let currentMouseY = targetMouseY;
+    const delayFactor = 0.1;
+
+    // Update mouse position with delay
+    function updateMousePosition() {
+      currentMouseX += (targetMouseX - currentMouseX) * delayFactor;
+      currentMouseY += (targetMouseY - currentMouseY) * delayFactor;
+    }
+
+    // Draw solid radial lines with delayed position
+    function drawEffect() {
+      updateMousePosition();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const lineSpacing = 20;
+      const maxDistance = 400;
+      const lineLength = 10;
+
+      for (let x = 0; x < canvas.width; x += lineSpacing) {
+        for (let y = 0; y < canvas.height; y += lineSpacing) {
+          const dx = x - currentMouseX;
+          const dy = y - currentMouseY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < maxDistance) {
+            const angle = Math.atan2(dy, dx);
+            const opacity = 1 - distance / maxDistance;
+
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+            ctx.lineWidth = 1;
+            ctx.moveTo(x, y);
+            ctx.lineTo(
+              x + Math.cos(angle) * lineLength,
+              y + Math.sin(angle) * lineLength
+            );
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(drawEffect);
+    }
+
+    // Handle mouse movement
+    document.addEventListener('mousemove', (e) => {
+      targetMouseX = e.clientX;
+      targetMouseY = e.clientY;
+    });
+
+    // Reset position when mouse leaves
+    document.addEventListener('mouseleave', () => {
+      targetMouseX = canvas.width / 2;
+      targetMouseY = canvas.height / 2;
+    });
+
+    // Start the animation loop
+    drawEffect();
+  </script>
+</body>
+</html>
