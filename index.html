@@ -27,12 +27,12 @@
 
       return (
         <nav className="bg-gray-900 text-white fixed w-full top-0 z-50 shadow-lg">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
+          <div className="px-4 sm:px-6 lg:px-8" style={{height: '-webkit-fill-available'}}>
+            <div className="flex justify-evenly h-16" style={{height: '-webkit-fill-available'}}>
               <div className="flex items-center">
-                <h1 className="text-2xl font-bold">Liora Bioinformatics</h1>
+                <img class="logo" src="Liora_white.png"/>
               </div>
-              <div className="hidden md:flex space-x-8 items-center">
+              <div class="navigation-refs" className="hidden md:flex space-x-8 items-center" style={{gap: "3rem"}}>
                 <a href="#home" className="hover:text-gray-300 transition">Home</a>
                 <a href="#about" className="hover:text-gray-300 transition">About</a>
                 <a href="#services" className="hover:text-gray-300 transition">Services</a>
@@ -66,6 +66,7 @@
       return (
         <section className="section landing-section">
           <div className="purpose">
+            <p className="purpose-statement"> State-of-the-Art Bioinformatics Solutions Made in Germany </p>
           </div>
           <img
             class="genome-pic"

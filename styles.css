@@ -29,6 +29,19 @@ body {
   background-color: rgba(17, 24, 39, 0.6);
   z-index: 1000;
   position: fixed;
+  height: 6rem;
+}
+
+.justify-evenly {
+  gap: 20rem;
+}
+
+.logo {
+  height: -webkit-fill-available
+}
+
+.items-center a {
+  font-family: system-ui;
 }
 
 .section {
@@ -49,7 +62,11 @@ body {
 .landing-section {
   min-height: 80vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
+}
+
+.purpose {
+  /*display: grid;*/
 }
 
 .genome-pic {
