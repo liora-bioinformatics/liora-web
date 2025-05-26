@@ -27,17 +27,26 @@
 
       return (
         <nav className="bg-gray-900 text-white fixed w-full top-0 z-50 shadow-lg">
-          <div className="px-4 sm:px-6 lg:px-8" style={{height: '-webkit-fill-available'}}>
-            <div className="flex justify-evenly h-16" style={{height: '-webkit-fill-available'}}>
+          <div className="px-4 sm:px-6 lg:px-8" style={{ height: '-webkit-fill-available' }}>
+            <div className="flex h-16" style={{ height: '-webkit-fill-available', justifyContent: 'space-around' }}>
               <div className="flex items-center">
                 <img class="logo" src="Liora_white.png"/>
               </div>
-              <div class="navigation-refs" className="hidden md:flex space-x-8 items-center" style={{gap: "3rem"}}>
-                <a href="#home" className="hover:text-gray-300 transition">Home</a>
-                <a href="#about" className="hover:text-gray-300 transition">About</a>
-                <a href="#services" className="hover:text-gray-300 transition">Services</a>
-                <a href="#contact" className="hover:text-gray-300 transition">Contact</a>
+              <div className="navigation-refs hidden md:flex space-x-8 items-center" style={{gap: "3rem"}}>
+                <a href="#home" className="hover-underline">Home</a>
+                <a href="#about" className="hover-underline">About</a>
+                <a href="#services" className="hover-underline">Services</a>
+                <a href="#contact" className="hover-underline">Contact</a>
+                <div className="nav-madeingermany">
+                  <p className="nav-desc"> Bioinformatics Technology </p>
+                  <p className="nav-mig"> 
+                    <span style={{ color: '#000000'}}>Made </span> 
+                    <span style={{ color: '#DD0000'}}>in </span>
+                    <span style={{ color: '#FFCE00'}}>Germany</span>
+                  </p>
+                </div>
               </div>
+              
               <div className="md:hidden flex items-center">
                 <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,13 +75,42 @@
       return (
         <section className="section landing-section">
           <div className="purpose">
-            <p className="purpose-statement"> State-of-the-Art Bioinformatics Solutions Made in Germany </p>
+            <p className="purpose-headline"> 
+              When Experiments Scale, <br/> Analysis Must Too. 
+            </p>
+            <p className="purpose-subheadline"> 
+              We apply Math, Statistics and Bioinformatics Technology to help labs and research groups adapt, automate, and accelerate.
+            </p> 
           </div>
-          <img
-            class="genome-pic"
-            src="genome.png"
-            alt=""
-          />
+          <div className="landing-cards">
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">Custom Pipelines</div>
+                <div class="card-back">Back Side</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">Research & Development</div>
+                <div class="card-back">Back Side</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">Software</div>
+                <div class="card-back">Back Side</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">Data Analysis</div>
+                <div class="card-back">Back Side</div>
+              </div>
+            </div>
+          </div>
+          <div class="scroll-down">
+            <p>Scroll for More</p>
+          </div>
         </section>
       )
     }
@@ -80,6 +118,13 @@
     // Hero Section Component
     function Hero() {
       return (
+        <div>
+          <img
+            id="genome2"
+            class="genome-pic genome-hero"
+            src="genome_whitegreen.png"
+            alt=""
+        />
         <section className="section hero-section">
           <div className="intro">
             <p className="main-statement">
@@ -133,10 +178,8 @@
               </p>
             </div>
           </div>
-          <div class="scroll-down">
-            <p>Scroll for More</p>
-          </div>
         </section>
+        </div>
       );
     }
 
@@ -267,8 +310,44 @@
 
     // Main App Component
     function App() {
+      useEffect(() => {
+        const foo = document.getElementById("genome");
+    
+        if (!foo) return; // safety check
+    
+        const handleScroll = () => {
+          const scrollY = window.scrollY * 0.05;
+          const rotation = scrollY % 360;
+          foo.style.transform = `rotate(${rotation}deg)`;
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+      
+      useEffect(() => {
+        const foo2 = document.getElementById("genome2");
+    
+        if (!foo2) return; // safety check
+    
+        const handleScroll = () => {
+          const scrollY = window.scrollY * 0.1;
+          const rotation = (-scrollY) % 360;
+          foo2.style.transform = `rotate(${rotation}deg)`;
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+  
       return (
         <div>
+          <img
+            id="genome"
+            class="genome-pic genome-landing"
+            src="genome.png"
+            alt=""
+          />
           <Navbar />
           <Landing />
           <Hero />
