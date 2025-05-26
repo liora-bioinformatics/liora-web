@@ -15,7 +15,6 @@
 </head>
 
 <body>
-  <canvas id="effectCanvas"></canvas>
   <div id="root"></div>
 
   <script type="text/babel">
@@ -30,7 +29,7 @@
           <div className="px-4 sm:px-6 lg:px-8" style={{ height: '-webkit-fill-available' }}>
             <div className="flex h-16" style={{ height: '-webkit-fill-available', justifyContent: 'space-around' }}>
               <div className="flex items-center">
-                <img class="logo" src="Liora_white.png"/>
+                <img class="logo" src="Liora_black.png"/>
               </div>
               <div className="navigation-refs hidden md:flex space-x-8 items-center" style={{gap: "3rem"}}>
                 <a href="#home" className="hover-underline">Home</a>
@@ -38,11 +37,13 @@
                 <a href="#services" className="hover-underline">Services</a>
                 <a href="#contact" className="hover-underline">Contact</a>
                 <div className="nav-madeingermany">
-                  <p className="nav-desc"> Bioinformatics Technology </p>
+                  <p className="nav-desc"> 
+                    <span style={{ color: '#ffffff'}}>Next-Gen Solutions</span> 
+                  </p>
                   <p className="nav-mig"> 
                     <span style={{ color: '#000000'}}>Made </span> 
-                    <span style={{ color: '#DD0000'}}>in </span>
-                    <span style={{ color: '#FFCE00'}}>Germany</span>
+                    <span style={{ color: '#DD0000'}}> in </span>
+                    <span style={{ color: '#FFCE00'}}> Germany</span>
                   </p>
                 </div>
               </div>
@@ -360,82 +361,6 @@
     // Render the App
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
-  </script>
-
-  <script>
-    const canvas = document.getElementById('effectCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Set canvas size to match window
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Variables for delayed effect
-    let targetMouseX = canvas.width / 2;
-    let targetMouseY = canvas.height / 2;
-    let currentMouseX = targetMouseX;
-    let currentMouseY = targetMouseY;
-    const delayFactor = 0.1;
-
-    // Update mouse position with delay
-    function updateMousePosition() {
-      currentMouseX += (targetMouseX - currentMouseX) * delayFactor;
-      currentMouseY += (targetMouseY - currentMouseY) * delayFactor;
-    }
-
-    // Draw solid radial lines with delayed position
-    function drawEffect() {
-      updateMousePosition();
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const lineSpacing = 20;
-      const maxDistance = 400;
-      const lineLength = 10;
-
-      for (let x = 0; x < canvas.width; x += lineSpacing) {
-        for (let y = 0; y < canvas.height; y += lineSpacing) {
-          const dx = x - currentMouseX;
-          const dy = y - currentMouseY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < maxDistance) {
-            const angle = Math.atan2(dy, dx);
-            const opacity = 1 - distance / maxDistance;
-
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(x, y);
-            ctx.lineTo(
-              x + Math.cos(angle) * lineLength,
-              y + Math.sin(angle) * lineLength
-            );
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(drawEffect);
-    }
-
-    // Handle mouse movement
-    document.addEventListener('mousemove', (e) => {
-      targetMouseX = e.clientX;
-      targetMouseY = e.clientY;
-    });
-
-    // Reset position when mouse leaves
-    document.addEventListener('mouseleave', () => {
-      targetMouseX = canvas.width / 2;
-      targetMouseY = canvas.height / 2;
-    });
-
-    // Start the animation loop
-    drawEffect();
   </script>
 </body>
 </html>
