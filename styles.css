@@ -107,6 +107,8 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+  text-align: center;
+  padding: 1rem;
 }
 
 .card-front {
@@ -116,9 +118,10 @@ body {
 }
 
 .card-back {
-  background: #ffffff96;
+  background: rgb(255 255 255 / 90%);
   color: #000000;
   transform: rotateY(180deg);
+  display: grid;
 }
 
 .justify-evenly {
@@ -159,7 +162,7 @@ body {
 }
 
 .nav-madeingermany {
-  background: #0000001a;
+  background: #00000024;
   border-radius: 5px;
   padding: 0.5em;
   border: 4px solid #000000bf;
@@ -262,40 +265,45 @@ body {
 }
 
 .intro-statement .title {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-    .intro-statement .description {
-      margin: 0;
-      font-size: 16px;
-    }
-    .intro-statement .detail {
-      display: none;
-      font-size: 14px;
-      margin-top: 10px;
-      line-height: 1.5;
-      text-align: left;
-      overflow-y: auto;
-    }
-    .intro-statement:hover .title,
-    .intro-statement:hover .description {
-      display: none;
-    }
-    .intro-statement:hover .detail {
-      display: block;
-    }
-    @media (max-width: 600px) {
-      .intro-statements {
-        grid-template-columns: 1fr;
-        height: auto;
-      }
-      .intro-statement {
-        height: auto;
-      }
-      .intro-statement .detail {
-        overflow-y: visible;
-      }
-    }
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.intro-statement .description {
+  margin: 0;
+  font-size: 16px;
+}
+
+.intro-statement .detail {
+  display: none;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.5;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.intro-statement:hover .title,
+.intro-statement:hover .description {
+  display: none;
+}
+
+.intro-statement:hover .detail {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .intro-statements {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .intro-statement {
+    height: auto;
+  }
+  .intro-statement .detail {
+    overflow-y: visible;
+  }
+}
 
 .scroll-down {
   position: absolute;
@@ -317,6 +325,45 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   animation: jump 1.5s infinite ease-in-out;
+}
+
+.learn-more {
+    border: 2px solid #000;
+    color: #000;
+    text-transform: uppercase;
+    padding: 6px;
+    font-weight: 600;
+    max-width: 250px;
+    display: block;
+    text-align: center;
+    position: relative;
+    justify-self: anchor-center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 4px;
+}
+
+.learn-more:hover {
+  background:#000;
+  border-color:#000;
+  color:#fff;
+}
+
+.learn-more a {
+  text-decoration:none;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.learn-more a:hover {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 @keyframes jump {
@@ -355,13 +402,13 @@ body {
 }
 
 .footer-section {
-    min-height: 20vh;
-    color: white;
-    background-color: rgb(17 24 39 / 60%);
-    z-index: 1000;
-    position: absolute;
-    margin-top: 10vh;
-    width: 100%;
+  min-height: 20vh;
+  color: white;
+  background-color: rgb(17 24 39 / 60%);
+  z-index: 1000;
+  position: absolute;
+  margin-top: 10vh;
+  width: 100%;
 }
 
 .footer-section a:hover {
