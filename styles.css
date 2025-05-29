@@ -7,7 +7,7 @@
 body {
   color: black;
   font-family: system-ui;
-  background-image: url('test1.png');
+  background-image: url('img/blueshades.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -15,7 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-#root > div > nav {
+body > nav {
   position: fixed;
   height: 7rem;
   background: #ffffff69;
@@ -336,7 +336,7 @@ body {
   width: 1.5em;
   height: 1.5em;
   margin: 5px auto 0;
-  background-image: url("arrow-down-svgrepo-com.svg");
+  background-image: url("img/arrow-down-svgrepo-com.svg");
   background-size: contain;
   background-repeat: no-repeat;
   animation: jump 1.5s infinite ease-in-out;
@@ -385,10 +385,19 @@ body {
   position: absolute;
   margin-top: 10vh;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .footer-section a:hover {
   color: #009fff;
+}
+
+.footer-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
 }
 
 p, h1, h2, h3, h4, h5, h6 {

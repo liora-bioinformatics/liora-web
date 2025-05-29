@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Liora Bioinformatics</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <img id="genome" class="genome-pic genome-landing" src="img/genome.png" alt="">
+  <nav class="w-full top-0 z-50 shadow-lg">
+    <div class="px-4 sm:px-6 lg:px-8" style="height: -webkit-fill-available">
+      <div class="flex h-16" style="height: -webkit-fill-available; justify-content: space-around">
+        <div class="flex items-center">
+          <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
+        </div>
+        <div class="navigation-refs hidden md:flex space-x-8 items-center" style="gap: 3rem">
+          <a href="index.html" class="hover-underline">Home</a>
+          <a href="about.html" class="hover-underline font-bold">About</a>
+          <a href="index.html#services" class="hover-underline">Services</a>
+          <a href="index.html#contact" class="hover-underline">Contact</a>
+          <div class="nav-madeingermany">
+            <p class="nav-desc">
+              <span style="color: #ffffff">Next-Gen Solutions</span>
+            </p>
+            <p class="nav-mig">
+              <span style="color: #000000">Made </span>
+              <span style="color: #DD0000">in </span>
+              <span style="color: #FFCE00">Germany</span>
+            </p>
+          </div>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button class="menu-button focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+        <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">About</a>
+        <a href="index.html#services" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
+        <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section about-hero-section">
+    <div class="purpose">
+      <p class="purpose-headline">
+        About Liora Bioinformatics
+      </p>
+      <p class="purpose-subheadline">
+        Pioneering bioinformatics solutions to empower research and discovery.
+      </p>
+    </div>
+  </section>
+
+  <section class="section about-content-section">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+      <p class="mb-6">
+        At Liora Bioinformatics, we are dedicated to transforming the landscape of biological research by providing cutting-edge bioinformatics tools and services. Our mission is to empower labs and research groups worldwide with tailored solutions that streamline data analysis, accelerate discoveries, and drive innovation in genomics, proteomics, and beyond.
+      </p>
+      <h2 class="text-2xl font-bold mb-4">Our Team</h2>
+      <div class="team-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Dr. Anna Schmidt</div>
+            <div class="card-back">
+              <div>
+                Lead Bioinformatician with over 15 years of experience in genomic data analysis and pipeline development.
+              </div>
+              <hr class="card-hr">
+              <div class="learn-more">
+                PhD in Computational Biology, University of Heidelberg
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Dr. Markus Weber</div>
+            <div class="card-back">
+              <div>
+                Expert in statistical modeling and machine learning for omics data, driving innovative R&D solutions.
+              </div>
+              <hr class="card-hr">
+              <div class="learn-more">
+                PhD in Statistics, LMU Munich
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Sophie Klein</div>
+            <div class="card-back">
+              <div>
+                Software engineer specializing in scalable bioinformatics tools and user-friendly interfaces.
+              </div>
+              <hr class="card-hr">
+              <div class="learn-more">
+                MSc in Computer Science, TU Berlin
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-2xl font-bold mb-4 mt-8">Our History</h2>
+      <p>
+        Founded in 2018 in Berlin, Germany, Liora Bioinformatics emerged from a shared vision to bridge the gap between complex biological data and actionable insights. Over the years, we’ve grown into a trusted partner for research institutions and biotech companies, delivering robust tools like PhyloTrace, MKomics, and KiwiFlow. Our commitment to open-source solutions and collaborative R&D continues to drive our impact in the global bioinformatics community.
+      </p>
+    </div>
+  </section>
+
+  <section class="section footer-section">
+    <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+      <div class="footer-links">
+        <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
+        <div class="mt-4 flex justify-center space-x-6">
+          <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-300">Terms of Service</a>
+          <a href="index.html#contact" class="hover:text-gray-300">Contact Us</a>
+        </div>
+      </div>
+  </section>
+
+  <script>
+    // Navbar toggle
+    const menuButton = document.querySelector('.menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const svgPath = document.querySelector('.menu-button path');
+    menuButton.addEventListener('click', () => {
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      svgPath.setAttribute('d', mobileMenu.style.display === 'block' 
+        ? 'M6 18L18 6M6 6l12 12' 
+        : 'M4 6h16M4 12h16M4 18h16');
+    });
+
+    // Scroll animation for genome image
+    const genome = document.getElementById('genome');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      genome.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
+    });
+  </script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,391 +7,278 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div id="root"></div>
-
-  <script type="text/babel">
-    const { useState, useEffect, useRef } = React;
-
-    // Navigation Bar Component
-    function Navbar() {
-      const [isOpen, setIsOpen] = useState(false);
-
-      return (
-        <nav className="bg-gray-900 text-white fixed w-full top-0 z-50 shadow-lg">
-          <div className="px-4 sm:px-6 lg:px-8" style={{ height: '-webkit-fill-available' }}>
-            <div className="flex h-16" style={{ height: '-webkit-fill-available', justifyContent: 'space-around' }}>
-              <div className="flex items-center">
-                <img class="logo" src="Liora_black.png"/>
-              </div>
-              <div className="navigation-refs hidden md:flex space-x-8 items-center" style={{gap: "3rem"}}>
-                <a href="#home" className="hover-underline">Home</a>
-                <a href="#about" className="hover-underline">About</a>
-                <a href="#services" className="hover-underline">Services</a>
-                <a href="#contact" className="hover-underline">Contact</a>
-                <div className="nav-madeingermany">
-                  <p className="nav-desc"> 
-                    <span style={{ color: '#ffffff'}}>Next-Gen Solutions</span> 
-                  </p>
-                  <p className="nav-mig"> 
-                    <span style={{ color: '#000000'}}>Made </span> 
-                    <span style={{ color: '#DD0000'}}> in </span>
-                    <span style={{ color: '#FFCE00'}}> Germany</span>
-                  </p>
-                </div>
-              </div>
-              
-              <div className="md:hidden flex items-center">
-                <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          {isOpen && (
-            <div className="md:hidden bg-gray-800">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
-                <a href="#about" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
-                <a href="#services" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
-                <a href="#contact" className="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
-              </div>
-            </div>
-          )}
-        </nav>
-      );
-    }
-    
-    // Landing section
-    function Landing() {
-      return (
-        <section className="section landing-section">
-          <div className="purpose">
-            <p className="purpose-headline"> 
-              When Experiments Scale, <br/> Analysis Must Too. 
-            </p>
-            <p className="purpose-subheadline"> 
-              We apply Math, Statistics and Bioinformatics Technology to help labs and research groups adapt, automate, and accelerate.
-            </p> 
-          </div>
-          <div className="landing-cards">
-            <div class="card">
-              <div class="card-inner">
-                <div class="card-front">Custom Pipelines</div>
-                <div class="card-back">
-                  <div>
-                    Stop adapting to generic tools — we craft tailored pipelines that run fast, feel intuitive, and match your lab's unique needs.
-                  </div>  
-                  <hr class="card-hr" />
-                  <div class="learn-more" >
-                    Click to learn more
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-inner">
-                <div class="card-front">Research & Development</div>
-                <div class="card-back">
-                  <div>
-                    Need more than a pipeline? We partner on bioinformatics R&D to design, prototype, and deliver next-gen analysis solutions.
-                  </div>
-                  <hr class="card-hr" />
-                  <div class="learn-more" >
-                    Click to learn more
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-inner">
-                <div class="card-front">Software</div>
-                <div class="card-back">
-                  <div>
-                    We provide established, open-source bioinformatics tools with full lifecycle support — ready for deployment and maintained by our team.
-                  </div>
-                  <hr class="card-hr" />
-                  <div class="learn-more" >
-                    Click to learn more
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-inner">
-                <div class="card-front">Data Analysis</div>
-                <div class="card-back">
-                  <div>
-                    We transform your raw data into meaningful insights — from statistical models to analysis of Omics data.
-                  </div>
-                  <hr class="card-hr" />
-                  <div class="learn-more" >
-                    Click to learn more
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="scroll-down">
-            <p>Scroll for More</p>
-          </div>
-        </section>
-      )
-    }
-
-    // Hero Section Component
-    function Hero() {
-      return (
-        <div>
-          <img
-            id="genome2"
-            class="genome-pic genome-hero"
-            src="genome_whitegreen.png"
-            alt=""
-        />
-        <section className="section hero-section">
-          <div className="intro">
-            <p className="main-statement">
-              <span style={{ fontSize: '3em', paddingLeft: '2.6em'}}>From</span> <br />
-              <span style={{ fontSize: '5em'}}>Data</span> <br />
-              <span style={{ fontSize: '3em', lineHeight: '2em', paddingLeft: '1.8em'}}>to</span> <br />
-              <span style={{ fontSize: '6em', lineHeight: '1.5em', paddingLeft: '0.2em'}}>Discovery</span>
-            </p>
-            <div className="intro-statements">
-              <p className="intro-statement left-top">
-                <span className="title">44 Zettabytes Yearly</span>
-                <span className="description">Healthcare generates enough data to fill 44 billion hard drives annually.</span>
-                <span className="detail">
-                  The healthcare sector produces an estimated 44 zettabytes of data annually, driven by electronic health records, imaging, and genomic sequencing. To grasp this, imagine filling over 44 billion 1-terabyte hard drives, enough to store the entire internet multiple times.
-                </span>
-              </p>
-              <p className="intro-statement right-top">
-                <span className="title">Up to 2 Billion Genomes</span>
-                <span className="description">By 2025, 100M–2B human genomes may be sequenced, unlike the single genome of 2003.</span>
-                <span className="detail">
-                  By 2025, projections suggest 100 million to 2 billion human genomes will have been sequenced, a massive leap from the single genome sequenced over 13 years by the Human Genome Project. This scale reflects advancements in high-throughput sequencing and AI-driven data processing.
-                </span>
-              </p>
-              <p className="intro-statement left-middle">
-                <span className="title">5-Hour Sequencing</span>
-                <span className="description">A human genome can now be sequenced in just 5 hours and 2 minutes.</span>
-                <span className="detail">
-                  In 2022, Stanford researchers set a record by sequencing a human genome in just 5 hours and 2 minutes using Oxford Nanopore’s PromethION and cloud-based computing. This is a dramatic improvement over the decade-plus required for the first genome, showcasing modern hardware and software capabilities.
-                </span>
-              </p>
-              <p className="intro-statement right-middle">
-                <span className="title">8-Hour Analysis</span>
-                <span className="description">AI enables genome sequencing and analysis in under 8 hours for rapid diagnosis.</span>
-                <span className="detail">
-                  AI and machine learning have slashed genome analysis time, enabling sequencing and interpretation in under 8 hours. This speed, achieved with tools like the DRAGEN platform, allows rapid diagnosis of genetic diseases, transforming clinical care.
-                </span>
-              </p>
-              <p className="intro-statement left-bottom">
-                <span className="title">$100 Genome</span>
-                <span className="description">Sequencing costs dropped from $3B to $100, a 30-million-fold reduction.</span>
-                <span className="detail">
-                  The cost of sequencing a human genome has plummeted from $3 billion in 2003 to around $100 in 2025, a 30-million-fold decrease. This affordability, driven by technologies like Illumina’s NovaSeq X, makes genomic medicine accessible to millions.
-                </span>
-              </p>
-              <p className="intro-statement right-bottom">
-                <span className="title">20 Petabytes of Data</span>
-                <span className="description">The SRA holds data equivalent to 200M human genome sequences.</span>
-                <span className="detail">
-                  The Sequence Read Archive (SRA) stores over 20 petabytes of sequencing data, equivalent to the raw data from sequencing over 200 million human genomes. This vast repository supports global research with cloud-based AI analysis.
-                </span>
-              </p>
-            </div>
-          </div>
-        </section>
+  <img id="genome" class="genome-pic genome-landing" src="img/genome.png" alt="">
+  <nav class="w-full top-0 z-50 shadow-lg">
+    <div class="px-4 sm:px-6 lg:px-8" style="height: -webkit-fill-available">
+      <div class="flex h-16" style="height: -webkit-fill-available; justify-content: space-around">
+        <div class="flex items-center">
+          <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
         </div>
-      );
-    }
+        <div class="navigation-refs hidden md:flex space-x-8 items-center" style="gap: 3rem">
+          <a href="test.html" class="hover-underline">Home</a>
+          <a href="about.html" class="hover-underline">About</a>
+          <a href="#services" class="hover-underline">Services</a>
+          <a href="#contact" class="hover-underline">Contact</a>
+          <div class="nav-madeingermany">
+            <p class="nav-desc">
+              <span style="color: #ffffff">Next-Gen Solutions</span>
+            </p>
+            <p class="nav-mig">
+              <span style="color: #000000">Made </span>
+              <span style="color: #DD0000">in </span>
+              <span style="color: #FFCE00">Germany</span>
+            </p>
+          </div>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button class="menu-button focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+        <a href="#about" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
+        <a href="#services" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
+        <a href="#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+      </div>
+    </div>
+  </nav>
 
+  <section class="section landing-section">
+    <div class="purpose">
+      <p class="purpose-headline">
+        When Experiments Scale, <br> Analysis Must Too.
+      </p>
+      <p class="purpose-subheadline">
+        We apply Math, Statistics and Bioinformatics Technology to help labs and research groups adapt, automate, and accelerate.
+      </p>
+    </div>
+    <div class="landing-cards">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Custom Pipelines</div>
+          <div class="card-back">
+            <div>
+              Stop adapting to generic tools — we craft tailored pipelines that run fast, feel intuitive, and match your lab's unique needs.
+            </div>
+            <hr class="card-hr">
+            <div class="learn-more">
+              Click to learn more
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Research & Development</div>
+          <div class="card-back">
+            <div>
+              Need more than a pipeline? We partner on bioinformatics R&D to design, prototype, and deliver next-gen analysis solutions.
+            </div>
+            <hr class="card-hr">
+            <div class="learn-more">
+              Click to learn more
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Software</div>
+          <div class="card-back">
+            <div>
+              We provide established, open-source bioinformatics tools with full lifecycle support — ready for deployment and maintained by our team.
+            </div>
+            <hr class="card-hr">
+            <div class="learn-more">
+              Click to learn more
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Data Analysis</div>
+          <div class="card-back">
+            <div>
+              We transform your raw data into meaningful insights — from statistical models to analysis of Omics data.
+            </div>
+            <hr class="card-hr">
+            <div class="learn-more">
+              Click to learn more
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <p>Scroll for More</p>
+    </div>
+  </section>
 
-    // Projects Component
-    function Projects() {
-    const projectsRef = useRef(null);
+  <div>
+    <img id="genome2" class="genome-pic genome-hero" src="img/genome_whitegreen.png" alt="">
+    <section class="section hero-section">
+      <div class="intro">
+        <p class="main-statement">
+          <span style="font-size: 3em; padding-left: 2.6em">From</span><br>
+          <span style="font-size: 5em">Data</span><br>
+          <span style="font-size: 3em; line-height: 2em; padding-left: 1.8em">to</span><br>
+          <span style="font-size: 6em; line-height: 1.5em; padding-left: 0.2em">Discovery</span>
+        </p>
+        <div class="intro-statements">
+          <p class="intro-statement left-top">
+            <span class="title">44 Zettabytes Yearly</span>
+            <span class="description">Healthcare generates enough data to fill 44 billion hard drives annually.</span>
+            <span class="detail">
+              The healthcare sector produces an estimated 44 zettabytes of data annually, driven by electronic health records, imaging, and genomic sequencing. To grasp this, imagine filling over 44 billion 1-terabyte hard drives, enough to store the entire internet multiple times.
+            </span>
+          </p>
+          <p class="intro-statement right-top">
+            <span class="title">Up to 2 Billion Genomes</span>
+            <span class="description">By 2025, 100M–2B human genomes may be sequenced, unlike the single genome of 2003.</span>
+            <span class="detail">
+              By 2025, projections suggest 100 million to 2 billion human genomes will have been sequenced, a massive leap from the single genome sequenced over 13 years by the Human Genome Project. This scale reflects advancements in high-throughput sequencing and AI-driven data processing.
+            </span>
+          </p>
+          <p class="intro-statement left-middle">
+            <span class="title">5-Hour Sequencing</span>
+            <span class="description">A human genome can now be sequenced in just 5 hours and 2 minutes.</span>
+            <span class="detail">
+              In 2022, Stanford researchers set a record by sequencing a human genome in just 5 hours and 2 minutes using Oxford Nanopore’s PromethION and cloud-based computing. This is a dramatic improvement over the decade-plus required for the first genome, showcasing modern hardware and software capabilities.
+            </span>
+          </p>
+          <p class="intro-statement right-middle">
+            <span class="title">8-Hour Analysis</span>
+            <span class="description">AI enables genome sequencing and analysis in under 8 hours for rapid diagnosis.</span>
+            <span class="detail">
+              AI and machine learning have slashed genome analysis time, enabling sequencing and interpretation in under 8 hours. This speed, achieved with tools like the DRAGEN platform, allows rapid diagnosis of genetic diseases, transforming clinical care.
+            </span>
+          </p>
+          <p class="intro-statement left-bottom">
+            <span class="title">$100 Genome</span>
+            <span class="description">Sequencing costs dropped from $3B to $100, a 30-million-fold reduction.</span>
+            <span class="detail">
+              The cost of sequencing a human genome has plummeted from $3 billion in 2003 to around $100 in 2025, a 30-million-fold decrease. This affordability, driven by technologies like Illumina’s NovaSeq X, makes genomic medicine accessible to millions.
+            </span>
+          </p>
+          <p class="intro-statement right-bottom">
+            <span class="title">20 Petabytes of Data</span>
+            <span class="description">The SRA holds data equivalent to 200M human genome sequences.</span>
+            <span class="detail">
+              The Sequence Read Archive (SRA) stores over 20 petabytes of sequencing data, equivalent to the raw data from sequencing over 200 million human genomes. This vast repository supports global research with cloud-based AI analysis.
+            </span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="section projects-section" id="projects">
+    <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-center relative">
+      <!-- Project items will be inserted here by JavaScript -->
+    </div>
+  </section>
+
+  <section class="section footer-section">
+    <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+      <div class="footer-links">
+        <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
+        <div class="mt-4 flex justify-center space-x-6">
+          <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-300">Terms of Service</a>
+          <a href="index.html#contact" class="hover:text-gray-300">Contact Us</a>
+        </div>
+      </div>
+  </section>
+
+  <script>
+    // Navbar toggle
+    const menuButton = document.querySelector('.menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const svgPath = document.querySelector('.menu-button path');
+    menuButton.addEventListener('click', () => {
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+      svgPath.setAttribute('d', mobileMenu.style.display === 'block' 
+        ? 'M6 18L18 6M6 6l12 12' 
+        : 'M4 6h16M4 12h16M4 18h16');
+    });
+
+    // Scroll animations for genome images
+    const genome = document.getElementById('genome');
+    const genome2 = document.getElementById('genome2');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      genome.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
+      genome2.style.transform = `rotate(${(-scrollY * 0.1) % 360}deg)`;
+    });
+
+    // Projects rendering and animations
     const projects = [
-      { id: 1, logoSrc: "dark_white_green_wname.svg", 
-      description: "<span class='font-bold'>PhyloTrace</span> - all-in-one platform to perform and manage decentralized, hashed bacterial surveillance" },
-      { id: 4, logoSrc: "hex-MKinfer.png", 
-      description: "<span class='font-bold'>MKinfer</span> - comprehensive suite of methods for statistical analysis of clinical data and biomedical experiments" },
-      { id: 3, logoSrc: "hex-LFApp.png", 
-      description: "<span class='font-bold'>LFApp</span> - modular application for quantitative image analysis of lateral flow assays" },
-      { id: 5, logoSrc: "hex-MKdescr.png", 
-      description: "<span class='font-bold'>MKdescr</span> - package providing functions to compute and visualize robust and standardized descriptive statistics" },
-      { id: 2, logoSrc: "logo_name.svg", 
-      description: "<span class='font-bold'>KiwiFlow</span> - interactive pipeline to facilitate processing and analysis of proteomic mass spectrometry assays" },
-      { id: 8, logoSrc: "hex-MKomics.png", 
-      description: "<span class='font-bold'>MKomics</span> - toolkit enabling quality control, processing and evaluation of Omics experiments" },
-      { id: 6, logoSrc: "hex-MADApp.png", 
-      description: "<span class='font-bold'>MADapp</span> - intuitive workflow for image-based analysis of microarrays" },
-      { id: 7, logoSrc: "hex-rmx.png", 
-      description: "<span class='font-bold'>rmx</span> - offers fast, optimally robust estimators for reliable parameter estimation in the presence of model deviations" },
-      { id: 9, logoSrc: "hex-MKpower.png", 
-      description: "<span class='font-bold'>MKpower</span> - supports power analysis and sample size calculation for planning experiments, diagnostic studies, and clinical evaluations" },
+      { id: 1, logoSrc: "img/dark_white_green_wname.svg", description: "<span class='font-bold'>PhyloTrace</span> - all-in-one platform to perform and manage decentralized, hashed bacterial surveillance" },
+      { id: 4, logoSrc: "img/hex-MKinfer.png", description: "<span class='font-bold'>MKinfer</span> - comprehensive suite of methods for statistical analysis of clinical data and biomedical experiments" },
+      { id: 3, logoSrc: "img/hex-LFApp.png", description: "<span class='font-bold'>LFApp</span> - modular application for quantitative image analysis of lateral flow assays" },
+      { id: 5, logoSrc: "img/hex-MKdescr.png", description: "<span class='font-bold'>MKdescr</span> - package providing functions to compute and visualize robust and standardized descriptive statistics" },
+      { id: 2, logoSrc: "img/logo_name.svg", description: "<span class='font-bold'>KiwiFlow</span> - interactive pipeline to facilitate processing and analysis of proteomic mass spectrometry assays" },
+      { id: 8, logoSrc: "img/hex-MKomics.png", description: "<span class='font-bold'>MKomics</span> - toolkit enabling quality control, processing and evaluation of Omics experiments" },
+      { id: 6, logoSrc: "img/hex-MADApp.png", description: "<span class='font-bold'>MADapp</span> - intuitive workflow for image-based analysis of microarrays" },
+      { id: 7, logoSrc: "img/hex-rmx.png", description: "<span class='font-bold'>rmx</span> - offers fast, optimally robust estimators for reliable parameter estimation in the presence of model deviations" },
+      { id: 9, logoSrc: "img/hex-MKpower.png", description: "<span class='font-bold'>MKpower</span> - supports power analysis and sample size calculation for planning experiments, diagnostic studies, and clinical evaluations" },
     ];
 
-    useEffect(() => {
-      gsap.registerPlugin(ScrollTrigger);
+    const projectsContainer = document.getElementById('projects');
+    projects.forEach((project, index) => {
+      const div = document.createElement('div');
+      div.className = 'project-item';
+      div.style.position = 'absolute';
+      div.style.left = ['-50vh', '25vh', '-50vh', '50vh', '-25vh', '50vh'][index % 6];
+      div.style.top = ['-15vh', '0vh', '15vh', '-15vh', '0vh', '15vh'][index % 6];
+      div.innerHTML = `
+        <div class="flex items-center justify-center" style="width: 800px">
+          ${index % 2 === 0 
+            ? `<img src="${project.logoSrc}" alt="${project.description}"><p class="text-left text-lg">${project.description}</p>`
+            : `<p class="text-right text-lg">${project.description}</p><img src="${project.logoSrc}" alt="${project.description}">`
+          }
+        </div>
+      `;
+      projectsContainer.appendChild(div);
+    });
 
-      const projectItems = projectsRef.current.querySelectorAll('.project-item');
-
-      // Pin the projects section
-      ScrollTrigger.create({
-        trigger: projectsRef.current,
-        start: "top top",
+    gsap.registerPlugin(ScrollTrigger);
+    const projectItems = document.querySelectorAll('.project-item');
+    ScrollTrigger.create({
+      trigger: '#projects',
+      start: 'top top',
+      end: `+=${window.innerHeight * (projects.length - 1)}`,
+      pin: true,
+      pinSpacing: true,
+      scrub: true,
+    });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#projects',
+        start: 'top top',
         end: `+=${window.innerHeight * (projects.length - 1)}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: true,
-      });
-
-      // Create a timeline for fading projects in and out with increased overlap
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: projectsRef.current,
-          start: "top top",
-          end: `+=${window.innerHeight * (projects.length - 1)}`,
-          scrub: 0.5,
-          snap: {
-            snapTo: 1 / (projects.length - 1),
-            duration: 0.3,
-            ease: "power1.inOut"
-          },
-        }
-      });
-
-      // Animate each project item with increased overlap and alternating offset
-      projectItems.forEach((item, index) => {
-        if (index === 0) {
-          gsap.set(item, { opacity: 1 }); // Start with first project visible
-        } else {
-          tl.to(projectItems[index - 1], { opacity: 0, duration: 0.5 }) // Fade out previous item
-            .to(item, { opacity: 1, duration: 0.5 }, "-=0.8"); // Fade in next item with increased overlap
-        }
-      });
-
-      return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      };
-    }, []);
-
-    return (
-      <section ref={projectsRef} className="section projects-section">
-        <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-center relative">
-          {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className="project-item"
-              style={{
-                left: ['-50vh', '25vh', '-50vh', '50vh', '-25vh', '50vh'][(index % 6)],
-                top: ['-15vh', '0vh', '15vh', '-15vh', '0vh', '15vh'][(index % 6)],
-                position: 'absolute',
-              }}
-            >
-              <div className="flex items-center justify-center" style={{ width: '800px' }}> {/* Increased width for flex container */}
-                  {index % 2 === 0 ? (
-                    <>
-                      <img src={project.logoSrc} alt={project.description} />
-                      <p 
-                        className="text-left text-lg"
-                        dangerouslySetInnerHTML={{ __html: project.description }}
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <p 
-                        className="text-right text-lg"
-                        dangerouslySetInnerHTML={{ __html: project.description }}
-                      />
-                      <img src={project.logoSrc} alt={project.description} />
-                    </>
-                  )}
-                </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-    // Footer Component
-    function Footer() {
-      return (
-        <section className="section footer-section">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
-            <div className="mt-4 flex justify-center space-x-6">
-              <a href="#" className="hover:text-gray-300">Privacy Policy</a>
-              <a href="#" className="hover:text-gray-300">Terms of Service</a>
-              <a href="#contact" className="hover:text-gray-300">Contact Us</a>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // Main App Component
-    function App() {
-      useEffect(() => {
-        const foo = document.getElementById("genome");
-    
-        if (!foo) return; // safety check
-    
-        const handleScroll = () => {
-          const scrollY = window.scrollY * 0.05;
-          const rotation = scrollY % 360;
-          foo.style.transform = `rotate(${rotation}deg)`;
-        };
-    
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-      }, []);
-      
-      useEffect(() => {
-        const foo2 = document.getElementById("genome2");
-    
-        if (!foo2) return; // safety check
-    
-        const handleScroll = () => {
-          const scrollY = window.scrollY * 0.1;
-          const rotation = (-scrollY) % 360;
-          foo2.style.transform = `rotate(${rotation}deg)`;
-        };
-    
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-      }, []);
-  
-      return (
-        <div>
-          <img
-            id="genome"
-            class="genome-pic genome-landing"
-            src="genome.png"
-            alt=""
-          />
-          <Navbar />
-          <Landing />
-          <Hero />
-          <Projects />
-          <Footer />
-        </div>
-      );
-    }
-
-    // Render the App
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+        scrub: 0.5,
+        snap: { snapTo: 1 / (projects.length - 1), duration: 0.3, ease: 'power1.inOut' },
+      },
+    });
+    projectItems.forEach((item, index) => {
+      if (index === 0) {
+        gsap.set(item, { opacity: 1 });
+      } else {
+        tl.to(projectItems[index - 1], { opacity: 0, duration: 0.5 })
+          .to(item, { opacity: 1, duration: 0.5 }, '-=0.8');
+      }
+    });
   </script>
 </body>
 </html>
