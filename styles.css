@@ -170,10 +170,38 @@ body > nav {
   grid-template-columns: 1fr 1fr;
 }
 
-.landing-section {
+.landing-section,
+.about-hero-section {
   display: grid;
   grid-template-columns: 2.5fr 2fr 1fr;
   gap: 10vh;
+  margin: 5vh;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vh;
+  margin: 5vh;
+}
+
+.about-sep {
+  background-color: rgb(17 24 39 / 60%);
+  max-height: 51vh;
+  width: 100vw;
+  height: 30vh;
+}
+
+#hfu_logo {
+  max-height: 100%;
+  padding: 1em;
+  margin-left: 5em;
+}
+
+.team-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vh;
   margin: 5vh;
 }
 
@@ -385,9 +413,13 @@ body > nav {
   z-index: 1000;
   position: absolute;
   margin-top: 10vh;
-  width: 100%;
+  width: 100vw;
+  height: 30vh;
+}
+
+.footer-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
 }
 
 .footer-section a:hover {
