@@ -119,6 +119,7 @@ body > nav {
   background-color: rgb(17 24 39 / 60%);
   color: white;
   font-size: 22px;
+  display: grid !important;
 }
 
 .card-back {
