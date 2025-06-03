@@ -417,6 +417,12 @@ body > nav {
   height: 30vh;
 }
 
+#blackforest {
+  width: 50%;
+  mask-image: linear-gradient(to bottom, black 62%, transparent 79%);
+  -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 79%);
+}
+
 .footer-content {
   display: grid;
   grid-template-columns: 1fr 3fr;
