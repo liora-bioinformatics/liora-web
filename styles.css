@@ -17,12 +17,16 @@ body {
 
 body > nav {
   position: fixed;
-  height: 7rem;
+  height: 13%;
   background: #ffffff69;
   box-shadow: 0px 11px 15px 0px #61616159;
-  z-index: 9999;
   color: black;
   backdrop-filter: blur(5px);
+  top: 0px;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-around;
 }
 
 .hover-underline {
@@ -153,7 +157,6 @@ body > nav {
 }
 
 .section {
-  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -170,12 +173,23 @@ body > nav {
   grid-template-columns: 1fr 1fr;
 }
 
+.landing-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10vh;
+  margin-bottom: 10vh;
+  margin-left: 10vw;
+  margin-top: 10%;
+}
+
 .landing-section,
 .about-hero-section {
   display: grid;
-  grid-template-columns: 2.5fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 10vh;
-  margin: 5vh;
+  margin-bottom: unset;
+  margin-left: 10vw;
+  margin-top: 10%;
 }
 
 .about-story {
@@ -185,17 +199,24 @@ body > nav {
   margin: 5vh;
 }
 
-.about-sep {
-  background-color: rgb(17 24 39 / 60%);
-  max-height: 51vh;
-  width: 100vw;
-  height: 30vh;
+.about-slogan {
+  font-weight: bold;
+  font-size: 2.5em;
 }
 
-#hfu_logo {
-  max-height: 100%;
+.about-invent {
+  text-align: justify;
+  margin-top: 1em;
+  font-size: 1.5em;
+}
+
+.about-sep {
+  background-color: #ffffff69;
+  width: 100vw;
+  display: flex;
+  height: 20vh;
+  justify-content: space-evenly;
   padding: 1em;
-  margin-left: 5em;
 }
 
 .team-section {
@@ -407,20 +428,22 @@ body > nav {
 }
 
 .footer-section {
-  min-height: 20vh;
+  display: flex;
+  bottom: 0px;
+  position: relative;
   color: white;
   background-color: rgb(17 24 39 / 60%);
   z-index: 1000;
-  position: absolute;
   margin-top: 10vh;
   width: 100vw;
-  height: 30vh;
+  height: 15vh;
+  justify-content: center;
+  gap: 15%;
 }
 
 #blackforest {
-  width: 50%;
-  mask-image: linear-gradient(to bottom, black 62%, transparent 79%);
-  -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 79%);
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 }
 
 .footer-content {
@@ -432,11 +455,8 @@ body > nav {
   color: #009fff;
 }
 
-.footer-logo {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 1rem;
+.footer-links {
+  align-content: center;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
