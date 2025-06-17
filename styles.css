@@ -211,12 +211,21 @@ body > nav {
 }
 
 .about-sep {
-    background-color: #ffffff69;
-    width: 100vw;
-    display: flex;
-    height: 20vh;
-    justify-content: space-evenly;
-    padding: 1em;
+  background-color: #ffffff69;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1rem;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+
+.about-sep img {
+  width: clamp(80px, 20%, 250px); /* Keeps images responsive but small */
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 1;
 }
 
 .about-profile {
@@ -224,6 +233,7 @@ body > nav {
     justify-content: space-between;
     gap: 5em;
     margin-top: 10vh;
+    height: 20em;
 }
 
 .about-founders {
@@ -238,7 +248,7 @@ body > nav {
 .profile-desc {
     margin-top: 1em;
     font-weight: 300;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .profile-text {
@@ -248,19 +258,20 @@ body > nav {
 }
 
 .profile-name {
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .profile-function {
     font-weight: 100;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .profile-pic {
-  height: 400px;
-  box-shadow: 0 30px 40px rgba(0, 0, 0, .8);
-  border-radius: 15%;
-  align-self: anchor-center;
+    box-shadow: 0 30px 40px rgba(0, 0, 0, .8);
+    border-radius: 15%;
+    align-self: anchor-center;
+    object-fit: contain;
+    height: 100%;
 }
 
 .team-section {
@@ -471,28 +482,34 @@ body > nav {
   max-width: none;
 }
 
-.footer-section {
-  display: flex;
-  bottom: 0px;
-  position: relative;
-  color: white;
-  background-color: rgb(17 24 39 / 60%);
-  z-index: 1000;
-  margin-top: 10vh;
-  width: 100vw;
-  height: 15vh;
-  justify-content: center;
-  gap: 15%;
-}
-
 #blackforest {
   width: 100%;
   -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 }
 
+.footer-section {
+    display: grid;
+    bottom: 0px;
+    position: relative;
+    color: white;
+    background-color: rgb(17 24 39 / 60%);
+    z-index: 1000;
+    margin-top: 10vh;
+    width: 100%;
+    height: fit-content;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
 .footer-content {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+    justify-self: center;
+    align-self: anchor-center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: anchor-center;
 }
 
 .footer-section a:hover {
@@ -500,7 +517,9 @@ body > nav {
 }
 
 .footer-links {
-  align-content: center;
+    justify-content: center;
+    display: flex;
+    gap: 4em;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
