@@ -184,19 +184,8 @@ body > nav {
 
 .landing-section,
 .about-hero-section {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 10vh;
   margin-bottom: unset;
-  margin-left: 10vw;
   margin-top: 10%;
-}
-
-.about-story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10vh;
-  margin: 5vh;
 }
 
 .about-slogan {
@@ -208,6 +197,12 @@ body > nav {
   text-align: justify;
   margin-top: 1em;
   font-size: 1.5em;
+}
+
+.about-story {
+    height: fit-content;
+    background: #ffffff96;
+    border-radius: 7px;
 }
 
 .about-sep {
@@ -245,16 +240,29 @@ body > nav {
     padding-right: 5%;
 }
 
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.about-left {
+    height: fit-content;
+}
+
 .profile-desc {
     margin-top: 1em;
     font-weight: 300;
     font-size: 1.3em;
+    text-align: justify;
 }
 
 .profile-text {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    justify-content: center;
 }
 
 .profile-name {
