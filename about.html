@@ -47,16 +47,20 @@
 
   <section class="section about-hero-section">
     <div class="about">
-      <div class="about-left">
-        <div class="about-header-white">
-          Illuminating </br> Life's Blueprint <br/> Through <br> Data and Science.
-        </div>
-        <div class="profile-desc">
-          Located in Germany’s high-tech region, often called the <b>Inventors' Belt</b>, we combine scientific depth with innovation and precision. 
-          Our work bridges research and real-world impact.
+      <div class="fade-in">
+        <div class="about-left">
+          <div class="about-header-white">
+            Illuminating </br> Life's Blueprint <br/> Through <br> Data and Science.
+          </div>
+          <div class="profile-desc">
+            Located in Germany’s high-tech region, often called the <b>Inventors' Belt</b>, we combine scientific depth with innovation and precision. 
+            Our work bridges research and real-world impact.
+          </div>  
         </div>
       </div>
-      <img src="img/ger.png" style="justify-self: anchor-center;">
+      <div class="fade-in">
+        <img src="img/ger.png" style="justify-self: anchor-center;">
+      </div>
     </div>
   </section>
 
@@ -70,7 +74,8 @@
 
   <section class="section about-story-main">
     <img id="genome3" class="genome-pic genome-hero-3" src="img/genome_whitegreen.png" alt="">
-    <div class="about-story">
+    <div class="fade-in">
+      <div class="about-story">
         <div class="about-header-black">
         Our story
         </div>
@@ -85,6 +90,7 @@
           2025 we founded this platform and named it Liora Bioinformatics. 
         </div>
       </div>
+    </div>
   </section>
 
     <div style="display: flex">
@@ -92,7 +98,7 @@
   </div>
 
   <section class="about-founders">
-    <div class="about-profile">
+    <div class="fade-in about-profile">
       <img class="profile-pic" src="img/mk.jpg">
       <div class="profile-text">
         <div class="profile-name">
@@ -114,7 +120,7 @@
       </div>
       </div>
     </div>
-    <div class="about-profile">
+    <div class="fade-in about-profile">
       <div class="profile-text">
         <div class="profile-name">
           Filip Paskali, Ph.D., M.D.
@@ -135,7 +141,7 @@
       </div>
       <img class="profile-pic" src="img/fp.png">
     </div>
-    <div class="about-profile">
+    <div class="fade-in about-profile">
       <img class="profile-pic" src="img/mf.png">
       <div class="profile-text">
         <div class="profile-name">
@@ -158,7 +164,7 @@
     </div>
   </section>
 
-  <div class="footer-section">
+  <div class="fade-in footer-section">
     <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
     <div class="footer-content">
       <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
@@ -197,6 +203,28 @@
       const scrollY = window.scrollY;
       genome3.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
     });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target); // Optional: run once
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+
   </script>
 </body>
 </html>
