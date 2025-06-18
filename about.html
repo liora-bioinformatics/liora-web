@@ -48,17 +48,30 @@
   <section class="section about-hero-section">
     <div class="about">
       <div class="about-left">
-        <div class="about-slogan">
-          Illuminating <br/> Life's Blueprint <br/> Through Data <br/> and Science.
+        <div class="about-header-white">
+          Illuminating </br> Life's Blueprint <br/> Through <br> Data and Science.
         </div>
         <div class="profile-desc">
-          Located in Germany’s high-tech region, often called the “Inventors' Belt,” we combine scientific depth with innovation and precision. 
+          Located in Germany’s high-tech region, often called the <b>Inventors' Belt</b>, we combine scientific depth with innovation and precision. 
           Our work bridges research and real-world impact.
         </div>
       </div>
-      <img src="img/ger.png" style="justify-self: anchor-center; height: 80%">
-      <div class="about-story">
-        <div class="about-slogan">
+      <img src="img/ger.png" style="justify-self: anchor-center;">
+    </div>
+  </section>
+
+<div class="about-sep">
+      <img class="banner-img" src="img/hfu_logo_gruen_osr_rgb.svg">
+      <img class="banner-img" src="img/shinyconf.png">
+      <img class="banner-img" src="img/rmedicine.png">
+      <img class="banner-img" src="img/startupcampus.png">
+      <img class="banner-img" src="img/sbh.svg">
+  </div>
+
+  <section class="section about-story-main">
+    <img id="genome3" class="genome-pic genome-hero-3" src="img/genome_whitegreen.png" alt="">
+    <div class="about-story">
+        <div class="about-header-black">
         Our story
         </div>
         <div class="profile-desc">
@@ -72,41 +85,13 @@
           2025 we founded this platform and named it Liora Bioinformatics. 
         </div>
       </div>
-    </div>
   </section>
 
-  <div style="display: flex">
+    <div style="display: flex">
     <img id="blackforest" src="img/blackforest_merged.png">
   </div>
 
   <section class="about-founders">
-    <div class="about-slogan">
-      Our story
-    </div>
-    <div class="profile-desc">
-      Our roots lie within the small but excellent Furtwangen University (HFU)
-      situated in the Black Forest area in Germany. Our founders met at
-      a research group that was collaborating with other scientists of the local
-      Institute of Precision Medicine - one of the leading research entities 
-      in Baden-Württemberg. Shared passion for data science in life sciences
-      and extensive demand on bioinformatics solutions led us to assemble a 
-      platform that allowed us to widen our impact beyond academia. In Summer 
-      2025 we founded this platform and named it Liora Bioinformatics. 
-    </div>
-  </section>
-
-   <div class="about-sep">
-      <img class="banner-img" src="img/hfu_logo_gruen_osr_rgb.svg">
-      <img class="banner-img" src="img/shinyconf.png">
-      <img class="banner-img" src="img/rmedicine.png">
-      <img class="banner-img" src="img/startupcampus.png">
-      <img class="banner-img" src="img/sbh.svg">
-  </div>
-
-  <section class="about-founders">
-    <div class="about-slogan">
-      About the founders of Liora Bioinformatics
-    </div>
     <div class="about-profile">
       <img class="profile-pic" src="img/mk.jpg">
       <div class="profile-text">
@@ -202,6 +187,15 @@
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       genome.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
+    });
+  </script>
+
+  <script>
+    // Scroll animations for genome images
+    const genome3 = document.getElementById('genome3');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      genome3.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
     });
   </script>
 </body>

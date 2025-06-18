@@ -159,12 +159,13 @@ body > nav {
 .section {
   display: flex;
   align-items: center;
-  justify-content: center;
   color: black;
   background: transparent;
   z-index: 1;
   position: relative;
-  margin-bottom: 20vh;
+  margin-top: 10%;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 .intro {
@@ -184,13 +185,21 @@ body > nav {
 
 .landing-section,
 .about-hero-section {
-  margin-bottom: unset;
-  margin-top: 10%;
+  margin-bottom: 4em;
 }
 
-.about-slogan {
+.about-header-white {
   font-weight: bold;
   font-size: 2.5em;
+  border-bottom: 1px solid white;
+  padding-bottom: 1em;
+}
+
+.about-header-black {
+  font-weight: bold;
+  font-size: 2.5em;
+  border-bottom: 1px solid black;
+  padding-bottom: 1em;
 }
 
 .about-invent {
@@ -203,18 +212,33 @@ body > nav {
     height: fit-content;
     background: #ffffff96;
     border-radius: 7px;
+    padding: 1.5em;
+    box-shadow: 0px 0px 20px 0px black;
+    z-index: 1;
 }
 
 .about-sep {
-  background-color: #ffffff69;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 1rem;
-  box-sizing: border-box;
-  max-width: 100%;
+    background-color: #ffffff69;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 1rem;
+    box-sizing: border-box;
+    max-width: 100%;
+    z-index: 1;
+    position: relative;
 }
 
+.genome-hero-3 {
+    transform: rotate(-40deg);
+    position: absolute;
+    max-width: 80%;
+    left: -80%;
+    top: -55%;
+    padding-bottom: 35%;
+    opacity: 1;
+    z-index: 0;
+}
 
 .about-sep img {
   width: clamp(80px, 20%, 250px); /* Keeps images responsive but small */
@@ -242,13 +266,22 @@ body > nav {
 
 .about {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-left: 10%;
-    margin-right: 10%;
+    grid-template-columns: 2fr 3fr;
 }
 
 .about-left {
     height: fit-content;
+    background-color: rgb(17 24 39 / 60%);
+    color: white;
+    border-radius: 7px;
+    padding: 1.5em;
+}
+
+.about-story-main {
+    margin-bottom: 10%;
+    margin-top: 10%;
+    width: 50%;
+    justify-self: flex-end;
 }
 
 .profile-desc {
@@ -493,6 +526,7 @@ body > nav {
 #blackforest {
   width: 100%;
   -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
+  z-index: 2;
 }
 
 .footer-section {
