@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav class="navbar">
+  <nav class="navbar">
   <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
 
   <!-- Desktop Navigation -->
@@ -18,12 +18,9 @@
     <a href="index.html" class="hover-underline">Home</a>
 
     <!-- About Dropdown -->
-    <div class="menu-item relative group">
-      <!-- Hover triggers the whole group (including dropdown) -->
+    <div class="relative group">
       <a href="about.html" class="hover-underline font-bold">About</a>
-      
-      <!-- Dropdown menu: visible when group is hovered -->
-      <div class="absolute left-0 hidden group-hover:flex flex-col bg-white shadow-md >
+      <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 w-56 z-10">
         <a href="about.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About Liora Bioinformatics</a>
         <a href="about-open-science.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Open Science</a>
         <a href="service3.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Data Challenges</a>
@@ -76,7 +73,8 @@
 
   <section class="section about-hero-section">
     <div class="about">
-      <div class="fade-in about-left">
+      <div class="fade-in">
+        <div class="about-left">
           <div class="about-header-white">
             Illuminating </br> Life's Blueprint <br/> Through <br> Data and Science.
           </div>
@@ -85,6 +83,7 @@
             Our work bridges research and real-world impact.
           </div>  
         </div>
+      </div>
       <div class="fade-in">
         <img src="img/ger.png" style="justify-self: anchor-center;">
       </div>
