@@ -11,40 +11,48 @@
 </head>
 <body>
 <nav class="navbar">
-  <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
+    <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
 
-  <!-- Desktop Navigation -->
-  <div class="navigation-refs hidden md:flex space-x-8 items-center" style="gap: 3rem">
-    <a href="index.html" class="hover-underline">Home</a>
+    <!-- Desktop Navigation -->
+    <div class="navigation-refs hidden md:flex space-x-8 items-center" style="gap: 2rem">
+    
+        <div class="menu-item relative group">
+            <a href="index.html" class="hover-underline">Home</a>
+        </div>
 
-    <!-- About Dropdown -->
-    <div class="menu-item relative group">
-      <!-- Hover triggers the whole group (including dropdown) -->
-      <a href="about.html" class="hover-underline font-bold">About</a>
-      
-      <!-- Dropdown menu: visible when group is hovered -->
-      <div class="hidden group-hover:flex flex-col dropdown">
-        <a href="about.html" class="dropdown-element block">About Liora Bioinformatics</a>
-        <a href="about-open-science.html" class="dropdown-element dropdown-selected block">Open Science</a>
-        <a href="service3.html" class="dropdown-element block">Data Challenges</a>
-        <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
-      </div>
-    </div>
+        <!-- About Dropdown -->
+        <div class="menu-item relative group">
+        <!-- Hover triggers the whole group (including dropdown) -->
+        <a href="about.html" class="hover-underline font-bold">About</a>
+        
+        <!-- Dropdown menu: visible when group is hovered -->
+        <div class="hidden group-hover:flex flex-col dropdown">
+            <a href="about.html" class="dropdown-element block">About Liora Bioinformatics</a>
+            <a href="about-open-science.html" class="dropdown-element dropdown-selected block">Open Science</a>
+            <a href="service3.html" class="dropdown-element block">Data Challenges</a>
+            <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
+        </div>
+        </div>
 
-    <a href="index.html#services" class="hover-underline">Services</a>
-    <a href="index.html#contact" class="hover-underline">Contact</a>
+        <div class="menu-item relative group">
+            <a href="index.html#services" class="hover-underline">Services</a>
+        </div>
+
+        <div class="menu-item relative group">
+            <a href="index.html#contact" class="hover-underline">Contact</a>
+        </div>
+     </div>
 
     <div class="nav-madeingermany">
-      <p class="nav-desc">
-        <span style="color: #ffffff">Next-Gen Solutions</span>
-      </p>
-      <p class="nav-mig">
-        <span style="color: #000000">Made </span>
-        <span style="color: #DD0000">in </span>
-        <span style="color: #FFCE00">Germany</span>
-      </p>
+        <p class="nav-desc">
+            <span style="color: #ffffff">Next-Gen Solutions</span>
+        </p>
+        <p class="nav-mig">
+            <span style="color: #000000">Made </span>
+            <span style="color: #DD0000">in </span>
+            <span style="color: #FFCE00">Germany</span>
+        </p>
     </div>
-  </div>
 
   <!-- Mobile menu button -->
   <div class="md:hidden flex items-center">
@@ -83,18 +91,23 @@
             We champion transparency, collaboration, and accessibility to drive 
             scientific discovery.
         </div>
-        <div class="open-science-card">
+        <div class="open-science-card card-uno fade-in">
             <div class="open-science-card-content">
-                "The global embrace of open science principles is vital for speeding remedies and vaccines." </br>
-                <span style="font-size: 1em; font-style: italic; font-weight: bold;">— Heather Joseph, Executive Director of SPARC</span>
+                <div class="card-citation">
+                    "The global embrace of open science principles is vital for speeding remedies and vaccines."
+                </div>
+                <div class="card-source">
+                    — Heather Joseph, Executive Director of SPARC
+                </div>
             </div>
         </div>
     </div>
   </section>
 
-  <section class="section about-open-science">
-    <div class="">
-        <div class="subheader">
+  <section class="section story-main .story-main-start about-open-science">
+    <img id="genome4" class="genome-pic genome-hero-4" src="img/genome_whitegreen.png" alt="">
+    <div class="fade-in about-story">
+        <div class="about-header-black">
             What is Open Science?
         </div>
         <div class="profile-desc">
@@ -111,7 +124,7 @@
         Why Open Science Matters
     </div>
     <div class="open-science-cards">
-        <div class="open-science-card">
+        <div class="open-science-card fade-in">
             <div class="open-science-card-content">
                 <div class="open-science-card-header">Transparency</div>
                 <div class="open-science-card-text">
@@ -120,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <div class="open-science-card">
+        <div class="open-science-card fade-in-second">
             <div class="open-science-card-content">
                 <div class="open-science-card-header">Collaboration</div>
                 <div class="open-science-card-text">
@@ -129,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <div class="open-science-card">
+        <div class="open-science-card fade-in-third">
             <div class="open-science-card-content">
                 <div class="open-science-card-header">Equity</div>
                 <div class="open-science-card-text">
@@ -165,26 +178,65 @@
     });
   </script>
 
+   <script>
+    // Scroll animations for genome images
+    const genome4 = document.getElementsById('genome4');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      genome4.style.transform = `rotate(${(scrollY * 0.1) % 360}deg)`;
+    });
+  </script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".fade-in");
+        const sections = document.querySelectorAll(".fade-in");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+            });
+        }, {
+            threshold: 0.1
+        });
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target); // Optional: run once
-      }
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        const sections_second = document.querySelectorAll(".fade-in-second");
+        const observer_second = new IntersectionObserver(entries_second => {
+            entries_second.forEach(entry_second => {
+            if (entry_second.isIntersecting) {
+                entry_second.target.classList.add("is-visible-second");
+                observer_second.unobserve(entry.target_second);
+            }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections_second.forEach(section_second => {
+            observer_second.observe(section_second);
+        });
+
+        const sections_third = document.querySelectorAll(".fade-in-third");
+        const observer_third = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible-third");
+                observer_third.unobserve(entry.target);
+            }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections_third.forEach(section_third => {
+            observer_third.observe(section_third);
+        });
     });
-  }, {
-    threshold: 0.1
-  });
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-});
-
   </script>
 </body>
 </html>

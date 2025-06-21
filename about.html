@@ -99,7 +99,7 @@
       <img class="banner-img" src="img/sbh.svg">
   </div>
 
-  <section class="section about-story-main">
+  <section class="section story-main story-main-end">
     <img id="genome3" class="genome-pic genome-hero-3" src="img/genome_whitegreen.png" alt="">
     <div class="fade-in about-story">
         <div class="about-header-black">
@@ -223,7 +223,7 @@
 
   <script>
     // Scroll animations for genome images
-    const genome3 = document.getElementById('genome3');
+    const genome3 = document.getElementsByClassName('genome-hero-3');
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       genome3.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
