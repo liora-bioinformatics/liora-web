@@ -29,7 +29,7 @@ body > nav {
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
     background: rgba(255, 255, 255, 0.15);
     -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
@@ -61,7 +61,8 @@ body > nav {
     padding-right: 3rem;
 }
 
-.dropdown-element:hover {
+.dropdown-element:hover,
+.dropdown-selected {
     color: black;
     background: #c1e7f9;
 }
@@ -642,4 +643,72 @@ p, h1, h2, h3, h4, h5, h6 {
 .outro-parent {
   display: flex;
   flex-direction: column;
+}
+
+/* About - Open Science*/
+
+.about-open-science {
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  flex-direction: column;
+}
+
+.about-open-science-hero {
+  height: 100vh;
+  margin-top: unset;
+  margin-bottom: unset;
+}
+
+.open-science-cards {
+    display: flex;
+    gap: 8%;
+}
+
+.open-science-card {
+    height: fit-content;
+    background-color: rgb(17 24 39 / 60%);
+    color: white;
+    border-radius: 7px;
+    padding: 2em;
+    box-shadow: 0px 0px 30px 12px #ffffff52;
+    justify-self: center;
+    width: fit-content;
+    text-align: center;
+}
+
+.open-science-card-content {
+  justify-content: center;
+}
+
+.header {
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.subheader {
+    font-size: 2.5em;
+    justify-self: center;
+    margin-top: 3%;
+    margin-bottom: 7%;
+    text-align: center;
+}
+
+.subsubheader {
+    font-size: 1.5em;
+    justify-self: center;
+    margin-top: 3%;
+    margin-bottom: 7%;
+}
+
+.open-science-card-header {
+  font-size: 2em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.open-science-card-text {
+  font-size: 1.5em;
+  font-weight: 300;
+  margin-bottom: 1em;
 }

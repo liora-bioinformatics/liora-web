@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navbar">
+<nav class="navbar">
   <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
 
   <!-- Desktop Navigation -->
@@ -18,13 +18,16 @@
     <a href="index.html" class="hover-underline">Home</a>
 
     <!-- About Dropdown -->
-    <div class="relative group">
+    <div class="menu-item relative group">
+      <!-- Hover triggers the whole group (including dropdown) -->
       <a href="about.html" class="hover-underline font-bold">About</a>
-      <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 w-56 z-10">
-        <a href="about.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About Liora Bioinformatics</a>
-        <a href="about-open-science.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Open Science</a>
-        <a href="service3.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Data Challenges</a>
-        <a href="service3.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Big Data in Healthcare</a>
+      
+      <!-- Dropdown menu: visible when group is hovered -->
+      <div class="hidden group-hover:flex flex-col dropdown">
+        <a href="about.html" class="dropdown-element block">About Liora Bioinformatics</a>
+        <a href="about-open-science.html" class="dropdown-element dropdown-selected block">Open Science</a>
+        <a href="service3.html" class="dropdown-element block">Data Challenges</a>
+        <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
       </div>
     </div>
 
@@ -71,120 +74,69 @@
 </nav>
 
 
-  <section class="section about-hero-section">
-    <div class="about">
-      <div class="fade-in">
-        <div class="about-left">
-          <div class="about-header-white">
-            Illuminating </br> Life's Blueprint <br/> Through <br> Data and Science.
-          </div>
-          <div class="profile-desc">
-            Located in Germany’s high-tech region, often called the <b>Inventors' Belt</b>, we combine scientific depth with innovation and precision. 
-            Our work bridges research and real-world impact.
-          </div>  
+  <section class="section about-open-science about-open-science-hero">
+    <div class="open-science">
+        <div class="header">
+            Advancing Bioinformatics Through Open Science
         </div>
-      </div>
-      <div class="fade-in">
-        <img src="img/ger.png" style="justify-self: anchor-center;">
-      </div>
+        <div class="subsubheader">
+            We champion transparency, collaboration, and accessibility to drive 
+            scientific discovery.
+        </div>
+        <div class="open-science-card">
+            <div class="open-science-card-content">
+                "The global embrace of open science principles is vital for speeding remedies and vaccines." </br>
+                <span style="font-size: 1em; font-style: italic; font-weight: bold;">— Heather Joseph, Executive Director of SPARC</span>
+            </div>
+        </div>
     </div>
   </section>
 
-<div class="fade-in about-sep">
-      <img class="banner-img" src="img/hfu_logo_gruen_osr_rgb.svg">
-      <img class="banner-img" src="img/shinyconf.png">
-      <img class="banner-img" src="img/rmedicine.png">
-      <img class="banner-img" src="img/startupcampus.png">
-      <img class="banner-img" src="img/sbh.svg">
-  </div>
-
-  <section class="section about-story-main">
-    <img id="genome3" class="genome-pic genome-hero-3" src="img/genome_whitegreen.png" alt="">
-    <div class="fade-in about-story">
-        <div class="about-header-black">
-        Our story
+  <section class="section about-open-science">
+    <div class="">
+        <div class="subheader">
+            What is Open Science?
         </div>
         <div class="profile-desc">
-          Our roots lie within the small but excellent Furtwangen University (HFU)
-          situated in the Black Forest area in Germany. Our founders met at
-          a research group that was collaborating with other scientists of the local
-          Institute of Precision Medicine - one of the leading research entities 
-          in Baden-Württemberg. Shared passion for data science in life sciences
-          and extensive demand on bioinformatics solutions led us to assemble a 
-          platform that allowed us to widen our impact beyond academia. In Summer 
-          2025 we founded this platform and named it Liora Bioinformatics. 
+            Open Science is a movement to make scientific research, data, and tools accessible 
+            to all. In bioinformatics, it means sharing genomic data, computational tools, 
+            and findings to accelerate innovation, as supported by the UNESCO Recommendation 
+            on Open Science.
         </div>
-      </div>
+    </div>
   </section>
 
-    <div class="fade-in" style="display: flex; position: relative; z-index: 2">
-    <img id="blackforest" src="img/blackforest_merged.png">
-  </div>
-
-  <section class="about-founders">
-    <div class="fade-in about-profile">
-      <img class="profile-pic" src="img/mk.jpg">
-      <div class="profile-text">
-        <div class="profile-name">
-          Prof. Matthias Kohl, Ph.D.
-        </div>
-        <div class="profile-function">
-          Senior Scientific Advisor
-        </div>
-        <div class="profile-desc">
-        Matthias Kohl, a renowned expert in mathematics for biology and medicine, leads our 
-        statistical and data science initiatives. In addition to successfully 
-        leading multiple research projects and advising clinicians and 
-        researchers, he is the author of several books on statistics and 
-        programming and maintains a portfolio of over 30 software packages. 
-        Alongside his role at Liora Bioinformatics, he serves as a professor 
-        at Furtwangen University, where he leads a research group at the 
-        Institute of Precision Medicine and directs the Steinbeis Transfer 
-        Center for Personalized Medicine.
-      </div>
-      </div>
+  <section class="section about-open-science">
+    <div class="subheader">
+        Why Open Science Matters
     </div>
-    <div class="fade-in about-profile">
-      <div class="profile-text">
-        <div class="profile-name">
-          Filip Paskali, Ph.D., M.D.
+    <div class="open-science-cards">
+        <div class="open-science-card">
+            <div class="open-science-card-content">
+                <div class="open-science-card-header">Transparency</div>
+                <div class="open-science-card-text">
+                    Open data and methods ensure reproducible and trustworthy research, 
+                    critical for bioinformatics.
+                </div>
+            </div>
         </div>
-        <div class="profile-function">
-          Chief Technology Officer
+        <div class="open-science-card">
+            <div class="open-science-card-content">
+                <div class="open-science-card-header">Collaboration</div>
+                <div class="open-science-card-text">
+                    Sharing resources fosters global partnerships, as seen in rapid COVID-19 research 
+                    via platforms like Nextstrain.
+                </div>
+            </div>
         </div>
-        <div class="profile-desc">
-          Filip Paskali, a medical scientist and data analyst, bridges the 
-          fields of biomedical research and scientific computing. With a 
-          background in general medicine and a PhD focus in biomedical 
-          image analysis, he develops interactive research applications, 
-          analytical tools, and reproducible workflows using R and Python. 
-          At Liora Bioinformatics he provides technical consulting and software 
-          development combining domain knowledge with hands-on data science 
-          and Linux expertise to support diverse research teams.
+        <div class="open-science-card">
+            <div class="open-science-card-content">
+                <div class="open-science-card-header">Equity</div>
+                <div class="open-science-card-text">
+                    Open Science makes knowledge accessible to all, empowering researchers worldwide.
+                </div>
+            </div>
         </div>
-      </div>
-      <img class="profile-pic" src="img/fp.png">
-    </div>
-    <div class="fade-in about-profile">
-      <img class="profile-pic" src="img/mf.png">
-      <div class="profile-text">
-        <div class="profile-name">
-          Marian Freisleben, M.Sc.
-        </div>
-        <div class="profile-function">
-          Chief Executive Officer
-        </div>
-        <div class="profile-desc">
-          Marian Freisleben brings a multifaceted passion for science, 
-          technology, and innovation to his leadership role. He has a 
-          background in personalized medicine and bioinformatics and has 
-          successfully completed projects both in the lab and behind 
-          the keyboard, including work in high-throughput drug discovery 
-          and microbial genomics. His interdisciplinary mindset and commitment to 
-          impactful research help shape the company’s direction at the 
-          intersection of data-driven science and real-world applications.
-        </div>
-      </div>
     </div>
   </section>
 
@@ -210,22 +162,6 @@
       svgPath.setAttribute('d', mobileMenu.style.display === 'block' 
         ? 'M6 18L18 6M6 6l12 12' 
         : 'M4 6h16M4 12h16M4 18h16');
-    });
-
-    // Scroll animation for genome image
-    const genome = document.getElementById('genome');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      genome.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
-    });
-  </script>
-
-  <script>
-    // Scroll animations for genome images
-    const genome3 = document.getElementById('genome3');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      genome3.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
     });
   </script>
 
