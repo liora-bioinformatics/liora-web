@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,42 +10,86 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <img id="genome" class="genome-pic genome-landing" src="img/genome.png" alt="">
   <nav class="navbar">
     <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
-        <div class="navigation-refs hidden md:flex space-x-8 items-center" style="gap: 3rem">
-          <a href="index.html" class="hover-underline">Home</a>
-          <a href="about.html" class="hover-underline font-bold">About</a>
-          <a href="index.html#services" class="hover-underline">Services</a>
-          <a href="index.html#contact" class="hover-underline">Contact</a>
-          <div class="nav-madeingermany">
-            <p class="nav-desc">
-              <span style="color: #ffffff">Next-Gen Solutions</span>
-            </p>
-            <p class="nav-mig">
-              <span style="color: #000000">Made </span>
-              <span style="color: #DD0000">in </span>
-              <span style="color: #FFCE00">Germany</span>
-            </p>
-          </div>
+
+    <!-- Desktop Navigation -->
+    <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
+
+      <div class="menu-item relative group">
+        <a href="index.html" class="hover-underline font-bold">Home</a>
+      </div>
+
+      <!-- About Dropdown -->
+      <div class="menu-item relative group">
+        <!-- Hover triggers the whole group (including dropdown) -->
+        <a href="about.html" class="hover-underline">About</a>
+
+        <!-- Dropdown menu: visible when group is hovered -->
+        <div class="hidden group-hover:flex flex-col dropdown">
+          <a href="about.html" class="dropdown-element dropdown-first block">About Liora Bioinformatics</a>
+          <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
+          <a href="service3.html" class="dropdown-element block">Data Challenges</a>
+          <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
         </div>
-        <div class="md:hidden flex items-center">
-          <button class="menu-button focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
+      </div>
+
+      <div class="menu-item relative group">
+        <a href="index.html#services" class="hover-underline">Services</a>
+      </div>
+
+      <div class="menu-item relative group">
+        <a href="index.html#contact" class="hover-underline">Contact</a>
+      </div>
+    </div>
+
+    <div class="nav-madeingermany">
+      <p class="nav-desc">
+        <span style="color: #ffffff">Next-Gen Solutions</span>
+      </p>
+      <p class="nav-mig">
+        <span style="color: #000000">Made </span>
+        <span style="color: #DD0000">in </span>
+        <span style="color: #FFCE00">Germany</span>
+      </p>
+    </div>
+
+    <!-- Mobile menu button -->
+    <div class="md:hidden flex items-center">
+      <button class="menu-button focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
     <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
-        <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">About</a>
+        <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Home</a>
+
+        <!-- About section with sub-links -->
+        <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
+        <a href="about.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ About Liora
+          Bioinformatics</a>
+        <a href="about-open-science.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Open
+          Science</a>
+        <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Data Challenges</a>
+        <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in
+          Healthcare</a>
+
         <a href="index.html#services" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
         <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
       </div>
     </div>
   </nav>
+
+  <div class="scroll-down">
+    <p>Scroll for More</p>
+  </div>
 
   <section class="section landing-section">
     <div class="purpose">
@@ -52,7 +97,8 @@
         When Experiments Scale, <br> Analysis Must Too.
       </p>
       <p class="purpose-subheadline">
-        We apply Math, Statistics and Bioinformatics Technology to help labs and research groups adapt, automate, and accelerate.
+        We apply Math, Statistics and Bioinformatics Technology to help labs and research groups adapt, automate, and
+        accelerate.
       </p>
     </div>
     <div class="landing-cards">
@@ -61,7 +107,8 @@
           <div class="card-front">Custom Pipelines</div>
           <div class="card-back">
             <div>
-              Stop adapting to generic tools — we craft tailored pipelines that run fast, feel intuitive, and match your lab's unique needs.
+              Stop adapting to generic tools — we craft tailored pipelines that run fast, feel intuitive, and match your
+              lab's unique needs.
             </div>
             <hr class="card-hr">
             <div class="learn-more">
@@ -75,7 +122,8 @@
           <div class="card-front">Research & Development</div>
           <div class="card-back">
             <div>
-              Need more than a pipeline? We partner on bioinformatics R&D to design, prototype, and deliver next-gen analysis solutions.
+              Need more than a pipeline? We partner on bioinformatics R&D to design, prototype, and deliver next-gen
+              analysis solutions.
             </div>
             <hr class="card-hr">
             <div class="learn-more">
@@ -89,7 +137,8 @@
           <div class="card-front">Software</div>
           <div class="card-back">
             <div>
-              We provide established, open-source bioinformatics tools with full lifecycle support — ready for deployment and maintained by our team.
+              We provide established, open-source bioinformatics tools with full lifecycle support — ready for
+              deployment and maintained by our team.
             </div>
             <hr class="card-hr">
             <div class="learn-more">
@@ -113,13 +162,10 @@
         </div>
       </div>
     </div>
-    <div class="scroll-down">
-      <p>Scroll for More</p>
-    </div>
   </section>
 
   <div>
-    <img id="genome2" class="genome-pic genome-hero" src="img/genome_whitegreen.png" alt="">
+    <img id="genomeTwo" class="genome-pic genome-hero" src="img/genome_whitegreen.png" alt="">
     <section class="section hero-section">
       <div class="intro">
         <p class="main-statement">
@@ -133,42 +179,56 @@
             <span class="title">44 Zettabytes Yearly</span>
             <span class="description">Healthcare generates enough data to fill 44 billion hard drives annually.</span>
             <span class="detail">
-              The healthcare sector produces an estimated 44 zettabytes of data annually, driven by electronic health records, imaging, and genomic sequencing. To grasp this, imagine filling over 44 billion 1-terabyte hard drives, enough to store the entire internet multiple times.
+              The healthcare sector produces an estimated 44 zettabytes of data annually, driven by electronic health
+              records, imaging, and genomic sequencing. To grasp this, imagine filling over 44 billion 1-terabyte hard
+              drives, enough to store the entire internet multiple times.
             </span>
           </p>
           <p class="intro-statement right-top">
             <span class="title">Up to 2 Billion Genomes</span>
-            <span class="description">By 2025, 100M–2B human genomes may be sequenced, unlike the single genome of 2003.</span>
+            <span class="description">By 2025, 100M–2B human genomes may be sequenced, unlike the single genome of
+              2003.</span>
             <span class="detail">
-              By 2025, projections suggest 100 million to 2 billion human genomes will have been sequenced, a massive leap from the single genome sequenced over 13 years by the Human Genome Project. This scale reflects advancements in high-throughput sequencing and AI-driven data processing.
+              By 2025, projections suggest 100 million to 2 billion human genomes will have been sequenced, a massive
+              leap from the single genome sequenced over 13 years by the Human Genome Project. This scale reflects
+              advancements in high-throughput sequencing and AI-driven data processing.
             </span>
           </p>
           <p class="intro-statement left-middle">
             <span class="title">5-Hour Sequencing</span>
             <span class="description">A human genome can now be sequenced in just 5 hours and 2 minutes.</span>
             <span class="detail">
-              In 2022, Stanford researchers set a record by sequencing a human genome in just 5 hours and 2 minutes using Oxford Nanopore’s PromethION and cloud-based computing. This is a dramatic improvement over the decade-plus required for the first genome, showcasing modern hardware and software capabilities.
+              In 2022, Stanford researchers set a record by sequencing a human genome in just 5 hours and 2 minutes
+              using Oxford Nanopore’s PromethION and cloud-based computing. This is a dramatic improvement over the
+              decade-plus required for the first genome, showcasing modern hardware and software capabilities.
             </span>
           </p>
           <p class="intro-statement right-middle">
             <span class="title">8-Hour Analysis</span>
-            <span class="description">AI enables genome sequencing and analysis in under 8 hours for rapid diagnosis.</span>
+            <span class="description">AI enables genome sequencing and analysis in under 8 hours for rapid
+              diagnosis.</span>
             <span class="detail">
-              AI and machine learning have slashed genome analysis time, enabling sequencing and interpretation in under 8 hours. This speed, achieved with tools like the DRAGEN platform, allows rapid diagnosis of genetic diseases, transforming clinical care.
+              AI and machine learning have slashed genome analysis time, enabling sequencing and interpretation in under
+              8 hours. This speed, achieved with tools like the DRAGEN platform, allows rapid diagnosis of genetic
+              diseases, transforming clinical care.
             </span>
           </p>
           <p class="intro-statement left-bottom">
             <span class="title">$100 Genome</span>
             <span class="description">Sequencing costs dropped from $3B to $100, a 30-million-fold reduction.</span>
             <span class="detail">
-              The cost of sequencing a human genome has plummeted from $3 billion in 2003 to around $100 in 2025, a 30-million-fold decrease. This affordability, driven by technologies like Illumina’s NovaSeq X, makes genomic medicine accessible to millions.
+              The cost of sequencing a human genome has plummeted from $3 billion in 2003 to around $100 in 2025, a
+              30-million-fold decrease. This affordability, driven by technologies like Illumina’s NovaSeq X, makes
+              genomic medicine accessible to millions.
             </span>
           </p>
           <p class="intro-statement right-bottom">
             <span class="title">20 Petabytes of Data</span>
             <span class="description">The SRA holds data equivalent to 200M human genome sequences.</span>
             <span class="detail">
-              The Sequence Read Archive (SRA) stores over 20 petabytes of sequencing data, equivalent to the raw data from sequencing over 200 million human genomes. This vast repository supports global research with cloud-based AI analysis.
+              The Sequence Read Archive (SRA) stores over 20 petabytes of sequencing data, equivalent to the raw data
+              from sequencing over 200 million human genomes. This vast repository supports global research with
+              cloud-based AI analysis.
             </span>
           </p>
         </div>
@@ -178,15 +238,14 @@
 
   <section class="section projects-section" id="projects">
     <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-center relative">
-      <!-- Project items will be inserted here by JavaScript -->
     </div>
   </section>
 
-   <div class="footer-section">
+  <div class="footer-section">
     <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
-    <div class="footer-links">
+    <div class="footer-content">
       <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
-      <div class="mt-4 flex justify-center space-x-6">
+      <div class="footer-links">
         <a href="#" class="hover:text-gray-300">Privacy Policy</a>
         <a href="#" class="hover:text-gray-300">Terms of Service</a>
         <a href="index.html#contact" class="hover:text-gray-300">Contact Us</a>
@@ -201,18 +260,18 @@
     const svgPath = document.querySelector('.menu-button path');
     menuButton.addEventListener('click', () => {
       mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-      svgPath.setAttribute('d', mobileMenu.style.display === 'block' 
-        ? 'M6 18L18 6M6 6l12 12' 
+      svgPath.setAttribute('d', mobileMenu.style.display === 'block'
+        ? 'M6 18L18 6M6 6l12 12'
         : 'M4 6h16M4 12h16M4 18h16');
     });
 
     // Scroll animations for genome images
     const genome = document.getElementById('genome');
-    const genome2 = document.getElementById('genome2');
+    const genomeTwo = document.getElementById('genomeTwo');
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       genome.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
-      genome2.style.transform = `rotate(${(-scrollY * 0.1) % 360}deg)`;
+      genomeTwo.style.transform = `rotate(${(-scrollY * 0.1) % 360}deg)`;
     });
 
     // Projects rendering and animations
@@ -236,13 +295,13 @@
       div.style.left = ['-50vh', '25vh', '-50vh', '50vh', '-25vh', '50vh'][index % 6];
       div.style.top = ['-15vh', '0vh', '15vh', '-15vh', '0vh', '15vh'][index % 6];
       div.innerHTML = `
-        <div class="flex items-center justify-center" style="width: 800px">
-          ${index % 2 === 0 
-            ? `<img src="${project.logoSrc}" alt="${project.description}"><p class="text-left text-lg">${project.description}</p>`
-            : `<p class="text-right text-lg">${project.description}</p><img src="${project.logoSrc}" alt="${project.description}">`
-          }
-        </div>
-      `;
+          <div class="flex items-center justify-center" style="width: 800px">
+            ${index % 2 === 0
+          ? `<img src="${project.logoSrc}" alt="${project.description}"><p class="text-left text-lg">${project.description}</p>`
+          : `<p class="text-right text-lg">${project.description}</p><img src="${project.logoSrc}" alt="${project.description}">`
+        }
+          </div>
+        `;
       projectsContainer.appendChild(div);
     });
 
@@ -274,5 +333,57 @@
       }
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      const sections_second = document.querySelectorAll(".fade-in-second");
+      const observer_second = new IntersectionObserver(entries_second => {
+        entries_second.forEach(entry_second => {
+          if (entry_second.isIntersecting) {
+            entry_second.target.classList.add("is-visible-second");
+            observer_second.unobserve(entry.target_second);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      sections_second.forEach(section_second => {
+        observer_second.observe(section_second);
+      });
+
+      const sections_third = document.querySelectorAll(".fade-in-third");
+      const observer_third = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible-third");
+            observer_third.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      sections_third.forEach(section_third => {
+        observer_third.observe(section_third);
+      });
+    });
+  </script>
 </body>
+
 </html>

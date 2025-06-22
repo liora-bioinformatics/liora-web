@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,30 +10,41 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-<nav class="navbar">
-  <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
+  <nav class="navbar">
+    <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
 
-  <!-- Desktop Navigation -->
-  <div class="navigation-refs hidden md:flex space-x-8 items-center" style="gap: 3rem">
-    <a href="index.html" class="hover-underline">Home</a>
+    <!-- Desktop Navigation -->
+    <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
 
-    <!-- About Dropdown -->
-    <div class="menu-item relative group">
-      <!-- Hover triggers the whole group (including dropdown) -->
-      <a href="about.html" class="hover-underline font-bold">About</a>
-      
-      <!-- Dropdown menu: visible when group is hovered -->
-      <div class="hidden group-hover:flex flex-col dropdown">
-        <a href="about.html" class="dropdown-element dropdown-selected block ">About Liora Bioinformatics</a>
-        <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
-        <a href="service3.html" class="dropdown-element block">Data Challenges</a>
-        <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
+      <div class="menu-item relative group">
+        <a href="index.html" class="hover-underline">Home</a>
+      </div>
+
+      <!-- About Dropdown -->
+      <div class="menu-item relative group">
+        <!-- Hover triggers the whole group (including dropdown) -->
+        <a href="about.html" class="hover-underline font-bold">About</a>
+
+        <!-- Dropdown menu: visible when group is hovered -->
+        <div class="hidden group-hover:flex flex-col dropdown">
+          <a href="about.html" class="dropdown-element dropdown-first dropdown-selected block">About Liora
+            Bioinformatics</a>
+          <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
+          <a href="service3.html" class="dropdown-element block">Data Challenges</a>
+          <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
+        </div>
+      </div>
+
+      <div class="menu-item relative group">
+        <a href="index.html#services" class="hover-underline">Services</a>
+      </div>
+
+      <div class="menu-item relative group">
+        <a href="index.html#contact" class="hover-underline">Contact</a>
       </div>
     </div>
-
-    <a href="index.html#services" class="hover-underline">Services</a>
-    <a href="index.html#contact" class="hover-underline">Contact</a>
 
     <div class="nav-madeingermany">
       <p class="nav-desc">
@@ -44,83 +56,89 @@
         <span style="color: #FFCE00">Germany</span>
       </p>
     </div>
-  </div>
 
-  <!-- Mobile menu button -->
-  <div class="md:hidden flex items-center">
-    <button class="menu-button focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Navigation -->
-  <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
-
-      <!-- About section with sub-links -->
-      <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">About</a>
-      <a href="about.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ About Liora Bioinformatics</a>
-      <a href="about-open-science.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Open Science</a>
-      <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Data Challenges</a>
-      <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in Healthcare</a>
-
-      <a href="index.html#services" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
-      <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+    <!-- Mobile menu button -->
+    <div class="md:hidden flex items-center">
+      <button class="menu-button focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
-  </div>
-</nav>
 
+    <!-- Mobile Navigation -->
+    <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+
+        <!-- About section with sub-links -->
+        <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">About</a>
+        <a href="about.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ About Liora
+          Bioinformatics</a>
+        <a href="about-open-science.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Open
+          Science</a>
+        <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Data Challenges</a>
+        <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in
+          Healthcare</a>
+
+        <a href="index.html#services" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
+        <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="scroll-down">
+    <p>Scroll for More</p>
+  </div>
 
   <section class="section about-hero-section">
     <div class="about">
       <div class="fade-in about-left">
-          <div class="about-header-white">
-            Illuminating </br> Life's Blueprint <br/> Through <br> Data and Science.
-          </div>
-          <div class="profile-desc">
-            Located in Germany’s high-tech region, often called the <b>Inventors' Belt</b>, we combine scientific depth with innovation and precision. 
-            Our work bridges research and real-world impact.
-          </div>  
+        <div class="about-header-white">
+          This is our DNA
         </div>
-      <div class="fade-in">
-        <img src="img/ger.png" style="justify-self: anchor-center;">
+        <div class="profile-desc">
+          Located in Germany’s high-tech region, often called the <b>Inventors' Belt</b>, we combine scientific depth
+          with innovation and precision.
+          Our work bridges research and real-world impact.
+        </div>
       </div>
+      <img class="fade-in" src="img/ger.png" style="justify-self: anchor-center; margin-left: 10%;">
     </div>
-  </section>
-
-<div class="fade-in about-sep">
+    <div class="fade-in about-sep">
       <img class="banner-img" src="img/hfu_logo_gruen_osr_rgb.svg">
       <img class="banner-img" src="img/shinyconf.png">
       <img class="banner-img" src="img/rmedicine.png">
       <img class="banner-img" src="img/startupcampus.png">
       <img class="banner-img" src="img/sbh.svg">
-  </div>
-
-  <section class="section story-main story-main-end">
-    <img id="genome3" class="genome-pic genome-hero-3" src="img/genome_whitegreen.png" alt="">
-    <div class="fade-in about-story">
-        <div class="about-header-black">
-        Our story
-        </div>
-        <div class="profile-desc">
-          Our roots lie within the small but excellent Furtwangen University (HFU)
-          situated in the Black Forest area in Germany. Our founders met at
-          a research group that was collaborating with other scientists of the local
-          Institute of Precision Medicine - one of the leading research entities 
-          in Baden-Württemberg. Shared passion for data science in life sciences
-          and extensive demand on bioinformatics solutions led us to assemble a 
-          platform that allowed us to widen our impact beyond academia. In Summer 
-          2025 we founded this platform and named it Liora Bioinformatics. 
-        </div>
-      </div>
+    </div>
   </section>
 
-    <div class="fade-in" style="display: flex; position: relative; z-index: 2">
-    <img id="blackforest" src="img/blackforest_merged.png">
-  </div>
+  <section class="section">
+    <div>
+      <div class="story-main-end">
+        <img id="genomeThree" class="genome-pic genome-hero-3 fade" src="img/genome_whitegreen.png" alt="">
+        <div class="fade-in about-story">
+          <div class="about-header-black">
+            Our story
+          </div>
+          <div class="profile-desc">
+            Our roots lie within the small but excellent Furtwangen University (HFU)
+            situated in the Black Forest area in Germany. Our founders met at
+            a research group that was collaborating with other scientists of the local
+            Institute of Precision Medicine - one of the leading research entities
+            in Baden-Württemberg. Shared passion for data science in life sciences
+            and extensive demand on bioinformatics solutions led us to assemble a
+            platform that allowed us to widen our impact beyond academia. In Summer
+            2025 we founded this platform and named it Liora Bioinformatics.
+          </div>
+        </div>
+      </div>
+      <div class="" style="display: flex; position: relative; z-index: 2">
+        <img id="blackforest" src="img/blackforest_merged.png">
+      </div>
+    </div>
+  </section>
 
   <section class="about-founders">
     <div class="fade-in about-profile">
@@ -133,16 +151,16 @@
           Senior Scientific Advisor
         </div>
         <div class="profile-desc">
-        Matthias Kohl, a renowned expert in mathematics for biology and medicine, leads our 
-        statistical and data science initiatives. In addition to successfully 
-        leading multiple research projects and advising clinicians and 
-        researchers, he is the author of several books on statistics and 
-        programming and maintains a portfolio of over 30 software packages. 
-        Alongside his role at Liora Bioinformatics, he serves as a professor 
-        at Furtwangen University, where he leads a research group at the 
-        Institute of Precision Medicine and directs the Steinbeis Transfer 
-        Center for Personalized Medicine.
-      </div>
+          Matthias Kohl, a renowned expert in mathematics for biology and medicine, leads our
+          statistical and data science initiatives. In addition to successfully
+          leading multiple research projects and advising clinicians and
+          researchers, he is the author of several books on statistics and
+          programming and maintains a portfolio of over 30 software packages.
+          Alongside his role at Liora Bioinformatics, he serves as a professor
+          at Furtwangen University, where he leads a research group at the
+          Institute of Precision Medicine and directs the Steinbeis Transfer
+          Center for Personalized Medicine.
+        </div>
       </div>
     </div>
     <div class="fade-in about-profile">
@@ -154,13 +172,13 @@
           Chief Technology Officer
         </div>
         <div class="profile-desc">
-          Filip Paskali, a medical scientist and data analyst, bridges the 
-          fields of biomedical research and scientific computing. With a 
-          background in general medicine and a PhD focus in biomedical 
-          image analysis, he develops interactive research applications, 
-          analytical tools, and reproducible workflows using R and Python. 
-          At Liora Bioinformatics he provides technical consulting and software 
-          development combining domain knowledge with hands-on data science 
+          Filip Paskali, a medical scientist and data analyst, bridges the
+          fields of biomedical research and scientific computing. With a
+          background in general medicine and a PhD focus in biomedical
+          image analysis, he develops interactive research applications,
+          analytical tools, and reproducible workflows using R and Python.
+          At Liora Bioinformatics he provides technical consulting and software
+          development combining domain knowledge with hands-on data science
           and Linux expertise to support diverse research teams.
         </div>
       </div>
@@ -176,20 +194,20 @@
           Chief Executive Officer
         </div>
         <div class="profile-desc">
-          Marian Freisleben brings a multifaceted passion for science, 
-          technology, and innovation to his leadership role. He has a 
-          background in personalized medicine and bioinformatics and has 
-          successfully completed projects both in the lab and behind 
-          the keyboard, including work in high-throughput drug discovery 
-          and microbial genomics. His interdisciplinary mindset and commitment to 
-          impactful research help shape the company’s direction at the 
+          Marian Freisleben brings a multifaceted passion for science,
+          technology, and innovation to his leadership role. He has a
+          background in personalized medicine and bioinformatics and has
+          successfully completed projects both in the lab and behind
+          the keyboard, including work in high-throughput drug discovery
+          and microbial genomics. His interdisciplinary mindset and commitment to
+          impactful research help shape the company’s direction at the
           intersection of data-driven science and real-world applications.
         </div>
       </div>
     </div>
   </section>
 
-  <div class="fade-in footer-section">
+  <div class="footer-section">
     <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
     <div class="footer-content">
       <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
@@ -208,48 +226,149 @@
     const svgPath = document.querySelector('.menu-button path');
     menuButton.addEventListener('click', () => {
       mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-      svgPath.setAttribute('d', mobileMenu.style.display === 'block' 
-        ? 'M6 18L18 6M6 6l12 12' 
+      svgPath.setAttribute('d', mobileMenu.style.display === 'block'
+        ? 'M6 18L18 6M6 6l12 12'
         : 'M4 6h16M4 12h16M4 18h16');
     });
 
-    // Scroll animation for genome image
-    const genome = document.getElementById('genome');
+
+
+    const genomeThree = document.getElementById('genomeThree');
+
+    // Define scroll range and rotation range
+    const scrollStart = 0;
+    const scrollEnd = 2000;  // Adjust this to how much scroll you want
+    const minRotation = -100;
+    const maxRotation = 90;
+
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      genome.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
+
+      // Normalize scroll progress between 0 and 1
+      let progress = (scrollY - scrollStart) / (scrollEnd - scrollStart);
+      progress = Math.max(0, Math.min(1, progress));  // Clamp between 0 and 1
+
+      // Map progress to rotation range
+      const rotation = minRotation + (maxRotation - minRotation) * progress;
+
+      // Apply transform
+      genomeThree.style.transform = `rotate(${-rotation}deg)`;
     });
-  </script>
 
-  <script>
-    // Scroll animations for genome images
-    const genome3 = document.getElementsByClassName('genome-hero-3');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      genome3.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
+
+
+
+
+    // Projects rendering and animations
+    const projects = [
+      { id: 1, logoSrc: "img/dark_white_green_wname.svg", description: "<span class='font-bold'>PhyloTrace</span> - all-in-one platform to perform and manage decentralized, hashed bacterial surveillance" },
+      { id: 4, logoSrc: "img/hex-MKinfer.png", description: "<span class='font-bold'>MKinfer</span> - comprehensive suite of methods for statistical analysis of clinical data and biomedical experiments" },
+      { id: 3, logoSrc: "img/hex-LFApp.png", description: "<span class='font-bold'>LFApp</span> - modular application for quantitative image analysis of lateral flow assays" },
+      { id: 5, logoSrc: "img/hex-MKdescr.png", description: "<span class='font-bold'>MKdescr</span> - package providing functions to compute and visualize robust and standardized descriptive statistics" },
+      { id: 2, logoSrc: "img/logo_name.svg", description: "<span class='font-bold'>KiwiFlow</span> - interactive pipeline to facilitate processing and analysis of proteomic mass spectrometry assays" },
+      { id: 8, logoSrc: "img/hex-MKomics.png", description: "<span class='font-bold'>MKomics</span> - toolkit enabling quality control, processing and evaluation of Omics experiments" },
+      { id: 6, logoSrc: "img/hex-MADApp.png", description: "<span class='font-bold'>MADapp</span> - intuitive workflow for image-based analysis of microarrays" },
+      { id: 7, logoSrc: "img/hex-rmx.png", description: "<span class='font-bold'>rmx</span> - offers fast, optimally robust estimators for reliable parameter estimation in the presence of model deviations" },
+      { id: 9, logoSrc: "img/hex-MKpower.png", description: "<span class='font-bold'>MKpower</span> - supports power analysis and sample size calculation for planning experiments, diagnostic studies, and clinical evaluations" },
+    ];
+
+    const projectsContainer = document.getElementById('projects');
+    projects.forEach((project, index) => {
+      const div = document.createElement('div');
+      div.className = 'project-item';
+      div.style.position = 'absolute';
+      div.style.left = ['-50vh', '25vh', '-50vh', '50vh', '-25vh', '50vh'][index % 6];
+      div.style.top = ['-15vh', '0vh', '15vh', '-15vh', '0vh', '15vh'][index % 6];
+      div.innerHTML = `
+          <div class="flex items-center justify-center" style="width: 800px">
+            ${index % 2 === 0
+          ? `<img src="${project.logoSrc}" alt="${project.description}"><p class="text-left text-lg">${project.description}</p>`
+          : `<p class="text-right text-lg">${project.description}</p><img src="${project.logoSrc}" alt="${project.description}">`
+        }
+          </div>
+        `;
+      projectsContainer.appendChild(div);
     });
-  </script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".fade-in");
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target); // Optional: run once
+    gsap.registerPlugin(ScrollTrigger);
+    const projectItems = document.querySelectorAll('.project-item');
+    ScrollTrigger.create({
+      trigger: '#projects',
+      start: 'top top',
+      end: `+=${window.innerHeight * (projects.length - 1)}`,
+      pin: true,
+      pinSpacing: true,
+      scrub: true,
+    });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#projects',
+        start: 'top top',
+        end: `+=${window.innerHeight * (projects.length - 1)}`,
+        scrub: 0.5,
+        snap: { snapTo: 1 / (projects.length - 1), duration: 0.3, ease: 'power1.inOut' },
+      },
+    });
+    projectItems.forEach((item, index) => {
+      if (index === 0) {
+        gsap.set(item, { opacity: 1 });
+      } else {
+        tl.to(projectItems[index - 1], { opacity: 0, duration: 0.5 })
+          .to(item, { opacity: 1, duration: 0.5 }, '-=0.8');
       }
     });
-  }, {
-    threshold: 0.1
-  });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-});
+      sections.forEach(section => {
+        observer.observe(section);
+      });
 
+      const sections_second = document.querySelectorAll(".fade-in-second");
+      const observer_second = new IntersectionObserver(entries_second => {
+        entries_second.forEach(entry_second => {
+          if (entry_second.isIntersecting) {
+            entry_second.target.classList.add("is-visible-second");
+            observer_second.unobserve(entry.target_second);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      sections_second.forEach(section_second => {
+        observer_second.observe(section_second);
+      });
+
+      const sections_third = document.querySelectorAll(".fade-in-third");
+      const observer_third = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible-third");
+            observer_third.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      sections_third.forEach(section_third => {
+        observer_third.observe(section_third);
+      });
+    });
   </script>
 </body>
+
 </html>
