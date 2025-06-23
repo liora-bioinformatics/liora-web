@@ -117,8 +117,8 @@
   <section class="section">
     <div>
       <div class="story-main-end">
-        <img id="genomeThree" class="genome-pic genome-hero-3 fade" src="img/genome_whitegreen.png" alt="">
-        <div class="fade-in about-story">
+        <img id="genomeThree" class="genome-pic genome-hero-3 fade" src="img/genome_sundark.png" alt="">
+        <div class="fade-in about-story story-main-end">
           <div class="about-header-black">
             Our story
           </div>
@@ -238,8 +238,8 @@
     // Define scroll range and rotation range
     const scrollStart = 0;
     const scrollEnd = 2000;  // Adjust this to how much scroll you want
-    const minRotation = -100;
-    const maxRotation = 90;
+    const minRotation = 100;
+    const maxRotation = -30;
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
@@ -252,7 +252,7 @@
       const rotation = minRotation + (maxRotation - minRotation) * progress;
 
       // Apply transform
-      genomeThree.style.transform = `rotate(${-rotation}deg)`;
+      genomeThree.style.transform = `rotate(${rotation}deg)`;
     });
 
 

@@ -114,11 +114,9 @@
         </div>
     </section>
 
-    <div>
+    <section class="section story-main-start about-open-science">
         <img id="genomeFour" class="genome-pic genome-hero-4" src="img/genome_whitegreen.png" alt="">
-        <section class="section story-main .story-main-start about-open-science">
-
-            <div class="fade-in about-story">
+        <div class="fade-in about-story">
                 <div class="about-header-black">
                     What is Open Science?
                 </div>
@@ -130,7 +128,6 @@
                 </div>
             </div>
         </section>
-    </div>
 
     <section class="section about-open-science">
         <div class="subheader">
@@ -194,7 +191,7 @@
         const genomeFour = document.getElementById('genomeFour');
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-            genomeFour.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
+            genomeFour.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
         });
 
         // Projects rendering and animations
