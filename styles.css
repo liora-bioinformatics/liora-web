@@ -126,8 +126,8 @@ body > nav {
 }
 
 .purpose {
-  justify-self: anchor-center;
-  padding-left: 10vh;
+    justify-self: anchor-center;
+    align-self: center;
 }
 
 .purpose-headline {
@@ -140,10 +140,9 @@ body > nav {
 }
 
 .landing-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
-  padding-top: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
 }
 
 .card {
@@ -238,16 +237,10 @@ body > nav {
 }
 
 .landing-section {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 10vh;
-  margin-bottom: 10vh;
-  margin-left: 10vw;
-  margin-top: 10%;
-}
-
-.landing-section,
-.about-hero-section {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 10vh;
+    margin-top: 5%;
 }
 
 .about-header-white {
@@ -334,7 +327,7 @@ body > nav {
     position: absolute;
     width: 40%;
     left: 20%;
-    top: 30%;
+    top: 33%;
     opacity: 1;
     z-index: 0;
     padding-right: 21rem;
@@ -382,6 +375,34 @@ body > nav {
     align-self: center;
 }
 
+.home-left {
+    height: -webkit-fill-available;
+    background-color: rgb(17 24 39 / 60%);
+    color: white;
+    border-radius: 7px;
+    padding: 1.5em;
+    box-shadow: 0px 0px 30px 12px #00000052;
+    align-self: center;
+    backdrop-filter: blur(5px);
+    display: flex;
+}
+
+.home-profile {
+    margin-top: 1em;
+    font-weight: 300;
+    font-size: 1em;
+    text-align: justify;
+    padding-left: 0.5em;
+}
+
+.home-header-white {
+    font-weight: 300;
+    font-size: 2em;
+    border-right: 1px solid white;
+    padding-right: 0.5em;
+    align-self: anchor-center;
+    text-align: end;
+}
 .story-main {
     margin-bottom: 2%;
     margin-top: 13%;
@@ -465,10 +486,10 @@ body > nav {
 }
 
 .genome-landing {
-  position: absolute;
-  max-width: 40%;
-  right: -8%;
-  top: 30%;
+    position: absolute;
+    max-width: 30%;
+    right: -5%;
+    top: 5%;
 }
 
 .genome-hero {
@@ -797,9 +818,20 @@ p, h1, h2, h3, h4, h5, h6 {
     transform: rotate(-40deg);
     position: absolute;
     width: 40%;
+    left: 55%;
+    top: 30%;
+    opacity: 1;
+    z-index: 0;
+    padding-right: 25rem;
+}
+
+.genome-hero-5 {
+    transform: rotate(-40deg);
+    position: absolute;
+    width: 40%;
     left: 50%;
     top: 30%;
     opacity: 1;
     z-index: 0;
-    padding-right: 30rem;
+    padding-left: 30rem;
 }

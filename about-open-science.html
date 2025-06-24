@@ -115,7 +115,8 @@
     </section>
 
     <section class="section story-main-start about-open-science">
-        <img id="genomeFour" class="genome-pic genome-hero-4" src="img/genome_whitegreen.png" alt="">
+        <img id="genomeFour" class="genome-pic genome-hero-4" src="img/genome_purple.png" alt="">
+        <img id="genomeFive" class="genome-pic genome-hero-5" src="img/genome_petrol.png" alt="">
         <div class="fade-in about-story">
                 <div class="about-header-black">
                     What is Open Science?
@@ -189,9 +190,11 @@
 
         // Scroll animations for genome images
         const genomeFour = document.getElementById('genomeFour');
+        const genomeFive = document.getElementById('genomeFive');
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             genomeFour.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
+            genomeFive.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
         });
 
         // Projects rendering and animations
