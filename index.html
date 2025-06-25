@@ -91,6 +91,18 @@
     <p>Scroll for More</p>
   </div>
 
+  <section class="section hero-section">
+    <div class="home-hero">
+      <div style="display: flex; gap: 3em; margin-bottom: 20px; margin-left: 10%; width: fit-content;">
+      <p style="font-size: 3em; font-weight: 300;">From</p>
+      <p class="decrypted decrypted-small" data-text="Data" data-duration="1000"></p>
+    </div>
+    <p style="font-size: 4em; margin-top: 20px; margin-bottom: 20px; text-align: center;">to</p>
+    <p class="decrypted decrypted-large" data-text="Discovery" data-duration="2000"></p>
+    </div>
+    <img id="genomeTwo" class="genome-pic genome-hero" src="img/genome.png" alt="">
+  </section>
+
   <section class="section landing-section">
     <div class="purpose">
       <p class="fade-in purpose-headline">
@@ -111,10 +123,10 @@
           feel intuitive, and match your lab's unique needs.
         </div>
         <div class="learn-more">
-            Learn More
-          </div>
+          Learn More
+        </div>
       </div>
-      <div class="home-left">
+      <div class="fade-in home-left">
         <div class="home-header-white">
           Research & Development
         </div>
@@ -123,10 +135,10 @@
           prototype, and deliver next-gen analysis solutions.
         </div>
         <div class="learn-more">
-            Learn More
-          </div>
+          Learn More
+        </div>
       </div>
-      <div class="home-left">
+      <div class="fade-in home-left">
         <div class="home-header-white">
           Software
         </div>
@@ -135,10 +147,10 @@
           ready for deployment and maintained by our team.
         </div>
         <div class="learn-more">
-            Learn More
-          </div>
+          Learn More
+        </div>
       </div>
-      <div class="home-left">
+      <div class="fade-in home-left">
         <div class="home-header-white">
           Data Analysis
         </div>
@@ -146,83 +158,12 @@
           We transform your raw data into meaningful insights — from statistical models to analysis of Omics data.
         </div>
         <div class="learn-more">
-            Learn More
-          </div>
+          Learn More
+        </div>
       </div>
     </div>
   </section>
 
-  <div>
-    <img id="genomeTwo" class="genome-pic genome-hero" src="img/genome_whitegreen.png" alt="">
-    <section class="section hero-section">
-      <div class="intro">
-        <p class="main-statement">
-          <span style="font-size: 3em; padding-left: 2.6em">From</span><br>
-          <span style="font-size: 5em">Data</span><br>
-          <span style="font-size: 3em; line-height: 2em; padding-left: 1.8em">to</span><br>
-          <span style="font-size: 6em; line-height: 1.5em; padding-left: 0.2em">Discovery</span>
-        </p>
-        <div class="intro-statements">
-          <p class="intro-statement left-top">
-            <span class="title">44 Zettabytes Yearly</span>
-            <span class="description">Healthcare generates enough data to fill 44 billion hard drives annually.</span>
-            <span class="detail">
-              The healthcare sector produces an estimated 44 zettabytes of data annually, driven by electronic health
-              records, imaging, and genomic sequencing. To grasp this, imagine filling over 44 billion 1-terabyte hard
-              drives, enough to store the entire internet multiple times.
-            </span>
-          </p>
-          <p class="intro-statement right-top">
-            <span class="title">Up to 2 Billion Genomes</span>
-            <span class="description">By 2025, 100M–2B human genomes may be sequenced, unlike the single genome of
-              2003.</span>
-            <span class="detail">
-              By 2025, projections suggest 100 million to 2 billion human genomes will have been sequenced, a massive
-              leap from the single genome sequenced over 13 years by the Human Genome Project. This scale reflects
-              advancements in high-throughput sequencing and AI-driven data processing.
-            </span>
-          </p>
-          <p class="intro-statement left-middle">
-            <span class="title">5-Hour Sequencing</span>
-            <span class="description">A human genome can now be sequenced in just 5 hours and 2 minutes.</span>
-            <span class="detail">
-              In 2022, Stanford researchers set a record by sequencing a human genome in just 5 hours and 2 minutes
-              using Oxford Nanopore’s PromethION and cloud-based computing. This is a dramatic improvement over the
-              decade-plus required for the first genome, showcasing modern hardware and software capabilities.
-            </span>
-          </p>
-          <p class="intro-statement right-middle">
-            <span class="title">8-Hour Analysis</span>
-            <span class="description">AI enables genome sequencing and analysis in under 8 hours for rapid
-              diagnosis.</span>
-            <span class="detail">
-              AI and machine learning have slashed genome analysis time, enabling sequencing and interpretation in under
-              8 hours. This speed, achieved with tools like the DRAGEN platform, allows rapid diagnosis of genetic
-              diseases, transforming clinical care.
-            </span>
-          </p>
-          <p class="intro-statement left-bottom">
-            <span class="title">$100 Genome</span>
-            <span class="description">Sequencing costs dropped from $3B to $100, a 30-million-fold reduction.</span>
-            <span class="detail">
-              The cost of sequencing a human genome has plummeted from $3 billion in 2003 to around $100 in 2025, a
-              30-million-fold decrease. This affordability, driven by technologies like Illumina’s NovaSeq X, makes
-              genomic medicine accessible to millions.
-            </span>
-          </p>
-          <p class="intro-statement right-bottom">
-            <span class="title">20 Petabytes of Data</span>
-            <span class="description">The SRA holds data equivalent to 200M human genome sequences.</span>
-            <span class="detail">
-              The Sequence Read Archive (SRA) stores over 20 petabytes of sequencing data, equivalent to the raw data
-              from sequencing over 200 million human genomes. This vast repository supports global research with
-              cloud-based AI analysis.
-            </span>
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
 
   <section class="section projects-section" id="projects">
     <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-center relative">
@@ -258,8 +199,8 @@
     const genomeTwo = document.getElementById('genomeTwo');
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      genome.style.transform = `rotate(${(scrollY * 0.05) % 360}deg)`;
-      genomeTwo.style.transform = `rotate(${(-scrollY * 0.1) % 360}deg)`;
+      genome.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
+      genomeTwo.style.transform = `rotate(${(scrollY * 0.2) % 360}deg)`;
     });
 
     // Projects rendering and animations
@@ -388,6 +329,48 @@
       });
     });
   </script>
+  <script>
+    function decryptText(element, fullText, duration) {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      const length = fullText.length;
+      let frame = 0;
+      const totalFrames = Math.floor(duration / 20); // 30ms per frame
+
+      const interval = setInterval(() => {
+        const progress = frame / totalFrames;
+        const revealCount = Math.floor(progress * length);
+        let displayText = "";
+
+        for (let i = 0; i < length; i++) {
+          if (i < revealCount) {
+            displayText += fullText[i];
+          } else {
+            displayText += chars[Math.floor(Math.random() * chars.length)];
+          }
+        }
+
+        element.textContent = displayText;
+
+        if (frame >= totalFrames) {
+          clearInterval(interval);
+          element.textContent = fullText; // Ensure final text is accurate
+        }
+
+        frame++;
+      }, 30);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll(".decrypted");
+      elements.forEach(el => {
+        const fullText = el.dataset.text;
+        const duration = parseInt(el.dataset.duration, 10) || 2000; // Default 2 seconds
+        decryptText(el, fullText, duration);
+      });
+    });
+  </script>
+
+
 </body>
 
 </html>
