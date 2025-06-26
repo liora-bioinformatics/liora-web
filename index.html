@@ -96,18 +96,18 @@
         <p style="font-size: 5em; font-weight: 300;">From</p>
         <p class="decrypted decrypted-small" data-text="<Data>" data-duration="1000"></p>
       </div>
-      <p style="font-size: 5em; margin-top: 20px; margin-bottom: 20px; text-align: center;">to</p>
+      <p style="font-size: 5em; margin-top: 20px; margin-bottom: 20px; text-align: center; font-weight: 300;">to</p>
       <p class="decrypted decrypted-large" data-text="Discovery" data-duration="2000"></p>
     </div>
     <div class="home-hero-grid">
       <figure class="gallery__item gallery__item--1">
-        <img src="img\variant_validation.png" alt="Gallery image 1" class="gallery__img">
+        <img src="img/variant_validation.png" alt="Gallery image 1" class="gallery__img">
       </figure>
       <figure class="gallery__item gallery__item--2">
-        <img src="img\logo_name.svg" alt="Gallery image 2" class="gallery__img">
+        <img src="img/logo_name.svg" alt="Gallery image 2" class="gallery__img">
       </figure>
       <figure class="gallery__item gallery__item--3">
-        <img src="img\bash.png" alt="Gallery image 3" class="gallery__img">
+        <img src="img/bash.png" alt="Gallery image 3" class="gallery__img">
       </figure>
     </div>
     <img id="genomeTwo" class="genome-pic genome-hero" src="img/genome.png" alt="">
@@ -383,59 +383,114 @@
   <script>
     const galleryItems = document.querySelectorAll('.gallery__item');
     const imageSets = [
-      [
-        'img/python.png',
-        'img/hex-LFApp.png',
-        'img/mst.png'
-      ],
-      [
-        'img/amr_heatmap.png',
-        'img/hex-MADApp.png',
-        'img/r.png'
-      ],
-      [
-        'img/manage_schemes.png',
-        'img/dark_white_green_wname.svg',
-        'img/nj_tree.png'
-      ],
-      [
-        'img/loci_info.png',
-        'img/hex-MKdescr.png',
-        'img/python.png'
-      ],
-      [
-        'img/variant_validation.png',
-        'img/logo_name.svg',
-        'img/bash.png'
-      ]
+      ['img/python.png', 'img/hex-LFApp.png', 'img/mst.png'],
+      ['img/amr_heatmap.png', 'img/hex-MADApp.png', 'img/r.png'],
+      ['img/manage_schemes.png', 'img/dark_white_green_wname.svg', 'img/nj_tree.png'],
+      ['img/loci_info.png', 'img/hex-MKdescr.png', 'img/python.png'],
+      ['img/variant_validation.png', 'img/logo_name.svg', 'img/bash.png']
     ];
 
     // Track current set for each item
-    const currentSets = Array(galleryItems.length).fill(0);
+        const currentSets = Array(galleryItems.length).fill(0);
 
-    function cycleImage(itemIndex) {
-      const item = galleryItems[itemIndex];
-      const img = item.querySelector('.gallery__img');
+        function cycleImage(itemIndex) {
+            try {
+                const item = galleryItems[itemIndex];
+                const currentImg = item.querySelector('.gallery__img');
+                if (!currentImg) {
+                    console.error(`No image found in gallery item ${itemIndex + 1}`);
+                    return;
+                }
 
-      // Start fade-out
-      img.classList.add('fade-out');
+                // Create new image element
+                const newImg = document.createElement('img');
+                newImg.src = imageSets[(currentSets[itemIndex] + 1) % imageSets.length][itemIndex];
+                newImg.alt = `Gallery image ${itemIndex + 1}`;
+                newImg.classList.add('gallery__img');
 
-      // After fade-out completes, change image and fade-in
-      setTimeout(() => {
-        currentSets[itemIndex] = (currentSets[itemIndex] + 1) % imageSets.length;
-        img.src = imageSets[currentSets[itemIndex]][itemIndex];
-        img.classList.remove('fade-out');
-      }, 500); // Match transition duration
-    }
+                // Apply animation based on item index
+                if (itemIndex === 0) { // gallery__item--1
+                    // Reset current image classes
+                    currentImg.className = 'gallery__img';
+                    newImg.style.opacity = '0'; // Initial state for fade
+                    newImg.classList.add('fade-start');
+                    item.appendChild(newImg);
+                    console.log(`Item ${itemIndex + 1}: Starting fade animation - out`);
+                    currentImg.classList.add('fade-out');
+                    setTimeout(() => {
+                        console.log(`Item ${itemIndex + 1}: Starting fade animation - in`);
+                        newImg.classList.remove('fade-start');
+                        newImg.classList.add('fade-in');
+                        newImg.style.opacity = ''; // Clear inline style
+                    }, 50);
+                } else if (itemIndex === 1) { // gallery__item--2
+                    // Reset current image classes
+                    currentImg.className = 'gallery__img';
+                    newImg.style.transform = 'scale(0) rotate(-90deg)';
+                    newImg.style.opacity = '0';
+                    newImg.classList.add('combined-start');
+                    item.appendChild(newImg);
+                    console.log(`Item ${itemIndex + 1}: Starting combined animation - out`);
+                    currentImg.classList.add('combined-out');
+                    setTimeout(() => {
+                        console.log(`Item ${itemIndex + 1}: Starting combined animation - in`);
+                        newImg.classList.remove('combined-start');
+                        newImg.classList.add('combined-in');
+                        newImg.style.transform = '';
+                        newImg.style.opacity = '';
+                    }, 50);
+                } else { // gallery__item--3
+                    // Reset current image classes
+                    currentImg.className = 'gallery__img';
+                    newImg.className = 'gallery__img zoom-out';
+                    item.appendChild(newImg);
+                    console.log(`Item ${itemIndex + 1}: Starting zoom animation - out`);
+                    currentImg.classList.add('zoom-out');
+                    setTimeout(() => {
+                        console.log(`Item ${itemIndex + 1}: Starting zoom animation - in`);
+                        newImg.classList.remove('zoom-out');
+                        newImg.classList.add('zoom-in');
+                    }, 50);
+                }
 
-    // Set up staggered intervals for each image
-    galleryItems.forEach((item, index) => {
-      // Base interval (8s) plus stagger (1000ms * index)
-      const interval = 8000 + (index * 1000);
-      setInterval(() => cycleImage(index), interval);
-      // Initial cycle with delay to stagger start
-      setTimeout(() => cycleImage(index), index * 1000);
-    });
+                // Update current set
+                currentSets[itemIndex] = (currentSets[itemIndex] + 1) % imageSets.length;
+
+                // After transition, remove old image
+                setTimeout(() => {
+                    if (currentImg && currentImg.parentNode) {
+                        currentImg.remove();
+                        console.log(`Item ${itemIndex + 1}: Removed old image`);
+                    }
+                }, 500);
+
+                console.log(`Cycled image for item ${itemIndex + 1} to ${newImg.src}`);
+            } catch (error) {
+                console.error(`Error cycling image for item ${itemIndex + 1}:`, error);
+            }
+        }
+
+        // Verify gallery items exist
+        if (galleryItems.length !== 3) {
+            console.error(`Expected 3 gallery items, found ${galleryItems.length}`);
+        }
+
+        // Set up custom intervals and initial stagger for each image
+        const intervals = [5000, 7000, 11000]; // 5s, 7s, 11s
+        const initialDelay = 5000; // 5s initial delay
+        const staggerOffsets = [0, 1000, 2000]; // 1s stagger for first cycle
+
+        galleryItems.forEach((item, index) => {
+            try {
+                setTimeout(() => {
+                    setInterval(() => cycleImage(index), intervals[index]);
+                    cycleImage(index);
+                    console.log(`Started cycling for item ${index + 1} with interval ${intervals[index]}ms`);
+                }, initialDelay + staggerOffsets[index]);
+            } catch (error) {
+                console.error(`Error setting up cycle for item ${index + 1}:`, error);
+            }
+        });
   </script>
 
 </body>

@@ -905,17 +905,17 @@ h6 {
 .decrypted-small {
   font-size: 6em;
   font-family: monospace;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .decrypted-large {
-    font-size: 6em;
-    margin-top: 30px;
-    font-family: serif;
-    width: fit-content;
-    text-underline-position: under;
-    text-decoration: underline;
-    text-decoration-thickness: from-font;
+  font-size: 6em;
+  margin-top: 30px;
+  font-family: serif;
+  width: fit-content;
+  text-underline-position: under;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
 }
 
 .home-hero {
@@ -932,7 +932,7 @@ h6 {
   grid-template-columns: 2fr 3fr;
   grid-template-rows: 1fr 1fr;
   width: 50vw;
-  grid-gap: 2rem; 
+  grid-gap: 2rem;
 }
 
 .grid-long {
@@ -985,12 +985,48 @@ h6 {
   height: 100%;
   object-fit: cover;
   display: block;
+  transform: scale(1);
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
   border-radius: 1rem;
 }
 
-.gallery__img.fade-out {
+/* Fade animation for item 1 */
+.gallery__item--1 .gallery__img.fade-out {
+  opacity: 0;
+}
+
+.gallery__item--1 .gallery__img.fade-in {
+  opacity: 1;
+}
+
+.gallery__item--1 .gallery__img.fade-start {
+  opacity: 0;
+}
+
+/* Zoom animation for items 1 and 3 */
+/* Zoom animation for items 1 and 3 */
+.gallery__img.zoom-out {
+  transform: scale(0);
+}
+
+.gallery__img.zoom-in {
+  transform: scale(1);
+}
+
+/* Combined zoom, rotate, and fade for item 2 */
+.gallery__item--2 .gallery__img.combined-out {
+  transform: scale(0) rotate(90deg);
+  opacity: 0;
+}
+
+.gallery__item--2 .gallery__img.combined-in {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+.gallery__item--2 .gallery__img.combined-start {
+  transform: scale(0) rotate(-90deg);
   opacity: 0;
 }
 
