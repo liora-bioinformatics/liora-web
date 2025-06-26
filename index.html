@@ -388,9 +388,9 @@
     const imageSets = [
       ['img/python.png', 'img/Python_logo.png', 'img/hex-LFApp.png', 'img/mst.png'],
       ['img/amr_heatmap.png', 'img/Nextflow_logo.png', 'img/hex-MADApp.png', 'img/r.png'],
-      ['img/manage_schemes.png',  'img/ggplot2_logo.png', 'img/dark_white_green_wname.svg', 'img/nj_tree.png'],
-      ['img/loci_info.png',  'img/Bioconductor_logo.png',  'img/hex-MKdescr.png', 'img/python.png'],
-      ['img/variant_validation.png',  'img/R_logo.png', 'img/logo_name.svg', 'img/bash.png']
+      ['img/manage_schemes.png', 'img/ggplot2_logo.png', 'img/dark_white_green_wname.svg', 'img/nj_tree.png'],
+      ['img/loci_info.png', 'img/Bioconductor_logo.png', 'img/hex-MKdescr.png', 'img/python.png'],
+      ['img/variant_validation.png', 'img/R_logo.png', 'img/logo_name.svg', 'img/bash.png']
     ];
 
     // Track current set for each item
@@ -412,7 +412,7 @@
         newImg.classList.add('gallery__img');
 
         // Apply animation based on item index
-        if (itemIndex === 2) { // gallery__item--2
+        if (itemIndex === 2) { // gallery__item--3
           // Reset current image classes
           currentImg.className = 'gallery__img';
           newImg.style.transform = 'scale(0) rotate(-90deg)';
@@ -428,20 +428,21 @@
             newImg.style.transform = '';
             newImg.style.opacity = '';
           }, 50);
-        } else { // gallery__item--3
+        } else { // gallery__item--1, gallery__item--2, gallery__item--4
           // Reset current image classes
           currentImg.className = 'gallery__img';
-          newImg.style.opacity = '0'; // Initial state for fade
+          newImg.style.opacity = '0';
           newImg.classList.add('fade-start');
           item.appendChild(newImg);
           console.log(`Item ${itemIndex + 1}: Starting fade animation - out`);
           currentImg.classList.add('fade-out');
           setTimeout(() => {
+            currentImg.classList.add('done'); // Hide outgoing image
             console.log(`Item ${itemIndex + 1}: Starting fade animation - in`);
             newImg.classList.remove('fade-start');
             newImg.classList.add('fade-in');
-            newImg.style.opacity = ''; // Clear inline style
-          }, 400);
+            newImg.style.opacity = '';
+          }, 200); // Wait for fade-out to complete
         }
 
         // Update current set
@@ -462,12 +463,12 @@
     }
 
     // Verify gallery items exist
-    if (galleryItems.length !== 3) {
-      console.error(`Expected 3 gallery items, found ${galleryItems.length}`);
+    if (galleryItems.length !== 4) {
+      console.error(`Expected 4 gallery items, found ${galleryItems.length}`);
     }
 
     // Set up custom intervals and initial stagger for each image
-    const intervals = [5000, 7000, 9000, 11000]; // 5s, 7s, 11s
+    const intervals = [5000, 7000, 9000, 11000]; // 5s, 7s, 9s, 11s
     const initialDelay = 5000; // 5s initial delay
     const staggerOffsets = [0, 1000, 2000, 3000]; // 1s stagger for first cycle
 
@@ -483,7 +484,6 @@
       }
     });
   </script>
-
 </body>
 
 </html>
