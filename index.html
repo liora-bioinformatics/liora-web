@@ -12,7 +12,6 @@
 </head>
 
 <body>
-  <img id="genome" class="genome-pic genome-landing" src="img/genome.png" alt="">
   <nav class="navbar">
     <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
 
@@ -92,13 +91,59 @@
   </div>
 
   <section class="section hero-section">
-    <div class="home-hero">
+    <div class="round-box glass home-hero">
       <div style="display: flex; gap: 3em; margin-bottom: 20px; margin-left: 10%; width: fit-content;">
-      <p style="font-size: 3em; font-weight: 300;">From</p>
-      <p class="decrypted decrypted-small" data-text="Data" data-duration="1000"></p>
+        <p style="font-size: 5em; font-weight: 300;">From</p>
+        <p class="decrypted decrypted-small" data-text="Data" data-duration="1000"></p>
+      </div>
+      <p style="font-size: 5em; margin-top: 20px; margin-bottom: 20px; text-align: center;">to</p>
+      <p class="decrypted decrypted-large" data-text="Discovery" data-duration="2000"></p>
     </div>
-    <p style="font-size: 4em; margin-top: 20px; margin-bottom: 20px; text-align: center;">to</p>
-    <p class="decrypted decrypted-large" data-text="Discovery" data-duration="2000"></p>
+    <div class="home-hero-grid">
+      <img class="grid-long fade-in" src="img/variant_validation.png">
+      <div class="grid-short-1 carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Slide 1 -->
+            <div class="bash-code-editor">
+              <div class="bash-header">
+                <span class="title">Bash</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon" width="16"
+                  height="16">
+                  <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path>
+                  <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path>
+                </svg>
+              </div>
+              <div class="bash-editor-content">
+                <code class="code">
+                <p><span class="color-0">#!/bin/bash</span></p>
+                <p><span class="color-2">BAM_DIR</span><span class="color-3">=</span><span class="color-3">"./bam_files"</span></p>
+                <p><span class="color-2">OUT_DIR</span><span class="color-3">=</span><span class="color-3">"./sorted_bams"</span></p>
+                <p><span class="color-0">mkdir</span> <span class="color-3">-p</span> <span class="color-2">$OUT_DIR</span></p>
+                <p><span class="color-0">for</span> <span class="color-2">i</span> <span class="color-0">in</span> <span class="color-2">$BAM_DIR</span><span class="color-3">/*.bam</span><span class="color-3">;</span> <span class="color-0">do</span></p>
+                <p class="property"><span class="color-2">base</span><span class="color-3">=</span><span class="color-3">$(</span><span class="color-0">basename</span> <span class="color-2">$i</span> <span class="color-3">.bam</span><span class="color-3">)</span></p>
+                <p class="property"><span class="color-0">samtools</span> <span class="color-0">sort</span> <span class="color-3">-@</span> <span class="color-1">4</span> <span class="color-2">$i</span> <span class="color-3">-</span><span class="color-2">o</span> <span class="color-2">$OUT_DIR</span><span class="color-3">/</span><span class="color-2">$base</span><span class="color-3">.sorted.bam</span> <span class="color-3">&</span></p>
+                <p class="property"><span class="color-0">samtools</span> <span class="color-0">index</span> <span class="color-2">$OUT_DIR</span><span class="color-3">/</span><span class="color-2">$base</span><span class="color-3">.sorted.bam</span> <span class="color-3">&</span></p>
+                <p><span class="color-0">done</span></p>
+                <p><span class="color-0">wait</span></p>
+                <p><span class="color-0">echo</span> <span class="color-3">"All BAM files processed."</span></p>
+              </code>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="bash-code-editor">
+              <div class="bash-header"><span class="title">Bash</span></div>
+              <div class="bash-editor-content">
+                <code
+                  class="code"><p><span class="color-0">echo</span> <span class="color-3">"Hello from second card"</span></p></code>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <div class="grid-short-2 round-box glass">
+        <div>This is Some Text</div>
+      </div>
     </div>
     <img id="genomeTwo" class="genome-pic genome-hero" src="img/genome.png" alt="">
   </section>
@@ -370,6 +415,23 @@
     });
   </script>
 
+  <script>
+    const track = document.getElementById("carouselTrack");
+    const cards = track.children;
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const cardWidth = cards[0].offsetWidth + 16; // 16px = 1rem gap
+      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateCarousel();
+    }, 3000);
+
+    window.addEventListener("resize", updateCarousel);
+  </script>
 
 </body>
 

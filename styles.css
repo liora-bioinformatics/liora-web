@@ -557,7 +557,8 @@ body>nav {
 .hero-section {
   display: flex;
   height: 100vh;
-  margin-top: 4%;
+  margin-top: 7vh;
+  gap: 5%
 }
 
 .main-statement {
@@ -902,17 +903,16 @@ h6 {
 
 /* Animation Home */
 .decrypted-small {
-  font-size: 7em;
+  font-size: 8em;
   font-family: monospace;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .decrypted-large {
-  font-size: 7.5em;
+  font-size: 8em;
   margin-top: 30px;
   font-family: serif;
   width: fit-content;
-  justify-self: left;
 }
 
 .home-hero {
@@ -920,9 +920,113 @@ h6 {
   backdrop-filter: blur(3px);
   border: 1px solid #ffffff2e;
   border-radius: 1rem;
-  padding: 5em;
+  width: 50vw;
+  justify-items: center;
+}
+
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 2fr 3fr;
+  grid-template-areas: "grid-long grid-long"
+    "grid-short-1 grid-short-2";
+  width: 40vw;
+  gap: 2rem;
+}
+
+.grid-long {
+  grid-area: grid-long;
+}
+
+.grid-short-1 {
+  grid-area: grid-short-1;
+  background: #ffffff96;
+}
+
+.grid-short-2 {
+  grid-area: grid-short-2;
+  background: #80808014;
+}
+
+.round-box {
+  border-radius: 1rem;
   z-index: 2;
+  backdrop-filter: blur(5px);
+  align-content: center;
+}
+
+.round-box.dark {
+  background-color: rgb(17 24 39 / 60%);
+  box-shadow: 0px 0px 30px 12px #00000052;
+  color: white;
+}
+
+.round-box.light {
+  background: #ffffff96;
+  box-shadow: 0px 0px 30px 12px #00000052;
+}
+
+.round-box.glass {
+  border: 1px solid #ffffff2e;
   background: #80808014;
   box-shadow: 0px 0px 50px #0000007d;
-  width: 50%;
+}
+
+/* Carousel styles */
+.grid-short-1.round-box.light {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.bash-code-editor {
+  flex: 0 0 100%;
+  background-color: #2a2b30;
+  border: 1px solid #ffffff2e;
+  padding: 6px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+
+.bash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px;
+}
+
+.bash-editor-content {
+  margin: 0 6px 6px;
+  color: white;
+  font-size: 11px;
+}
+
+.color-0 {
+  color: #79c0ff;
+}
+
+.color-1 {
+  color: #d2a8ff;
+}
+
+.color-2 {
+  color: #ffa657;
+}
+
+.color-3 {
+  color: #8b949e;
 }
