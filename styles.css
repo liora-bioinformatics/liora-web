@@ -903,16 +903,19 @@ h6 {
 
 /* Animation Home */
 .decrypted-small {
-  font-size: 8em;
+  font-size: 6em;
   font-family: monospace;
   margin-top: 30px;
 }
 
 .decrypted-large {
-  font-size: 8em;
-  margin-top: 30px;
-  font-family: serif;
-  width: fit-content;
+    font-size: 6em;
+    margin-top: 30px;
+    font-family: serif;
+    width: fit-content;
+    text-underline-position: under;
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
 }
 
 .home-hero {
@@ -920,18 +923,16 @@ h6 {
   backdrop-filter: blur(3px);
   border: 1px solid #ffffff2e;
   border-radius: 1rem;
-  width: 50vw;
+  width: 40vw;
   justify-items: center;
 }
 
 .home-hero-grid {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-template-rows: 2fr 3fr;
-  grid-template-areas: "grid-long grid-long"
-    "grid-short-1 grid-short-2";
-  width: 40vw;
-  gap: 2rem;
+  grid-template-rows: 1fr 1fr;
+  width: 50vw;
+  grid-gap: 2rem; 
 }
 
 .grid-long {
@@ -972,61 +973,38 @@ h6 {
   box-shadow: 0px 0px 50px #0000007d;
 }
 
-/* Carousel styles */
-.grid-short-1.round-box.light {
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 0 !important;
-}
+/* Gallery styles  */
 
-.carousel {
+.gallery__item {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  padding: 0 1rem;
+  justify-self: anchor-center;
 }
 
-.carousel-track {
-  display: flex;
-  gap: 1rem;
-  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+.gallery__img {
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 1rem;
 }
 
-.bash-code-editor {
-  flex: 0 0 100%;
-  background-color: #2a2b30;
-  border: 1px solid #ffffff2e;
-  padding: 6px;
-  box-sizing: border-box;
-  scroll-snap-align: start;
+.gallery__img.fade-out {
+  opacity: 0;
 }
 
-.bash-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 6px;
+.gallery__item--1 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
 }
 
-.bash-editor-content {
-  margin: 0 6px 6px;
-  color: white;
-  font-size: 11px;
+.gallery__item--2 {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
 }
 
-.color-0 {
-  color: #79c0ff;
-}
-
-.color-1 {
-  color: #d2a8ff;
-}
-
-.color-2 {
-  color: #ffa657;
-}
-
-.color-3 {
-  color: #8b949e;
+.gallery__item--3 {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
 }

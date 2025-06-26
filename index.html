@@ -94,56 +94,21 @@
     <div class="round-box glass home-hero">
       <div style="display: flex; gap: 3em; margin-bottom: 20px; margin-left: 10%; width: fit-content;">
         <p style="font-size: 5em; font-weight: 300;">From</p>
-        <p class="decrypted decrypted-small" data-text="Data" data-duration="1000"></p>
+        <p class="decrypted decrypted-small" data-text="<Data>" data-duration="1000"></p>
       </div>
       <p style="font-size: 5em; margin-top: 20px; margin-bottom: 20px; text-align: center;">to</p>
       <p class="decrypted decrypted-large" data-text="Discovery" data-duration="2000"></p>
     </div>
     <div class="home-hero-grid">
-      <img class="grid-long fade-in" src="img/variant_validation.png">
-      <div class="grid-short-1 carousel">
-          <div class="carousel-track" id="carouselTrack">
-            <!-- Slide 1 -->
-            <div class="bash-code-editor">
-              <div class="bash-header">
-                <span class="title">Bash</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon" width="16"
-                  height="16">
-                  <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path>
-                  <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path>
-                </svg>
-              </div>
-              <div class="bash-editor-content">
-                <code class="code">
-                <p><span class="color-0">#!/bin/bash</span></p>
-                <p><span class="color-2">BAM_DIR</span><span class="color-3">=</span><span class="color-3">"./bam_files"</span></p>
-                <p><span class="color-2">OUT_DIR</span><span class="color-3">=</span><span class="color-3">"./sorted_bams"</span></p>
-                <p><span class="color-0">mkdir</span> <span class="color-3">-p</span> <span class="color-2">$OUT_DIR</span></p>
-                <p><span class="color-0">for</span> <span class="color-2">i</span> <span class="color-0">in</span> <span class="color-2">$BAM_DIR</span><span class="color-3">/*.bam</span><span class="color-3">;</span> <span class="color-0">do</span></p>
-                <p class="property"><span class="color-2">base</span><span class="color-3">=</span><span class="color-3">$(</span><span class="color-0">basename</span> <span class="color-2">$i</span> <span class="color-3">.bam</span><span class="color-3">)</span></p>
-                <p class="property"><span class="color-0">samtools</span> <span class="color-0">sort</span> <span class="color-3">-@</span> <span class="color-1">4</span> <span class="color-2">$i</span> <span class="color-3">-</span><span class="color-2">o</span> <span class="color-2">$OUT_DIR</span><span class="color-3">/</span><span class="color-2">$base</span><span class="color-3">.sorted.bam</span> <span class="color-3">&</span></p>
-                <p class="property"><span class="color-0">samtools</span> <span class="color-0">index</span> <span class="color-2">$OUT_DIR</span><span class="color-3">/</span><span class="color-2">$base</span><span class="color-3">.sorted.bam</span> <span class="color-3">&</span></p>
-                <p><span class="color-0">done</span></p>
-                <p><span class="color-0">wait</span></p>
-                <p><span class="color-0">echo</span> <span class="color-3">"All BAM files processed."</span></p>
-              </code>
-              </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="bash-code-editor">
-              <div class="bash-header"><span class="title">Bash</span></div>
-              <div class="bash-editor-content">
-                <code
-                  class="code"><p><span class="color-0">echo</span> <span class="color-3">"Hello from second card"</span></p></code>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      <div class="grid-short-2 round-box glass">
-        <div>This is Some Text</div>
-      </div>
+      <figure class="gallery__item gallery__item--1">
+        <img src="img\variant_validation.png" alt="Gallery image 1" class="gallery__img">
+      </figure>
+      <figure class="gallery__item gallery__item--2">
+        <img src="img\logo_name.svg" alt="Gallery image 2" class="gallery__img">
+      </figure>
+      <figure class="gallery__item gallery__item--3">
+        <img src="img\bash.png" alt="Gallery image 3" class="gallery__img">
+      </figure>
     </div>
     <img id="genomeTwo" class="genome-pic genome-hero" src="img/genome.png" alt="">
   </section>
@@ -416,21 +381,61 @@
   </script>
 
   <script>
-    const track = document.getElementById("carouselTrack");
-    const cards = track.children;
-    let currentIndex = 0;
+    const galleryItems = document.querySelectorAll('.gallery__item');
+    const imageSets = [
+      [
+        'img/python.png',
+        'img/hex-LFApp.png',
+        'img/mst.png'
+      ],
+      [
+        'img/amr_heatmap.png',
+        'img/hex-MADApp.png',
+        'img/r.png'
+      ],
+      [
+        'img/manage_schemes.png',
+        'img/dark_white_green_wname.svg',
+        'img/nj_tree.png'
+      ],
+      [
+        'img/loci_info.png',
+        'img/hex-MKdescr.png',
+        'img/python.png'
+      ],
+      [
+        'img/variant_validation.png',
+        'img/logo_name.svg',
+        'img/bash.png'
+      ]
+    ];
 
-    function updateCarousel() {
-      const cardWidth = cards[0].offsetWidth + 16; // 16px = 1rem gap
-      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    // Track current set for each item
+    const currentSets = Array(galleryItems.length).fill(0);
+
+    function cycleImage(itemIndex) {
+      const item = galleryItems[itemIndex];
+      const img = item.querySelector('.gallery__img');
+
+      // Start fade-out
+      img.classList.add('fade-out');
+
+      // After fade-out completes, change image and fade-in
+      setTimeout(() => {
+        currentSets[itemIndex] = (currentSets[itemIndex] + 1) % imageSets.length;
+        img.src = imageSets[currentSets[itemIndex]][itemIndex];
+        img.classList.remove('fade-out');
+      }, 500); // Match transition duration
     }
 
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % cards.length;
-      updateCarousel();
-    }, 3000);
-
-    window.addEventListener("resize", updateCarousel);
+    // Set up staggered intervals for each image
+    galleryItems.forEach((item, index) => {
+      // Base interval (8s) plus stagger (1000ms * index)
+      const interval = 8000 + (index * 1000);
+      setInterval(() => cycleImage(index), interval);
+      // Initial cycle with delay to stagger start
+      setTimeout(() => cycleImage(index), index * 1000);
+    });
   </script>
 
 </body>
