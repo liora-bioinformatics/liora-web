@@ -93,23 +93,25 @@
   <section class="section hero-section">
     <div class="round-box glass home-hero">
       <div style="display: flex; gap: 3em; margin-bottom: 20px; margin-left: 10%; width: fit-content;">
-        <p style="font-size: 5em; font-weight: 300;">From</p>
+        <p style="font-size: 5em; text-align: center; font-weight: 300;" class="decrypted" data-text="From"
+          data-duration="500"></p>
         <p class="decrypted decrypted-small" data-text="<Data>" data-duration="1000"></p>
       </div>
-      <p style="font-size: 5em; margin-top: 20px; margin-bottom: 20px; text-align: center; font-weight: 300;">to</p>
+      <p style="font-size: 5em; margin-top: 20px; margin-bottom: 20px; text-align: center; font-weight: 300;"
+        class="decrypted" data-text="to" data-duration="1500"></p>
       <p class="decrypted decrypted-large" data-text="Discovery" data-duration="2000"></p>
     </div>
     <div class="home-hero-grid">
-      <figure class="gallery__item gallery__item--1">
+      <figure class="round-box white gallery__item gallery__item--1">
         <img src="img/variant_validation.png" alt="Gallery image 1" class="gallery__img">
       </figure>
-      <figure class="gallery__item gallery__item--2">
+      <figure class="round-box glass gallery__item gallery__item--2">
         <img src="img/R_logo.png" alt="Gallery image 2" class="gallery__img">
       </figure>
-      <figure class="gallery__item gallery__item--3">
+      <figure class="round-box glass gallery__item gallery__item--3">
         <img src="img/logo_name.svg" alt="Gallery image 3" class="gallery__img">
       </figure>
-      <figure class="gallery__item gallery__item--4">
+      <figure class="round-box dark gallery__item gallery__item--4">
         <img src="img/bash.png" alt="Gallery image 4" class="gallery__img">
       </figure>
     </div>
@@ -117,17 +119,23 @@
   </section>
 
   <section class="section landing-section">
-    <div class="purpose">
-      <p class="fade-in-first purpose-headline">
-        When Experiments Scale, <br> Analysis Must Too.
-      </p>
-      <p class="fade-in-second purpose-subheadline">
-        We apply Math, Statistics and Bioinformatics Technology to help labs and research
-        groups adapt, automate, and accelerate.
-      </p>
+    <div>
+      <div class="round-box glass purpose" style="padding: 3em">
+        <p class="purpose-headline">
+          When <br> Experiments Scale, <br> Analysis Must Too.
+        </p>
+      </div>
+      <div class="round-box white purpose" style="width: fit-content; padding: 2em; margin-top: 2em;">
+        <p class="purpose-subheadline" style="">
+          Math, Statistics and Bioinformatics Technology <br> to help labs and research
+          groups <br> <span
+            style="font-size: larger; font-weight: bold; top: 1em; position: relative; padding-bottom: 1em;">
+            Adapt - Automate - Accelerate</span>
+        </p>
+      </div>
     </div>
     <div class="landing-cards">
-      <div class="fade-in-first home-left">
+      <div class="fade first home-left">
         <div class="home-header-white">
           Custom Pipelines
         </div>
@@ -139,7 +147,7 @@
           Learn More
         </div>
       </div>
-      <div class="fade-in-first home-left">
+      <div class="fade first home-left">
         <div class="home-header-white">
           Research & Development
         </div>
@@ -151,7 +159,7 @@
           Learn More
         </div>
       </div>
-      <div class="fade-in-first home-left">
+      <div class="fade first home-left">
         <div class="home-header-white">
           Software
         </div>
@@ -163,7 +171,7 @@
           Learn More
         </div>
       </div>
-      <div class="fade-in-first home-left">
+      <div class="fade first home-left">
         <div class="home-header-white">
           Data Analysis
         </div>
@@ -208,11 +216,9 @@
     });
 
     // Scroll animations for genome images
-    const genome = document.getElementById('genome');
     const genomeTwo = document.getElementById('genomeTwo');
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      genome.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
       genomeTwo.style.transform = `rotate(${(scrollY * 0.2) % 360}deg)`;
     });
 
@@ -277,6 +283,22 @@
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      const sections_fade = document.querySelectorAll(".fade");
+      const observer_fade = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer_fade.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5
+      });
+
+      sections_fade.forEach(section_fade => {
+        observer_fade.observe(section_fade);
+      });
+
       const sections = document.querySelectorAll(".fade-in-first");
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -370,7 +392,7 @@
         }
 
         frame++;
-      }, 30);
+      }, 50);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -387,7 +409,7 @@
     const galleryItems = document.querySelectorAll('.gallery__item');
     const imageSets = [
       ['img/python.png', 'img/Python_logo.png', 'img/hex-LFApp.png', 'img/mst.png'],
-      ['img/amr_heatmap.png', 'img/Nextflow_logo.png', 'img/hex-MADApp.png', 'img/r.png'],
+      ['img/amr_heatmap.png', 'img/Nextflow_logo.png', 'img/hex-MADApp.png', 'img/R.png'],
       ['img/manage_schemes.png', 'img/ggplot2_logo.png', 'img/dark_white_green_wname.svg', 'img/nj_tree.png'],
       ['img/loci_info.png', 'img/Bioconductor_logo.png', 'img/hex-MKdescr.png', 'img/python.png'],
       ['img/variant_validation.png', 'img/R_logo.png', 'img/logo_name.svg', 'img/bash.png']
