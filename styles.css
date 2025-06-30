@@ -129,10 +129,10 @@ body>nav {
 }
 
 .purpose {
-    align-self: start;
-    padding: 2em;
-    width: 100%;
-    max-width: 100%
+  align-self: start;
+  padding: 2em;
+  width: 100%;
+  max-width: 100%
 }
 
 .purpose-headline {
@@ -140,11 +140,11 @@ body>nav {
 }
 
 .purpose-subheadline {
-    font-size: 1.4em;
-    font-weight: 300;
-    text-align: start;
-    width: fit-content;
-    margin-bottom: 1em;
+  font-size: 1.4em;
+  font-weight: 300;
+  text-align: start;
+  width: fit-content;
+  margin-bottom: 1em;
 }
 
 .landing-cards {
@@ -164,10 +164,16 @@ body>nav {
   padding: 1em;
   text-align: center;
   color: transparent;
+  opacity: 0;
+  transition: color 0.3s ease-out, opacity 0.3s ease-out;
 }
 
-.home-left:hover .learn-more {
+.home-left:hover .learn-more,
+.project:hover .learn-more,
+.project-phylotrace:hover .learn-more {
   color: black;
+  opacity: 1;
+  transition: color 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .logo {
@@ -358,7 +364,7 @@ body>nav {
 
 .home-profile {
   font-weight: 300;
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: justify;
   align-self: center;
   padding: 1em;
@@ -378,7 +384,7 @@ body>nav {
   border: 1px solid;
   border-color: #ffffffc4;
   flex-direction: column;
-  transition: border-color 0.2s ease-in, box-shadow 0.4s ease-in background-color 0.4s ease-in, color 0.4s ease-in, transform 0.4s ease-out;
+  transition: border-color 0.2s ease-in, box-shadow 0.4s ease-in, background-color 0.4s ease-in, color 0.4s ease-in, transform 0.4s ease-out;
 }
 
 .home-left:hover {
@@ -430,7 +436,7 @@ body>nav {
 }
 
 .profile-desc {
-  margin-top: 1em;
+  margin-top: 4em;
   font-weight: 300;
   font-size: 1.3em;
   text-align: justify;
@@ -887,13 +893,13 @@ h6 {
 }
 
 .home-hero-grid {
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 50vw;
-    grid-gap: 2rem;
-    justify-items: anchor-center;
-    align-items: anchor-center;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 50vw;
+  grid-gap: 2rem;
+  justify-items: anchor-center;
+  align-items: anchor-center;
 }
 
 .grid-long {
@@ -1014,14 +1020,14 @@ h6 {
 }
 
 .gallery__item--2 {
-    grid-column: 4 / span 2;
-    grid-row: 1 / span 1;
-    padding: 2.5em;
+  grid-column: 4 / span 2;
+  grid-row: 1 / span 1;
+  padding: 2.5em;
 }
 
 .gallery__item--3 {
-    grid-column: 1 / span 2;
-    grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 1;
 }
 
 .gallery__item--4 {
@@ -1031,21 +1037,29 @@ h6 {
 
 /* Projects */
 .project {
-    padding: 1em;
-    min-height: fit-content;
-    height: 25vh;
+  padding: 1em;
+  min-height: fit-content;
+  height: 100%;
+  max-height: 100%;
+  box-shadow: 0px 0px 30px 12px #00000052;
+  transition: box-shadow-color 0.3 ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-img {
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;   
-    bottom: 2em;
-    left: 2em;
-    display: block;
-    object-fit: contain;
-    scale: 1.7;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  bottom: 2em;
+  left: 2em;
+  display: block;
+  object-fit: contain;
+  scale: 1.7;
+  transform: scale(1);
+  transition: transform 0.3s ease;
 }
 
 .project-cards {
@@ -1057,21 +1071,151 @@ h6 {
 
 .project-landing {
   display: flex;
+  gap: 5%;
+  margin-bottom: 10%;
 }
 
 .project-title {
-    display: flex;
-    justify-content: space-between;
-    height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  height: 12vh;
 }
 
 .project-name {
   font-size: 2em;
+  margin-left: 10px;
 }
 
 .project-desc {
-    font-size: 1.2em;
-    width: 75%;
-    position: relative;
-    top: -1em;
+  font-size: 1.2em;
+  width: 75%;
+  margin-left: 10px;
+}
+
+.project-field {
+  position: relative;
+  top: -2em;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.project-phylotrace {
+  padding: 1em;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.project:hover .project-img,
+.project-phylotrace:hover .project-img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.project:hover,
+.project-phylotrace:hover {
+  box-shadow: 0px 0px 30px 12px #0000009e !important;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Terminal */
+
+/* From Uiverse.io by turbo_8123 */
+.terminal-container {
+  background-color: #101729;
+  border-radius: 10px;
+  border: 1px solid #1a222f;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 320px;
+  font-family: "Courier New", monospace;
+  justify-self: anchor-center;
+  height: 100%;
+  min-height: fit-content;
+  box-shadow: 0px 0px 30px 12px #00000052;
+}
+
+.top-side {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #212b3f;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.red-circle {
+  width: 12px;
+  height: 12px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.yellow-circle {
+  width: 12px;
+  height: 12px;
+  background-color: #eab308;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.green-circle {
+  width: 12px;
+  height: 12px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.terminal-title {
+  color: #fff;
+  margin: 0;
+}
+
+.line {
+  color: #fff;
+}
+
+.line:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.dollar {
+  color: #2282f4;
+  margin-right: 15px;
+}
+
+.green-line {
+  margin-bottom: 12px;
+  color: #46cf79;
+}
+
+.line-1 {
+  animation: green-color 3s infinite;
+}
+
+.line-2 {
+  animation: green-color 3.5s infinite;
+}
+
+.line-3 {
+  animation: green-color 2s infinite;
+}
+
+@keyframes green-color {
+  0% {
+    color: #2a7151;
+  }
+
+  50% {
+    color: #46cf79;
+  }
+
+  100% {
+    color: #2a7151;
+  }
 }
