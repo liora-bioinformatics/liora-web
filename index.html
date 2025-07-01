@@ -102,16 +102,16 @@
       <p class="decrypted decrypted-large" data-text="Discovery" data-duration="2000"></p>
     </div>
     <div class="home-hero-grid">
-      <figure class="round-box white gallery__item gallery__item--1">
+      <figure class="gallery__item gallery__item--1">
         <img src="img/variant_validation.png" alt="Gallery image 1" class="gallery__img">
       </figure>
       <figure class="round-box glass gallery__item gallery__item--2">
         <img src="img/R_logo.png" alt="Gallery image 2" class="gallery__img">
       </figure>
-      <figure class="round-box glass gallery__item gallery__item--3">
+      <figure class="round-box white gallery__item gallery__item--3">
         <img src="img/logo_name.svg" alt="Gallery image 3" class="gallery__img">
       </figure>
-      <figure class="round-box dark gallery__item gallery__item--4">
+      <figure class="gallery__item gallery__item--4">
         <img src="img/bash.png" alt="Gallery image 4" class="gallery__img">
       </figure>
     </div>
@@ -135,7 +135,7 @@
       </div>
     </div>
     <div class="landing-cards">
-      <div class="fade first home-left">
+      <div class="fade-in-first home-left">
         <div class="home-header-white">
           Custom Pipelines
         </div>
@@ -147,7 +147,7 @@
           Learn More
         </div>
       </div>
-      <div class="fade first home-left">
+      <div class="fade-in-first home-left">
         <div class="home-header-white">
           Research & Development
         </div>
@@ -159,7 +159,7 @@
           Learn More
         </div>
       </div>
-      <div class="fade first home-left">
+      <div class="fade-in-first home-left">
         <div class="home-header-white">
           Software
         </div>
@@ -171,7 +171,7 @@
           Learn More
         </div>
       </div>
-      <div class="fade first home-left">
+      <div class="fade-in-first home-left">
         <div class="home-header-white">
           Data Analysis
         </div>
@@ -192,7 +192,7 @@
         <div class="about-header-white">
           Software & Tools
         </div>
-        <div class="profile-desc">
+        <div class="profile-desc" style="margin-top: 2em;">
           This selection of past projects is waiting to be added a new member.
           Software and other toolkits developed by us are
           maintained throughout their lifecycle.
@@ -201,16 +201,17 @@
       <div class="project-phylotrace round-box glass">
         <div class="project-title">
           <div class="project-desc">
-          All-in-one platform to perform and manage decentralized, hashed bacterial surveillance. PhyloTrace features a
-          toolkit of analyses like hashed cgMLST typing and Antimicrobial Resistance Screening.
-        </div>
+            All-in-one platform to perform and manage decentralized, hashed bacterial surveillance. PhyloTrace features
+            a
+            toolkit of analyses like hashed cgMLST typing and Antimicrobial Resistance Screening.
+          </div>
           <img src="img/dark_white_green_wname.svg" class="project-img" style="scale: 2.3; position: revert;">
         </div>
-        <div class="project-field" style="margin-top: 30px">
+        <div class="project-field" style="position: unset">
           Molecular Epidemiology | Microbial Genomics
         </div>
         <img src="img/PhyloTrace_bw.png" style="width: 70%; align-self: center;">
-        <div class="learn-more" style="font-size: 20px;">Learn More</div>
+        <div class="learn-more" style="font-size: 20px; padding: 0;">Learn More</div>
       </div>
     </div>
     <div class="project-cards">
@@ -228,7 +229,7 @@
           Comprehensive suite of methods for statistical analysis
           of clinical data and biomedical experiments.
         </div>
-        <div class="learn-more">Learn More</div>
+        <div class="learn-more" style="">Learn More</div>
       </div>
       <div class="round-box white project fade-in-second">
         <div class="project-title">
@@ -497,7 +498,7 @@
         }
 
         frame++;
-      }, 50);
+      }, 40);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -595,9 +596,9 @@
     }
 
     // Set up custom intervals and initial stagger for each image
-    const intervals = [5000, 7000, 9000, 11000]; // 5s, 7s, 9s, 11s
-    const initialDelay = 5000; // 5s initial delay
-    const staggerOffsets = [0, 1000, 2000, 3000]; // 1s stagger for first cycle
+    const intervals = [7000, 5000, 9000, 11000]; // 5s, 7s, 9s, 11s
+    const initialDelay = 3000; // 5s initial delay
+    const staggerOffsets = [0, 2000, 1000, 3000]; // 1s stagger for first cycle
 
     galleryItems.forEach((item, index) => {
       try {

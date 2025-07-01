@@ -93,7 +93,7 @@
 
   <section class="section about-hero-section">
     <div class="about">
-      <div class="fade-in about-left">
+      <div class="fade-in-first about-left">
         <div class="about-header-white">
           This is our DNA
         </div>
@@ -103,7 +103,7 @@
           Our work bridges research and real-world impact.
         </div>
       </div>
-      <img class="fade-in" src="img/ger.png" style="justify-self: anchor-center; margin-left: 10%;">
+      <img class="fade-in-first" src="img/ger.png" style="justify-self: anchor-center; margin-left: 10%;">
     </div>
     <div class="fade-in about-sep">
       <img class="banner-img" src="img/hfu_logo_gruen_osr_rgb.svg">
@@ -117,8 +117,8 @@
   <section class="section">
     <div>
       <div class="story-main-end">
-        <img id="genomeThree" class="genome-pic genome-hero-3 fade" src="img/genome_sundark.png" alt="">
-        <div class="fade-in about-story story-main-end">
+        <img id="genomeThree" class="genome-pic genome-hero-3" src="img/genome_sundark.png" alt="">
+        <div class="fade-in-first about-story story-main-end">
           <div class="about-header-black">
             Our story
           </div>
@@ -141,7 +141,7 @@
   </section>
 
   <section class="about-founders">
-    <div class="fade-in about-profile">
+    <div class="fade-in-first about-profile">
       <img class="profile-pic" src="img/mk.jpg">
       <div class="profile-text">
         <div class="profile-name">
@@ -163,7 +163,7 @@
         </div>
       </div>
     </div>
-    <div class="fade-in about-profile">
+    <div class="fade-in-first about-profile">
       <div class="profile-text">
         <div class="profile-name">
           Filip Paskali, Ph.D., M.D.
@@ -184,7 +184,7 @@
       </div>
       <img class="profile-pic" src="img/fp.png">
     </div>
-    <div class="fade-in about-profile">
+    <div class="fade-in-first about-profile">
       <img class="profile-pic" src="img/mf.png">
       <div class="profile-text">
         <div class="profile-name">
@@ -220,20 +220,7 @@
   </div>
 
   <script>
-    // Navbar toggle
-    const menuButton = document.querySelector('.menu-button');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const svgPath = document.querySelector('.menu-button path');
-    menuButton.addEventListener('click', () => {
-      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-      svgPath.setAttribute('d', mobileMenu.style.display === 'block'
-        ? 'M6 18L18 6M6 6l12 12'
-        : 'M4 6h16M4 12h16M4 18h16');
-    });
-
-
-
-    const genomeThree = document.getElementById('genomeThree');
+     const genomeThree = document.getElementById('genomeThree');
 
     // Define scroll range and rotation range
     const scrollStart = 0;
@@ -254,69 +241,10 @@
       // Apply transform
       genomeThree.style.transform = `rotate(${rotation}deg)`;
     });
-
-    // Projects rendering and animations
-    const projects = [
-      { id: 1, logoSrc: "img/dark_white_green_wname.svg", description: "<span class='font-bold'>PhyloTrace</span> - all-in-one platform to perform and manage decentralized, hashed bacterial surveillance" },
-      { id: 4, logoSrc: "img/hex-MKinfer.png", description: "<span class='font-bold'>MKinfer</span> - comprehensive suite of methods for statistical analysis of clinical data and biomedical experiments" },
-      { id: 3, logoSrc: "img/hex-LFApp.png", description: "<span class='font-bold'>LFApp</span> - modular application for quantitative image analysis of lateral flow assays" },
-      { id: 5, logoSrc: "img/hex-MKdescr.png", description: "<span class='font-bold'>MKdescr</span> - package providing functions to compute and visualize robust and standardized descriptive statistics" },
-      { id: 2, logoSrc: "img/logo_name.svg", description: "<span class='font-bold'>KiwiFlow</span> - interactive pipeline to facilitate processing and analysis of proteomic mass spectrometry assays" },
-      { id: 8, logoSrc: "img/hex-MKomics.png", description: "<span class='font-bold'>MKomics</span> - toolkit enabling quality control, processing and evaluation of Omics experiments" },
-      { id: 6, logoSrc: "img/hex-MADApp.png", description: "<span class='font-bold'>MADapp</span> - intuitive workflow for image-based analysis of microarrays" },
-      { id: 7, logoSrc: "img/hex-rmx.png", description: "<span class='font-bold'>rmx</span> - offers fast, optimally robust estimators for reliable parameter estimation in the presence of model deviations" },
-      { id: 9, logoSrc: "img/hex-MKpower.png", description: "<span class='font-bold'>MKpower</span> - supports power analysis and sample size calculation for planning experiments, diagnostic studies, and clinical evaluations" },
-    ];
-
-    const projectsContainer = document.getElementById('projects');
-    projects.forEach((project, index) => {
-      const div = document.createElement('div');
-      div.className = 'project-item';
-      div.style.position = 'absolute';
-      div.style.left = ['-50vh', '25vh', '-50vh', '50vh', '-25vh', '50vh'][index % 6];
-      div.style.top = ['-15vh', '0vh', '15vh', '-15vh', '0vh', '15vh'][index % 6];
-      div.innerHTML = `
-          <div class="flex items-center justify-center" style="width: 800px">
-            ${index % 2 === 0
-          ? `<img src="${project.logoSrc}" alt="${project.description}"><p class="text-left text-lg">${project.description}</p>`
-          : `<p class="text-right text-lg">${project.description}</p><img src="${project.logoSrc}" alt="${project.description}">`
-        }
-          </div>
-        `;
-      projectsContainer.appendChild(div);
-    });
-
-    gsap.registerPlugin(ScrollTrigger);
-    const projectItems = document.querySelectorAll('.project-item');
-    ScrollTrigger.create({
-      trigger: '#projects',
-      start: 'top top',
-      end: `+=${window.innerHeight * (projects.length - 1)}`,
-      pin: true,
-      pinSpacing: true,
-      scrub: true,
-    });
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#projects',
-        start: 'top top',
-        end: `+=${window.innerHeight * (projects.length - 1)}`,
-        scrub: 0.5,
-        snap: { snapTo: 1 / (projects.length - 1), duration: 0.3, ease: 'power1.inOut' },
-      },
-    });
-    projectItems.forEach((item, index) => {
-      if (index === 0) {
-        gsap.set(item, { opacity: 1 });
-      } else {
-        tl.to(projectItems[index - 1], { opacity: 0, duration: 0.5 })
-          .to(item, { opacity: 1, duration: 0.5 }, '-=0.8');
-      }
-    });
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll(".fade-in");
+      const sections = document.querySelectorAll(".fade-in-first");
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
