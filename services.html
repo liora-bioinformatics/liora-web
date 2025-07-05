@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Liora Bioinformatics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
+
+        <!-- Desktop Navigation -->
+        <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
+
+            <div class="menu-item relative group">
+                <a href="index.html" class="hover-underline">Home</a>
+            </div>
+
+            <!-- About Dropdown -->
+            <div class="menu-item relative group">
+                <!-- Hover triggers the whole group (including dropdown) -->
+                <a href="about.html" class="hover-underline font-bold">About</a>
+
+                <!-- Dropdown menu: visible when group is hovered -->
+                <div class="hidden group-hover:flex flex-col dropdown">
+                    <a href="about.html" class="dropdown-element dropdown-first dropdown-selected block">About Liora
+                        Bioinformatics</a>
+                    <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
+                    <a href="service3.html" class="dropdown-element block">Data Challenges</a>
+                    <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
+                </div>
+            </div>
+
+            <div class="menu-item relative group">
+                <a href="index.html#services" class="hover-underline">Services</a>
+            </div>
+
+            <div class="menu-item relative group">
+                <a href="index.html#contact" class="hover-underline">Contact</a>
+            </div>
+        </div>
+
+        <div class="nav-madeingermany">
+            <p class="nav-desc">
+                <span style="color: #ffffff">Next-Gen Solutions</span>
+            </p>
+            <p class="nav-mig">
+                <span style="color: #000000">Made </span>
+                <span style="color: #DD0000">in </span>
+                <span style="color: #FFCE00">Germany</span>
+            </p>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+            <button class="menu-button focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+
+                <!-- About section with sub-links -->
+                <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">About</a>
+                <a href="about.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ About Liora
+                    Bioinformatics</a>
+                <a href="about-open-science.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Open
+                    Science</a>
+                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Data
+                    Challenges</a>
+                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in
+                    Healthcare</a>
+
+                <a href="index.html#services" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="scroll-down">
+        <p>Scroll for More</p>
+    </div>
+
+    <section class="section services-intro">
+        <div class="services-intro-tile">
+            <div class="round-box glass services-box services-header" style="margin-bottom: 30px;">
+                Empowering Your Life Science Discoveries
+            </div>
+            <div class="round-box white services-box services-textbody">
+                We understand the intricate challenges of
+                modern life science research. You're generating
+                vast amounts of complex data, and extracting meaningful
+                insights requires specialized expertise. We partner
+                with you to transform your data into actionable
+                knowledge, ensuring your research stands on a
+                foundation of scientific rigor and statistical
+                excellence.
+            </div>
+        </div>
+        <div class="services-intro-tile">
+            <div class="round-box white services-box services-textbody">
+                Navigating the complexities of big data in life sciences
+                can be daunting, especially without dedicated bioinformatics
+                capacities. We're here to alleviate the burden of data
+                wrangling and analysis, freeing you to focus on your core
+                research. Our team comprises scientists with first-hand
+                laboratory experience, meaning we truly grasp your unique
+                experimental challenges and research objectives.
+            </div>
+            <div style="display: flex; gap: 30px;">
+                <div class="letter-glitch-container" id="glitchContainer" style="margin-top: 30px;">
+                    <canvas class="letter-glitch-canvas" id="letterGlitchCanvas"></canvas>
+                    <div class="center-vignette"></div>
+                </div>
+                <div class="round-box dark services-box services-header" style="margin-top: 30px;">
+                    Your Challenges. </br> Our Solutions.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section services-expertise">
+        <div>
+            <div class="round-box glass services-box services-header">
+                Unrivaled Expertise for Robust Results
+            </div>
+            <div class="round-box white services-box services-textbody">
+                Our strength lies in our multidisciplinary expertise, encompassing:
+                Advanced Biostatistics & Mathematical Modeling: Ensuring the
+                statistical integrity and power of your findings.
+                Expert Programming & Data Science: Developing efficient, tailored
+                solutions for your data.
+                Comprehensive Data Analysis: Extracting deep, reliable insights
+                from even the most complex datasets.
+            </div>
+        </div>
+        <div class="technology-grid">
+            <div class="round-box dark technology-box">
+                Omics Experiments (Genomics, Proteomics, Metabolomics, etc.)
+            </div>
+            <div class="round-box dark technology-box">
+                Next-Generation Sequencing (NGS)
+            </div>
+            <div class="round-box dark technology-box">
+                Micro-Arrays
+            </div>
+            <div class="round-box dark technology-box">
+                Mass Spectrometry
+            </div>
+            <div class="round-box dark technology-box">
+                And other advanced platforms.
+            </div>
+        </div>
+    </section>
+
+    <section class="section service-impact">
+        <div>
+            <div class="round-box glass services-box services-header">
+                Optimize Your Research. </br> Maximize Your Impact.
+            </div>
+            <div class="round-box white services-box services-textbody">
+                Don't let statistical vulnerabilities undermine your invaluable
+                research efforts. We ensure your findings are scientifically waterproof,
+                providing the robust analytical support needed for high-impact publications
+                and successful project outcomes.
+            </div>
+        </div>
+        <div class="round-box white services-box services-textbody">
+            Whether you need to:
+            Strengthen the statistical validity of your groundbreaking research.
+            Accelerate routine analysis with custom-designed, efficient pipelines.
+            Or simply require expert execution of your data and statistical analysis.
+            [Your Company Name] is your trusted partner. Let us help you unlock the 
+            full potential of your life science data.
+        </div>
+    </section>
+
+    <div class="footer-section">
+        <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+        <div class="footer-content">
+            <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                <a href="index.html#contact" class="hover:text-gray-300">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const genomeThree = document.getElementById('genomeThree');
+
+        // Define scroll range and rotation range
+        const scrollStart = 0;
+        const scrollEnd = 2000;  // Adjust this to how much scroll you want
+        const minRotation = 100;
+        const maxRotation = -30;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            // Normalize scroll progress between 0 and 1
+            let progress = (scrollY - scrollStart) / (scrollEnd - scrollStart);
+            progress = Math.max(0, Math.min(1, progress));  // Clamp between 0 and 1
+
+            // Map progress to rotation range
+            const rotation = minRotation + (maxRotation - minRotation) * progress;
+
+            // Apply transform
+            genomeThree.style.transform = `rotate(${rotation}deg)`;
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".fade-in-first");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            const sections_second = document.querySelectorAll(".fade-in-second");
+            const observer_second = new IntersectionObserver(entries_second => {
+                entries_second.forEach(entry_second => {
+                    if (entry_second.isIntersecting) {
+                        entry_second.target.classList.add("is-visible-second");
+                        observer_second.unobserve(entry.target_second);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections_second.forEach(section_second => {
+                observer_second.observe(section_second);
+            });
+
+            const sections_third = document.querySelectorAll(".fade-in-third");
+            const observer_third = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible-third");
+                        observer_third.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections_third.forEach(section_third => {
+                observer_third.observe(section_third);
+            });
+        });
+    </script>
+    <script>
+        class LetterGlitch {
+            constructor(canvasId, options = {}) {
+                this.canvas = document.getElementById(canvasId);
+                this.context = this.canvas.getContext('2d');
+
+                // Configuration options
+                this.glitchColors = options.glitchColors || ['#2b4539', '#61dca3', '#61b3dc'];
+                this.glitchSpeed = options.glitchSpeed || 50;
+                this.centerVignette = options.centerVignette || false;
+                this.outerVignette = options.outerVignette !== false;
+                this.smooth = options.smooth !== false;
+
+                // Canvas properties
+                this.fontSize = 16;
+                this.charWidth = 10;
+                this.charHeight = 20;
+
+                // Animation state
+                this.letters = [];
+                this.grid = { columns: 0, rows: 0 };
+                this.animationId = null;
+                this.lastGlitchTime = Date.now();
+
+                // Character set
+                this.lettersAndSymbols = [
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+                    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+                    '!', '@', '#', '$', '&', '*', '(', ')', '-', '_', '+', '=', '/',
+                    '[', ']', '{', '}', ';', ':', '<', '>', ',', '0', '1', '2', '3',
+                    '4', '5', '6', '7', '8', '9'
+                ];
+
+                this.init();
+            }
+
+            init() {
+                this.resizeCanvas();
+                this.setupVignettes();
+                this.animate();
+
+                // Handle window resize
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        cancelAnimationFrame(this.animationId);
+                        this.resizeCanvas();
+                        this.animate();
+                    }, 100);
+                });
+            }
+
+            setupVignettes() {
+                const container = this.canvas.parentElement;
+
+                // Remove existing vignettes
+                const existingVignettes = container.querySelectorAll('.outer-vignette, .center-vignette');
+                existingVignettes.forEach(el => el.remove());
+
+                // Add vignettes based on options
+                if (this.outerVignette) {
+                    const outerVignette = document.createElement('div');
+                    outerVignette.className = 'outer-vignette';
+                    container.appendChild(outerVignette);
+                }
+
+                if (this.centerVignette) {
+                    const centerVignette = document.createElement('div');
+                    centerVignette.className = 'center-vignette';
+                    container.appendChild(centerVignette);
+                }
+            }
+
+            getRandomChar() {
+                return this.lettersAndSymbols[Math.floor(Math.random() * this.lettersAndSymbols.length)];
+            }
+
+            getRandomColor() {
+                return this.glitchColors[Math.floor(Math.random() * this.glitchColors.length)];
+            }
+
+            hexToRgb(hex) {
+                const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+                hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+                    return r + r + g + g + b + b;
+                });
+
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : null;
+            }
+
+            interpolateColor(start, end, factor) {
+                const result = {
+                    r: Math.round(start.r + (end.r - start.r) * factor),
+                    g: Math.round(start.g + (end.g - start.g) * factor),
+                    b: Math.round(start.b + (end.b - start.b) * factor),
+                };
+                return `rgb(${result.r}, ${result.g}, ${result.b})`;
+            }
+
+            calculateGrid(width, height) {
+                const columns = Math.ceil(width / this.charWidth);
+                const rows = Math.ceil(height / this.charHeight);
+                return { columns, rows };
+            }
+
+            initializeLetters(columns, rows) {
+                this.grid = { columns, rows };
+                const totalLetters = columns * rows;
+                this.letters = Array.from({ length: totalLetters }, () => ({
+                    char: this.getRandomChar(),
+                    color: this.getRandomColor(),
+                    targetColor: this.getRandomColor(),
+                    colorProgress: 1,
+                }));
+            }
+
+            resizeCanvas() {
+                const parent = this.canvas.parentElement;
+                if (!parent) return;
+
+                const dpr = window.devicePixelRatio || 1;
+                const rect = parent.getBoundingClientRect();
+
+                this.canvas.width = rect.width * dpr;
+                this.canvas.height = rect.height * dpr;
+
+                this.canvas.style.width = `${rect.width}px`;
+                this.canvas.style.height = `${rect.height}px`;
+
+                this.context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+                const { columns, rows } = this.calculateGrid(rect.width, rect.height);
+                this.initializeLetters(columns, rows);
+
+                this.drawLetters();
+            }
+
+            drawLetters() {
+                if (!this.context || this.letters.length === 0) return;
+
+                const { width, height } = this.canvas.getBoundingClientRect();
+                this.context.clearRect(0, 0, width, height);
+                this.context.font = `${this.fontSize}px monospace`;
+                this.context.textBaseline = 'top';
+
+                this.letters.forEach((letter, index) => {
+                    const x = (index % this.grid.columns) * this.charWidth;
+                    const y = Math.floor(index / this.grid.columns) * this.charHeight;
+                    this.context.fillStyle = letter.color;
+                    this.context.fillText(letter.char, x, y);
+                });
+            }
+
+            updateLetters() {
+                if (!this.letters || this.letters.length === 0) return;
+
+                const updateCount = Math.max(1, Math.floor(this.letters.length * 0.05));
+
+                for (let i = 0; i < updateCount; i++) {
+                    const index = Math.floor(Math.random() * this.letters.length);
+                    if (!this.letters[index]) continue;
+
+                    this.letters[index].char = this.getRandomChar();
+                    this.letters[index].targetColor = this.getRandomColor();
+
+                    if (!this.smooth) {
+                        this.letters[index].color = this.letters[index].targetColor;
+                        this.letters[index].colorProgress = 1;
+                    } else {
+                        this.letters[index].colorProgress = 0;
+                    }
+                }
+            }
+
+            handleSmoothTransitions() {
+                let needsRedraw = false;
+                this.letters.forEach((letter) => {
+                    if (letter.colorProgress < 1) {
+                        letter.colorProgress += 0.05;
+                        if (letter.colorProgress > 1) letter.colorProgress = 1;
+
+                        const startRgb = this.hexToRgb(letter.color);
+                        const endRgb = this.hexToRgb(letter.targetColor);
+                        if (startRgb && endRgb) {
+                            letter.color = this.interpolateColor(startRgb, endRgb, letter.colorProgress);
+                            needsRedraw = true;
+                        }
+                    }
+                });
+
+                if (needsRedraw) {
+                    this.drawLetters();
+                }
+            }
+
+            animate() {
+                const now = Date.now();
+                if (now - this.lastGlitchTime >= this.glitchSpeed) {
+                    this.updateLetters();
+                    this.drawLetters();
+                    this.lastGlitchTime = now;
+                }
+
+                if (this.smooth) {
+                    this.handleSmoothTransitions();
+                }
+
+                this.animationId = requestAnimationFrame(() => this.animate());
+            }
+
+            destroy() {
+                cancelAnimationFrame(this.animationId);
+                window.removeEventListener('resize', this.resizeCanvas);
+            }
+        }
+
+        // Initialize the glitch effect when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Main glitch effect
+            const glitch1 = new LetterGlitch('letterGlitchCanvas', {
+                glitchSpeed: 50,
+                centerVignette: true,
+                outerVignette: false,
+                smooth: true
+            });
+
+            // Additional examples with different settings
+            const glitch2 = new LetterGlitch('letterGlitchCanvas2', {
+                glitchSpeed: 30,
+                centerVignette: false,
+                outerVignette: true,
+                smooth: false,
+                glitchColors: ['#ff0066', '#00ff66', '#6600ff']
+            });
+
+            const glitch3 = new LetterGlitch('letterGlitchCanvas3', {
+                glitchSpeed: 80,
+                centerVignette: false,
+                outerVignette: false,
+                smooth: true,
+                glitchColors: ['#ff4444', '#44ff44', '#4444ff']
+            });
+        });
+    </script>
+</body>
+
+</html>
