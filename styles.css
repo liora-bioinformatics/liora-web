@@ -403,7 +403,6 @@ body>nav {
 .home-header-white {
   font-weight: 300;
   font-size: 1.6em;
-  padding-right: 0.5em;
   align-self: anchor-center;
   text-align: center;
   border-radius: 0.5rem;
@@ -1233,8 +1232,6 @@ h6 {
   display: flex;
   height: 100vh;
   gap: 5vw;
-  padding-right: 15%;
-  padding-left: 15%;
   max-height: 100vh;
 }
 
@@ -1274,16 +1271,38 @@ h6 {
   gap: 5vw;
 }
 
+.service-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3em;
+  height: 60vh;
+  min-height: fit-content;
+  align-self: center;
+  margin-top: 5%;
+}
+
+ul {
+  list-style: inherit !important;
+  list-style-type: disc;
+  padding-left: 3em !important;
+}
+
+.service-card-list {
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+
 /* Test letter glitch */
 
 .letter-glitch-container {
-    position: relative;
-    background-color: #000000;
-    overflow: hidden;
-    border: 1em solid transparent;
-    border-radius: 1rem;
-    height: -webkit-fill-available;
+  position: relative;
+  background-color: #000000;
+  overflow: hidden;
+  border: 1em solid transparent;
+  border-radius: 1rem;
+  height: -webkit-fill-available;
 }
+
 .letter-glitch-canvas {
   display: block;
 }
