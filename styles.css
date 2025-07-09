@@ -1284,12 +1284,31 @@ h6 {
 ul {
   list-style: inherit !important;
   list-style-type: disc;
-  padding-left: 3em !important;
+  padding-left: 2.5em !important;
+  display: inline-block;
+  text-align: left;
 }
 
 .service-card-list {
   font-size: 1.5em;
   margin-top: 1em;
+  font-weight: 300;
+}
+
+.service-card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.service-card-textblock {
+  font-weight: 300;
+  font-size: 1.2em;
+  text-align: justify;
+  align-self: center;
+  padding: 2em;
+  min-height: fit-content;
 }
 
 /* Test letter glitch */
