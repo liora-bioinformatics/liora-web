@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: black;
   font-family: system-ui;
@@ -23,7 +27,7 @@ body>nav {
   color: black;
   top: 0px;
   width: 98%;
-  z-index: 50;
+  z-index: 9999;
   display: flex;
   justify-content: space-between;
   margin: 1%;
@@ -132,11 +136,13 @@ body>nav {
   align-self: start;
   padding: 2em;
   width: 100%;
-  max-width: 100%
+  max-width: 100%;
+  height: 100%;
 }
 
 .purpose-headline {
   font-size: 3em;
+  line-height: 2em;
 }
 
 .purpose-subheadline {
@@ -375,7 +381,7 @@ body>nav {
 }
 
 .home-left {
-  height: -webkit-fill-available;
+  height: 100%;
   background-color: rgb(17 24 39 / 60%);
   color: white;
   border-radius: 7px;
@@ -629,7 +635,7 @@ body>nav {
   right: 0px;
   margin: auto;
   text-align: center;
-  z-index: 9999;
+  z-index: 999;
   font-size: 1em;
   margin-right: 1%;
 }
@@ -1228,6 +1234,13 @@ h6 {
   gap: 5vw;
 }
 
+.services-description {
+  padding: 2em;
+  text-align: justify;
+  min-height: fit-content;
+  height: 50vh;
+}
+
 .services-intro {
   display: flex;
   height: 100vh;
@@ -1241,14 +1254,20 @@ h6 {
   justify-content: space-between;
 }
 
-.services-box {
-  padding: 2em;
+.services-header {
+  font-size: 2.5em;
+  text-align: center;
+  padding: 1em;
+  height: 40vh;
+  min-height: fit-content;
 }
 
-.services-header {
-  font-size: 2em;
-  height: -webkit-fill-available;
+.services-subheader {
+  font-size: 1.5em;
   text-align: center;
+  padding: 1em;
+  height: 20vh;
+  min-height: fit-content;
 }
 
 .services-textbody {
@@ -1268,14 +1287,14 @@ h6 {
 
 .service-impact {
   display: flex;
-  gap: 5vw;
+  gap: 5vh;
 }
 
 .service-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 3em;
-  height: 60vh;
+  height: 65vh;
   min-height: fit-content;
   align-self: center;
   margin-top: 5%;
@@ -1309,6 +1328,83 @@ ul {
   align-self: center;
   padding: 2em;
   min-height: fit-content;
+}
+
+.service-present {
+  display: grid;
+  gap: 5vh;
+  grid-template-columns: 1fr 2fr 2fr;
+  justify-items: stretch;
+}
+
+.services-content {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  min-height: fit-content;
+}
+
+.services-item {
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+.services-options-tech {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.services-img {
+  max-width: 100%;
+  height: 30vh;
+}
+
+.services-item ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.services-item li {
+  margin-bottom: 8px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: auto;
+  min-height: fit-content;
+  height: 30vh;
+  box-shadow: 0px 0px 30px 12px #00000052;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+  padding: 2em;
+  text-align: justify;
+  min-height: fit-content;
+}
+
+.carousel-item.active {
+  visibility: visible;
+  opacity: 1 !important;
+}
+
+.service-contact {
+  padding: 1em;
+  align-self: anchor-center;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  height: 10vh;
 }
 
 /* Test letter glitch */
