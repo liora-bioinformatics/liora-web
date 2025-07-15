@@ -1462,30 +1462,20 @@ ul {
 /* Contact Form */
 
 .contact-section {
-  background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  /* Rounded corners */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
-  max-width: 700px;
-  /* Max width for the form container */
-  width: 100%;
-  /* Full width on smaller screens */
-  box-sizing: border-box;
   text-align: center;
+  padding: 7em;
+  justify-self: center;
+  width: 60%;
 }
 
 .contact-section h2 {
   font-size: 2.5em;
-  color: #2c3e50;
   margin-bottom: 20px;
   font-weight: 700;
 }
 
 .contact-section p {
   font-size: 1.1em;
-  color: #666;
   margin-bottom: 30px;
 }
 
@@ -1493,14 +1483,12 @@ ul {
 .form-group {
   margin-bottom: 20px;
   text-align: left;
-  /* Align labels to the left */
 }
 
 .form-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #444;
   font-size: 0.95em;
 }
 
@@ -1554,48 +1542,12 @@ ul {
 
 .submit-button:hover {
   background-color: #0056b3;
-  /* Darker on hover */
   transform: translateY(-2px);
-  /* Slight lift effect */
   box-shadow: 0 6px 16px rgba(0, 123, 255, 0.3);
 }
 
 .submit-button:active {
   transform: translateY(0);
-  /* Press down effect */
   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 30px;
-  }
-
-  .contact-section h2 {
-    font-size: 2em;
-  }
-
-  .contact-section p {
-    font-size: 1em;
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .submit-button {
-    font-size: 0.95em;
-    padding: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-section {
-    padding: 20px;
-    margin: 10px;
-    /* Add some margin on very small screens */
-  }
-
-  .contact-section h2 {
-    font-size: 1.8em;
-  }
-}
