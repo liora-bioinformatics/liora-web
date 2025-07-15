@@ -388,18 +388,17 @@
         <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
 
             <div class="menu-item relative group">
-                <a href="index.html" class="hover-underline">Home</a>
+                <a href="home.html" class="hover-underline">Home</a>
             </div>
 
             <!-- About Dropdown -->
             <div class="menu-item relative group">
-                <!-- Hover triggers the whole group (including dropdown) -->
+                <!-- Hover triggers the whole group -->
                 <a href="about.html" class="hover-underline">About</a>
 
                 <!-- Dropdown menu: visible when group is hovered -->
                 <div class="hidden group-hover:flex flex-col dropdown">
-                    <a href="about.html" class="dropdown-element dropdown-first block">About Liora
-                        Bioinformatics</a>
+                    <a href="about.html" class="dropdown-element dropdown-first block">About Liora Bioinformatics</a>
                     <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
                     <a href="service3.html" class="dropdown-element block">Data Challenges</a>
                     <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
@@ -407,11 +406,11 @@
             </div>
 
             <div class="menu-item relative group">
-                <a href="index.html#services" class="hover-underline">Services</a>
+                <a href="services.html" class="hover-underline">Services</a>
             </div>
 
             <div class="menu-item relative group">
-                <a href="index.html#contact" class="hover-underline font-bold">Contact</a>
+                <a href="contact.html" class="hover-underline font-bold">Contact</a>
             </div>
         </div>
 
@@ -439,7 +438,7 @@
         <!-- Mobile Navigation -->
         <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+                <a href="home.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
 
                 <!-- About section with sub-links -->
                 <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
@@ -452,7 +451,7 @@
                 <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in
                     Healthcare</a>
 
-                <a href="index.html#services" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
+                <a href="services.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
                 <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Contact</a>
             </div>
         </div>
@@ -461,36 +460,38 @@
     <section>
         <div class="round-box dark contact-section">
             <h2>Get in Touch</h2>
-        <p>We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.</p>
+            <p>We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.
+            </p>
 
-        <form action="#" method="POST" class="contact-form">
-            <div class="form-group">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" placeholder="John Doe" required>
-            </div>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
 
-            <div class="form-group">
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
-            </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                </div>
 
-            <div class="form-group">
-                <label for="institute">Institute/Company (Optional):</label>
-                <input type="text" id="institute" name="institute" placeholder="ABC University / XYZ Corp">
-            </div>
+                <div class="form-group">
+                    <label for="institute">Institute/Company (Optional):</label>
+                    <input type="text" id="institute" name="institute" placeholder="ABC University / XYZ Corp">
+                </div>
 
-            <div class="form-group">
-                <label for="topic">Topic:</label>
-                <input type="text" id="topic" name="topic" placeholder="Inquiry about services / Collaboration proposal" required>
-            </div>
+                <div class="form-group">
+                    <label for="topic">Topic:</label>
+                    <input type="text" id="topic" name="topic"
+                        placeholder="Inquiry about services / Collaboration proposal" required>
+                </div>
 
-            <div class="form-group">
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                </div>
 
-            <button type="submit" class="submit-button">Send Message</button>
-        </form>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
         </div>
     </section>
 

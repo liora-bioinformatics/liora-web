@@ -9,6 +9,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
+  <link rel="manifest" href="resources/site.webmanifest">
 </head>
 
 <body>
@@ -19,7 +23,7 @@
     <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
 
       <div class="menu-item relative group">
-        <a href="index.html" class="hover-underline font-bold">Home</a>
+        <a href="home.html" class="hover-underline font-bold">Home</a>
       </div>
 
       <!-- About Dropdown -->
@@ -68,7 +72,7 @@
     <!-- Mobile Navigation -->
     <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Home</a>
+        <a href="home.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Home</a>
 
         <!-- About section with sub-links -->
         <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
@@ -221,7 +225,7 @@
           Comprehensive suite of methods for statistical analysis
           of clinical data and biomedical experiments.
         </div>
-        <div class="learn-more" style="">Learn More</div>
+        <div class="learn-more">Learn More</div>
       </div>
       <div class="round-box white project fade-in-second">
         <div class="project-title">
@@ -417,7 +421,7 @@
       const observer_second = new IntersectionObserver(entries_second => {
         entries_second.forEach(entry_second => {
           if (entry_second.isIntersecting) {
-            entry_second.target.classList.add("is-visible");
+            entry_second.target.classList.add("is-visible-second");
             observer_second.unobserve(entry.target_second);
           }
         });
@@ -433,7 +437,7 @@
       const observer_third = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            entry.target.classList.add("is-visible-third");
             observer_third.unobserve(entry.target);
           }
         });
@@ -449,7 +453,7 @@
       const fourth = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            entry.target.classList.add("is-visible-fourth");
             observer_fourth.unobserve(entry.target);
           }
         });
