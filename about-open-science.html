@@ -176,78 +176,7 @@
         </div>
     </div>
 
-    <script>
-        // Navbar toggle
-        const menuButton = document.querySelector('.menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const svgPath = document.querySelector('.menu-button path');
-        menuButton.addEventListener('click', () => {
-            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-            svgPath.setAttribute('d', mobileMenu.style.display === 'block'
-                ? 'M6 18L18 6M6 6l12 12'
-                : 'M4 6h16M4 12h16M4 18h16');
-        });
-
-        // Scroll animations for genome images
-        const genomeFour = document.getElementById('genomeFour');
-        const genomeFive = document.getElementById('genomeFive');
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            genomeFour.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
-            genomeFive.style.transform = `rotate(${(scrollY * 0.15) % 360}deg)`;
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll(".fade-in-first");
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            const sections_second = document.querySelectorAll(".fade-in-second");
-            const observer_second = new IntersectionObserver(entries_second => {
-                entries_second.forEach(entry_second => {
-                    if (entry_second.isIntersecting) {
-                        entry_second.target.classList.add("is-visible");
-                        observer_second.unobserve(entry.target_second);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections_second.forEach(section_second => {
-                observer_second.observe(section_second);
-            });
-
-            const sections_third = document.querySelectorAll(".fade-in-third");
-            const observer_third = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer_third.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections_third.forEach(section_third => {
-                observer_third.observe(section_third);
-            });
-        });
-    </script>
+    <script src="resources/scripts.js"></script>
 </body>
 
 </html>

@@ -33,74 +33,6 @@
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const sections_fade = document.querySelectorAll(".fade");
-            const observer_fade = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer_fade.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections_fade.forEach(section_fade => {
-                observer_fade.observe(section_fade);
-            });
-
-            const sections = document.querySelectorAll(".fade-in-first");
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            const sections_second = document.querySelectorAll(".fade-in-second");
-            const observer_second = new IntersectionObserver(entries_second => {
-                entries_second.forEach(entry_second => {
-                    if (entry_second.isIntersecting) {
-                        entry_second.target.classList.add("is-visible-second");
-                        observer_second.unobserve(entry.target_second);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections_second.forEach(section_second => {
-                observer_second.observe(section_second);
-            });
-
-            const sections_third = document.querySelectorAll(".fade-in-third");
-            const observer_third = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible-third");
-                        observer_third.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections_third.forEach(section_third => {
-                observer_third.observe(section_third);
-            });
-        });
-    </script>
-    <script>
         class LetterGlitch {
             constructor(canvasId, options = {}) {
                 this.canvas = document.getElementById(canvasId);
@@ -452,13 +384,14 @@
                     Healthcare</a>
 
                 <a href="services.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
-                <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Contact</a>
+                <a href="index.html#contact"
+                    class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Contact</a>
             </div>
         </div>
     </nav>
 
     <section>
-        <div class="round-box dark contact-section">
+        <div class="fade-in-first round-box dark contact-section">
             <h2>Get in Touch</h2>
             <p>We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.
             </p>
@@ -506,6 +439,8 @@
             </div>
         </div>
     </div>
+
+    <script src="resources/scripts.js"></script>
 </body>
 
 </html>

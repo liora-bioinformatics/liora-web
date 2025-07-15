@@ -269,11 +269,6 @@ section {
   visibility: hidden;
 }
 
-.fade.is-visible {
-  animation: fadeInEffect 1s ease-out forwards;
-  animation-delay: 0.5s;
-}
-
 @keyframes fadeInEffect {
   from {
     opacity: 0;
@@ -286,43 +281,43 @@ section {
   }
 }
 
+.fade.is-visible {
+  animation: fadeInEffect 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
 .fade-in-first,
 .fade-in-second,
 .fade-in-third,
 .fade-in-fourth {
   opacity: 0;
-  transform: translateY(5vh);
+  transform: translateY(10vh);
   visibility: hidden;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  will-change: opacity, visibility;
+  transition: transform 0.8s ease-out;;
 }
 
 .fade-in-first.is-visible {
-  opacity: 1;
   transform: none;
-  visibility: visible;
-  transition-delay: 0.2s;
+  animation: fadeInEffect 1s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
 .fade-in-second.is-visible-second {
-  opacity: 1;
   transform: none;
-  visibility: visible;
-  transition-delay: 0.4s;
+  animation: fadeInEffect 1s ease-out forwards;
+  animation-delay: 0.4s;
 }
 
 .fade-in-third.is-visible-third {
-  opacity: 1;
   transform: none;
-  visibility: visible;
-  transition-delay: 0.6s;
+  animation: fadeInEffect 1s ease-out forwards;
+  animation-delay: 0.6s;
 }
 
 .fade-in-fourth.is-visible-fourth {
-  opacity: 1;
   transform: none;
-  visibility: visible;
-  transition-delay: 0.8s;
+  animation: fadeInEffect 1s ease-out forwards;
+  animation-delay: 0.8s;
 }
 
 .genome-hero-3 {
@@ -1138,20 +1133,19 @@ h6 {
 
 /* Terminal */
 
-/* From Uiverse.io by turbo_8123 */
 .terminal-container {
-  background-color: #101729;
-  border-radius: 10px;
+  border-radius: 1rem;
   border: 1px solid #1a222f;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  max-width: 320px;
   font-family: "Courier New", monospace;
   justify-self: anchor-center;
   height: 100%;
   min-height: fit-content;
   box-shadow: 0px 0px 30px 12px #00000052;
+  width: 100%;
+  background-color: rgb(17 24 39 / 60%);
 }
 
 .top-side {
@@ -1424,7 +1418,7 @@ ul {
   cursor: pointer;
 }
 
-/* Test letter glitch */
+/* Letter glitch */
 
 .letter-glitch-container {
   position: relative;
@@ -1499,11 +1493,9 @@ ul {
   padding: 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  /* Rounded input fields */
   font-size: 1em;
   color: #333;
   box-sizing: border-box;
-  /* Include padding in width */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1511,27 +1503,22 @@ ul {
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
   border-color: #007bff;
-  /* Highlight on focus */
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
   outline: none;
-  /* Remove default outline */
 }
 
 .form-group textarea {
   resize: vertical;
-  /* Allow vertical resizing */
   min-height: 120px;
 }
 
 /* Submit Button Styling */
 .submit-button {
   background-color: #007bff;
-  /* Primary button color */
   color: #ffffff;
   padding: 15px 30px;
   border: none;
   border-radius: 8px;
-  /* Rounded button */
   font-size: 1.1em;
   font-weight: 600;
   cursor: pointer;
@@ -1550,4 +1537,3 @@ ul {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
 }
-
