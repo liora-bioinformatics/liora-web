@@ -276,9 +276,11 @@ section {
     transform: translateY(10vh);
     visibility: hidden;
   }
+
   to {
     opacity: 1;
-    transform: none; /* End state for transform */
+    transform: none;
+    /* End state for transform */
     visibility: visible;
   }
 }
@@ -286,7 +288,8 @@ section {
 /* Base style for all elements that will fade in */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(10vh); /* Initial position for slide-up effect */
+  transform: translateY(10vh);
+  /* Initial position for slide-up effect */
   visibility: hidden;
   /* Removed transition here as animation will handle it */
 }
@@ -1566,4 +1569,68 @@ ul {
 .submit-button:active {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+
+/* Privacy policy */
+
+.privacy-content {
+    max-width: 75%;
+    margin: 7vh auto;
+    padding: 3em;
+    line-height: 1.2;
+    position: relative;
+    font-size: 0.8em;
+    justify-self: center;
+}
+
+.privacy-content h1 {
+  font-size: 2.5em;
+  color: #1a202c;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.privacy-content h2 {
+  font-size: 1.8em;
+  color: #2d3748;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 5px;
+}
+
+.privacy-content h3 {
+  font-size: 1.4em;
+  color: #4a5568;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.privacy-content p,
+.privacy-content ul {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.privacy-content ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.privacy-content ul li {
+  margin-bottom: 8px;
+}
+
+.privacy-content strong {
+  color: #000;
+}
+
+.privacy-content a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.privacy-content a:hover {
+  text-decoration: none;
 }
