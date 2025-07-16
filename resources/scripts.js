@@ -135,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- Fading Animations ---
-  // These were already inside a DOMContentLoaded, now they're just part of the main one.
   const sections_fade = document.querySelectorAll(".fade");
   const observer_fade = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -152,71 +151,35 @@ document.addEventListener('DOMContentLoaded', () => {
     observer_fade.observe(section_fade);
   });
 
-  const sections = document.querySelectorAll(".fade-in-first");
+  const sectionsToAnimate = document.querySelectorAll(".fade-in-section");
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        const targetElement = entry.target;
+
+        // Get the animation class and delay from data attributes
+        const animationClass = targetElement.dataset.animationClass || "is-visible"; // Default to 'is-visible'
+        const delay = targetElement.dataset.delay || "0s"; // Default to 0s if no data-delay
+
+        // Set the animation-delay dynamically
+        targetElement.style.animationDelay = delay;
+
+        // Add the animation class
+        targetElement.classList.add(animationClass);
+
+        // Stop observing this element once it's visible
+        observer.unobserve(targetElement);
       }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.1 // Adjust as needed
   });
 
-  sections.forEach(section => {
+  // Observe each element
+  sectionsToAnimate.forEach(section => {
     observer.observe(section);
   });
-
-  const sections_second = document.querySelectorAll(".fade-in-second");
-  const observer_second = new IntersectionObserver(entries_second => {
-    entries_second.forEach(entry_second => {
-      if (entry_second.isIntersecting) {
-        entry_second.target.classList.add("is-visible-second");
-        // FIX: Corrected typo from entry.target_second to entry.target
-        observer_second.unobserve(entry_second.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  sections_second.forEach(section_second => {
-    observer_second.observe(section_second);
-  });
-
-  const sections_third = document.querySelectorAll(".fade-in-third");
-  const observer_third = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible-third");
-        observer_third.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  sections_third.forEach(section_third => {
-    observer_third.observe(section_third);
-  });
-
-  const sections_fourth = document.querySelectorAll(".fade-in-fourth");
-  const observer_fourth = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible-fourth");
-        observer_fourth.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  sections_fourth.forEach(section_fourth => {
-    observer_fourth.observe(section_fourth);
-  });
-
 
   // --- Letter Glitch Element ---
   // The class definition itself doesn't need to be in DOMContentLoaded,

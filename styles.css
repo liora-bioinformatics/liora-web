@@ -272,6 +272,35 @@ section {
 @keyframes fadeInEffect {
   from {
     opacity: 0;
+    /* Maintain transform if it's part of the initial state before animation starts */
+    transform: translateY(10vh);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: none; /* End state for transform */
+    visibility: visible;
+  }
+}
+
+/* Base style for all elements that will fade in */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(10vh); /* Initial position for slide-up effect */
+  visibility: hidden;
+  /* Removed transition here as animation will handle it */
+}
+
+/* Apply the animation when the 'is-visible' class is added */
+.fade-in-section.is-visible {
+  /* The animation-delay will be set dynamically via JS */
+  animation: fadeInEffect 0.6s ease-out forwards;
+}
+
+/*
+@keyframes fadeInEffect {
+  from {
+    opacity: 0;
     visibility: hidden;
   }
 
@@ -319,6 +348,7 @@ section {
   animation: fadeInEffect 1s ease-out forwards;
   animation-delay: 0.8s;
 }
+*/
 
 .genome-hero-3 {
   transform: rotate(-40deg);
