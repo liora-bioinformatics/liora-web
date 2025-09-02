@@ -55,7 +55,7 @@ body>nav {
 }
 
 .menu-item:hover {
-  box-shadow: inset 0px 0px 11px 0px #80808017;
+  box-shadow: inset 0px 0px 15px 2px #80808026;
 }
 
 .navigation-refs {
@@ -671,7 +671,7 @@ section {
 
 .scroll-down {
   position: absolute;
-  top: 90%;
+  top: 92%;
   right: 0px;
   margin: auto;
   text-align: center;
@@ -685,7 +685,7 @@ section {
   display: block;
   width: 1.5em;
   height: 1.5em;
-  margin: 5px auto 0;
+  margin: 0px auto 0;
   background-image: url("img/arrow-down-svgrepo-com.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -990,7 +990,7 @@ h6 {
 
 .white {
   background-color: #ffffff96;
-  border: 1px solid #0000008c;
+  border: 1px solid #00000069;
   box-shadow: 0px 0px 30px 12px #00000052;
 }
 
@@ -1385,6 +1385,11 @@ ul {
 }
 
 .services-item {
+  font-size: 1.5vw;
+  font-weight: 300;
+}
+
+.services-textbox {
   font-size: 1.6vw;
   font-weight: 300;
 }
@@ -1415,7 +1420,6 @@ ul {
   width: auto;
   min-height: fit-content;
   height: 30vh;
-  box-shadow: 0px 0px 30px 12px #00000052;
 }
 
 .pipelines-carousel {
@@ -1427,9 +1431,12 @@ ul {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   pointer-events: none;
-  padding: 2em;
-  text-align: justify;
+  padding-left: 2em;
+  justify-content: center;
+  padding-right: 2em;
+  display: flex;
   min-height: fit-content;
+  flex-direction: column;
 }
 
 .pipelines-carousel.active {
@@ -1579,13 +1586,13 @@ ul {
 /* Legal content */
 
 .legal-content {
-    max-width: 75%;
-    margin: 7vh auto;
-    padding: 3em;
-    line-height: 1.2;
-    position: relative;
-    font-size: 0.8em;
-    justify-self: center;
+  max-width: 75%;
+  margin: 7vh auto;
+  padding: 3em;
+  line-height: 1.2;
+  position: relative;
+  font-size: 0.8em;
+  justify-self: center;
 }
 
 .legal-content h1 {

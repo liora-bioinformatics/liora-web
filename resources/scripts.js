@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Set an interval to switch items every few seconds
-    const intervalTime = 5000; // 5 seconds (including 1s transition, so 4s visible)
+    const intervalTime = 4000;
     setInterval(showNextItem, intervalTime);
 
     // Optional: Ensure the first item is active on load if not set in HTML
