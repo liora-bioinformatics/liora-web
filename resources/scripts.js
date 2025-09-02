@@ -445,8 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- Carousel Box ---
-  // This was already inside a DOMContentLoaded, now it's just part of the main one.
-  const carouselItems = document.querySelectorAll('.carousel-item');
+  const carouselItems = document.querySelectorAll('.pipelines-carousel');
   let currentIndex = 0;
 
   // Only proceed if carousel items exist
