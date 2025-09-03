@@ -1002,7 +1002,8 @@ h6 {
 
 /* Gallery styles  */
 
-.gallery__item {
+.gallery__item,
+.carousel__item {
   position: relative;
   overflow: hidden;
   justify-self: center;
@@ -1013,7 +1014,8 @@ h6 {
   height: 100%;
 }
 
-.gallery__img {
+.gallery__img,
+.carousel__img {
   object-fit: cover;
   display: block;
   transform: scale(1);
@@ -1302,7 +1304,7 @@ h6 {
 }
 
 .services-subheader {
-  font-size: 1.3em;
+  font-size: 1.5vw;
   text-align: center;
   padding: 1em;
   height: 20vh;
@@ -1372,7 +1374,7 @@ ul {
 .service-present {
   display: grid;
   gap: 5vh;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 1fr 3fr 2fr;
   justify-items: stretch;
 }
 
@@ -1390,7 +1392,7 @@ ul {
 }
 
 .services-textbox {
-  font-size: 1.6vw;
+  font-size: 1.5vw;
   font-weight: 300;
 }
 
@@ -1419,29 +1421,47 @@ ul {
   position: relative;
   width: auto;
   min-height: fit-content;
-  height: 30vh;
 }
 
 .pipelines-carousel {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
   pointer-events: none;
-  padding-left: 2em;
+  /* Keep if you don't want interactions on items */
   justify-content: center;
-  padding-right: 2em;
   display: flex;
   min-height: fit-content;
   flex-direction: column;
 }
 
-.pipelines-carousel.active {
-  visibility: visible !important;
-  opacity: 1 !important;
+/* For fade animation */
+.carousel-container[data-animation="fade"] .pipelines-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  /* Adjusted to match your desired timing */
+}
+
+.carousel-container[data-animation="fade"] .pipelines-carousel.active {
+  opacity: 1;
+}
+
+/* For slide animation */
+.carousel-container[data-animation="slide"] .carousel-inner {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  transition: transform 0.5s ease;
+  /* Adjust duration/easing as needed */
+}
+
+.carousel-container[data-animation="slide"] .pipelines-carousel {
+  position: static;
+  /* Override absolute positioning to allow flex layout */
+  flex: 0 0 100%;
+  height: 100%;
 }
 
 .service-contact {

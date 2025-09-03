@@ -445,32 +445,103 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- Carousel Box ---
-  const carouselItems = document.querySelectorAll('.pipelines-carousel');
-  let currentIndex = 0;
+  const carouselContainers = document.querySelectorAll('.carousel-container');
 
-  // Only proceed if carousel items exist
-  if (carouselItems.length > 0) {
-    function showNextItem() {
-      // Remove 'active' class from current item
-      carouselItems[currentIndex].classList.remove('active');
+  // Only proceed if carousel containers exist
+  if (carouselContainers.length > 0) {
+    carouselContainers.forEach((container) => {
+      const carouselItems = container.querySelectorAll('.pipelines-carousel');
+      const numItems = carouselItems.length;
 
-      // Calculate the next index, looping back to 0 if at the end
-      currentIndex = (currentIndex + 1) % carouselItems.length;
+      // Only set up if this container has items
+      if (numItems > 0) {
+        // Get the interval from data-attribute, default to 4000
+        const intervalTime = parseInt(container.getAttribute('data-interval')) || 4000;
 
-      // Add 'active' class to the new current item
-      carouselItems[currentIndex].classList.add('active');
-    }
+        // Get the animation type, default to 'fade'
+        const animationType = container.getAttribute('data-animation') || 'fade';
 
-    // Set an interval to switch items every few seconds
-    const intervalTime = 4000;
-    setInterval(showNextItem, intervalTime);
+        let currentIndex = 0;
+        let intervalId;
 
-    // Optional: Ensure the first item is active on load if not set in HTML
-    if (!carouselItems[0].classList.contains('active')) {
-      carouselItems[0].classList.add('active');
-    }
+        if (animationType === 'fade') {
+          // Fade setup: Ensure first is active
+          if (!carouselItems[0].classList.contains('active')) {
+            carouselItems[0].classList.add('active');
+          }
+
+          function showNextItem() {
+            // Remove 'active' from current
+            carouselItems[currentIndex].classList.remove('active');
+
+            // Next index
+            currentIndex = (currentIndex + 1) % numItems;
+
+            // Add 'active' to next
+            carouselItems[currentIndex].classList.add('active');
+          }
+
+          // If only one item, no interval
+          if (numItems > 1) {
+            intervalId = setInterval(showNextItem, intervalTime);
+          }
+        } else if (animationType === 'slide') {
+          // Slide setup: Create inner wrapper if not present
+          let inner = container.querySelector('.carousel-inner');
+          if (!inner) {
+            inner = document.createElement('div');
+            inner.classList.add('carousel-inner');
+            container.appendChild(inner);
+
+            // Move items to inner
+            Array.from(carouselItems).forEach(item => inner.appendChild(item));
+          }
+
+          const itemsArray = Array.from(inner.children); // Now the originals are in inner
+
+          if (numItems > 1) {
+            // Add clones for infinite loop: clone last at beginning, clone first at end
+            const firstClone = itemsArray[0].cloneNode(true);
+            const lastClone = itemsArray[numItems - 1].cloneNode(true);
+            inner.insertBefore(lastClone, itemsArray[0]);
+            inner.appendChild(firstClone);
+
+            // Update to include clones
+            const totalSlides = numItems + 2;
+
+            // Start at position 1 (first original)
+            let currentPos = 1;
+            inner.style.transform = `translateX(-${currentPos * 100}%)`;
+
+            function showNextItem() {
+              currentPos++;
+              inner.style.transition = 'transform 0.5s ease';
+              inner.style.transform = `translateX(-${currentPos * 100}%)`;
+
+              // If reached the end clone, reset after transition
+              if (currentPos === numItems + 1) {
+                setTimeout(() => {
+                  inner.style.transition = 'none';
+                  currentPos = 1;
+                  inner.style.transform = `translateX(-${currentPos * 100}%)`;
+                }, 500); // Match transition duration in ms
+              }
+            }
+
+            intervalId = setInterval(showNextItem, intervalTime);
+          } else {
+            // Single item: No transform needed
+            inner.style.transform = `translateX(0%)`;
+          }
+        } else {
+          console.warn(`Unsupported animation type "${animationType}" for carousel. Defaulting to no animation.`);
+        }
+      } else {
+        console.warn("No carousel items found in a container. Carousel will not function for this container.");
+      }
+    });
   } else {
-    console.warn("No carousel items found. Carousel will not function.");
+    console.warn("No carousel containers found. Carousels will not function.");
   }
 
 
