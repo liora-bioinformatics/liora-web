@@ -230,7 +230,7 @@
             </div>
         </div>
         <div class="services-content">
-            <div class="fade-in-section services-description" data-animation-class="is-visible"
+            <div style="height: 50vh;" class="fade-in-section services-description" data-animation-class="is-visible"
                 data-delay="0.6s">
                 <div class="services-textbox">
                     Setting up and chaining tools to transform raw data into reliable results
@@ -264,7 +264,7 @@
         <div class="services-content">
             <div style="height: 35vh;" class="fade-in-section services-description" data-animation-class="is-visible"
                 data-delay="0.6s">
-                <div class="services-textbox">
+                <div class="services-textbox" style="font-size: 1.7vw;">
                     Advancing your research requires more than tools — it demands strategic expertise. Our consulting
                     services provide comprehensive support in methodology development, applying rigorous statistical
                     approaches for trustworthy outcomes and more.
@@ -329,53 +329,46 @@
             </div>
         </div>
         <div class="services-content">
-            <div class="fade-in-section round-box dark services-description" data-animation-class="is-visible"
-                data-delay="0.6s">
-                <div class="services-textbox">
-                    Empower your workflows with user-friendly software and interactive dashboards that simplify complex
-                    tasks. We handle everything from development to deployment, to enhance
-                    productivity without a steep learning curve.
-                </div>
+            <div style="height: 50vh;" class="fade-in-section carousel-container" data-animation-class="is-visible"
+                data-delay="0.8s" data-interval="5500" data-animation="fade">
+                <figure class="carousel__item services-item pipelines-carousel active">
+                    <img src="img/manage_schemes.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/mst_visualization.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/loci_info.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/amr_heatmap.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/browse_entries.png" class="carousel__img">
+                </figure>
             </div>
-            <a href="contact.html">
-                <div class="fade-in-section round-box glass service-contact" data-animation-class="is-visible"
-                    data-delay="0.2s">Contact Us</div>
-            </a>
-        </div>
-        <div class="services-content">
-            <div class="fade-in-section services-img" data-animation-class="is-visible" data-delay="0.8s">
-                <img src="img/bash.png" style="border-radius: 1rem;"></img>
-            </div>
-            <div class="fade-in-section round-box dark carousel-container" data-animation-class="is-visible"
-                data-delay="0.2s">
-                <div class="services-item services-options software-carousel active">
-                    <div>Optional Features</div>
-                    <ul>
-                        <li>
-                            Graphical User Interface
-                        </li>
-                        <li>
-                            User Management, Logging and Tracking
-                        </li>
-                        <li>
-                            Automated Reports
-                        </li>
-                    </ul>
+            <div class="software-div">
+                <div style="width: 30vw;" class="fade-in-section round-box dark carousel-container"
+                    data-animation-class="is-visible" data-delay="0.4s" data-interval="3000" data-animation="slide">
+                    <div class="carousel__item services-item slide-item pipelines-carousel active">
+                        Empower your Workflows
+                    </div>
+                    <div class="carousel__item services-item slide-item pipelines-carousel">
+                        User-Friendly Software
+                    </div>
+                    <div class="carousel__item services-item slide-item pipelines-carousel">
+                        Interactive Dashboards
+                    </div>
+                    <div class="carousel__item services-item slide-item pipelines-carousel">
+                        Development to Deployment
+                    </div>
                 </div>
-                <div class="services-item">
-                    <div>Technology</div>
-                    <ul>
-                        <li>
-                            Nextflow
-                        </li>
-                        <li>
-                            Bash / Shell
-                        </li>
-                        <li>
-                            R / Python
-                        </li>
-                    </ul>
-                </div>
+                <a href="contact.html" style="min-width: fit-content; width: 50%;">
+                    <div class="fade-in-section round-box glass service-contact" data-animation-class="is-visible"
+                        data-delay="0.2s">
+                        <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -386,13 +379,39 @@
                 data-delay="0.2s">
                 Data Analysis
             </div>
-            <div class="fade-in-section round-box white services-subheader" data-animation-class="is-visible"
+            <div style="max-height: 20vh; height: 20vh;" class="fade-in-section round-box white carousel-container"
+                data-animation-class="is-visible" data-delay="0.2s" data-interval="3000" data-animation="slide">
+                <figure class="carousel__item services-item slide-item pipelines-carousel active">
+                    <img src="img/Nextflow_logo.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/R_logo.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/Biopython_logo.png" class="carousel__img">
+                </figure>
+            </div>
+        </div>
+        <div class="services-content">
+            <div style="height: 40vh;" class="fade-in-section carousel-container" data-animation-class="is-visible"
+                data-delay="0.8s" data-interval="5500" data-animation="fade">
+                <figure class="carousel__item services-item pipelines-carousel active">
+                    <img src="img/allele_variant_counts.jpeg" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/nj_tree.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/mst.png" class="carousel__img">
+                </figure>
+            </div>
+            <div class="fade-in-section round-box dark services-subheader" data-animation-class="is-visible"
                 data-delay="0.8s">
                 Turning Complex Data into Actionable Insights
             </div>
         </div>
         <div class="services-content">
-            <div class="fade-in-section round-box dark services-description" data-animation-class="is-visible"
+            <div style="height: 50vh;" class="fade-in-section services-description" data-animation-class="is-visible"
                 data-delay="0.6s">
                 <div class="services-textbox">
                     Unlock the full potential of your datasets with our expert data analysis services. We apply advanced
@@ -401,45 +420,11 @@
                 </div>
             </div>
             <a href="contact.html">
-                <div class="fade-in-section round-box glass service-contact" data-animation-class="is-visible"
-                    data-delay="0.2s">Contact Us</div>
+                <div class="fade-in-section round-box white service-contact" data-animation-class="is-visible"
+                    data-delay="0.2s">
+                    <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
+                </div>
             </a>
-        </div>
-        <div class="services-content">
-            <div class="fade-in-section services-img" data-animation-class="is-visible" data-delay="0.8s">
-                <img src="img/bash.png" style="border-radius: 1rem;"></img>
-            </div>
-            <div class="fade-in-section round-box dark carousel-container" data-animation-class="is-visible"
-                data-delay="0.2s">
-                <div class="services-item services-options data_analysis-carousel active">
-                    <div>Optional Features</div>
-                    <ul>
-                        <li>
-                            Graphical User Interface
-                        </li>
-                        <li>
-                            User Management, Logging and Tracking
-                        </li>
-                        <li>
-                            Automated Reports
-                        </li>
-                    </ul>
-                </div>
-                <div class="services-item">
-                    <div>Technology</div>
-                    <ul>
-                        <li>
-                            Nextflow
-                        </li>
-                        <li>
-                            Bash / Shell
-                        </li>
-                        <li>
-                            R / Python
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 

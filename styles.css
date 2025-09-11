@@ -1280,10 +1280,14 @@ h6 {
 }
 
 .services-description {
-  padding: 2em;
   text-align: justify;
   min-height: fit-content;
-  height: 50vh;
+}
+
+.software-div {
+  height: 10vh;
+  display: flex;
+  gap: 5vh;
 }
 
 .services-intro {
@@ -1381,9 +1385,12 @@ ul {
   justify-items: stretch;
 }
 
-#pipelines,
-#software {
+#pipelines {
   grid-template-columns: 1fr 3fr 2fr;
+}
+
+#software {
+  grid-template-columns: 1fr 2fr;
 }
 
 #consulting,
@@ -1405,7 +1412,7 @@ ul {
 }
 
 .services-textbox {
-  font-size: 1.4vw;
+  font-size: 1.7vw;
   font-weight: 300;
 }
 
