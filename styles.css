@@ -1308,7 +1308,7 @@ h6 {
 }
 
 .services-subheader {
-  font-size: 1.5vw;
+  font-size: 1.4vw;
   text-align: center;
   padding: 1em;
   height: 20vh;
@@ -1405,7 +1405,7 @@ ul {
 }
 
 .services-textbox {
-  font-size: 1.5vw;
+  font-size: 1.4vw;
   font-weight: 300;
 }
 
@@ -1474,6 +1474,8 @@ ul {
 
 .slide-item {
   padding: 1em;
+  text-align: center;
+  align-self: center;
 }
 
 .service-contact {
