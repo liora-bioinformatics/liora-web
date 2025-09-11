@@ -252,6 +252,10 @@ section {
   padding-bottom: 3em
 }
 
+.inline-icon {
+  margin-right: 8px;
+}
+
 .about-sep {
   background-color: #ffffff69;
   display: flex;
@@ -1374,8 +1378,17 @@ ul {
 .service-present {
   display: grid;
   gap: 5vh;
-  grid-template-columns: 1fr 3fr 2fr;
   justify-items: stretch;
+}
+
+#pipelines,
+#software {
+  grid-template-columns: 1fr 3fr 2fr;
+}
+
+#consulting,
+#data_analysis {
+  grid-template-columns: 1fr 2.5fr 2.5fr;
 }
 
 .services-content {
@@ -1420,14 +1433,12 @@ ul {
   overflow: hidden;
   position: relative;
   width: auto;
-  min-height: fit-content;
 }
 
 .pipelines-carousel {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  /* Keep if you don't want interactions on items */
   justify-content: center;
   display: flex;
   min-height: fit-content;
@@ -1441,7 +1452,6 @@ ul {
   left: 0;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  /* Adjusted to match your desired timing */
 }
 
 .carousel-container[data-animation="fade"] .pipelines-carousel.active {
@@ -1454,14 +1464,16 @@ ul {
   flex-wrap: nowrap;
   height: 100%;
   transition: transform 0.5s ease;
-  /* Adjust duration/easing as needed */
 }
 
 .carousel-container[data-animation="slide"] .pipelines-carousel {
   position: static;
-  /* Override absolute positioning to allow flex layout */
   flex: 0 0 100%;
   height: 100%;
+}
+
+.slide-item {
+  padding: 1em;
 }
 
 .service-contact {
