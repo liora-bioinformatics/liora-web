@@ -141,16 +141,17 @@ body>nav {
 }
 
 .purpose {
-  align-self: start;
   padding: 2em;
   width: 100%;
-  max-width: 100%;
-  height: 100%;
+  height: fit-content;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .purpose-headline {
-  font-size: 3vw;
+  font-size: 2.8vw;
   line-height: 2em;
+  text-align: end;
 }
 
 .purpose-subheadline {
@@ -217,7 +218,7 @@ section {
 
 .landing-section {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 2fr 1fr;
   gap: 10vh;
   margin-top: 5%;
 }
@@ -1041,7 +1042,7 @@ h6 {
   transition: box-shadow-color 0.3 ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1em;
 }
 
 
@@ -1085,7 +1086,7 @@ h6 {
 }
 
 .project-desc {
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   width: 65%;
   margin-left: 10px;
   font-weight: 300;
@@ -1440,7 +1441,7 @@ ul {
   align-self: anchor-center;
   width: 100%;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.5vw;
   height: 10vh;
   font-weight: 300;
   transition: box-shadow 0.2s ease-out, font-weight 0.2s ease-out, opacity 0.2s ease-out;
