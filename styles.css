@@ -122,6 +122,10 @@ body>nav {
   transition: transform 0.2s ease-out;
 }
 
+.no-round-borders {
+  border-radius: unset !important;
+}
+
 .hover-underline::before {
   top: -5px;
   transform-origin: left;
@@ -145,7 +149,7 @@ body>nav {
 }
 
 .purpose-headline {
-  font-size: 3em;
+  font-size: 3vw;
   line-height: 2em;
 }
 
@@ -166,7 +170,7 @@ body>nav {
 }
 
 .learn-more {
-  font-size: small;
+  font-size: 0.9vw;
   font-style: italic;
   align-self: end;
   line-height: 1;
@@ -220,7 +224,7 @@ section {
 
 .about-header-white {
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 2.5vw;
   border-bottom: 1px solid white;
   padding-bottom: 1em;
 }
@@ -280,7 +284,6 @@ section {
 @keyframes fadeInEffect {
   from {
     opacity: 0;
-    /* Maintain transform if it's part of the initial state before animation starts */
     transform: translateY(10vh);
     visibility: hidden;
   }
@@ -288,78 +291,19 @@ section {
   to {
     opacity: 1;
     transform: none;
-    /* End state for transform */
     visibility: visible;
   }
 }
 
-/* Base style for all elements that will fade in */
 .fade-in-section {
   opacity: 0;
   transform: translateY(10vh);
-  /* Initial position for slide-up effect */
   visibility: hidden;
-  /* Removed transition here as animation will handle it */
 }
 
-/* Apply the animation when the 'is-visible' class is added */
 .fade-in-section.is-visible {
-  /* The animation-delay will be set dynamically via JS */
   animation: fadeInEffect 0.6s ease-out forwards;
 }
-
-/*
-@keyframes fadeInEffect {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-.fade.is-visible {
-  animation: fadeInEffect 1s ease-out forwards;
-  animation-delay: 0.5s;
-}
-
-.fade-in-first,
-.fade-in-second,
-.fade-in-third,
-.fade-in-fourth {
-  opacity: 0;
-  transform: translateY(10vh);
-  visibility: hidden;
-  transition: transform 0.8s ease-out;;
-}
-
-.fade-in-first.is-visible {
-  transform: none;
-  animation: fadeInEffect 1s ease-out forwards;
-  animation-delay: 0.2s;
-}
-
-.fade-in-second.is-visible-second {
-  transform: none;
-  animation: fadeInEffect 1s ease-out forwards;
-  animation-delay: 0.4s;
-}
-
-.fade-in-third.is-visible-third {
-  transform: none;
-  animation: fadeInEffect 1s ease-out forwards;
-  animation-delay: 0.6s;
-}
-
-.fade-in-fourth.is-visible-fourth {
-  transform: none;
-  animation: fadeInEffect 1s ease-out forwards;
-  animation-delay: 0.8s;
-}
-*/
 
 .genome-hero-3 {
   transform: rotate(-40deg);
@@ -416,7 +360,7 @@ section {
 
 .home-profile {
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.2vw;
   text-align: justify;
   align-self: center;
   padding: 1em;
@@ -489,7 +433,7 @@ section {
 .profile-desc {
   margin-top: 1em;
   font-weight: 300;
-  font-size: 1.3em;
+  font-size: 1.3vw;
   text-align: justify;
 }
 
@@ -1100,18 +1044,20 @@ h6 {
   justify-content: space-between;
 }
 
+
 .project-img {
-  position: relative;
+  position: absolute;
   max-width: 100%;
   max-height: 100%;
   height: auto;
-  bottom: 2em;
-  left: 2em;
+  bottom: -10%;
+  left: 69%;
   display: block;
   object-fit: contain;
-  scale: 1.7;
   transform: scale(1);
   transition: transform 0.3s ease;
+  width: 10vw;
+  height: 10vw;
 }
 
 .project-cards {
@@ -1130,7 +1076,7 @@ h6 {
 .project-title {
   display: flex;
   justify-content: space-between;
-  height: 12vh;
+  flex-direction: column;
 }
 
 .project-name {
@@ -1139,16 +1085,19 @@ h6 {
 }
 
 .project-desc {
-  font-size: 1.2em;
-  width: 75%;
+  font-size: 1.2vw;
+  width: 65%;
   margin-left: 10px;
+  font-weight: 300;
+  margin-top: 0.5em;
 }
 
 .project-field {
   font-style: italic;
   margin-left: 10px;
-  position: relative;
   top: -2em;
+  margin-top: 0em;
+  font-size: 1vw;
 }
 
 .project-phylotrace {
@@ -1413,7 +1362,7 @@ ul {
 }
 
 .services-textbox {
-  font-size: 1.7vw;
+  font-size: 1.6vw;
   font-weight: 300;
 }
 
