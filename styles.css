@@ -233,7 +233,7 @@ section {
 
 .about-header-black {
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 2.5vw;
   border-bottom: 1px solid black;
   padding-bottom: 1em;
 }
@@ -241,7 +241,7 @@ section {
 .about-invent {
   text-align: justify;
   margin-top: 1em;
-  font-size: 1.5em;
+  font-size: 1.5vw;
 }
 
 .about-story {
@@ -323,6 +323,7 @@ section {
   height: auto;
   object-fit: contain;
   flex-shrink: 1;
+  padding-right: 2em;
 }
 
 .about-profile {
@@ -447,12 +448,12 @@ section {
 }
 
 .profile-name {
-  font-size: 2em;
+  font-size: 2vw;
 }
 
 .profile-function {
   font-weight: 100;
-  font-size: 1.5em;
+  font-size: 1.5vw;
 }
 
 .profile-pic {
@@ -524,7 +525,7 @@ section {
 }
 
 .main-statement {
-  font-size: 1.5em;
+  font-size: 1.5vw;
   line-height: 3.5em;
   padding-top: 3rem;
 }
@@ -794,7 +795,7 @@ h6 {
   font-weight: 300;
   margin-top: 1em;
   margin-bottom: 1em;
-  font-size: 1.3em;
+  font-size: 1.3vw;
 }
 
 .card-source {
@@ -808,12 +809,12 @@ h6 {
 }
 
 .header {
-  font-size: 3.5em;
+  font-size: 3.5vw;
   text-align: center;
 }
 
 .subheader {
-  font-size: 2.5em;
+  font-size: 2.5vw;
   justify-self: center;
   margin-top: 3%;
   margin-bottom: 7%;
@@ -821,7 +822,7 @@ h6 {
 }
 
 .subsubheader {
-  font-size: 1.5em;
+  font-size: 1.5vw;
   justify-self: center;
   margin-top: 3%;
   margin-bottom: 7%;
@@ -830,13 +831,13 @@ h6 {
 }
 
 .open-science-card-header {
-  font-size: 2em;
+  font-size: 2vw;
   margin-bottom: 1em;
   margin-top: 1em;
 }
 
 .open-science-card-text {
-  font-size: 1.5em;
+  font-size: 1.5vw;
   font-weight: 300;
   margin-bottom: 1em;
 }
@@ -1082,7 +1083,7 @@ h6 {
 }
 
 .project-name {
-  font-size: 2em;
+  font-size: 2vw;
   margin-left: 10px;
 }
 
@@ -1253,7 +1254,7 @@ h6 {
 }
 
 .services-header {
-  font-size: 2.5em;
+  font-size: 2.5vw;
   text-align: center;
   padding: 1em;
   height: 40vh;
@@ -1269,7 +1270,7 @@ h6 {
 }
 
 .services-textbody {
-  font-size: 1em;
+  font-size: 1vw;
   text-align: justify;
 }
 
@@ -1500,13 +1501,13 @@ ul {
 }
 
 .contact-section h2 {
-  font-size: 2.5em;
+  font-size: 2.5vw;
   margin-bottom: 20px;
   font-weight: 700;
 }
 
 .contact-section p {
-  font-size: 1.1em;
+  font-size: 1.1vw;
   margin-bottom: 30px;
 }
 
@@ -1520,7 +1521,7 @@ ul {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  font-size: 0.95em;
+  font-size: 0.95vw;
 }
 
 .form-group input[type="text"],
@@ -1530,7 +1531,7 @@ ul {
   padding: 14px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1em;
+  font-size: 1vw;
   color: #333;
   box-sizing: border-box;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1556,7 +1557,7 @@ ul {
   padding: 15px 30px;
   border: none;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-size: 1.1vw;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -1584,19 +1585,19 @@ ul {
   padding: 3em;
   line-height: 1.2;
   position: relative;
-  font-size: 0.8em;
+  font-size: 0.8vw;
   justify-self: center;
 }
 
 .legal-content h1 {
-  font-size: 2.5em;
+  font-size: 2.5vw;
   color: #1a202c;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .legal-content h2 {
-  font-size: 1.8em;
+  font-size: 1.8vw;
   color: #2d3748;
   margin-top: 30px;
   margin-bottom: 15px;
@@ -1605,7 +1606,7 @@ ul {
 }
 
 .legal-content h3 {
-  font-size: 1.4em;
+  font-size: 1.4vw;
   color: #4a5568;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -1614,7 +1615,7 @@ ul {
 .legal-content p,
 .legal-content ul {
   margin-bottom: 15px;
-  font-size: 1.1em;
+  font-size: 1.1vw;
 }
 
 .legal-content ul {
