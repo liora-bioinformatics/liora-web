@@ -56,6 +56,7 @@ body>nav {
 
 .menu-item:hover {
   box-shadow: inset 0px 0px 15px 2px #80808026;
+  cursor: pointer;
 }
 
 .navigation-refs {
@@ -67,7 +68,7 @@ body>nav {
 }
 
 .dropdown {
-  top: 100%;
+  top: 110%;
   position: absolute;
   width: max-content;
   background: #ffffffb8;

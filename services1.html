@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Liora Bioinformatics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
+
+        <!-- Desktop Navigation -->
+        <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
+
+            <div class="menu-item relative group">
+                <a href="home.html" class="hover-underline">Home</a>
+            </div>
+
+            <!-- About Dropdown -->
+            <div class="menu-item relative group">
+                <!-- Hover triggers the whole group -->
+                <a href="about.html" class="hover-underline">About</a>
+
+                <!-- Dropdown menu: visible when group is hovered -->
+                <div class="hidden group-hover:flex flex-col dropdown">
+                    <a href="about.html" class="dropdown-element dropdown-first block">About Liora Bioinformatics</a>
+                    <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
+                    <a href="service3.html" class="dropdown-element block">Data Challenges</a>
+                    <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
+                </div>
+            </div>
+
+            <div class="menu-item relative group">
+                <a href="services.html" class="hover-underline font-bold">Services</a>
+            </div>
+
+            <div class="menu-item relative group">
+                <a href="contact.html" class="hover-underline">Contact</a>
+            </div>
+        </div>
+
+        <div class="nav-madeingermany">
+            <p class="nav-desc">
+                <span style="color: #ffffff">Next-Gen Solutions</span>
+            </p>
+            <p class="nav-mig">
+                <span style="color: #000000">Made </span>
+                <span style="color: #DD0000">in </span>
+                <span style="color: #FFCE00">Germany</span>
+            </p>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+            <button class="menu-button focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="home.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+
+                <!-- About section with sub-links -->
+                <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
+                <a href="about.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ About Liora
+                    Bioinformatics</a>
+                <a href="about-open-science.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Open
+                    Science</a>
+                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Data
+                    Challenges</a>
+                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in
+                    Healthcare</a>
+
+                <a href="services.html"
+                    class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Services</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="scroll-down">
+        <p>Scroll for More</p>
+    </div>
+
+    <section class="section services-intro section-first">
+        <div class="service-cards">
+            <a href="#pipelines">
+                <div class="fade-in-section home-left" data-animation-class="is-visible" data-delay="0.2s">
+                    <div class="home-header-white">
+                        Custom Pipelines
+                    </div>
+                    <div class="service-card-content">
+                        <div class="service-card-list">
+                            <ul>
+                                <li>Automated Analyses</li>
+                                <li>Intuitive Use</li>
+                                <li>Robust Results</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-textblock">
+                            Stop adapting to generic tools — we craft tailored pipelines that run fast,
+                            feel intuitive, and match your lab's unique needs.
+                        </div>
+                        <div class="learn-more">
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#consulting">
+                <div class="fade-in-section home-left" data-animation-class="is-visible" data-delay="0.4s">
+                    <div class="home-header-white">
+                        Consulting & Research
+                    </div>
+                    <div class="service-card-content">
+                        <div class="service-card-list">
+                            <ul>
+                                <li>Methodology</li>
+                                <li>AI & Machine Learning</li>
+                                <li>Reliable Statistics</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-textblock">
+                            Need more than a pipeline? We partner on bioinformatics R&D to design,
+                            prototype, and deliver next-gen analysis solutions.
+                        </div>
+                        <div class="learn-more">
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#software">
+                <div class="fade-in-section home-left" data-animation-class="is-visible" data-delay="0.6s">
+                    <div class="home-header-white">
+                        Software & Dashboards
+                    </div>
+                    <div class="service-card-content">
+                        <div class="service-card-list">
+                            <ul>
+                                <li>Graphical Interface</li>
+                                <li>Maintenance & Support</li>
+                                <li>Deployment & Education</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-textblock">
+                            We provide established, open-source bioinformatics tools with full lifecycle support —
+                            ready for deployment and maintained by our team.
+                        </div>
+                        <div class="learn-more">
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#data_analysis">
+                <div class="fade-in-section home-left" data-animation-class="is-visible" data-delay="0.8s">
+                    <div class="home-header-white">
+                        Data Analysis
+                    </div>
+                    <div class="service-card-content">
+                        <div class="service-card-list">
+                            <ul>
+                                <li>Advanced Statistics</li>
+                                <li>Technical Reports</li>
+                                <li>Data Storytelling</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-textblock">
+                            We transform your raw data into meaningful insights — from statistical models to analysis of
+                            Omics
+                            data.
+                        </div>
+                        <div class="learn-more">
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="pipelines" class="section service-present">
+        <div class="services-content">
+            <div class="fade-in-section round-box glass services-header" data-animation-class="is-visible"
+                data-delay="0.2s">
+                Custom Pipelines
+            </div>
+            <div style="max-height: 20vh; height: 20vh;" class="fade-in-section round-box white carousel-container"
+                data-animation-class="is-visible" data-delay="0.2s" data-interval="3000" data-animation="slide">
+                <figure class="carousel__item services-item slide-item pipelines-carousel active">
+                    <img src="img/Nextflow_logo.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/R_logo.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/Biopython_logo.png" class="carousel__img">
+                </figure>
+            </div>
+        </div>
+        <div class="services-content">
+            <div style="height: 40vh;" class="fade-in-section carousel-container" data-animation-class="is-visible"
+                data-delay="0.8s" data-interval="5500" data-animation="fade">
+                <figure class="carousel__item services-item pipelines-carousel active">
+                    <img src="img/variant_validation.png" class="no-round-borders carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/bash.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/Allelic Typing.png" class="no-round-borders carousel__img">
+                </figure>
+            </div>
+            <div class="fade-in-section round-box dark services-subheader" data-animation-class="is-visible"
+                data-delay="0.8s">
+                Truly Reproducible, Robust and Reusable Pipelines
+            </div>
+        </div>
+        <div class="services-content">
+            <div style="height: 50vh;" class="fade-in-section services-description" data-animation-class="is-visible"
+                data-delay="0.6s">
+                <div class="services-textbox">
+                    Setting up and chaining tools to transform raw data into reliable results
+                    is no easy task - especially for researchers and lab-workers without extensive
+                    education.
+
+                    Instead of wrangling data yourself let us produce a solution that will work
+                    intuitively for you.
+                </div>
+            </div>
+            <a href="contact.html">
+                <div class="fade-in-section round-box white service-contact" data-animation-class="is-visible"
+                    data-delay="0.2s">
+                    <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="consulting" class="section service-present">
+        <div class="services-content">
+            <div class="fade-in-section round-box glass services-header" data-animation-class="is-visible"
+                data-delay="0.2s">
+                Consulting & Research
+            </div>
+            <div class="fade-in-section round-box white services-subheader" data-animation-class="is-visible"
+                data-delay="0.8s">
+                Expert Guidance for Cutting-Edge Bioinformatics
+            </div>
+        </div>
+        <div class="services-content">
+            <div style="height: 35vh;" class="fade-in-section services-description" data-animation-class="is-visible"
+                data-delay="0.6s">
+                <div class="services-textbox">
+                    Advancing your research requires more than tools — it demands strategic expertise. Our consulting
+                    services provide comprehensive support in methodology development, applying rigorous statistical
+                    approaches for trustworthy outcomes and more.
+                </div>
+            </div>
+            <div style="height: 10vh; width: 30vw;" class="fade-in-section round-box dark carousel-container"
+                data-animation-class="is-visible" data-delay="0.4s" data-interval="3000" data-animation="slide">
+                <div class="carousel__item services-item slide-item pipelines-carousel active">
+                    Determination of Study Design
+                </div>
+                <div class="carousel__item services-item slide-item pipelines-carousel">
+                    Case Number Planning and Power Analysis
+                </div>
+                <div class="carousel__item services-item slide-item pipelines-carousel">
+                    Monte Carlo Simulations
+                </div>
+                <div class="carousel__item services-item slide-item pipelines-carousel">
+                    Graphical Representations
+                </div>
+                <div class="carousel__item services-item slide-item pipelines-carousel">
+                    Interpretation
+                </div>
+                <div class="carousel__item services-item slide-item pipelines-carousel">
+                    Publication
+                </div>
+                <div class="carousel__item services-item slide-item pipelines-carousel">
+                    Data Collection
+                </div>
+            </div>
+            <a href="contact.html">
+                <div class="fade-in-section round-box glass service-contact" data-animation-class="is-visible"
+                    data-delay="0.2s">
+                    <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
+                </div>
+            </a>
+        </div>
+        <div class="services-content">
+            <div style="height: 65vh;" class="fade-in-section carousel-container" data-animation-class="is-visible"
+                data-delay="0.8s" data-interval="5500" data-animation="fade">
+                <figure class="carousel__item services-item pipelines-carousel active">
+                    <img src="img/word_cloud.png" class="no-round-borders carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/fshd_analysis.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/fshd_meta.png" class="carousel__img">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="software" class="section service-present">
+        <div class="services-content">
+            <div class="fade-in-section round-box glass services-header" data-animation-class="is-visible"
+                data-delay="0.2s">
+                Software & Dashboards
+            </div>
+            <div class="fade-in-section round-box white services-subheader" data-animation-class="is-visible"
+                data-delay="0.8s">
+                Seamless Solutions to Handle Complex Tasks with Ease
+            </div>
+        </div>
+        <div class="services-content">
+            <div style="height: 50vh;" class="fade-in-section carousel-container" data-animation-class="is-visible"
+                data-delay="0.8s" data-interval="5500" data-animation="fade">
+                <figure class="carousel__item services-item pipelines-carousel active">
+                    <img src="img/manage_schemes.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/mst_visualization.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/loci_info.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/amr_heatmap.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/browse_entries.png" class="carousel__img">
+                </figure>
+            </div>
+            <div class="software-div">
+                <div style="width: 30vw;" class="fade-in-section round-box dark carousel-container"
+                    data-animation-class="is-visible" data-delay="0.4s" data-interval="3000" data-animation="slide">
+                    <div class="carousel__item services-item slide-item pipelines-carousel active">
+                        Empower your Workflows
+                    </div>
+                    <div class="carousel__item services-item slide-item pipelines-carousel">
+                        User-Friendly Software
+                    </div>
+                    <div class="carousel__item services-item slide-item pipelines-carousel">
+                        Interactive Dashboards
+                    </div>
+                    <div class="carousel__item services-item slide-item pipelines-carousel">
+                        Development to Deployment
+                    </div>
+                </div>
+                <a href="contact.html" style="min-width: fit-content; width: 50%;">
+                    <div class="fade-in-section round-box glass service-contact" data-animation-class="is-visible"
+                        data-delay="0.2s">
+                        <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="data_analysis" class="section service-present">
+        <div class="services-content">
+            <div class="fade-in-section round-box glass services-header" data-animation-class="is-visible"
+                data-delay="0.2s">
+                Data Analysis
+            </div>
+            <div style="max-height: 20vh; height: 20vh;" class="fade-in-section round-box white carousel-container"
+                data-animation-class="is-visible" data-delay="0.2s" data-interval="3000" data-animation="slide">
+                <figure class="carousel__item services-item slide-item pipelines-carousel active">
+                    <img src="img/jupyter_logo.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/R_logo.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/quarto.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/ggplot2_logo.png" class="carousel__img">
+                </figure>
+            </div>
+        </div>
+        <div class="services-content">
+            <div style="height: 40vh;" class="fade-in-section carousel-container" data-animation-class="is-visible"
+                data-delay="0.8s" data-interval="5500" data-animation="fade">
+                <figure class="carousel__item services-item pipelines-carousel active">
+                    <img src="img/allele_variant_counts.jpeg" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/nj_tree.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/fshd_volcano.png" class="carousel__img">
+                </figure>
+                <figure class="carousel__item services-item pipelines-carousel">
+                    <img src="img/mst.png" class="carousel__img">
+                </figure>
+            </div>
+            <div class="fade-in-section round-box dark services-subheader" data-animation-class="is-visible"
+                data-delay="0.8s">
+                Turning Complex Data into Actionable Insights
+            </div>
+        </div>
+        <div class="services-content">
+            <div style="height: 50vh;" class="fade-in-section services-description" data-animation-class="is-visible"
+                data-delay="0.6s">
+                <div class="services-textbox">
+                    Unlock the full potential of your datasets with our expert data analysis services. We apply advanced
+                    statistical techniques to Omics and other biological data, delivering clear technical reports that
+                    highlight key findings and trends.
+                </div>
+            </div>
+            <a href="contact.html">
+                <div class="fade-in-section round-box white service-contact" data-animation-class="is-visible"
+                    data-delay="0.2s">
+                    <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <div class="footer-section">
+        <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+        <div class="footer-content">
+            <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="impressum.html" class="hover:text-gray-300">Impressum (Legal Notice)</a>
+                <a href="contact.html" class="hover:text-gray-300">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="resources/scripts.js"></script>
+</body>
+
+</html>
