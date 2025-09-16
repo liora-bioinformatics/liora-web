@@ -235,7 +235,7 @@ section {
   font-weight: bold;
   font-size: 2.5vw;
   border-bottom: 1px solid black;
-  padding-bottom: 1em;
+  padding-bottom: 1vw;
 }
 
 .about-invent {
@@ -254,8 +254,8 @@ section {
   backdrop-filter: blur(5px);
   width: 50%;
   margin-right: 5%;
-  padding-top: 3em;
-  padding-bottom: 3em
+  padding-top: 1vw;
+  padding-bottom: 4vw;
 }
 
 .inline-icon {
@@ -310,12 +310,12 @@ section {
 .genome-hero-3 {
   transform: rotate(-40deg);
   position: absolute;
-  width: 40%;
-  left: 20%;
-  top: 33%;
+  width: 25vw;
+  left: 28%;
+  top: 23%;
   opacity: 1;
   z-index: 0;
-  padding-right: 21rem;
+  padding-top: 25vw;
 }
 
 .about-sep img {

@@ -3,119 +3,6 @@
 // the JavaScript attempts to access them.
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Home Gallery ---
-  const galleryItems = document.querySelectorAll('.gallery__item');
-  const imageSets = [
-    ['img/python.png', 'img/Python_logo.png', 'img/hex-LFApp.png', 'img/mst.png'],
-    ['img/amr_heatmap.png', 'img/Nextflow_logo.png', 'img/hex-MADApp.png', 'img/R.png'],
-    ['img/manage_schemes.png', 'img/ggplot2_logo.png', 'img/dark_white_green_wname.svg', 'img/nj_tree.png'],
-    ['img/loci_info.png', 'img/quarto.png', 'img/hex-MKdescr.png', 'img/python.png'],
-    ['img/variant_validation.png', 'img/R_logo.png', 'img/logo_name.svg', 'img/bash.png']
-  ];
-
-  // Track current set for each item
-  const currentSets = Array(galleryItems.length).fill(0);
-
-  function cycleImage(itemIndex) {
-    try {
-      const item = galleryItems[itemIndex];
-      if (!item) {
-        console.error(`Gallery item at index ${itemIndex} is null or undefined.`);
-        return;
-      }
-      const currentImg = item.querySelector('.gallery__img');
-      if (!currentImg) {
-        console.error(`No image found in gallery item ${itemIndex + 1}`);
-        return;
-      }
-
-      // Create new image element
-      const newImg = document.createElement('img');
-      // Ensure the image set index is within bounds for imageSets and the itemIndex for the inner array
-      const nextSetIndex = (currentSets[itemIndex] + 1) % imageSets.length;
-      if (imageSets[nextSetIndex] && imageSets[nextSetIndex][itemIndex]) {
-        newImg.src = imageSets[nextSetIndex][itemIndex];
-      } else {
-        console.warn(`No image found for itemIndex ${itemIndex} in imageSet ${nextSetIndex}. Skipping.`);
-        return;
-      }
-
-      newImg.alt = `Gallery image ${itemIndex + 1}`;
-      newImg.classList.add('gallery__img');
-
-      // Apply animation based on item index
-      if (itemIndex === 2) { // gallery__item--3
-        // Reset current image classes
-        currentImg.className = 'gallery__img';
-        newImg.style.transform = 'scale(0) rotate(-90deg)';
-        newImg.style.opacity = '0';
-        newImg.classList.add('combined-start');
-        item.appendChild(newImg);
-        console.log(`Item ${itemIndex + 1}: Starting combined animation - out`);
-        currentImg.classList.add('combined-out');
-        setTimeout(() => {
-          console.log(`Item ${itemIndex + 1}: Starting combined animation - in`);
-          newImg.classList.remove('combined-start');
-          newImg.classList.add('combined-in');
-          newImg.style.transform = '';
-          newImg.style.opacity = '';
-        }, 50);
-      } else { // gallery__item--1, gallery__item--2, gallery__item--4
-        // Reset current image classes
-        currentImg.className = 'gallery__img';
-        newImg.style.opacity = '0';
-        newImg.classList.add('fade-start');
-        item.appendChild(newImg);
-        console.log(`Item ${itemIndex + 1}: Starting fade animation - out`);
-        currentImg.classList.add('fade-out');
-        setTimeout(() => {
-          currentImg.classList.add('done'); // Hide outgoing image
-          console.log(`Item ${itemIndex + 1}: Starting fade animation - in`);
-          newImg.classList.remove('fade-start');
-          newImg.classList.add('fade-in');
-          newImg.style.opacity = '';
-        }, 200); // Wait for fade-out to complete
-      }
-
-      // Update current set
-      currentSets[itemIndex] = nextSetIndex; // Use nextSetIndex directly
-
-      // After transition, remove old image
-      setTimeout(() => {
-        if (currentImg && currentImg.parentNode) {
-          currentImg.remove();
-          console.log(`Item ${itemIndex + 1}: Removed old image`);
-        }
-      }, 500);
-
-      console.log(`Cycled image for item ${itemIndex + 1} to ${newImg.src}`);
-    } catch (error) {
-      console.error(`Error cycling image for item ${itemIndex + 1}:`, error);
-    }
-  }
-
-  // Verify gallery items exist
-  if (galleryItems.length !== 4) { // Assuming your HTML structure has 4 items for this logic
-    console.error(`Expected 4 gallery items for animation, found ${galleryItems.length}`);
-  } else {
-    // Set up custom intervals and initial stagger for each image
-    const intervals = [7000, 5000, 9000, 11000]; // 5s, 7s, 9s, 11s (typo fixed, values match comment)
-    const initialDelay = 3000; // 3s initial delay
-    const staggerOffsets = [0, 2000, 1000, 3000]; // 1s stagger for first cycle
-
-    galleryItems.forEach((item, index) => {
-      try {
-        setTimeout(() => {
-          setInterval(() => cycleImage(index), intervals[index]);
-          cycleImage(index); // Call once immediately after initial delay
-          console.log(`Started cycling for item ${index + 1} with interval ${intervals[index]}ms`);
-        }, initialDelay + staggerOffsets[index]);
-      } catch (error) {
-        console.error(`Error setting up cycle for item ${index + 1}:`, error);
-      }
-    });
-  }
-
   // --- Navbar toggle ---
   const menuButton = document.querySelector('.menu-button');
   const mobileMenu = document.querySelector('.mobile-menu');
@@ -173,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, {
-    threshold: 0.1 // Adjust as needed
+    threshold: 0.1
   });
 
   // Observe each element
@@ -182,15 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Letter Glitch Element ---
-  // The class definition itself doesn't need to be in DOMContentLoaded,
-  // but the instantiation does.
   class LetterGlitch {
     constructor(canvasId, options = {}) {
       this.canvas = document.getElementById(canvasId);
-      // Check if canvas exists before proceeding
       if (!this.canvas) {
         console.error(`Canvas element with ID '${canvasId}' not found.`);
-        return; // Exit constructor if canvas not found
+        return;
       }
       this.context = this.canvas.getContext('2d');
 
@@ -415,7 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize the glitch effect when the page loads
-  // These instantiations are placed within DOMContentLoaded as they need the canvas elements to exist.
   const glitch1 = new LetterGlitch('letterGlitchCanvas', {
     glitchSpeed: 50,
     centerVignette: true,
@@ -549,24 +432,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Define common scroll range and rotation range once
   const scrollStart = 0;
   const scrollEnd = 2000;
-  const minRotation = 100;
-  const maxRotation = -30;
 
   // Helper function to handle rotation
-  const setupGenomeRotation = (elementId, minRot, maxRot) => {
+  const setupGenomeRotation = (elementId, minRot, maxRot, boost) => {
     const element = document.getElementById(elementId);
     if (element) {
       window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         let progress = (scrollY - scrollStart) / (scrollEnd - scrollStart);
         progress = Math.max(0, Math.min(1, progress));
-        const rotation = minRot + (maxRot - minRot) * progress;
+        const rotation = minRot + (maxRot - minRot) * progress * boost;
         element.style.transform = `rotate(${rotation}deg)`;
       });
     } else {
       console.warn(`Element with ID '${elementId}' not found. Rotation animation will not work.`);
     }
   };
+
+  setupGenomeRotation('genomeThree', -50, 50, 3);
 
   // Specific scroll handler for genomeTwo (different logic)
   const genomeTwo = document.getElementById('genomeTwo');
@@ -578,10 +461,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.warn("Element with ID 'genomeTwo' not found. Scroll animation will not work.");
   }
-
-  // Apply rotation for others using the helper
-  setupGenomeRotation('genomeThree', 100, -30); // Using the common min/max for now
-  setupGenomeRotation('genomeServices', 100, -30); // Using the common min/max for now
 
   // Specific scroll handler for genomeFour and genomeFive (same logic)
   const genomeFour = document.getElementById('genomeFour');
