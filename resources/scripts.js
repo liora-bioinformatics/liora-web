@@ -449,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  setupGenomeRotation('genomeThree', -50, 50, 3);
+  setupGenomeRotation('genomeThree', -50, 50, 3.2);
 
   // Specific scroll handler for genomeTwo (different logic)
   const genomeTwo = document.getElementById('genomeTwo');

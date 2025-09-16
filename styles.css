@@ -312,7 +312,7 @@ section {
   position: absolute;
   width: 25vw;
   left: 28%;
-  top: 23%;
+  top: 15%;
   opacity: 1;
   z-index: 0;
   padding-top: 25vw;
@@ -332,15 +332,6 @@ section {
   gap: 5em;
   margin-top: 10vh;
   height: 20em;
-}
-
-.about-founders {
-  margin-top: 20vh;
-  margin-left: 10vw;
-  margin-bottom: 20vh;
-  margin-right: 10vw;
-  padding-left: 5%;
-  padding-right: 5%;
 }
 
 .about {
@@ -454,6 +445,11 @@ section {
 .profile-function {
   font-weight: 100;
   font-size: 1.5vw;
+  display: none;
+}
+
+.section-middle {
+  padding-top: 5%;
 }
 
 .profile-pic {
