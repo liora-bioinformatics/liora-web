@@ -1032,12 +1032,69 @@ h6 {
 }
 
 .project-page {
+  display: flex;
+  height: 100%;
+  gap: 5vw;
+}
+
+.project-section {
+  padding-left: 0;
   height: 100vh;
-  display: flex
 }
 
 .project-sidebar {
-  border-right: 1px solid black;
+  width: 25%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 25%;
+}
+
+.project-overview {
+  font-weight: 300;
+  padding: 2em;
+  font-size: 1.1vw;
+  text-align: justify;
+}
+
+.button {
+  background-color: #ffffff96;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3vw;
+}
+
+.overview-button {
+  background-color: #ffffff96;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3vw;
+  min-width: fit-content;
+  width: 10vw;
+  height: 7vh;
+  font-weight: 300;
+}
+
+.project-button-banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: anchor-center;
+}
+
+.project-buttons {
+  display: flex;
 }
 
 /* Projects */
