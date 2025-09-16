@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Liora Bioinformatics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
+
+        <!-- Desktop Navigation -->
+        <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
+
+            <div class="menu-item relative group" onclick="window.location.href = 'home.html';">
+                <a href="home.html" class="hover-underline">Home</a>
+            </div>
+
+            <!-- About Dropdown -->
+            <div class="menu-item relative group" onclick="window.location.href = 'about.html';">
+                <!-- Hover triggers the whole group -->
+                <a href="about.html" class="hover-underline">About</a>
+
+                <!-- Dropdown menu: visible when group is hovered -->
+                <!-- <div class="hidden group-hover:flex flex-col dropdown">
+                    <a href="about.html" class="dropdown-element dropdown-first block">About Liora Bioinformatics</a>
+                    <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
+                    <a href="service3.html" class="dropdown-element block">Data Challenges</a>
+                    <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
+                </div> -->
+            </div>
+
+            <div class="menu-item relative group" onclick="window.location.href = 'phylotrace.html';">
+                <a href="phylotrace.html" class="hover-underline font-bold">PhyloTrace</a>
+            </div>
+
+            <div class="menu-item relative group" onclick="window.location.href = 'service.html';">
+                <a href="service.html" class="hover-underline">Services</a>
+            </div>
+
+            <div class="menu-item relative group" onclick="window.location.href = 'contact.html';">
+                <a href="contact.html" class="hover-underline">Contact</a>
+            </div>
+        </div>
+
+        <div class="nav-madeingermany">
+            <p class="nav-desc">
+                <span style="color: #ffffff">Next-Gen Solutions</span>
+            </p>
+            <p class="nav-mig">
+                <span style="color: #000000">Made </span>
+                <span style="color: #DD0000">in </span>
+                <span style="color: #FFCE00">Germany</span>
+            </p>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+            <button class="menu-button focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="home.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+
+                <!-- About section with sub-links -->
+                <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
+                <a href="about.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ About Liora
+                    Bioinformatics</a>
+                <a href="about-open-science.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Open
+                    Science</a>
+                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Data
+                    Challenges</a>
+                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in
+                    Healthcare</a>
+
+                <a href="services.html"
+                    class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Services</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="scroll-down">
+        <p>Scroll for More</p>
+    </div>
+
+    <section class="section-first">
+        <div class="project-page">
+            <div class="project-sidebar">
+                <figure class="carousel__item services-item slide-item pipelines-carousel">
+                    <img src="img/dark_white_green_wname.svg" class="carousel__img">
+                </figure>
+            </div>
+            <div></div>
+        </div>
+    </section>
+
+    <div class="footer-section">
+        <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+        <div class="footer-content">
+            <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="impressum.html" class="hover:text-gray-300">Impressum (Legal Notice)</a>
+                <a href="contact.html" class="hover:text-gray-300">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="resources/scripts.js"></script>
+</body>
+
+</html>
