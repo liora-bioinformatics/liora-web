@@ -1099,7 +1099,8 @@ h6 {
   display: flex;
   justify-content: space-around;
   align-items: anchor-center;
-  height: 15%;
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 1;
 }
 
 .project-buttons {
@@ -1758,13 +1759,6 @@ ul {
   right: 10px;
 }
 
-.project-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 1vw;
-}
-
 a:hover {
   color: unset !important;
   text-decoration: unset !important;
@@ -1803,8 +1797,9 @@ a:hover {
 .phylotrace-banner {
   display: flex;
   justify-content: space-evenly;
-  height: 15%;
   align-items: center;
+  grid-column: 1 / span 3;
+  grid-row: 3 / span 1;
 }
 
 .phylotrace-message {
@@ -1866,8 +1861,9 @@ a:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  align-content: space-around;
-  width: 50%;
+  width: 100%;
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 1;
 }
 
 .github-stats {
@@ -1886,15 +1882,17 @@ a:hover {
   justify-content: space-evenly;
   width: 50%;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 1vw;
+  width: 100%;
 }
 
 .project-stats {
-  display: flex;
-  justify-content: center;
-  gap: 5vh;
-  height: 50%;
+  display: grid;
+  gap: 2vw;
+  height: 100%;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 2fr 3fr 2fr;
 }
 
 .stats {
@@ -1911,6 +1909,8 @@ a:hover {
   text-align: center;
   font-weight: 300;
   height: 100%;
+  width: 100%;
+  max-width: 100%;
 }
 
 .stat-num {
