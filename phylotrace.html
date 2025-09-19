@@ -190,6 +190,47 @@
         </div>
     </div>
 
+    <div class="modal-wrapper">
+        <div id="popupModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Welcome to Liora Bioinformatics!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Discover our cutting-edge tools for bacterial surveillance and more. Explore PhyloTrace
+                            today!
+                        </p>
+                        <img src="img/Liora_black.png" alt="Liora Logo"
+                            style="width: 100px; height: auto; margin: 0 auto; display: block;">
+                    </div>
+                    <div class="modal-footer">
+                        <a href="phylotrace.html" class="btn btn-primary">Learn More</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Delay popup appearance
+        setTimeout(function () {
+            $('#popupModal').modal('show');
+        }, 10000);
+
+        // Optional: Prevent popup from showing again on reload (using sessionStorage)
+        if (sessionStorage.getItem('popupShown') !== 'true') {
+            setTimeout(function () {
+                $('#popupModal').modal('show');
+                sessionStorage.setItem('popupShown', 'true');  // Mark as shown for this session
+            }, 3000);
+        }
+    </script>
+
     <script src="resources/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

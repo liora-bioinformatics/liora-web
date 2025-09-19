@@ -596,4 +596,4 @@ prevBtn.addEventListener('click', () => {
 // Initial auto-advance every 3 seconds
 autoInterval = setInterval(nextSlide, 3000);
 
-showImage(); // Initialize
+showImage(); 
