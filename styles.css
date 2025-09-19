@@ -1769,7 +1769,7 @@ a:hover {
   text-decoration: unset !important;
 }
 
-.carousel-inner {
+.project-carousel-inner {
   margin: auto;
   width: 90% !important;
   border-radius: 10px;
