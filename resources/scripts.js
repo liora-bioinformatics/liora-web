@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM inside this listener.
-// This ensures that the HTML elements are fully loaded and parsed before
-// the JavaScript attempts to access them.
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Navbar toggle ---
@@ -19,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.warn("Navbar elements (menu-button, mobile-menu, or SVG path) not found. Navbar toggle will not work.");
   }
-
 
   // --- Fading Animations ---
   const sections_fade = document.querySelectorAll(".fade");
@@ -519,4 +515,85 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-}); 
+});
+
+// --- Project Carousel ---
+const prevBtn = document.querySelector('.project-carousel-prev');
+const nextBtn = document.querySelector('.project-carousel-next');
+const imgWrap = document.querySelector('.project-carousel-img-wrap');
+const originalImages = document.querySelectorAll('.project-carousel-img-wrap img');
+const originalN = originalImages.length;
+let currentIndex = 1;
+let autoInterval = null;
+let restartTimeout = null;
+
+// Clone last image and prepend it, clone first and append it
+const firstClone = originalImages[0].cloneNode(true);
+const lastClone = originalImages[originalN - 1].cloneNode(true);
+imgWrap.prepend(lastClone);
+imgWrap.appendChild(firstClone);
+
+function showImage() {
+  imgWrap.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Handle seamless reset on transition end
+imgWrap.addEventListener('transitionend', () => {
+  if (currentIndex === originalN + 1) {
+    imgWrap.style.transition = 'none';
+    currentIndex = 1;
+    showImage();
+    requestAnimationFrame(() => {
+      imgWrap.style.transition = 'transform 0.5s ease';
+    });
+  } else if (currentIndex === 0) {
+    imgWrap.style.transition = 'none';
+    currentIndex = originalN;
+    showImage();
+    requestAnimationFrame(() => {
+      imgWrap.style.transition = 'transform 0.5s ease';
+    });
+  }
+});
+
+function nextSlide() {
+  currentIndex++;
+  showImage();
+}
+
+function prevSlide() {
+  currentIndex--;
+  showImage();
+}
+
+function stopAuto() {
+  if (autoInterval) {
+    clearInterval(autoInterval);
+    autoInterval = null;
+  }
+}
+
+function scheduleRestart() {
+  stopAuto();
+  if (restartTimeout) {
+    clearTimeout(restartTimeout);
+  }
+  restartTimeout = setTimeout(() => {
+    autoInterval = setInterval(nextSlide, 3000);
+  }, 10000); // 10-second delay before restarting auto-advance
+}
+
+nextBtn.addEventListener('click', () => {
+  scheduleRestart();
+  nextSlide();
+});
+
+prevBtn.addEventListener('click', () => {
+  scheduleRestart();
+  prevSlide();
+});
+
+// Initial auto-advance every 3 seconds
+autoInterval = setInterval(nextSlide, 3000);
+
+showImage(); // Initialize

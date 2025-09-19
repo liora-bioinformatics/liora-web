@@ -38,7 +38,7 @@ body>nav {
   backdrop-filter: blur(8px);
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  height: 11%;
+  height: 11vh;
 }
 
 .section-first {
@@ -194,8 +194,11 @@ body>nav {
 }
 
 .logo {
-  height: -webkit-fill-available;
+  height: 100% !important;
   margin-left: 1rem;
+  vertical-align: middle;
+  display: inline-block;
+  width: auto;
 }
 
 .items-center a {
@@ -1038,8 +1041,9 @@ h6 {
 }
 
 .project-section {
-  padding-left: 0;
   height: 100vh;
+  padding: 8%;
+  padding-left: 0;
 }
 
 .project-sidebar {
@@ -1701,4 +1705,98 @@ ul {
 
 .legal-content a:hover {
   text-decoration: none;
+}
+
+/* phylotrace.html */
+.project-carousel {
+  position: relative;
+  width: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-carousel-img-wrap {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.project-carousel-img-wrap img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.project-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.project-carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.project-carousel-prev {
+  left: 10px;
+}
+
+.project-carousel-next {
+  right: 10px;
+}
+
+.project-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1vw;
+}
+
+a:hover {
+  color: unset !important;
+  text-decoration: unset !important;
+}
+
+.carousel-inner {
+  margin: auto;
+  width: 90% !important;
+  border-radius: 10px;
+  overflow: hidden;
+  align-content: center;
+  height: -webkit-fill-available;
+}
+
+.carousel-control-prev {
+  justify-content: left !important;
+}
+
+.carousel-control-next {
+  justify-content: right !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("img/right.svg") !important;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("img/left.svg") !important;
+}
+
+.phylotrace-banner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.phylotrace-message {
+  font-weight: bold;
+  font-size: 1vw;
+  width: 60%;
 }
