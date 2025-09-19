@@ -129,14 +129,40 @@
                 </div>
                 <div class="project-stats">
                     <div class="phylotrace-stats">
-                        <div class="round-box dark project-desc">
-                            79 cgMLST schemes
+                        <div class="fade-in-section carousel-container round-box glass"
+                            data-animation-class="is-visible" data-delay="0.2s" data-interval="5500"
+                            data-animation="fade">
+                            <div class="carousel__item pipelines-carousel active">
+                                Interactive
+                            </div>
+                            <div class="carousel__item pipelines-carousel">
+                                cgMLST Typing
+                            </div>
+                            <div class="carousel__item pipelines-carousel">
+                                Database Management
+                            </div>
                         </div>
-                        <div class="round-box white">
-                            49 species
+                        <div class="round-box white stat-box fade-in-section" data-animation-class="is-visible"
+                            data-delay="0.4s" data-duration=" 3000" data-target="238">
+                            species
                         </div>
-                        <div class="round-box dark">
-                            238 AMR loci
+                        <div class="round-box dark stat-box stat-num counter fade-in-section"
+                            data-animation-class="is-visible" data-delay="0.6s" data-duration=" 3000" data-target="238">
+                            0
+                        </div>
+                        <div class="round-box glass stat-box fade-in-section" data-animation-class="is-visible"
+                            data-delay="0.2s">
+                            cgMLST schemes
+                        </div>
+                        <div class="round-box white stat-box stat-num counter  fade-in-section"
+                            data-animation-class="is-visible" data-delay="0.4s" data-duration="2000" data-target="49">0
+                        </div>
+                        <div class="round-box dark stat-box  fade-in-section" data-animation-class="is-visible"
+                            data-delay="0.6s">
+                            AMR loci
+                        </div>
+                        <div class="round-box glass stat-box stat-num counter  fade-in-section"
+                            data-animation-class="is-visible" data-delay="0.2s" data-duration="1000" data-target="79">0
                         </div>
                     </div>
                     <div class="github-widgets">
@@ -194,13 +220,17 @@
                     </div>
                 </div>
                 <div class="phylotrace-banner">
-                    <div class="phylotrace-message">
-                        If you want to use PhyloTrace, please join the pilot project and receive priority support, full
-                        documentation and update maintenance.
+                    <div class="info-message">
+                        <i style="font-size: 3vw;" class="fa-solid fa-info fade-in-section"
+                            data-animation-class="is-visible" data-delay="5s"></i>
+                        <div class="phylotrace-message fade-in-section" data-animation-class="is-visible"
+                            data-delay="5s">
+                            Join the pilot programme and receive priority support,
+                            full documentation and update maintenance.
+                        </div>
                     </div>
-                    <a href="contact.html">
-                        <div class="fade-in-section round-box white service-contact" data-animation-class="is-visible"
-                            data-delay="0.2s">
+                    <a href="contact.html" style="height: 100%;">
+                        <div class="fade-in-section contact-us" data-animation-class="is-visible" data-delay="5s">
                             <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
                         </div>
                     </a>
@@ -308,6 +338,29 @@
         </div>
     </div>
 
+    <script>
+        const counters = document.querySelectorAll('.counter');
+        const defaultDuration = 2000;  // Fallback if not specified
+
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = parseInt(counter.getAttribute('data-duration')) || defaultDuration;  // Read from HTML or fallback
+            const increment = target / (duration / 10);  // Steps for smoothness
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.innerText = Math.ceil(current);
+                    setTimeout(updateCounter, 10);  // 10ms interval for smooth animation
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCounter();  // Start animation
+        });
+    </script>
     <script src="resources/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

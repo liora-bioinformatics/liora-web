@@ -1802,13 +1802,14 @@ a:hover {
 
 .phylotrace-banner {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 15%;
+  align-items: center;
 }
 
 .phylotrace-message {
-  font-weight: bold;
-  font-size: 1vw;
+  font-weight: 400;
+  font-size: 1.3vw;
   width: 60%;
 }
 
@@ -1861,7 +1862,6 @@ a:hover {
 
 .github-widgets {
   display: flex;
-  flex-wrap: wrap;
   gap: 1vw;
   align-items: center;
   justify-content: center;
@@ -1882,15 +1882,19 @@ a:hover {
 }
 
 .phylotrace-stats {
-  display: flex;
+  display: grid;
   justify-content: space-evenly;
   width: 50%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  gap: 1vw;
 }
 
 .project-stats {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 5vh;
+  height: 50%;
 }
 
 .stats {
@@ -1898,4 +1902,38 @@ a:hover {
   flex-direction: column;
   gap: 1vw;
   width: 100%;
+}
+
+.stat-box {
+  padding: 1vw;
+  font-size: 1.5vw;
+  align-self: center;
+  text-align: center;
+  font-weight: 300;
+  height: 100%;
+}
+
+.stat-num {
+  font-size: 2.5vw
+}
+
+.contact-us {
+  animation-delay: 0.2s;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  align-content: center;
+  font-size: 1.5vw;
+  font-weight: 300;
+  transition: box-shadow 0.2s ease-out, font-weight 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.contact-us:hover {
+  font-weight: 500;
+}
+
+.info-message {
+  display: flex;
+  align-items: anchor-center;
+  gap: 1vw;
 }
