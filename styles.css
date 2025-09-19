@@ -56,7 +56,7 @@ body>nav {
 }
 
 .menu-item:hover {
-  box-shadow: inset 0px 0px 15px 2px #80808026;
+  box-shadow: inset 0px 0px 15px 2px rgb(17 24 39 / 60%);
   cursor: pointer;
 }
 
@@ -1784,6 +1784,12 @@ a:hover {
 
 .carousel-control-next {
   justify-content: right !important;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 2vw !important;
+  height: 2vw !important;
 }
 
 .carousel-control-next-icon {
