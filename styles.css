@@ -42,7 +42,7 @@ body>nav {
 }
 
 .section-first {
-  margin-top: 4%;
+  margin-top: 3%;
 }
 
 .menu-item {
@@ -1046,13 +1046,14 @@ h6 {
 }
 
 .project-sidebar {
-  width: 25%;
+  width: 15%;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  min-width: 25%;
+  min-width: 15%;
+  max-height: 100%;
 }
 
 .project-overview {
@@ -1803,9 +1804,9 @@ a:hover {
 }
 
 .phylotrace-message {
-  font-weight: 400;
-  font-size: 1.3vw;
-  width: 60%;
+  font-weight: 300;
+  font-size: 1.2vw;
+  padding: 1em;
 }
 
 .modal-wrapper .fade {
@@ -1859,11 +1860,9 @@ a:hover {
   display: flex;
   gap: 1vw;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   width: 100%;
-  grid-column: 2 / span 2;
-  grid-row: 2 / span 1;
 }
 
 .github-stats {
@@ -1885,14 +1884,17 @@ a:hover {
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1vw;
   width: 100%;
+  height: 35vh;
 }
 
 .project-stats {
   display: grid;
   gap: 2vw;
   height: 100%;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 2fr 3fr 2fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-height: 100%;
+  justify-items: anchor-center;
 }
 
 .stats {
@@ -1936,4 +1938,40 @@ a:hover {
   display: flex;
   align-items: anchor-center;
   gap: 1vw;
+}
+
+.empty-box {
+  border: 1px solid #00000094;
+  border-radius: 10px;
+  border-radius: 1rem;
+  background-image: linear-gradient(45deg, #1aa50000 25%, transparent 25%, transparent 50%, #3db300 50%, #000000 75%, transparent 75%);
+  background-size: 10px 10px;
+  background-color: #ffffff8c;
+}
+
+.phylotrace-stats .round-box:hover {
+  font-weight: bold;
+}
+
+.phylotrace-stats .empty-box:hover {
+  background-image:
+    linear-gradient(45deg, #000000 25%, transparent 25%, transparent 50%, #ffe200 50%, #000000 75%, transparent 75%);
+}
+
+.phylotrace-features {
+  text-align: center;
+  font-size: 1.2vw;
+  grid-column: 2 / span 2;
+  background-image: unset;
+  background-color: transparent;
+  backdrop-filter: blur(30px);
+  font-family: monospace;
+  border: none;
+}
+
+.phylotrace-bullet {
+  font-size: 1.5vw;
+  height: fit-content;
+  align-self: center;
+  height: fit-content;
 }

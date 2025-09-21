@@ -108,30 +108,42 @@
         <div class="project-page">
             <div class="project-sidebar round-box dark">
                 <img src="img/dark_white_green_wname.svg" class="carousel__img">
-                <div class="project-overview">
-                    All-in-one platform to perform and manage decentralized, hashed bacterial surveillance.
-                    PhyloTrace features a toolkit of analyses like hashed cgMLST typing and Antimicrobial Resistance
-                    Screening.
+                <div class="phylotrace-message">
+                    Join the pilot programme and receive <strong>priority support</strong>,
+                    <strong>complete documentation</strong> and <strong>update maintenance</strong>.
                 </div>
-                <a href="https://github.com/infinity-a11y/PhyloTrace" target="_blank" class="button">
-                    <i class="fa-brands fa-github" style="padding-right: 10%;"></i> GitHub
+                <a href="contact.html" style="padding: 1em;">
+                    <div class="fade-in-section contact-us" data-animation-class="is-visible" data-delay="3s">
+                        <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
+                    </div>
                 </a>
             </div>
             <div class="project-stats">
-                <div class="project-button-banner fade-in-section" data-animation-class="is-visible" data-delay="0.2s">
-                    <img src="img/PhyloTrace_bw.png" style="width: 40%; justify-self: anchor-center;">
-                    <div class="project-buttons">
-                        <div class="overview-button">Management</div>
-                        <div class="overview-button">Analysis</div>
-                        <div class="overview-button">Report</div>
-                    </div>
-                    <a href="#phyloTracePreview">EXAMPLEs</a>
-                </div>
                 <div class="phylotrace-stats">
-                    <div class="fade-in-section carousel-container round-box glass" data-animation-class="is-visible"
-                        data-delay="0.2s" data-interval="5500" data-animation="fade">
+                    <a href="#phyloTracePreview" class="empty-box">
+                    </a>
+                    <div class="round-box dark stat-box">
+                        AMR loci
+                    </div>
+                    <div class="round-box glass stat-box">
+                        cgMLST schemes
+                    </div>
+                    <div class="round-box white stat-box stat-num counter" data-duration="1000" data-target="49">0
+                    </div>
+                    <div class="round-box dark stat-box stat-num counter" data-duration=" 1500" data-target="238">
+                        0
+                    </div>
+                    <div class="round-box glass stat-box stat-num counter" data-duration="2000" data-target="79">0
+                    </div>
+                    <div class="round-box white stat-box">
+                        Species
+                    </div>
+                    <a href="#phyloTracePreview"
+                        style="text-align: center; font-size: 1.6vw; grid-column: 2 / span 2; background-image: unset;"
+                        class="carousel-container phylotrace-features round-box empty-box" data-interval="2500"
+                        data-animation="fade">
                         <div class="carousel__item pipelines-carousel active">
-                            Interactive
+                            Interactive Monitoring
                         </div>
                         <div class="carousel__item pipelines-carousel">
                             cgMLST Typing
@@ -139,32 +151,23 @@
                         <div class="carousel__item pipelines-carousel">
                             Database Management
                         </div>
-                    </div>
-                    <div class="round-box white stat-box fade-in-section" data-animation-class="is-visible"
-                        data-delay="0.4s" data-duration=" 3000" data-target="238">
-                        species
-                    </div>
-                    <div class="round-box dark stat-box stat-num counter fade-in-section"
-                        data-animation-class="is-visible" data-delay="0.6s" data-duration=" 3000" data-target="238">
-                        0
-                    </div>
-                    <div class="round-box glass stat-box fade-in-section" data-animation-class="is-visible"
-                        data-delay="0.2s">
-                        cgMLST schemes
-                    </div>
-                    <div class="round-box white stat-box stat-num counter  fade-in-section"
-                        data-animation-class="is-visible" data-delay="0.4s" data-duration="2000" data-target="49">0
-                    </div>
-                    <div class="round-box dark stat-box  fade-in-section" data-animation-class="is-visible"
-                        data-delay="0.6s">
-                        AMR loci
-                    </div>
-                    <div class="round-box glass stat-box stat-num counter  fade-in-section"
-                        data-animation-class="is-visible" data-delay="0.2s" data-duration="1000" data-target="79">0
-                    </div>
+                        <div class="carousel__item pipelines-carousel">
+                            HTML Report
+                        </div>
+                    </a>
                 </div>
-                <div class="github-widgets fade-in-section" data-animation-class="is-visible" data-delay="0s"
-                    data-duration=" 3000" data-target="238">
+                <div style="height: 35vh; backdrop-filter: blur(40px); border-radius: 1rem; width: 100%;">
+                    <img style="max-height: 100%; justify-self: anchor-center;" src="img/mst.png"></img>
+                </div>
+                <div class="phylotrace-bullet">
+                    <ul>
+                        <li>Decentralized Pathogen Monitoring Using SHA-256 Hashing
+                            Technology.<br><br></li>
+                        <li>Seamless Inter-Lab Communication.<br><br></li>
+                        <li>Easy User Interface.</li>
+                    </ul>
+                </div>
+                <div class="github-widgets">
                     <!-- Pinned Repo Card (Overview Widget from GitHub Readme Stats) -->
                     <a href=" https://github.com/infinity-a11y/PhyloTrace" target="_blank" style="width: 100%;">
                         <img class="github-badge"
@@ -176,62 +179,46 @@
                             <!-- Individual Stat Badges from Shields.io -->
                             <a href="https://github.com/infinity-a11y/PhyloTrace" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/github/stars/infinity-a11y/PhyloTrace?style=flat-square&color=blue"
+                                    src="https://img.shields.io/github/stars/infinity-a11y/PhyloTrace?style=flat-square&color=79FF97&labelColor=black"
                                     alt="GitHub Stars">
                             </a>
                             <a href="https://github.com/infinity-a11y/PhyloTrace" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/github/issues/infinity-a11y/PhyloTrace?style=flat-square&color=red"
+                                    src="https://img.shields.io/github/issues/infinity-a11y/PhyloTrace?style=flat-square&color=79FF97&labelColor=black"
                                     alt="Open Issues">
                             </a>
                             <a href="https://github.com/infinity-a11y/PhyloTrace" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/github/last-commit/infinity-a11y/PhyloTrace?style=flat-square&color=purple"
+                                    src="https://img.shields.io/github/last-commit/infinity-a11y/PhyloTrace?style=flat-square&color=79FF97&labelColor=black"
                                     alt="Last Commit">
                             </a>
                             <a href="https://doi.org/10.5281/zenodo.10996423" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/github/license/infinity-a11y/PhyloTrace?style=flat-square&color=gray"
+                                    src="https://img.shields.io/github/license/infinity-a11y/PhyloTrace?style=flat-square&color=79FF97&labelColor=black"
                                     alt="License: GPL-3.0">
                             </a>
                             <a href="https://doi.org/10.5281/zenodo.10996423" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.10996423-00e896?labelColor=gray&color=609ea5&logoColor=black"
+                                    src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.10996423-00e896?&color=79FF97&labelColor=black"
                                     alt="DOI">
                             </a>
                             <a href="https://github.com/infinity-a11y/PhyloTrace" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/github/contributors/infinity-a11y/PhyloTrace?style=flat-square&color=pink"
+                                    src="https://img.shields.io/github/contributors/infinity-a11y/PhyloTrace?style=flat-square&color=79FF97&labelColor=black"
                                     alt="Contributors">
                             </a>
                             <a href="https://github.com/infinity-a11y/PhyloTrace" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/badge/Windows-339033?style=flat-square&logo=windows&logoColor=white"
+                                    src="https://img.shields.io/badge/Windows-357EC7?style=flat-square&logo=windows&logoColor=white"
                                     alt="Windows Support">
                             </a>
                             <a href="https://github.com/infinity-a11y/PhyloTrace" target="_blank">
                                 <img class="github-badge"
-                                    src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black"
+                                    src="https://img.shields.io/badge/Linux-002b36?style=flat-square&logo=linux&logoColor=white"
                                     alt="Linux Support">
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="phylotrace-banner">
-                    <div class="info-message">
-                        <i style="font-size: 3vw;" class="fa-solid fa-info fade-in-section"
-                            data-animation-class="is-visible" data-delay="5s"></i>
-                        <div class="phylotrace-message fade-in-section" data-animation-class="is-visible"
-                            data-delay="5s">
-                            Join the pilot programme and receive priority support,
-                            full documentation and update maintenance.
-                        </div>
-                    </div>
-                    <a href="contact.html" style="height: 100%;">
-                        <div class="fade-in-section contact-us" data-animation-class="is-visible" data-delay="5s">
-                            <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
