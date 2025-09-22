@@ -1976,3 +1976,224 @@ a:hover {
   align-self: center;
   height: fit-content;
 }
+
+/* Contact Form */
+/* Contact Form Enhancements */
+
+/* Complete Contact Form Styling */
+.contact-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: #fafbff;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  background: #9ca3af;
+}
+
+/* Error States */
+.contact-form input.error,
+.contact-form textarea.error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.field-error::before {
+  content: "⚠";
+  font-size: 0.75rem;
+}
+
+/* Success State */
+.success-message {
+  animation: slideInUp 0.4s ease-out;
+  text-align: center;
+}
+
+.success-message .bg-green-100 {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+}
+
+.success-message svg {
+  color: #10b981;
+}
+
+/* Error Message Banner */
+.error-message {
+  animation: slideDown 0.3s ease-out;
+  border-radius: 0.5rem;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .contact-section {
+    padding: 1rem;
+    margin: 0 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .submit-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Dark mode compatibility (if you add it later) */
+@media (prefers-color-scheme: dark) {
+  .form-group label {
+    color: #d1d5db;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f9fafb;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    background: #111827;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+  }
+}
+
+/* reCAPTCHA Styling */
+.g-recaptcha {
+  margin: 1rem 0;
+}
+
+.rc-anchor-light {
+  --rc-anchor-width: 304px;
+  --rc-anchor-height: 78px;
+}
+
+@media (max-width: 480px) {
+  .g-recaptcha {
+    transform: scale(0.85);
+    transform-origin: left top;
+    margin-left: -10px;
+  }
+}
+
+/* Ensure reCAPTCHA doesn't break layout */
+.form-group:has(.g-recaptcha) {
+  align-items: center;
+}

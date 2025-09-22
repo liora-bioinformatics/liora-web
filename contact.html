@@ -23,8 +23,8 @@
         <!-- Desktop Navigation -->
         <div class="navigation-refs hidden md:flex items-center" style="gap: 2rem">
 
-            <div class="menu-item relative group" onclick="window.location.href = 'home.html';">
-                <a href="home.html" class="hover-underline">Home</a>
+            <div class="menu-item relative group" onclick="window.location.href = 'index.html';">
+                <a href="index.html" class="hover-underline">Home</a>
             </div>
 
             <!-- About Dropdown -->
@@ -41,8 +41,8 @@
                 </div> -->
             </div>
 
-            <div class="menu-item relative group" onclick="window.location.href = 'service.html';">
-                <a href="service.html" class="hover-underline">Services</a>
+            <div class="menu-item relative group" onclick="window.location.href = 'services.html';">
+                <a href="services.html" class="hover-underline">Services</a>
             </div>
             <div class="menu-item relative group" onclick="window.location.href = 'phylotrace.html';">
                 <a href="phylotrace.html" class="hover-underline">PhyloTrace</a>
@@ -76,7 +76,7 @@
         <!-- Mobile Navigation -->
         <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="home.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+                <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
 
                 <!-- About section with sub-links -->
                 <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
@@ -96,13 +96,18 @@
         </div>
     </nav>
 
-    <section>
+    <section class="section-firsts">
         <div class="fade-in-section round-box dark contact-section" data-animation-class="is-visible" data-delay="0.2s">
             <h2>Get in Touch</h2>
             <p>We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.
             </p>
 
             <form action="https://formcarry.com/s/0R8D2qqyRrw" method="POST" class="contact-form">
+                <!-- Honeypot for spam protection - bots will fill this, humans won't see it -->
+                <div style="position: absolute; left: -9999px; opacity: 0;">
+                    <label for="website">Website (leave blank):</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
                 <div class="form-group">
                     <label for="name">Your Name:</label>
                     <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -129,8 +134,20 @@
                     <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
                 </div>
 
+                <!-- reCAPTCHA Widget -->
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6Ld2qtErAAAAACOhAtfj8KooUpj3zL_E9ZRHVB5R"
+                        data-callback="onRecaptchaSuccess" data-size="normal">
+                    </div>
+                </div>
+
                 <button type="submit" class="submit-button">Send Message</button>
             </form>
+            <!-- Error message containers (hidden by default) -->
+            <div id="name-error" class="field-error sr-only" role="alert" aria-live="polite"></div>
+            <div id="email-error" class="field-error sr-only" role="alert" aria-live="polite"></div>
+            <div id="topic-error" class="field-error sr-only" role="alert" aria-live="polite"></div>
+            <div id="message-error" class="field-error sr-only" role="alert" aria-live="polite"></div>
         </div>
     </section>
 
