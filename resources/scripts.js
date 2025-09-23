@@ -503,39 +503,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!form || !submitButton) return;
 
-  // Global variable to store reCAPTCHA widget ID
-  let recaptchaWidgetId = null;
+  // Global variable to store reCAPTCHA readiness
+  let isRecaptchaReady = false;
 
-  // Initialize reCAPTCHA with explicit render to get widget ID
-  function initRecaptcha() {
-    if (recaptchaContainer && typeof grecaptcha !== 'undefined') {
-      recaptchaWidgetId = grecaptcha.render(recaptchaContainer, {
-        sitekey: '6Ld2qtErAAAAACOhAtfj8KooUpj3zL_E9ZRHVB5R', // Your Site Key
-        callback: window.recaptchaSuccess,
-        'expired-callback': window.recaptchaError,
-        'error-callback': window.recaptchaError
-      });
-      console.log('reCAPTCHA initialized with widget ID:', recaptchaWidgetId);
-      submitButton.disabled = true;
-      submitButton.classList.add('opacity-50', 'cursor-not-allowed');
-    } else {
-      console.error('reCAPTCHA container or API not found during initialization');
-    }
-  }
-
-  // Wait for reCAPTCHA API to load and initialize
-  function waitForRecaptcha() {
-    if (typeof grecaptcha === 'undefined') {
-      setTimeout(waitForRecaptcha, 100);
-    } else {
-      initRecaptcha();
-    }
-  }
-  waitForRecaptcha();
-
-  // reCAPTCHA Callback Functions
+  // Wait for reCAPTCHA to be ready via callback
   window.recaptchaSuccess = function (token) {
     console.log('reCAPTCHA verified successfully with token:', token);
+    isRecaptchaReady = true;
     submitButton.disabled = false;
     submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
     const recaptchaError = document.getElementById('recaptcha-error');
@@ -547,6 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.recaptchaError = function () {
     console.log('reCAPTCHA error occurred');
+    isRecaptchaReady = false;
     submitButton.disabled = true;
     submitButton.classList.add('opacity-50', 'cursor-not-allowed');
     const recaptchaError = document.getElementById('recaptcha-error');
@@ -572,23 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    // Re-initialize reCAPTCHA if not set
-    if (!recaptchaWidgetId && typeof grecaptcha !== 'undefined') {
-      console.log('Re-initializing reCAPTCHA due to missing widget ID');
-      initRecaptcha();
-    }
-
-    if (!recaptchaWidgetId) {
-      showErrorMessage('reCAPTCHA failed to load. Please refresh the page and try again.');
-      return;
-    }
-
-    // Reset reCAPTCHA before getting response
-    grecaptcha.reset(recaptchaWidgetId);
-    const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
-    console.log('reCAPTCHA response:', recaptchaResponse);
-
-    if (!recaptchaResponse) {
+    if (!isRecaptchaReady) {
       showRecaptchaError('Please complete the "I\'m not a robot" verification below.');
       return;
     }
@@ -661,7 +620,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!form.querySelector('.success-message')) {
         submitButton.classList.remove('loading');
         submitButton.disabled = false;
-        grecaptcha.reset(recaptchaWidgetId); // Reset reCAPTCHA on failure
       }
     }
   });
