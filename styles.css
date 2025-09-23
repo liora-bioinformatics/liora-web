@@ -1203,7 +1203,7 @@ h6 {
 /* Terminal */
 
 .terminal-container {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: 1px solid white;
   display: flex;
   flex-direction: column;

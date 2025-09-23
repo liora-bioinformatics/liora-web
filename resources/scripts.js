@@ -518,10 +518,12 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('reCAPTCHA initialized with widget ID:', recaptchaWidgetId);
       submitButton.disabled = true;
       submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+    } else {
+      console.error('reCAPTCHA container or API not found during initialization');
     }
   }
 
-  // Wait for reCAPTCHA API to load
+  // Wait for reCAPTCHA API to load and initialize
   function waitForRecaptcha() {
     if (typeof grecaptcha === 'undefined') {
       setTimeout(waitForRecaptcha, 100);
@@ -533,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // reCAPTCHA Callback Functions
   window.recaptchaSuccess = function (token) {
-    console.log('reCAPTCHA verified successfully');
+    console.log('reCAPTCHA verified successfully with token:', token);
     submitButton.disabled = false;
     submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
     const recaptchaError = document.getElementById('recaptcha-error');
@@ -570,12 +572,22 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    if (!recaptchaWidgetId && typeof grecaptcha === 'undefined') {
-      showErrorMessage('Security check is still loading. Please wait a moment.');
+    // Re-initialize reCAPTCHA if not set
+    if (!recaptchaWidgetId && typeof grecaptcha !== 'undefined') {
+      console.log('Re-initializing reCAPTCHA due to missing widget ID');
+      initRecaptcha();
+    }
+
+    if (!recaptchaWidgetId) {
+      showErrorMessage('reCAPTCHA failed to load. Please refresh the page and try again.');
       return;
     }
 
-    const recaptchaResponse = recaptchaWidgetId ? grecaptcha.getResponse(recaptchaWidgetId) : '';
+    // Reset reCAPTCHA before getting response
+    grecaptcha.reset(recaptchaWidgetId);
+    const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
+    console.log('reCAPTCHA response:', recaptchaResponse);
+
     if (!recaptchaResponse) {
       showRecaptchaError('Please complete the "I\'m not a robot" verification below.');
       return;
@@ -649,9 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!form.querySelector('.success-message')) {
         submitButton.classList.remove('loading');
         submitButton.disabled = false;
-        if (recaptchaWidgetId) {
-          grecaptcha.reset(recaptchaWidgetId); // Reset reCAPTCHA on failure
-        }
+        grecaptcha.reset(recaptchaWidgetId); // Reset reCAPTCHA on failure
       }
     }
   });
