@@ -144,6 +144,10 @@ body>nav {
   transform: scaleX(1);
 }
 
+.legal-content {
+  padding: 2em;
+}
+
 .purpose {
   padding: 2em;
   width: 100%;
@@ -1846,7 +1850,7 @@ ul {
   }
 
   .section-first {
-    margin-top: 70px;
+    margin-top: 90px;
   }
 
   .logo {
