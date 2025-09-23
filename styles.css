@@ -1912,7 +1912,7 @@ ul {
   }
 
   .section-first {
-    margin-top: 90px;
+    margin-top: 90px !important;
   }
 
   .logo {
@@ -1935,7 +1935,7 @@ ul {
   }
 
   .home-hero {
-    width: 90vw;
+    width: 100% !important;
     min-width: unset;
   }
 
@@ -2105,9 +2105,13 @@ ul {
     gap: 1rem;
   }
 
+    {
+    font-size: 4vw;
+  }
+
   .decrypted-small,
   .decrypted-large {
-    font-size: 4vw;
+    font-size: 3em;
   }
 
   .purpose {
