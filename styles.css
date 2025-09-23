@@ -38,7 +38,10 @@ body>nav {
   backdrop-filter: blur(8px);
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  height: 100px;
+  height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 .section-first {
@@ -1807,7 +1810,7 @@ ul {
   }
 
   nav {
-    height: 80px;
+    height: 80px !important;
     padding: 0.5rem;
   }
 
@@ -1840,6 +1843,10 @@ ul {
 
   .mobile-menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .section-first {
+    margin-top: 70px;
   }
 
   .logo {
