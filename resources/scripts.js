@@ -503,6 +503,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!form || !submitButton) return;
 
+  // Global variable to store reCAPTCHA widget ID
+  let recaptchaWidgetId = null;
+
+  // Initialize reCAPTCHA with explicit render to get widget ID
+  function initRecaptcha() {
+    if (recaptchaContainer && typeof grecaptcha !== 'undefined') {
+      recaptchaWidgetId = grecaptcha.render(recaptchaContainer, {
+        sitekey: '6Ld2qtErAAAAACOhAtfj8KooUpj3zL_E9ZRHVB5R', // Your Site Key
+        callback: window.recaptchaSuccess,
+        'expired-callback': window.recaptchaError,
+        'error-callback': window.recaptchaError
+      });
+      console.log('reCAPTCHA initialized with widget ID:', recaptchaWidgetId);
+      submitButton.disabled = true;
+      submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+    }
+  }
+
+  // Wait for reCAPTCHA API to load
+  function waitForRecaptcha() {
+    if (typeof grecaptcha === 'undefined') {
+      setTimeout(waitForRecaptcha, 100);
+    } else {
+      initRecaptcha();
+    }
+  }
+  waitForRecaptcha();
+
   // reCAPTCHA Callback Functions
   window.recaptchaSuccess = function (token) {
     console.log('reCAPTCHA verified successfully');
@@ -526,18 +554,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  function waitForRecaptcha() {
-    if (typeof grecaptcha !== 'undefined') {
-      console.log('reCAPTCHA loaded');
-      submitButton.disabled = true;
-      submitButton.classList.add('opacity-50', 'cursor-not-allowed');
-    } else {
-      setTimeout(waitForRecaptcha, 100);
-    }
-  }
-
-  waitForRecaptcha();
-
   // Real-time validation
   const inputs = form.querySelectorAll('input[required], textarea[required]');
   inputs.forEach(input => {
@@ -554,12 +570,12 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    if (recaptchaContainer && typeof grecaptcha === 'undefined') {
+    if (!recaptchaWidgetId && typeof grecaptcha === 'undefined') {
       showErrorMessage('Security check is still loading. Please wait a moment.');
       return;
     }
 
-    const recaptchaResponse = grecaptcha ? grecaptcha.getResponse(recaptchaContainer) : '';
+    const recaptchaResponse = recaptchaWidgetId ? grecaptcha.getResponse(recaptchaWidgetId) : '';
     if (!recaptchaResponse) {
       showRecaptchaError('Please complete the "I\'m not a robot" verification below.');
       return;
@@ -633,6 +649,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!form.querySelector('.success-message')) {
         submitButton.classList.remove('loading');
         submitButton.disabled = false;
+        if (recaptchaWidgetId) {
+          grecaptcha.reset(recaptchaWidgetId); // Reset reCAPTCHA on failure
+        }
       }
     }
   });

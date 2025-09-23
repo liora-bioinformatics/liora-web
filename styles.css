@@ -916,7 +916,7 @@ h6 {
 }
 
 .round-box {
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   z-index: 2;
   backdrop-filter: blur(5px);
   align-content: center;
@@ -2142,42 +2142,6 @@ a:hover {
   animation: spin 1s linear infinite;
 }
 
-/* Responsive Design */
-@media (max-width: 640px) {
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 0.625rem 0.875rem;
-    font-size: 0.95rem;
-  }
-
-  .submit-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-  }
-}
-
-/* Dark mode compatibility (if you add it later) */
-@media (prefers-color-scheme: dark) {
-  .form-group label {
-    color: #d1d5db;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    background: #1f2937;
-    border-color: #374151;
-    color: #f9fafb;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    background: #111827;
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
-  }
-}
-
 /* reCAPTCHA Styling */
 .g-recaptcha {
   margin: 1rem 0;
@@ -2274,6 +2238,7 @@ a:hover {
   width: 100%;
   box-sizing: border-box;
   transition: all 0.2s ease;
+  resize: none !important;
 }
 
 .contact-form input:focus,
