@@ -27,6 +27,12 @@
     align-items: center;
 }
 
+@media (max-width: 768px) {
+    .data-discovery-container {
+        width: auto;
+    }
+}
+
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -39,7 +45,7 @@
 
 @media (max-width: 768px) {
     .hero-grid {
-        width: 80vw;
+        width: auto;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         grid-gap: 1rem;
@@ -73,6 +79,7 @@
     .hero-grid-item-2 {
         grid-column: 1 / span 1;
         grid-row: 2 / span 1;
+        height: 70%;
     }
 }
 
@@ -86,6 +93,13 @@
     .hero-grid-item-3 {
         grid-column: 2 / span 1;
         grid-row: 2 / span 1;
+        height: 70%
+    }
+}
+
+@media (max-width: 768px) {
+    .service-contact {
+        font-size: 1rem;
     }
 }
 
@@ -196,7 +210,8 @@
 
 @media (max-width: 768px) {
     .purpose-headline {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        line-height: 1.5em;
     }
 }
 
@@ -231,6 +246,9 @@
 @media (max-width: 768px) {
     .project-phylotrace {
         width: 100%;
+        margin-top: 2em;
+        gap: 1em;
+        display: grid;
     }
 }
 
@@ -254,10 +272,24 @@
     height: 16vw;
 }
 
+@media (max-width: 768px) {
+    .phylotrace-img {
+        width: 25vw;
+        height: auto;
+        left: auto;
+    }
+}
+
 .project-landing {
     display: flex;
     gap: 5%;
     margin-bottom: 10%;
+}
+
+@media (max-width: 768px) {
+    .project-landing {
+        padding: 4%;
+    }
 }
 
 .project-description {
@@ -265,6 +297,13 @@
     padding: 3em;
     padding-top: 5em;
     padding-bottom: 5em;
+}
+
+@media (max-width: 768px) {
+    .project-description {
+        width: auto;
+        padding: 3em;
+    }
 }
 
 .project-description-text {
@@ -282,6 +321,12 @@
     margin-left: 10px;
 }
 
+@media (max-width: 768px) {
+    .project-name {
+        font-size: 1rem;
+    }
+}
+
 .project-desc {
     font-size: 1.1vw;
     width: 65%;
@@ -292,12 +337,19 @@
 
 @media (max-width: 768px) {
     .project-desc {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        width: 65%;
     }
 }
 
 .phylotrace-desc {
     font-size: 1.4vw;
+}
+
+@media (max-width: 768px) {
+    .phylotrace-desc {
+        font-size: 0.9rem;
+    }
 }
 
 .project-field {
@@ -310,7 +362,7 @@
 
 @media (max-width: 768px) {
     .project-field {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -323,12 +375,12 @@
     align-self: center;
 }
 
-
 .project-cards {
     margin-top: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 5em;
+    padding: 4%;
 }
 
 @media (max-width: 768px) {
