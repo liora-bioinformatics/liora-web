@@ -1,0 +1,437 @@
+/******  Stylesheet for index.html ******/
+
+/*** Hero section ***/
+.hero-section {
+    display: flex;
+    height: 100vh;
+    margin-top: 7vh;
+    gap: 5%;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        height: auto;
+        margin-top: 5vh;
+        gap: 2rem;
+    }
+}
+
+.data-discovery-container {
+    min-width: max-content;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    width: 35vw;
+    grid-gap: 2rem;
+    justify-items: anchor-center;
+    align-items: anchor-center;
+}
+
+@media (max-width: 768px) {
+    .hero-grid {
+        width: 80vw;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1rem;
+    }
+}
+
+.home-carousel {
+    height: 100%;
+    animation-delay: 0.8s;
+    width: 100% !important;
+}
+
+.hero-grid-item-1 {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+}
+
+@media (max-width: 768px) {
+    .hero-grid-item-1 {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+    }
+}
+
+.hero-grid-item-2 {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+}
+
+@media (max-width: 768px) {
+    .hero-grid-item-2 {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+}
+
+
+.hero-grid-item-3 {
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 1;
+}
+
+@media (max-width: 768px) {
+    .hero-grid-item-3 {
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+    }
+}
+
+/* Styles for "From Data to Discovery" box */
+.decrypted-data {
+    font-size: 4vw;
+    font-family: monospace;
+    margin-top: 100px;
+}
+
+.decrypted-discovery {
+    font-size: 6vw;
+    margin-top: 30px;
+    font-family: serif;
+    width: fit-content;
+    text-underline-position: under;
+    text-decoration: underline;
+    text-decoration-thickness: from-font;
+}
+
+.decrypted-from {
+    font-size: 5vw;
+    text-align: center;
+}
+
+.decrypted-to {
+    font-size: 4vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+
+    .decrypted-sdatamall,
+    .decrypted-discovery {
+        font-size: 3em;
+    }
+
+    .decrypted-from {
+        font-size: 2.5em;
+    }
+
+    .decrypted-to {
+        font-size: 2em;
+    }
+}
+
+
+/*** Landing section ***/
+.landing-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10vh;
+    margin-top: 5%;
+}
+
+.landing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    height: 60vh;
+    min-height: fit-content;
+}
+
+@media (max-width: 768px) {
+    .landing-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .landing-cards {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        height: auto;
+    }
+}
+
+.landing-purpose {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.purpose {
+    padding: 2em;
+    width: 100%;
+    height: fit-content;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .purpose {
+        padding: 1rem;
+    }
+}
+
+.purpose-headline {
+    font-size: 2.6vw;
+    line-height: 2em;
+    text-align: end;
+}
+
+
+@media (max-width: 768px) {
+    .purpose-headline {
+        font-size: 1.5rem;
+    }
+}
+
+.purpose-subheadline {
+    font-size: 1.4em;
+    font-weight: 300;
+    text-align: start;
+    width: fit-content;
+    margin-bottom: 1em;
+}
+
+/*** Projects section ***/
+.home-projects-section {
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .home-projects-section {
+        padding: 2rem 0;
+    }
+}
+
+.project-phylotrace {
+    padding: 1em;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+    .project-phylotrace {
+        width: 100%;
+    }
+}
+
+.project:hover .project-img,
+.project-phylotrace:hover .project-img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.project:hover,
+.project-phylotrace:hover {
+    box-shadow: 0px 0px 30px 12px #0000009e !important;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.phylotrace-img {
+    bottom: 50%;
+    left: 75%;
+    width: 16vw;
+    height: 16vw;
+}
+
+.project-landing {
+    display: flex;
+    gap: 5%;
+    margin-bottom: 10%;
+}
+
+.project-description {
+    width: 40%;
+    padding: 3em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.project-description-text {
+    margin-top: 2em;
+}
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.project-name {
+    font-size: 2vw;
+    margin-left: 10px;
+}
+
+.project-desc {
+    font-size: 1.1vw;
+    width: 65%;
+    margin-left: 10px;
+    font-weight: 300;
+    margin-top: 0.5em;
+}
+
+@media (max-width: 768px) {
+    .project-desc {
+        font-size: 0.9rem;
+    }
+}
+
+.phylotrace-desc {
+    font-size: 1.4vw;
+}
+
+.project-field {
+    font-style: italic;
+    margin-left: 10px;
+    top: -2em;
+    margin-top: 0em;
+    font-size: 1vw;
+}
+
+@media (max-width: 768px) {
+    .project-field {
+        font-size: 0.8rem;
+    }
+}
+
+.phylotrace-field {
+    position: unset;
+}
+
+.phylotrace-logo {
+    width: 70%;
+    align-self: center;
+}
+
+
+.project-cards {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5em;
+}
+
+@media (max-width: 768px) {
+    .project-cards {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Terminal */
+
+.terminal-container {
+    border-radius: 0.5rem;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: "Courier New", monospace;
+    justify-self: anchor-center;
+    height: 100%;
+    min-height: fit-content;
+    width: 100%;
+    background-color: rgb(17 24 39 / 60%);
+}
+
+.top-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.red-circle {
+    width: 12px;
+    height: 12px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.yellow-circle {
+    width: 12px;
+    height: 12px;
+    background-color: #eab308;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.green-circle {
+    width: 12px;
+    height: 12px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.terminal-title {
+    color: #fff;
+    margin: 0;
+}
+
+.line {
+    color: #fff;
+}
+
+.line:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.dollar {
+    color: #2282f4;
+    margin-right: 15px;
+}
+
+.green-line {
+    margin-bottom: 12px;
+    color: #46cf79;
+}
+
+.line-1 {
+    animation: green-color 3s infinite;
+}
+
+.line-2 {
+    animation: green-color 3.5s infinite;
+}
+
+.line-3 {
+    animation: green-color 2s infinite;
+}
+
+@keyframes green-color {
+    0% {
+        color: #2a7151;
+    }
+
+    50% {
+        color: #46cf79;
+    }
+
+    100% {
+        color: #2a7151;
+    }
+}

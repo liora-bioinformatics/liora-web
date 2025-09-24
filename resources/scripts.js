@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer_fade.observe(section_fade);
   });
 
-  const sectionsToAnimate = document.querySelectorAll(".fade-in-section");
+  const sectionsToAnimate = document.querySelectorAll(".fade-in-element");
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const carouselContainers = document.querySelectorAll('.carousel-container');
   if (carouselContainers.length > 0) {
     carouselContainers.forEach((container) => {
-      const carouselItems = container.querySelectorAll('.pipelines-carousel');
+      const carouselItems = container.querySelectorAll('.carousel__item');
       const numItems = carouselItems.length;
       if (numItems > 0) {
         const intervalTime = parseInt(container.getAttribute('data-interval')) || 4000;
