@@ -327,11 +327,11 @@ section {
 }
 
 .about-profile {
-  display: flex;
-  justify-content: space-between;
-  gap: 5em;
+  display: grid;
+  gap: 2em;
   margin-top: 10vh;
-  height: 20em;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 3fr;
 }
 
 .about {
@@ -433,15 +433,8 @@ section {
   text-align: justify;
 }
 
-.profile-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  justify-content: center;
-}
-
 .profile-name {
-  font-size: 2vw;
+  font-size: 2em;
 }
 
 .profile-function {
@@ -456,11 +449,13 @@ section {
 
 .profile-pic {
   box-shadow: 0 30px 40px rgba(0, 0, 0, .8);
-  border-radius: 15%;
-  align-self: anchor-center;
+  border-radius: 1rem;
+  align-self: baseline;
   object-fit: contain;
-  height: 20em;
-  width: auto;
+  width: 75%;
+  justify-self: center;
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }
 
 .team-section {
@@ -1756,6 +1751,15 @@ a:hover {
   padding: 1em;
 }
 
+.profile-title {
+  align-self: center;
+}
+
+.profile-text {
+  grid-column: 1;
+  font-size: 1em;
+}
+
 /* Mobile Optimizations */
 @media (max-width: 768px) {
   body {
@@ -1769,6 +1773,10 @@ a:hover {
 
   .navigation-refs {
     display: none;
+  }
+
+  .profile-text {
+    grid-column: 1 / span 2;
   }
 
   .mobile-menu {
@@ -1855,26 +1863,20 @@ a:hover {
 
   .about-profile {
     margin-top: 5vh;
-    height: auto;
     gap: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
   }
 
   .profile-pic {
-    height: 90px;
-    width: 90px;
-  }
-
-  .profile-text {
-    gap: 0em;
+    height: auto;
+    width: auto;
+    grid-row: 1;
   }
 
   .profile-name {
     font-size: 1rem;
-  }
-
-  .profile-function {
-    display: block;
-    font-size: 0.9rem;
   }
 
   .box-textcontent {
