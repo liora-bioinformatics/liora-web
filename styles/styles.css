@@ -196,7 +196,7 @@ body>nav {
 }
 
 .logo {
-  height: 100% !important;
+  height: 100%;
   vertical-align: middle;
   display: inline-block;
   align-self: center;
@@ -319,7 +319,7 @@ section {
 }
 
 .about-sep img {
-  width: clamp(80px, 20%, 250px);
+  width: clamp(100px, 20%, 250px);
   height: auto;
   object-fit: contain;
   flex-shrink: 1;
@@ -1803,7 +1803,8 @@ a:hover {
   }
 
   .logo {
-    height: 60px;
+    width: 80%;
+    height: auto;
   }
 
   .nav-madeingermany {
@@ -1849,7 +1850,7 @@ a:hover {
   }
 
   .about-sep img {
-    width: 100px;
+    padding-right: none;
   }
 
   .about-profile {
@@ -1859,16 +1860,25 @@ a:hover {
   }
 
   .profile-pic {
-    height: 10em;
-    width: auto;
+    height: 90px;
+    width: 90px;
+  }
+
+  .profile-text {
+    gap: 0em;
   }
 
   .profile-name {
-    font-size: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .profile-function {
+    display: block;
+    font-size: 0.9rem;
   }
 
   .box-textcontent {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .genome-hero-3 {
@@ -1894,10 +1904,10 @@ a:hover {
 
   .footer-content {
     gap: 1rem;
+    font-size: 10px;
   }
 
   .footer-links {
-    flex-direction: column;
     gap: 1rem;
   }
 
@@ -2017,11 +2027,6 @@ a:hover {
     font-size: 1rem;
   }
 
-  .profile-function {
-    display: block;
-    font-size: 1rem;
-  }
-
   .main-statement {
     font-size: 1rem;
   }
@@ -2124,5 +2129,6 @@ a:hover {
   .ger-map {
     margin: auto !important;
     max-height: initial;
+    padding: 20px;
   }
 }
