@@ -444,7 +444,7 @@ section {
 }
 
 .section-middle {
-  padding-top: 5%;
+  padding-top: 4%;
 }
 
 .profile-pic {
@@ -1809,6 +1809,10 @@ a:hover {
     margin-top: 90px !important;
   }
 
+  .section-middle {
+    margin-bottom: 10%;
+  }
+
   .logo {
     width: 80%;
     height: auto;
@@ -1824,7 +1828,6 @@ a:hover {
 
   .hover-box {
     height: auto;
-    padding: 1rem;
   }
 
   .hover-box-header {
@@ -1859,24 +1862,28 @@ a:hover {
 
   .about-profile {
     margin-top: 5vh;
-    gap: 2em;
+    gap: 0.5em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
   }
 
   .profile-pic {
     height: auto;
-    width: auto;
+    width: 90%;
     grid-row: 1;
   }
 
+  .profile-title {
+    align-self: baseline;
+  }
+
   .profile-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .box-textcontent {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .genome-hero-3 {
@@ -1889,8 +1896,9 @@ a:hover {
     justify-self: center;
   }
 
-  .story-main-end .about-story {
+  .about-story {
     width: 90%;
+    margin: auto;
   }
 
   .footer-section {
