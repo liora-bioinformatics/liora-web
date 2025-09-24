@@ -1669,6 +1669,11 @@ ul {
   resize: none !important;
 }
 
+a:hover {
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
@@ -1867,6 +1872,166 @@ ul {
 
 .impressum-content a:hover {
   text-decoration: none;
+}
+
+.empty-box {
+  border: 1px solid #00000094;
+  border-radius: 10px;
+  border-radius: 1rem;
+  background-image: linear-gradient(45deg, #1aa50000 25%, transparent 25%, transparent 50%, #3db300 50%, #000000 75%, transparent 75%);
+  background-size: 10px 10px;
+  background-color: #ffffff8c;
+}
+
+.phylotrace-stats .round-box:hover {
+  font-weight: bold;
+}
+
+.phylotrace-stats .empty-box:hover {
+  background-image:
+    linear-gradient(45deg, #000000 25%, transparent 25%, transparent 50%, #ffe200 50%, #000000 75%, transparent 75%);
+}
+
+.phylotrace-stats {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1vw;
+  width: 100%;
+  height: 35vh;
+}
+
+.phylotrace-bullet {
+  font-size: 1.5vw;
+  height: fit-content;
+  align-self: center;
+  height: fit-content;
+}
+
+.github-widgets {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  width: 100%;
+}
+
+.github-stats {
+  display: flex;
+  gap: 0.5vw;
+  flex-wrap: wrap;
+}
+
+.carousel-section {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 0%;
+  margin-top: 8%;
+  padding-bottom: 5%;
+}
+
+#pipelines,
+#software,
+#consulting,
+#data_analysis,
+#phyloTracePreview {
+  scroll-margin-top: 130px;
+}
+
+#phyloTracePreview {
+  height: 100%;
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.carousel-item {
+  padding-bottom: 20px;
+}
+
+.carousel-caption {
+  position: relative !important;
+  padding-top: 15px !important;
+  color: #000000 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+  font-family: monospace;
+}
+
+.project-carousel-inner {
+  border-radius: 10px;
+  overflow: hidden;
+  align-content: center;
+  height: fit-content;
+  width: 90%;
+  justify-self: center;
+}
+
+.project-stats {
+  display: grid;
+  gap: 2vw;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-height: 100%;
+  justify-items: anchor-center;
+}
+
+.carousel-control-prev {
+  justify-content: left !important;
+}
+
+.carousel-control-next {
+  justify-content: right !important;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 2vw !important;
+  height: 2vw !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("img/right.svg") !important;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("img/left.svg") !important;
+}
+
+.stat-num {
+  font-size: 2.5vw
+}
+
+.stat-box {
+  padding: 1vw;
+  font-size: 1.5vw;
+  align-self: center;
+  text-align: center;
+  font-weight: 300;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.phylotrace-message {
+  font-weight: 300;
+  font-size: 1.2vw;
+  padding: 1em;
 }
 
 /* Mobile Optimizations */
@@ -2105,10 +2270,6 @@ ul {
     gap: 1rem;
   }
 
-    {
-    font-size: 4vw;
-  }
-
   .decrypted-small,
   .decrypted-large {
     font-size: 3em;
@@ -2270,21 +2431,6 @@ ul {
     font-size: 1.2rem;
   }
 
-  .phylotrace-stats {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(9, 1fr);
-    gap: 0.5rem;
-  }
-
-  .project-stats {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr);
-  }
-
-  .stat-box {
-    font-size: 1rem;
-  }
-
   .stat-num {
     font-size: 1.5rem;
   }
@@ -2314,19 +2460,9 @@ ul {
     font-size: 0.8em;
   }
 
-  .carousel-control-next-icon,
-  .carousel-control-prev-icon {
-    width: 1.5vw;
-    height: 1.5vw;
-  }
-
   .info-message {
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .empty-box {
-    padding: 0.5rem;
   }
 
   .phylotrace-message {
