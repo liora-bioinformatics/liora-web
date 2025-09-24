@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
@@ -18,7 +18,7 @@
 
 <body>
     <nav class="navbar">
-        <img class="logo" src="img/Liora_black.png" alt="Liora Bioinformatics Logo">
+        <img class="logo" src="styles/img/Liora_black.png" alt="Liora Bioinformatics Logo">
 
         <!-- Desktop Navigation -->
         <div class="navigation-refs hidden md:flex items-center">
@@ -91,39 +91,39 @@
 
     <section style="height: 100vh;" class="section-first">
         <div class="about">
-            <div class="fade-in-section about-left" data-animation-class="is-visible" data-delay="0.2s">
-                <div class="about-header-white">
+            <div class="fade-in-element about-left" data-animation-class="is-visible" data-delay="0.2s">
+                <div class="header-white">
                     This is our DNA
                 </div>
-                <div class="profile-desc">
+                <div class="box-textcontent">
                     Located in Germany’s high-tech region, often called the <b>Inventors' Belt</b>, we combine
                     scientific depth
                     with innovation and precision.
                     Our work bridges research and real-world impact.
                 </div>
             </div>
-            <img class="fade-in-section ger-map" src="img/ger.png"
+            <img class="fade-in-element ger-map" src="styles/img/ger.png"
                 style="max-height: 100%; justify-self: anchor-center; margin-left: 10%;"
                 data-animation-class="is-visible" data-delay="0.4s">
         </div>
-        <div class="fade-in-section about-sep" data-animation-class="is-visible" data-delay="0.6s">
-            <img class="banner-img" src="img/hfu_logo_gruen_osr_rgb.svg">
-            <img class="banner-img" src="img/shinyconf.png">
-            <img class="banner-img" src="img/rmedicine.png">
-            <img class="banner-img" src="img/startupcampus.png">
-            <img style="padding:unset" class="banner-img" src="img/sbh.svg">
+        <div class="fade-in-element about-sep" data-animation-class="is-visible" data-delay="0.6s">
+            <img class="banner-img" src="styles/img/hfu_logo_gruen_osr_rgb.svg">
+            <img class="banner-img" src="styles/img/shinyconf.png">
+            <img class="banner-img" src="styles/img/rmedicine.png">
+            <img class="banner-img" src="styles/img/startupcampus.png">
+            <img style="padding:unset" class="banner-img" src="styles/img/sbh.svg">
         </div>
     </section>
 
     <section class="section-middle">
         <div class="story-main-end">
-            <img id="genomeThree" class="genome-pic genome-hero-3" src="img/genome_sundark.png" alt="">
-            <div style="position: relative; top: 3vw;" class="fade-in-section about-story story-main-end"
+            <img id="genomeThree" class="genome-pic genome-hero-3" src="styles/img/genome_sundark.png" alt="">
+            <div style="position: relative; top: 3vw;" class="fade-in-element about-story story-main-end"
                 data-animation-class="is-visible" data-delay="0.2s">
                 <div class="about-header-black">
                     Our story
                 </div>
-                <div class="profile-desc">
+                <div class="box-textcontent">
                     Our roots lie within the small but excellent Furtwangen University (HFU)
                     situated in the Black Forest area in Germany. Our founders met at
                     a the <span style="font-style: italic; font-weight: 400;">Data Science for Life Science</span>
@@ -138,13 +138,13 @@
             </div>
         </div>
         <div class="" style="display: flex; position: relative; z-index: 2">
-            <img id="blackforest" src="img/blackforest_merged.png">
+            <img id="blackforest" src="styles/img/blackforest_merged.png">
         </div>
     </section>
 
     <section class="section-middle">
-        <div class="fade-in-section about-profile" data-animation-class="is-visible" data-delay="0.2s">
-            <img class="profile-pic" src="img/mk.jpg">
+        <div class="fade-in-element about-profile" data-animation-class="is-visible" data-delay="0.2s">
+            <img class="profile-pic" src="styles/img/mk.jpg">
             <div class="profile-text">
                 <div class="profile-name">
                     Prof. Matthias Kohl, Ph.D.
@@ -152,7 +152,7 @@
                 <div class="profile-function">
                     Senior Scientific Advisor
                 </div>
-                <div class="profile-desc">
+                <div class="box-textcontent">
                     Matthias Kohl, a renowned expert in mathematics for biology and medicine, leads our
                     statistical and data science initiatives. In addition to successfully
                     leading multiple research projects and advising clinicians and
@@ -165,7 +165,7 @@
                 </div>
             </div>
         </div>
-        <div class="fade-in-section about-profile" data-animation-class="is-visible" data-delay="0.4s">
+        <div class="fade-in-element about-profile" data-animation-class="is-visible" data-delay="0.4s">
             <div class="profile-text">
                 <div class="profile-name">
                     Filip Paskali, Ph.D., M.D.
@@ -173,7 +173,7 @@
                 <div class="profile-function">
                     Chief Technology Officer
                 </div>
-                <div class="profile-desc">
+                <div class="box-textcontent">
                     Filip Paskali, a medical scientist and data analyst, bridges the
                     fields of biomedical research and scientific computing. With a
                     background in general medicine and a PhD focus in biomedical
@@ -184,10 +184,10 @@
                     and Linux expertise to support diverse research teams.
                 </div>
             </div>
-            <img class="profile-pic" src="img/fp.png">
+            <img class="profile-pic" src="styles/img/fp.png">
         </div>
-        <div class="fade-in-section about-profile" data-animation-class="is-visible" data-delay="0.6s">
-            <img class="profile-pic" src="img/mf.png">
+        <div class="fade-in-element about-profile" data-animation-class="is-visible" data-delay="0.6s">
+            <img class="profile-pic" src="styles/img/mf.png">
             <div class="profile-text">
                 <div class="profile-name">
                     Marian Freisleben, M.Sc.
@@ -195,7 +195,7 @@
                 <div class="profile-function">
                     Chief Executive Officer
                 </div>
-                <div class="profile-desc">
+                <div class="box-textcontent">
                     Marian Freisleben brings a multifaceted passion for science,
                     technology, and innovation to his leadership role. He has a
                     background in personalized medicine and bioinformatics and has
@@ -210,7 +210,7 @@
     </section>
 
     <div class="footer-section">
-        <img src="img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+        <img src="styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
         <div class="footer-content">
             <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
             <div class="footer-links">
