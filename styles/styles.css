@@ -1227,6 +1227,9 @@ ul {
   #pipelines {
     grid-template-columns: 1fr;
     gap: 1em;
+    .carousel-container {
+      height: 30vh !important;
+    }
   }
 }
 
@@ -1239,10 +1242,16 @@ ul {
 }
 
 @media (max-width: 768px) {
-  #software .carousel-container {
+  #software {
+    .carousel-container {
     width: 100%;
     height: 10vh;
+    }
+    .carousel-image {
+      height: 25vh !important;
+    }
   }
+  
 }
 
 #consulting {
@@ -1255,10 +1264,17 @@ ul {
   }
 }
 
-#consulting .carousel-container {
-  height: 10vh;
-  width: 30vw;
+#consulting {
+  .carousel-container {
+    height: 10vh;
+    width: 30vw;
+  }
+  .carousel-image {
+    height: 55vh !important;
+  }
 }
+
+
 
 @media (max-width: 768px) {
   #consulting .carousel-container {
@@ -1269,6 +1285,12 @@ ul {
 
 #data_analysis {
   grid-template-columns: 1fr 3fr 2fr;
+}
+
+@media (max-width: 768px) {
+  #data_anaylsis .carousel-image {
+    height: 32vh !important;
+  }
 }
 
 .services-content {

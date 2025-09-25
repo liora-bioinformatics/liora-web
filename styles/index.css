@@ -111,6 +111,12 @@
     margin-top: 100px;
 }
 
+@media (max-width: 768px) {
+    .decrypted-data {
+        font-size: 2rem;
+    }
+}
+
 .decrypted-discovery {
     font-size: 6vw;
     margin-top: 30px;
