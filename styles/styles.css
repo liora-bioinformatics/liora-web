@@ -1075,12 +1075,37 @@ h6 {
 .services-description {
   text-align: justify;
   min-height: fit-content;
+  height: 50vh;
+}
+
+@media (max-width: 768px) {
+  .services-description {
+    height: unset;
+    padding: 1%;
+  }
 }
 
 .software-div {
   height: 10vh;
   display: flex;
   gap: 5vh;
+  height: auto;
+
+  a {
+    width: 50%
+  }
+}
+
+@media (max-width: 768px) {
+  .software-div {
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+
+    a {
+      width: 100%;
+    }
+  }
 }
 
 .services-intro {
@@ -1088,6 +1113,13 @@ h6 {
   height: 100vh;
   gap: 5vw;
   max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .services-intro {
+    height: unset;
+    max-height: unset;
+  }
 }
 
 .services-intro-tile {
@@ -1178,16 +1210,58 @@ ul {
   justify-items: stretch;
 }
 
+@media (max-width: 768px) {
+  .service-present {
+    display: block;
+  }
+}
+
 #pipelines {
   grid-template-columns: 1fr 3fr 2fr;
+}
+
+@media (max-width: 768px) {
+  #pipelines {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
 }
 
 #software {
   grid-template-columns: 1fr 2fr;
 }
 
+#software .carousel-container {
+  width: 30vw;
+}
+
+@media (max-width: 768px) {
+  #software .carousel-container {
+    width: 100%;
+    height: 10vh;
+  }
+}
+
 #consulting {
   grid-template-columns: 1fr 2.5fr 2.5fr;
+}
+
+@media (max-width: 768px) {
+  #consulting {
+    grid-template-columns: 1fr;
+  }
+}
+
+#consulting .carousel-container {
+  height: 10vh;
+  width: 30vw;
+}
+
+@media (max-width: 768px) {
+  #consulting .carousel-container {
+    height: 10vh;
+    width: 100%;
+  }
 }
 
 #data_analysis {
@@ -1282,6 +1356,13 @@ ul {
   height: 10vh;
   font-weight: 300;
   transition: box-shadow 0.2s ease-out, font-weight 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+@media (max-width: 768px) {
+  .service-contact {
+    font-size: 1.2rem;
+    height: unset;
+  }
 }
 
 .service-contact:hover {
@@ -1848,10 +1929,6 @@ a:hover {
     margin-top: 90px !important;
   }
 
-  .section-middle {
-    margin-bottom: 10%;
-  }
-
   .logo {
     width: 80%;
     height: auto;
@@ -1977,10 +2054,11 @@ a:hover {
 
   .services-content {
     height: auto;
+    margin-top: 5%;
   }
 
   .service-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
@@ -2028,7 +2106,8 @@ a:hover {
   }
 
   .services-textbox {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    padding: 1%;
   }
 
   .header {

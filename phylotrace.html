@@ -19,23 +19,23 @@
 </head>
 
 <body>
-    <nav>
+    <nav class="navbar">
         <img class="logo" src="styles/img/Liora_black.png" alt="Liora Bioinformatics Logo">
 
         <!-- Desktop Navigation -->
         <div class="navigation-refs hidden md:flex items-center">
 
             <div class="menu-item relative group" onclick="window.location.href = 'index.html';">
-                <a href="index.html" class="hover-underline">Home</a>
+                <a href="index.html" class="hover-underline font-bold">Home</a>
             </div>
 
             <!-- About Dropdown -->
             <div class="menu-item relative group" onclick="window.location.href = 'about.html';">
-                <!-- Hover triggers the whole group -->
+                <!-- Hover triggers the whole group (including dropdown) -->
                 <a href="about.html" class="hover-underline">About</a>
 
                 <!-- Dropdown menu: visible when group is hovered -->
-                <!-- <div class="hidden group-hover:flex flex-col dropdown">
+                <!-- <div class="hidden group-hover:flex flex-col dropdown" onclick="event.stopPropagation();">
                     <a href="about.html" class="dropdown-element dropdown-first block">About Liora Bioinformatics</a>
                     <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
                     <a href="service3.html" class="dropdown-element block">Data Challenges</a>
@@ -48,7 +48,7 @@
             </div>
 
             <div class="menu-item relative group" onclick="window.location.href = 'phylotrace.html';">
-                <a href="phylotrace.html" class="hover-underline font-bold">PhyloTrace</a>
+                <a href="phylotrace.html" class="hover-underline">PhyloTrace</a>
             </div>
 
             <div class="menu-item relative group" onclick="window.location.href = 'contact.html';">
@@ -80,22 +80,11 @@
         <!-- Mobile Navigation -->
         <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
-
-                <!-- About section with sub-links -->
+                <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Home</a>
                 <a href="about.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
-                <a href="about.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ About Liora
-                    Bioinformatics</a>
-                <a href="about-open-science.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Open
-                    Science</a>
-                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Data
-                    Challenges</a>
-                <a href="service3.html" class="block px-5 py-2 text-white hover:bg-gray-700 rounded">↳ Big Data in
-                    Healthcare</a>
-
-                <a href="service.html"
-                    class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Services</a>
-                <a href="index.html#contact" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+                <a href="service.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
+                <a href="phylotrace.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">PhyloTrace</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
             </div>
         </div>
     </nav>
