@@ -31,12 +31,6 @@ body {
   overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
-  body {
-    background-image: url('img/blueshades-768x1080.webp')
-  }
-}
-
 body>nav {
   position: fixed;
   min-height: fit-content;
