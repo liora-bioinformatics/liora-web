@@ -154,6 +154,12 @@ body>nav {
   padding: 2em;
 }
 
+@media (max-width: 768px) {
+  .legal-content {
+    margin-top: 90px;
+  }
+}
+
 .legal-content h1 {
   margin-bottom: 10px;
   font-size: 2em;
@@ -1427,6 +1433,7 @@ ul {
   max-width: 70rem;
   margin: 1rem auto;
   padding: 1rem;
+  min-height: 35em;
 }
 
 .contact-section h2 {
@@ -1445,6 +1452,15 @@ ul {
 .contact-form {
   display: grid;
   gap: 0.75rem;
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    width: unset;
+    margin: unset;
+  }
 }
 
 .form-columns {
@@ -1512,8 +1528,10 @@ a:hover {
 .recaptcha-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0.4rem 0;
+}
+
+#submit-btn {
+  height: 4.7em;
 }
 
 .submit-button {
@@ -1597,7 +1615,6 @@ a:hover {
 }
 
 .g-recaptcha {
-  margin: 0.4rem 0;
   display: flex;
   justify-content: center;
 }
@@ -1878,6 +1895,10 @@ a:hover {
 
 /* Mobile Optimizations */
 @media (max-width: 768px) {
+  * {
+    animation-delay: 0s !important;
+  }
+
   body {
     font-size: 14px;
   }
