@@ -30,6 +30,7 @@
 @media (max-width: 768px) {
     .data-discovery-container {
         width: auto;
+        margin-top: 45px;
     }
 }
 

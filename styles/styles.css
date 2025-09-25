@@ -54,10 +54,6 @@ body>nav {
   align-content: center;
 }
 
-.section-first {
-  margin-top: 45px;
-}
-
 .menu-item {
   height: 101%;
   align-content: center;
@@ -957,6 +953,7 @@ h6 {
 .project-section {
   height: 100vh;
   padding-left: 0;
+  padding-top: 0;
 }
 
 @media (max-width: 768px) {
@@ -1925,10 +1922,6 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  .section-first {
-    margin-top: 90px !important;
-  }
-
   .logo {
     width: 80%;
     height: auto;
@@ -1965,6 +1958,7 @@ a:hover {
   .about {
     flex-direction: column;
     height: auto;
+    margin-top: 90px;
   }
 
   .about-left {
@@ -2060,6 +2054,7 @@ a:hover {
   .service-cards {
     grid-template-columns: 1fr;
     gap: 1rem;
+    margin-top: 90px;
   }
 
 
