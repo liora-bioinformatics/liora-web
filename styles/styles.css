@@ -32,7 +32,8 @@ body {
 }
 
 body>nav {
-  position: fixed;
+  position: fixed !important;
+  padding: 0 !important;
   min-height: fit-content;
   color: black;
   top: 0px;
