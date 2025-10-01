@@ -714,6 +714,7 @@ section {
 .fa {
   padding: 10px;
   text-align: center;
+  border-radius: 4px;
   text-decoration: none;
 }
 
@@ -723,7 +724,7 @@ section {
 }
 
 .fa-github {
-  background-color: #313a43;
+  background-color: #262b31;
   color: white !important;
 }
 
