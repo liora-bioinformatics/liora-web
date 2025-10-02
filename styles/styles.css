@@ -1163,7 +1163,7 @@ h6 {
 
 @media (max-width: 768px) {
   .services-description {
-    height: unset;
+    height: unset !important;
     padding: 1%;
   }
 }
