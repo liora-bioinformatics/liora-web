@@ -8,29 +8,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
-    <link rel="manifest" href="resources/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon-16x16.png">
+    <link rel="manifest" href="/resources/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
 
 <body>
     <nav class="navbar">
-        <a href="index.html" style="display: contents;">
-            <img class="logo" src="styles/img/Liora_Long.png" alt="Liora Bioinformatics Logo">
+        <a href="/index.html" style="display: contents;">
+            <img class="logo" src="/styles/img/Liora_Long.png" alt="Liora Bioinformatics Logo">
         </a>
 
         <!-- Desktop Navigation -->
         <div class="navigation-refs hidden lg:flex items-center">
 
-            <div class="menu-item relative group" onclick="window.location.href = 'index.html';">
-                <a href="index.html" class="hover-underline">Home</a>
+            <div class="menu-item relative group" onclick="window.location.href = '/index.html';">
+                <a href="/index.html" class="hover-underline">Home</a>
             </div>
 
             <!-- About Dropdown -->
@@ -55,8 +55,8 @@
                 <a href="/phylotrace/" class="hover-underline font-bold">PhyloTrace</a>
             </div>
 
-            <div class="menu-item relative group" onclick="window.location.href = 'contact/';">
-                <a href="contact/" class="hover-underline">Contact</a>
+            <div class="menu-item relative group" onclick="window.location.href = '/contact/';">
+                <a href="/contact/" class="hover-underline">Contact</a>
             </div>
         </div>
 
@@ -84,12 +84,12 @@
         <!-- Mobile Navigation -->
         <div class="mobile-menu md:hidden bg-gray-800" style="display: none">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
+                <a href="/index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Home</a>
                 <a href="/about/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
                 <a href="/service/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
                 <a href="/phylotrace/"
                     class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">PhyloTrace</a>
-                <a href="contact/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+                <a href="/contact/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
             </div>
         </div>
     </nav>
@@ -101,12 +101,12 @@
     <section class="section-first project-section">
         <div class="project-page">
             <div class="project-sidebar round-box dark">
-                <img src="styles/img/PhyloTrace_flat.png" class="carousel__img">
+                <img src="/styles/img/PhyloTrace_flat.png" class="carousel__img">
                 <div class="phylotrace-message">
                     Join the pilot programme and receive <strong>priority support</strong>,
                     <strong>complete documentation</strong> and <strong>update maintenance</strong>.
                 </div>
-                <a href="contact/" style="padding: 1em;">
+                <a href="/contact/" style="padding: 1em;">
                     <div class="fade-in-element contact-us" data-animation-class="is-visible" data-delay="3s">
                         <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
                     </div>
@@ -151,7 +151,7 @@
                     </a>
                 </div>
                 <div style="height: 35vh; border-radius: 1rem; width: 100%;">
-                    <img style="max-height: 100%; margin: auto;" src="styles/img/mst.png"></img>
+                    <img style="max-height: 100%; margin: auto;" src="/styles/img/mst.png"></img>
                 </div>
                 <div class="phylotrace-bullet">
                     <ul>
@@ -222,33 +222,33 @@
         <div id="phyloTracePreview" class="carousel slide" data-ride="carousel" data-interval="4000" data-pause="false">
             <div class="project-carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block carousel__img" src="styles/img/browse_entries.png" alt="PhyloTrace Preview 1">
+                    <img class="d-block carousel__img" src="/styles/img/browse_entries.png" alt="PhyloTrace Preview 1">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Manage bacterial isolates in local databases | Annotate custom variables &
                             epidemiological metadata</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/dist_matrix.png" alt="PhyloTrace Preview 2">
+                    <img class="d-block carousel__img" src="/styles/img/dist_matrix.png" alt="PhyloTrace Preview 2">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Compute & visualize allelic distance between bacterial isolates</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/manage_schemes.png" alt="PhyloTrace Preview 3">
+                    <img class="d-block carousel__img" src="/styles/img/manage_schemes.png" alt="PhyloTrace Preview 3">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Access over 79 cgMLST schemes for 49 species | Integrated cgMLST.org and pubMLST database
                             interfaces </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/loci_info.png" alt="PhyloTrace Preview 4">
+                    <img class="d-block carousel__img" src="/styles/img/loci_info.png" alt="PhyloTrace Preview 4">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Explore genetic diversity between sets of bacterial isolates</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/mst_visualization.png"
+                    <img class="d-block carousel__img" src="/styles/img/mst_visualization.png"
                         alt="PhyloTrace Preview 5">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Visualize outbreak, environmental and other populations | Interactive Minimum-spanning trees
@@ -257,26 +257,26 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/amr_screening.png" alt="PhyloTrace Preview 7">
+                    <img class="d-block carousel__img" src="/styles/img/amr_screening.png" alt="PhyloTrace Preview 7">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Antimicrobial Resistance Screening | Antibiotics Resistance - Virulence - Stress genes</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/amr_heatmap.png" alt="PhyloTrace Preview 8">
+                    <img class="d-block carousel__img" src="/styles/img/amr_heatmap.png" alt="PhyloTrace Preview 8">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Interactive Cluster Heatmap | Allelic/Genetic distance - Antimicrobial resistance patterns
                         </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/typing_start.png" alt="PhyloTrace Preview 7">
+                    <img class="d-block carousel__img" src="/styles/img/typing_start.png" alt="PhyloTrace Preview 7">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Fast & robust allele calling | cgMLST Typing</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block carousel__img" src="styles/img/tree_visualization.png"
+                    <img class="d-block carousel__img" src="/styles/img/tree_visualization.png"
                         alt="PhyloTrace Preview 7">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Hierarchical tree visualization interface | Neighbour-Joining - UPGMA | Custom metadata
@@ -312,14 +312,14 @@
             <div class="social">
                 <a href="https://www.linkedin.com/company/102839404" target="_blank" class="fa fa-linkedin"></a>
                 <a href="https://github.com/liora-bioinformatics" target="_blank" class="fa fa-github"></a>
-                <a href="contact.html" class="fa fa-paper-plane"></a>
+                <a href="/contact/" class="fa fa-paper-plane"></a>
             </div>
             <div class="footer-links">
                 <a href="/privacy-policy/" class="hover:text-gray-300">Privacy Policy</a>
                 <a href="/impressum/" class="hover:text-gray-300">Impressum (Legal Notice)</a>
-                <a href="contact/" class="hover:text-gray-300">Contact Us</a>
+                <a href="/contact/" class="hover:text-gray-300">Contact Us</a>
             </div>
-            <img src="styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+            <img src="/styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
         </div>
         <p class="reserved-rights">© 2025 Liora Bioinformatics. All rights reserved.</p>
     </div>
@@ -347,7 +347,7 @@
             updateCounter();  // Start animation
         });
     </script>
-    <script src="resources/scripts.js"></script>
+    <script src="/resources/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

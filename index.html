@@ -8,29 +8,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="preload" as="image" href="styles/img/blueshades.webp" type="image/webp">
-    <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
-    <link rel="manifest" href="resources/site.webmanifest">
+    <link rel="preload" as="image" href="/styles/img/blueshades.webp" type="image/webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon-16x16.png">
+    <link rel="manifest" href="/resources/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="/styles/index.css">
 </head>
 
 <body>
     <nav class="navbar">
-        <a href="index.html" style="display: contents;">
-            <img class="logo" src="styles/img/Liora_Long.png" alt="Liora Bioinformatics Logo">
+        <a href="/index.html" style="display: contents;">
+            <img class="logo" src="/styles/img/Liora_Long.png" alt="Liora Bioinformatics Logo">
         </a>
 
         <!-- Desktop Navigation -->
         <div class="navigation-refs hidden lg:flex items-center">
 
-            <div class="menu-item relative group" onclick="window.location.href = 'index.html';">
-                <a href="index.html" class="hover-underline font-bold">Home</a>
+            <div class="menu-item relative group" onclick="window.location.href = '/index.html';">
+                <a href="/index.html" class="hover-underline font-bold">Home</a>
             </div>
 
             <!-- About Dropdown -->
@@ -55,7 +55,7 @@
                 <a href="/phylotrace/" class="hover-underline">PhyloTrace</a>
             </div>
 
-            <div class="menu-item relative group" onclick="window.location.href = 'contact/';">
+            <div class="menu-item relative group" onclick="window.location.href = '/contact/';">
                 <a href="/contact/" class="hover-underline">Contact</a>
             </div>
         </div>
@@ -84,11 +84,11 @@
         <!-- Mobile Navigation -->
         <div class="mobile-menu lg:hidden bg-gray-800" style="display: none">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Home</a>
+                <a href="/index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Home</a>
                 <a href="/about/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
                 <a href="/service/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
                 <a href="/phylotrace/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">PhyloTrace</a>
-                <a href="contact/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
+                <a href="/contact/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
             </div>
         </div>
     </nav>
@@ -110,54 +110,54 @@
             <div class="fade-in-element hero-grid-item-1 carousel-container" data-animation-class="is-visible"
                 data-delay="2.3s" data-interval="5500" data-animation="fade">
                 <figure class="carousel__item active">
-                    <img src="styles/img/variant_validation.png" class="no-round-borders carousel__img">
+                    <img src="/styles/img/variant_validation.png" class="no-round-borders carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/amr_heatmap.png" class="carousel__img">
+                    <img src="/styles/img/amr_heatmap.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/manage_schemes.png" class="carousel__img">
+                    <img src="/styles/img/manage_schemes.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/loci_info.png" class="carousel__img">
+                    <img src="/styles/img/loci_info.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/fshd_analysis_small.png" class="carousel__img">
+                    <img src="/styles/img/fshd_analysis_small.png" class="carousel__img">
                 </figure>
             </div>
             <div class="fade-in-element hero-grid-item-2 home-carousel carousel-container"
                 data-animation-class="is-visible" data-delay="2.5s" data-interval="3500" data-animation="slide">
                 <figure class="carousel__item active">
-                    <img src="styles/img/KiwiFlow.png" class="carousel__img">
+                    <img src="/styles/img/KiwiFlow.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/hex-LFApp.png" class="carousel__img">
+                    <img src="/styles/img/hex-LFApp.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/R_logo.png" class="carousel__img">
+                    <img src="/styles/img/R_logo.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/hex-MADApp.png" class="carousel__img">
+                    <img src="/styles/img/hex-MADApp.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/PhyloTrace_flat.png" class="carousel__img">
+                    <img src="/styles/img/PhyloTrace_flat.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/Nextflow_logo.png" class="carousel__img">
+                    <img src="/styles/img/Nextflow_logo.png" class="carousel__img">
                 </figure>
                 <figure class="carousel__item">
-                    <img src="styles/img/hex-MKdescr.png" class="carousel__img">
+                    <img src="/styles/img/hex-MKdescr.png" class="carousel__img">
                 </figure>
             </div>
             <div class="fade-in-element hero-grid-item-3 home-carousel carousel-container"
                 data-animation-class="is-visible" data-delay="2.6s" data-interval="5500" data-animation="fade">
                 <figure class="carousel__item active">
-                    <img src="styles/img/Liora_Rect.png" style="border-radius: 0;" alt="Gallery image 4"
+                    <img src="/styles/img/Liora_Rect.png" style="border-radius: 0;" alt="Gallery image 4"
                         class="gallery__img">
                 </figure>
             </div>
         </div>
-        <img id="genomeTwo" class="genome-pic genome-hero" src="styles/img/genome.png" alt="">
+        <img id="genomeTwo" class="genome-pic genome-hero" src="/styles/img/genome.png" alt="">
     </section>
 
     <section class="section-middle landing-section">
@@ -226,7 +226,7 @@
                     When <br> Experiments <br> Scale, <br> Analysis <br> Must Too.
                 </p>
             </div>
-            <a href="contact/">
+            <a href="/contact/">
                 <div class="fade-in-element round-box white service-contact" data-animation-class="is-visible"
                     data-delay="0s">
                     <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
@@ -250,7 +250,7 @@
                 </div>
             </div>
             <a href="/phylotrace/" class="project-phylotrace round-box glass">
-                <img src="styles/img/PhyloTrace_flat.png" class="phylotrace-img project-img">
+                <img src="/styles/img/PhyloTrace_flat.png" class="phylotrace-img project-img">
                 <div class="project-title">
                     <div class="project-desc phylotrace-desc">
                         All-in-one platform to perform and manage decentralized, hashed bacterial surveillance.
@@ -262,12 +262,12 @@
                 <div class="project-field phylotrace-field">
                     Molecular Epidemiology | Microbial Genomics
                 </div>
-                <img src="styles/img/PhyloTrace_bw.png" class="phylotrace-logo">
+                <img src="/styles/img/PhyloTrace_bw.png" class="phylotrace-logo">
             </a>
         </div>
         <div class="project-cards">
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.2s">
-                <img src="styles/img/hex-MKinfer.png" class="project-img">
+                <img src="/styles/img/hex-MKinfer.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         MKinfer
@@ -282,7 +282,7 @@
                 </div>
             </div>
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.4s">
-                <img src="styles/img/hex-LFApp.png" class="project-img">
+                <img src="/styles/img/hex-LFApp.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         LFApp
@@ -296,7 +296,7 @@
                 </div>
             </div>
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.6s">
-                <img src="styles/img/hex-MKdescr.png" class="project-img">
+                <img src="/styles/img/hex-MKdescr.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         MKdescr
@@ -311,7 +311,7 @@
                 </div>
             </div>
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.2s">
-                <img src="styles/img/KiwiFlow.png" class="project-img">
+                <img src="/styles/img/KiwiFlow.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         KiwiFlow
@@ -326,7 +326,7 @@
                 </div>
             </div>
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.4s">
-                <img src="styles/img/hex-MKomics.png" class="project-img">
+                <img src="/styles/img/hex-MKomics.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         MKomics
@@ -340,7 +340,7 @@
                 </div>
             </div>
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.6s">
-                <img src="styles/img/hex-MADApp.png" class="project-img">
+                <img src="/styles/img/hex-MADApp.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         MADapp
@@ -354,7 +354,7 @@
                 </div>
             </div>
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.2s">
-                <img src="styles/img/hex-rmx.png" class="project-img">
+                <img src="/styles/img/hex-rmx.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         rmx
@@ -370,7 +370,7 @@
                 </div>
             </div>
             <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.4s">
-                <img src="styles/img/hex-MKpower.png" class="project-img">
+                <img src="/styles/img/hex-MKpower.png" class="project-img">
                 <div class="project-title">
                     <div class="project-name">
                         MKPower
@@ -409,19 +409,19 @@
             <div class="social">
                 <a href="https://www.linkedin.com/company/102839404" target="_blank" class="fa fa-linkedin"></a>
                 <a href="https://github.com/liora-bioinformatics" target="_blank" class="fa fa-github"></a>
-                <a href="contact.html" class="fa fa-paper-plane"></a>
+                <a href="/contact/" class="fa fa-paper-plane"></a>
             </div>
             <div class="footer-links">
                 <a href="/privacy-policy/" class="hover:text-gray-300">Privacy Policy</a>
                 <a href="/impressum/" class="hover:text-gray-300">Impressum (Legal Notice)</a>
-                <a href="contact/" class="hover:text-gray-300">Contact Us</a>
+                <a href="/contact/" class="hover:text-gray-300">Contact Us</a>
             </div>
-            <img src="styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
+            <img src="/styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
         </div>
         <p class="reserved-rights">© 2025 Liora Bioinformatics. All rights reserved.</p>
     </div>
 
-    <script src="resources/scripts.js"></script>
+    <script src="/resources/scripts.js"></script>
 </body>
 
 </html>
