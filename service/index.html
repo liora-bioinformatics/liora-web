@@ -14,14 +14,17 @@
     <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
     <link rel="manifest" href="resources/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <nav class="navbar">
-        <img class="logo" src="styles/img/Liora_Long.png" alt="Liora Bioinformatics Logo">
+        <a href="index.html" style="display: contents;">
+            <img class="logo" src="styles/img/Liora_Long.png" alt="Liora Bioinformatics Logo">
+        </a>
 
         <!-- Desktop Navigation -->
-        <div class="navigation-refs hidden md:flex items-center">
+        <div class="navigation-refs hidden lg:flex items-center">
 
             <div class="menu-item relative group" onclick="window.location.href = 'index.html';">
                 <a href="index.html" class="hover-underline">Home</a>
@@ -66,7 +69,7 @@
         </div>
 
         <!-- Mobile menu button -->
-        <div class="md:hidden flex items-center">
+        <div class="lg:hidden flex items-center">
             <button class="menu-button focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -258,7 +261,8 @@
             </div>
         </div>
         <div class="services-content">
-            <div class="fade-in-element services-description" data-animation-class="is-visible" data-delay="0.6s">
+            <div class="fade-in-element services-description" style="height: 35vh;" data-animation-class="is-visible"
+                data-delay="0.6s">
                 <div class="services-textbox">
                     Advancing your research requires more than tools — it demands strategic expertise. Our consulting
                     services provide comprehensive support in methodology development, applying rigorous statistical
@@ -429,15 +433,20 @@
     </section>
 
     <div class="footer-section">
-        <img src="styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
-        <div class="footer-content">
-            <p>© 2025 Liora Bioinformatics. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="social">
+                <a href="https://www.linkedin.com/company/102839404" target="_blank" class="fa fa-linkedin"></a>
+                <a href="https://github.com/liora-bioinformatics" target="_blank" class="fa fa-github"></a>
+                <a href="contact.html" class="fa fa-paper-plane"></a>
+            </div>
             <div class="footer-links">
                 <a href="/privacy-policy/" class="hover:text-gray-300">Privacy Policy</a>
                 <a href="/impressum/" class="hover:text-gray-300">Impressum (Legal Notice)</a>
                 <a href="contact/" class="hover:text-gray-300">Contact Us</a>
             </div>
+            <img src="styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
         </div>
+        <p class="reserved-rights">© 2025 Liora Bioinformatics. All rights reserved.</p>
     </div>
 
     <script src="resources/scripts.js"></script>
