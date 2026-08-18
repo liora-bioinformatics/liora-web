@@ -82,7 +82,7 @@
     "why.eyebrow": "Warum mit uns arbeiten",
     "why.title": "Forschungsqualität, geliefert wie ein Produkt.",
     "why1.title": "Wissenschaftler, nicht nur Entwickler",
-    "why1.p": "Wir kommen aus Labor und Klinik. Wir verstehen Ihre Daten, weil wir selbst damit gearbeitet haben.",
+    "why1.p": "Wir verstehen Ihre Daten, weil wir selbst damit gearbeitet haben.",
     "why2.title": "Reproduzierbar by Design",
     "why2.p": "Jeder Workflow ist transparent, versioniert und wiederholbar aufgebaut — damit Ergebnisse standhalten.",
     "why3.title": "Langfristig unterstützt",
