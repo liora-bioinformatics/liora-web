@@ -2,426 +2,424 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liora Bioinformatics</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="preload" as="image" href="/styles/img/blueshades.webp" type="image/webp">
-    <link rel="apple-touch-icon" sizes="180x180" href="/resources/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon-16x16.png">
-    <link rel="manifest" href="/resources/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="/styles/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="doc.title">Liora Bioinformatics — Next-Gen Solutions for Life Science Data</title>
+  <meta name="description" data-i18n-attr="content:meta.desc"
+    content="Liora Bioinformatics builds custom pipelines, software, and analysis solutions for life science research. When experiments scale, analysis must too." />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="/index.html" style="display: contents;">
-            <img class="logo" src="/styles/img/Liora_Long.png" alt="Liora Bioinformatics Logo">
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand brand-img" aria-label="Liora Bioinformatics home">
+        <img src="assets/img/liora-logo.png" alt="Liora Bioinformatics" />
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="phylotrace.html">PhyloTrace</a></li>
+          <li><a href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="#products" data-i18n="nav.products">Software</a></li>
+          <!-- <li><a href="#team" data-i18n="nav.team">Team</a></li> -->
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <div class="lang-switch" role="group" aria-label="Language / Sprache">
+          <button class="lang-btn" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="de" type="button">DE</button>
+        </div>
+        <!-- <a href="contact.html" class="btn btn-primary" data-i18n="nav.getintouch">Get in touch</a> -->
+        <button class="nav-toggle" aria-label="Menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-company" id="home">
+    <!-- <svg class="hero-deco" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="#cfe0f2" stroke-width="1.5">
+        <path d="M120 40 C 320 200, 320 440, 120 600" />
+        <path d="M220 40 C 420 200, 420 440, 220 600" />
+        <path d="M1320 40 C 1120 200, 1120 440, 1320 600" opacity=".6" />
+        <path d="M1220 40 C 1020 200, 1020 440, 1220 600" opacity=".6" />
+      </g>
+      <g fill="#bcd6ee">
+        <circle cx="170" cy="120" r="4" />
+        <circle cx="270" cy="120" r="4" />
+        <circle cx="188" cy="240" r="4" />
+        <circle cx="252" cy="240" r="4" />
+        <circle cx="170" cy="360" r="4" />
+        <circle cx="270" cy="360" r="4" />
+        <circle cx="188" cy="480" r="4" />
+        <circle cx="252" cy="480" r="4" />
+      </g>
+    </svg> -->
+    <div class="container">
+      <span class="made-in"><span class="dot"></span> <span data-i18n-html="hero.badge">Next-Gen Solutions &middot; Made
+          in Germany</span></span>
+      <h1 data-i18n="hero.title">Bioinformatics that turns complex data into clear decisions.</h1>
+      <p class="tagline" data-i18n="hero.tagline">When experiments scale, analysis must too.</p>
+      <p class="lead" data-i18n="hero.lead">Liora Bioinformatics partners with research teams and labs to design custom
+        pipelines, build dependable software, and deliver analysis you can trust — bridging rigorous science and
+        real-world impact.</p>
+      <div class="btn-row">
+        <a href="phylotrace.html" class="btn btn-primary btn-lg" data-i18n="hero.cta3">PhyloTrace</a>
+        <a href="#products" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">See our software</a>
+        <a href="#services" class="btn btn-ghost btn-lg" data-i18n="hero.cta1">Explore our services</a>
+      </div>
+      <div class="hero-meta">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <span data-i18n="hero.meta1">Rooted in academic research</span></span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <span data-i18n="hero.meta2">Reproducible &amp; open by principle</span></span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg> <span data-i18n="hero.meta3">R &amp; Python expertise</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dna">
+    <div class="container split">
+      <div>
+        <span class="eyebrow" data-i18n="dna.eyebrow">This is our DNA</span>
+        <h2 data-i18n="dna.title">Scientific depth meets engineering precision.</h2>
+        <p data-i18n="dna.p1">Our roots lie at Furtwangen University in Germany's Black Forest — part of a high-tech
+          region often called the "Inventors' Belt." Liora grew out of a Data Science for Life Science research group at
+          the Institute of Precision Medicine, where our founders met while tackling real data challenges alongside
+          international scientists.</p>
+        <p data-i18n="dna.p2">We founded Liora Bioinformatics to widen that impact beyond academia: combining scientific
+          rigor with innovation and precision, and bringing dependable bioinformatics to the teams who need it.</p>
+        <ul class="feature-list">
+          <li data-i18n="dna.li1">Grounded in precision medicine and life-science research</li>
+          <li data-i18n="dna.li2">Committed to open science and reproducible methods</li>
+          <li data-i18n="dna.li3">Interdisciplinary: biology, medicine, statistics, and code</li>
+        </ul>
+      </div>
+      <div class="split-media">
+        <img class="dna-map" src="assets/img/germany-map.png" data-i18n-attr="alt:dna.mapalt"
+          alt="Liora Bioinformatics is based in Germany" style="width:100%;" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-soft" id="products">
+    <div class="container">
+      <div class="center" style="max-width:64ch;margin:0 auto 44px;">
+        <span class="eyebrow" data-i18n="prod.eyebrow">Our software</span>
+        <h2 data-i18n="prod.title">Tools we build and maintain for the long run.</h2>
+        <p class="lead" data-i18n="prod.lead">Free open-source software and toolkits developed by us, supported
+          throughout their
+          lifecycle.</p>
+      </div>
+
+      <div class="product-hero">
+        <img src="assets/img/PhyloTrace_3d.png" alt="PhyloTrace logo" />
+        <div>
+          <h3>PhyloTrace</h3>
+          <p data-i18n="prod.ptp">An all-in-one platform to perform and manage decentralized, bacterial
+            surveillance. PhyloTrace brings together a toolkit of analyses — including hashed cgMLST typing and
+            antimicrobial resistance screening — in one intuitive interface.</p>
+          <div class="btn-row">
+            <a href="phylotrace.html" class="btn btn-light btn-lg tool" data-i18n="prod.cta1">View the software
+              portrait</a>
+            <a href="contact.html" class="btn btn-outline-light tool" data-i18n="prod.cta2">Request a demo</a>
+          </div>
+        </div>
+        <div class="container">
+          <div class="carousel" data-carousel>
+            <div class="carousel-slides">
+              <div class="carousel-slide active">
+                <img src="assets/img/mst_transparent.png" alt="Resistance and virulence screening screenshot 1" />
+              </div>
+              <div class="carousel-slide">
+                <img src="assets/img/amr_heatmap_3.png" alt="Resistance and virulence screening screenshot 1" />
+              </div>
+              <div class="carousel-slide">
+                <img src="assets/img/heatmap_map.png" class="screenshot"
+                  alt="Resistance and virulence screening screenshot 1" />
+              </div>
+              <div class="carousel-slide">
+                <img src="assets/img/typing-initiation.png" class="screenshot"
+                  alt="Resistance and virulence screening screenshot 1" />
+              </div>
+              <div class="carousel-slide">
+                <img src="assets/img/cust-var-tree.png" class="screenshot"
+                  alt="Resistance and virulence screening screenshot 1" />
+              </div>
+              <div class="carousel-slide">
+                <img src="assets/img/browse-entries.png" class="screenshot"
+                  alt="Resistance and virulence screening screenshot 1" />
+              </div>
+            </div>
+            <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+            <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+              <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+              <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+              <button class="carousel-dot" data-carousel-dot="3" aria-label="Go to slide 4"></button>
+              <button class="carousel-dot" data-carousel-dot="4" aria-label="Go to slide 5"></button>
+              <button class="carousel-dot" data-carousel-dot="5" aria-label="Go to slide 6"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid" style="margin-top:26px;">
+        <a class="tool" href="mkinfer.html">
+          <img class="tool-logo" src="assets/img/hex-MKinfer.png" alt="MKinfer logo" />
+          <div class="cat" data-i18n-html="tool.mkinfer.cat">Statistics &middot; Clinical Trials</div>
+          <h4>MKinfer</h4>
+          <p data-i18n="tool.mkinfer.p">Comprehensive suite of methods for statistical analysis of clinical data and
+            biomedical experiments.</p>
         </a>
-
-        <!-- Desktop Navigation -->
-        <div class="navigation-refs hidden lg:flex items-center">
-
-            <div class="menu-item relative group" onclick="window.location.href = '/index.html';">
-                <a href="/index.html" class="hover-underline font-bold">Home</a>
-            </div>
-
-            <!-- About Dropdown -->
-            <div class="menu-item relative group" onclick="window.location.href = '/about/';">
-                <!-- Hover triggers the whole group (including dropdown) -->
-                <a href="/about/" class="hover-underline">About</a>
-
-                <!-- Dropdown menu: visible when group is hovered -->
-                <!-- <div class="hidden group-hover:flex flex-col dropdown" onclick="event.stopPropagation();">
-                    <a href="/about/" class="dropdown-element dropdown-first block">About Liora Bioinformatics</a>
-                    <a href="about-open-science.html" class="dropdown-element block">Open Science</a>
-                    <a href="service3.html" class="dropdown-element block">Data Challenges</a>
-                    <a href="service3.html" class="dropdown-element dropdown-last block">Big Data in Healthcare</a>
-                </div> -->
-            </div>
-
-            <div class="menu-item relative group" onclick="window.location.href = '/service/';">
-                <a href="/service/" class="hover-underline">Services</a>
-            </div>
-
-            <div class="menu-item relative group" onclick="window.location.href = '/phylotrace/';">
-                <a href="/phylotrace/" class="hover-underline">PhyloTrace</a>
-            </div>
-
-            <div class="menu-item relative group" onclick="window.location.href = '/contact/';">
-                <a href="/contact/" class="hover-underline">Contact</a>
-            </div>
-        </div>
-
-        <div class="nav-madeingermany">
-            <p class="nav-desc">
-                <span style="color: #ffffff">Next-Gen Solutions</span>
-            </p>
-            <p class="nav-mig">
-                <span style="color: #000000">Made </span>
-                <span style="color: #DD0000">in </span>
-                <span style="color: #FFCE00">Germany</span>
-            </p>
-        </div>
-
-        <!-- Mobile menu button -->
-        <div class="lg:hidden flex items-center">
-            <button class="menu-button focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div class="mobile-menu lg:hidden bg-gray-800" style="display: none">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="/index.html" class="block px-3 py-2 text-white hover:bg-gray-700 rounded font-bold">Home</a>
-                <a href="/about/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">About</a>
-                <a href="/service/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Services</a>
-                <a href="/phylotrace/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">PhyloTrace</a>
-                <a href="/contact/" class="block px-3 py-2 text-white hover:bg-gray-700 rounded">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="scroll-down">
-        <p>Scroll for More</p>
+        <a class="tool" href="mkdescr.html">
+          <img class="tool-logo" src="assets/img/hex-MKdescr.png" alt="MKdescr logo" />
+          <div class="cat" data-i18n-html="tool.mkdescr.cat">Statistics &middot; Descriptive</div>
+          <h4>MKdescr</h4>
+          <p data-i18n="tool.mkdescr.p">Functions to compute and visualize robust and standardized descriptive
+            statistics.</p>
+        </a>
+        <a class="tool" href="mkpower.html">
+          <img class="tool-logo" src="assets/img/hex-MKpower.png" alt="MKpower logo" />
+          <div class="cat" data-i18n-html="tool.mkpower.cat">Statistics &middot; Study Design</div>
+          <h4>MKpower</h4>
+          <p data-i18n="tool.mkpower.p">Power analysis and sample size calculation for experiments, diagnostic studies,
+            and clinical evaluations.</p>
+        </a>
+        <a class="tool" href="mkomics.html">
+          <img class="tool-logo" src="assets/img/hex-MKomics.png" alt="MKomics logo" />
+          <div class="cat" data-i18n-html="tool.mkomics.cat">Omics &middot; Processing &middot; QC</div>
+          <h4>MKomics</h4>
+          <p data-i18n="tool.mkomics.p">Toolkit enabling quality control, processing, and evaluation of Omics
+            experiments.</p>
+        </a>
+        <a class="tool" href="rmx.html">
+          <img class="tool-logo" src="assets/img/hex-rmx.png" alt="rmx logo" />
+          <div class="cat" data-i18n-html="tool.rmx.cat">Statistics &middot; Robust estimation</div>
+          <h4>rmx</h4>
+          <p data-i18n="tool.rmx.p">Fast, optimally robust estimators for reliable parameter estimation under model
+            deviations.</p>
+        </a>
+        <a class="tool" href="lfapp.html">
+          <img class="tool-logo" src="assets/img/hex-LFApp.png" alt="LFApp logo" />
+          <div class="cat" data-i18n-html="tool.lfapp.cat">Image Analysis &middot; Lateral Flow</div>
+          <h4>LFApp</h4>
+          <p data-i18n="tool.lfapp.p">Modular application for quantitative image analysis of lateral flow assays.</p>
+        </a>
+        <a class="tool" href="madapp.html">
+          <img class="tool-logo" src="assets/img/hex-MADApp.png" alt="MADapp logo" />
+          <div class="cat" data-i18n-html="tool.madapp.cat">Micro-Arrays &middot; Image Analysis</div>
+          <h4>MADapp</h4>
+          <p data-i18n="tool.madapp.p">Intuitive workflow for image-based analysis of microarrays.</p>
+        </a>
+        <!-- <a class="tool" href="kiwims.html">
+          <img class="tool-logo" src="assets/img/KiwiFlow.png" alt="KiwiMS logo" />
+          <div class="cat" data-i18n-html="tool.kiwiflow.cat">Mass Spectrometry &middot; Proteomics</div>
+          <h4>KiwiMS</h4>
+          <p data-i18n="tool.kiwiflow.p">Interactive pipeline to facilitate processing and analysis of proteomic mass
+            spectrometry assays.</p>
+        </a> -->
+      </div>
     </div>
+  </section>
 
-    <section class="section section-first hero-section">
-        <div class="round-box glass data-discovery-container">
-            <div style="display: flex; gap: 3em; width: fit-content;">
-                <p class="decrypted decrypted-from" data-text="From" data-duration="500"></p>
-                <p class="decrypted decrypted-data" data-text="<Data>" data-duration="1000"></p>
-            </div>
-            <p class="decrypted decrypted-to" data-text="to" data-duration="1500"></p>
-            <p class="decrypted decrypted-discovery" data-text="Discovery" data-duration="2000"></p>
+  <section class="section" id="services">
+    <div class="container">
+      <div class="center" style="max-width:64ch;margin:0 auto 48px;">
+        <span class="eyebrow" data-i18n="svc.eyebrow">What we do</span>
+        <h2 data-i18n="svc.title">Four ways we help your science move faster.</h2>
+        <p class="lead" data-i18n="svc.lead">From a single analysis to a fully maintained platform, we meet you where
+          your project is.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card pillar">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 17l6-6-6-6" />
+              <path d="M12 19h8" />
+            </svg></div>
+          <h3 data-i18n="svc1.title">Custom Pipelines</h3>
+          <p data-i18n="svc1.p">Stop adapting to generic tools. We craft tailored pipelines that run fast, feel
+            intuitive, and match your lab's unique needs.</p>
+          <div class="tags"><span data-i18n="svc1.t1">Automated analyses</span><span data-i18n="svc1.t2">Intuitive
+              use</span><span data-i18n="svc1.t3">Robust results</span></div>
         </div>
-        <div class="hero-grid">
-            <div class="fade-in-element hero-grid-item-1 carousel-container" data-animation-class="is-visible"
-                data-delay="2.3s" data-interval="5500" data-animation="fade">
-                <figure class="carousel__item active">
-                    <img src="/styles/img/variant_validation.png" class="no-round-borders carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/amr_heatmap.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/manage_schemes.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/loci_info.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/fshd_analysis_small.png" class="carousel__img">
-                </figure>
-            </div>
-            <div class="fade-in-element hero-grid-item-2 home-carousel carousel-container"
-                data-animation-class="is-visible" data-delay="2.5s" data-interval="3500" data-animation="slide">
-                <figure class="carousel__item active">
-                    <img src="/styles/img/KiwiFlow.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/hex-LFApp.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/R_logo.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/hex-MADApp.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/PhyloTrace_flat.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/Nextflow_logo.png" class="carousel__img">
-                </figure>
-                <figure class="carousel__item">
-                    <img src="/styles/img/hex-MKdescr.png" class="carousel__img">
-                </figure>
-            </div>
-            <div class="fade-in-element hero-grid-item-3 home-carousel carousel-container"
-                data-animation-class="is-visible" data-delay="2.6s" data-interval="5500" data-animation="fade">
-                <figure class="carousel__item active">
-                    <img src="/styles/img/Liora_Rect.png" style="border-radius: 0;" alt="Gallery image 4"
-                        class="gallery__img">
-                </figure>
-            </div>
+        <div class="card pillar">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z" />
+              <line x1="9" y1="22" x2="15" y2="22" />
+            </svg></div>
+          <h3 data-i18n="svc2.title">Consulting &amp; Research</h3>
+          <p data-i18n="svc2.p">Need more than a pipeline? We partner on bioinformatics R&amp;D to design, prototype,
+            and deliver next-gen analysis solutions.</p>
+          <div class="tags"><span data-i18n="svc2.t1">Methodology</span><span data-i18n="svc2.t2">AI &amp; machine
+              learning</span><span data-i18n="svc2.t3">Reliable statistics</span></div>
         </div>
-        <img id="genomeTwo" class="genome-pic genome-hero" src="/styles/img/genome.png" alt="">
-    </section>
-
-    <section class="section-middle landing-section">
-        <div class="landing-cards">
-            <a href="/service/#pipelines">
-                <div class="fade-in-element hover-box" data-animation-class="is-visible" data-delay="0.2s">
-                    <div class="hover-box-header">
-                        Custom Pipelines
-                    </div>
-                    <div class="hover-box-text">
-                        Stop adapting to generic tools — we craft tailored pipelines that run fast,
-                        feel intuitive, and match your lab's unique needs.
-                    </div>
-                    <div class="learn-more">
-                        Learn More
-                    </div>
-                </div>
-            </a>
-            <a href="/service/#consulting">
-                <div class="fade-in-element hover-box" data-animation-class="is-visible" data-delay="0.4s">
-                    <div class="hover-box-header">
-                        Consulting & Research
-                    </div>
-                    <div class="hover-box-text">
-                        Need more than a pipeline? We partner on bioinformatics R&D to design,
-                        prototype, and deliver next-gen analysis solutions.
-                    </div>
-                    <div class="learn-more">
-                        Learn More
-                    </div>
-                </div>
-            </a>
-            <a href="/service/#software">
-                <div class="fade-in-element hover-box" data-animation-class="is-visible" data-delay="0.6s">
-                    <div class="hover-box-header">
-                        Software & Dashboards
-                    </div>
-                    <div class="hover-box-text">
-                        We provide established, open-source bioinformatics tools with full lifecycle support —
-                        ready for deployment and maintained by our team.
-                    </div>
-                    <div class="learn-more">
-                        Learn More
-                    </div>
-                </div>
-            </a>
-            <a href="/service/#data_analysis">
-                <div class="fade-in-element hover-box" data-animation-class="is-visible" data-delay="0.8s">
-                    <div class="hover-box-header">
-                        Data Analysis
-                    </div>
-                    <div class="hover-box-text">
-                        We transform your raw data into meaningful insights — from statistical models to analysis of
-                        Omics
-                        data.
-                    </div>
-                    <div class="learn-more">
-                        Learn More
-                    </div>
-                </div>
-            </a>
+        <div class="card pillar">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="14" rx="2" />
+              <line x1="3" y1="21" x2="21" y2="21" />
+              <path d="M8 8l2 2-2 2M13 12h3" />
+            </svg></div>
+          <h3 data-i18n="svc3.title">Software &amp; Dashboards</h3>
+          <p data-i18n="svc3.p">We provide established, open-source bioinformatics tools with full lifecycle support —
+            ready for deployment and maintained by our team.</p>
+          <div class="tags"><span data-i18n="svc3.t1">Graphical interface</span><span data-i18n="svc3.t2">Maintenance
+              &amp; support</span><span data-i18n="svc3.t3">Deployment &amp; education</span></div>
         </div>
-        <div class="landing-purpose">
-            <div class="round-box glass purpose">
-                <p class="purpose-headline">
-                    When <br> Experiments <br> Scale, <br> Analysis <br> Must Too.
-                </p>
-            </div>
-            <a href="/contact/">
-                <div class="fade-in-element round-box white service-contact" data-animation-class="is-visible"
-                    data-delay="0s">
-                    <i class="fa-solid fa-paper-plane inline-icon"></i> Contact Us
-                </div>
-            </a>
+        <div class="card pillar">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18" />
+              <path d="M7 14l4-4 3 3 5-6" />
+            </svg></div>
+          <h3 data-i18n="svc4.title">Data Analysis</h3>
+          <p data-i18n="svc4.p">We transform your raw data into meaningful insight — from statistical models to the
+            analysis of complex Omics data.</p>
+          <div class="tags"><span data-i18n="svc4.t1">Advanced statistics</span><span data-i18n="svc4.t2">Technical
+              reports</span><span data-i18n="svc4.t3">Data storytelling</span></div>
         </div>
-    </section>
-
-
-    <section class="section-middle home-projects-section">
-        <div class="project-landing">
-            <div class="fade-in-element round-box dark project-description" data-animation-class="is-visible"
-                data-delay="0.2s">
-                <div class="header-white">
-                    Software & Tools
-                </div>
-                <div class="box-textcontent project-description-text">
-                    This selection of past projects is waiting to be added a new member.
-                    Software and other toolkits developed by us are
-                    maintained throughout their lifecycle.
-                </div>
-            </div>
-            <a href="/phylotrace/" class="project-phylotrace round-box glass">
-                <img src="/styles/img/PhyloTrace_flat.png" class="phylotrace-img project-img">
-                <div class="project-title">
-                    <div class="project-desc phylotrace-desc">
-                        All-in-one platform to perform and manage decentralized, hashed bacterial surveillance.
-                        PhyloTrace features
-                        a
-                        toolkit of analyses like hashed cgMLST typing and Antimicrobial Resistance Screening.
-                    </div>
-                </div>
-                <div class="project-field phylotrace-field">
-                    Molecular Epidemiology | Microbial Genomics
-                </div>
-                <img src="/styles/img/PhyloTrace_bw.png" class="phylotrace-logo">
-            </a>
-        </div>
-        <div class="project-cards">
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.2s">
-                <img src="/styles/img/hex-MKinfer.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        MKinfer
-                    </div>
-                    <div class="project-field">
-                        Statistics | Clinical Trials
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Comprehensive suite of methods for statistical analysis
-                    of clinical data and biomedical experiments.
-                </div>
-            </div>
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.4s">
-                <img src="/styles/img/hex-LFApp.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        LFApp
-                    </div>
-                    <div class="project-field">
-                        Image Analysis | Lateral Flow Assays
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Modular application for quantitative image analysis of lateral flow assays.
-                </div>
-            </div>
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.6s">
-                <img src="/styles/img/hex-MKdescr.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        MKdescr
-                    </div>
-                    <div class="project-field">
-                        Statistics | Robust Descriptive Analysis
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Package providing functions to compute and visualize robust and standardized descriptive
-                    statistics.
-                </div>
-            </div>
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.2s">
-                <img src="/styles/img/KiwiFlow.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        KiwiFlow
-                    </div>
-                    <div class="project-field">
-                        Mass Spectrometry | Proteomics
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Interactive pipeline to facilitate processing and analysis of proteomic mass spectrometry
-                    assays.
-                </div>
-            </div>
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.4s">
-                <img src="/styles/img/hex-MKomics.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        MKomics
-                    </div>
-                    <div class="project-field">
-                        Omics | Processing | QC
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Toolkit enabling quality control, processing and evaluation of Omics experiments.
-                </div>
-            </div>
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.6s">
-                <img src="/styles/img/hex-MADApp.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        MADapp
-                    </div>
-                    <div class="project-field">
-                        Micro-Arrays | Image Analysis
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Intuitive workflow for image-based analysis of microarrays.
-                </div>
-            </div>
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.2s">
-                <img src="/styles/img/hex-rmx.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        rmx
-                    </div>
-                    <div class="project-field">
-                        Statistics | Parameter Estimation
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Offers fast, optimally robust estimators for reliable parameter estimation in the presence of
-                    model
-                    deviations.
-                </div>
-            </div>
-            <div class="fade-in-element round-box white project" data-animation-class="is-visible" data-delay="0.4s">
-                <img src="/styles/img/hex-MKpower.png" class="project-img">
-                <div class="project-title">
-                    <div class="project-name">
-                        MKPower
-                    </div>
-                    <div class="project-field">
-                        Statistics | Study Design & Analysis
-                    </div>
-                </div>
-                <div class="project-desc">
-                    Supports power analysis and sample size calculation for planning experiments, diagnostic
-                    studies,
-                    and clinical
-                    evaluations.
-                </div>
-            </div>
-            <div class="fade-in-element terminal-container" data-animation-class="is-visible" data-delay="0.6s">
-                <div class="top-side">
-                    <div class="red-circle"></div>
-                    <div class="yellow-circle"></div>
-                    <div class="green-circle"></div>
-                    <p class="terminal-title">terminal</p>
-                </div>
-                <div class="main-side">
-                    <div class="line"><span class="dollar">$</span>npm create next-app</div>
-                    <div class="green-line line-1">✓ Creating project...</div>
-                    <div class="green-line line-2">✓ Installing dependencies...</div>
-                    <div class="green-line line-3">✓ Project ready!</div>
-                    <div class="line"><span class="dollar">$</span>npm run dev</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="footer-section">
-        <div class="footer-container">
-            <div class="social">
-                <a href="https://www.linkedin.com/company/102839404" target="_blank" class="fa fa-linkedin"></a>
-                <a href="https://github.com/liora-bioinformatics" target="_blank" class="fa fa-github"></a>
-                <a href="/contact/" class="fa fa-paper-plane"></a>
-            </div>
-            <div class="footer-links">
-                <a href="/privacy-policy/" class="hover:text-gray-300">Privacy Policy</a>
-                <a href="/impressum/" class="hover:text-gray-300">Impressum (Legal Notice)</a>
-                <a href="/contact/" class="hover:text-gray-300">Contact Us</a>
-            </div>
-            <img src="/styles/img/Liora_rect_white.png" alt="Liora Bioinformatics Rectangular Logo" class="footer-logo">
-        </div>
-        <p class="reserved-rights">© 2025 Liora Bioinformatics. All rights reserved.</p>
+      </div>
     </div>
+  </section>
 
-    <script src="/resources/scripts.js"></script>
+  <section class="section bg-navy">
+    <div class="container">
+      <div class="center" style="max-width:56ch;margin:0 auto 44px;">
+        <span class="eyebrow" data-i18n="why.eyebrow">Why work with us</span>
+        <h2 data-i18n="why.title">Research-grade rigor, delivered like a product.</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card" style="background:transparent;border-color:rgba(255,255,255,.14);box-shadow:none;">
+          <h3 style="color:#fff;" data-i18n="why1.title">Scientists, not just engineers</h3>
+          <p style="color:#c2d2e6;" data-i18n="why1.p">We understand your data
+            because we've worked with it ourselves.</p>
+        </div>
+        <div class="card" style="background:transparent;border-color:rgba(255,255,255,.14);box-shadow:none;">
+          <h3 style="color:#fff;" data-i18n="why2.title">Reproducible by design</h3>
+          <p style="color:#c2d2e6;" data-i18n="why2.p">Every workflow is built to be transparent, versioned, and
+            repeatable — so results hold up to scrutiny.</p>
+        </div>
+        <div class="card" style="background:transparent;border-color:rgba(255,255,255,.14);box-shadow:none;">
+          <h3 style="color:#fff;" data-i18n="why3.title">Supported for the long run</h3>
+          <p style="color:#c2d2e6;" data-i18n="why3.p">We maintain what we build, keeping tools healthy and secure well
+            past the first delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 
+  <section class="section" id="team">
+    <div class="container">
+      <div class="center" style="max-width:60ch;margin:0 auto 44px;">
+        <span class="eyebrow" data-i18n="team.eyebrow">The people</span>
+        <h2 data-i18n="team.title">Founders who bridge science and software.</h2>
+      </div>
+      <div class="team">
+        <div class="member">
+          <div class="avatar">MK</div>
+          <h3>Prof. Matthias Kohl, Ph.D.</h3>
+          <div class="role" data-i18n="team.mk.role">Senior Scientific Advisor</div>
+          <p data-i18n="team.mk.p">A renowned expert in mathematics for biology and medicine, Matthias leads our statistical and data-science initiatives. He has authored several books and maintains a portfolio of 30+ software packages, alongside his professorship and research group at Furtwangen University's Institute of Precision Medicine.</p>
+        </div>
+        <div class="member">
+          <div class="avatar">FP</div>
+          <h3>Filip Paskali, M.D., M.Sc.</h3>
+          <div class="role" data-i18n="team.fp.role">Chief Technology Officer</div>
+          <p data-i18n="team.fp.p">A medical scientist and data analyst, Filip bridges biomedical research and scientific computing. With a background in medicine and a PhD focus in biomedical image analysis, he builds interactive applications and reproducible workflows in R and Python.</p>
+        </div>
+        <div class="member">
+          <div class="avatar">MF</div>
+          <h3>Marian Freisleben, M.Sc.</h3>
+          <div class="role" data-i18n="team.mf.role">Chief Executive Officer</div>
+          <p data-i18n="team.mf.p">Marian brings a multifaceted passion for science, technology, and innovation. With a background in personalized medicine and bioinformatics — from high-throughput drug discovery to microbial genomics — his interdisciplinary mindset shapes the company's direction.</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="section-sm bg-soft" id="contact">
+    <div class="container">
+      <div class="cta-band">
+        <h2 data-i18n="contact.title">Let's talk about your data challenge.</h2>
+        <p data-i18n="contact.p">Whether you need a pipeline, a piece of software, or a research partner, we'd like to
+          hear what you're working on.</p>
+        <div class="btn-row center" style="margin-top:24px; justify-content: center;">
+          <a href="contact.html" class="btn btn-light btn-lg tool" data-i18n="contact.cta1">Contact us</a>
+          <a href="#services" class="btn btn-light btn-lg tool" data-i18n="contact.cta2">Explore services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand brand-img"><img src="assets/img/Liora_rect_white.png"
+              alt="Liora Bioinformatics" /></a>
+          <p style="margin-top:14px; text-align: justify;" data-i18n="footer.tagline">Next-gen bioinformatics solutions
+            for life-science
+            research. Made in Germany.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="#dna" data-i18n="footer.about">About</a></li>
+            <!-- <li><a href="#team" data-i18n="footer.team">Team</a></li> -->
+            <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.products">Software</h4>
+          <ul>
+            <li><a href="phylotrace.html">PhyloTrace</a></li>
+            <li><a href="index.html#products" data-i18n="footer.allsoftware">All software</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">Services</h4>
+          <ul>
+            <li><a href="#services" data-i18n="footer.svc1">Custom pipelines</a></li>
+            <li><a href="#services" data-i18n="footer.svc2">Consulting &amp; research</a></li>
+            <li><a href="#services" data-i18n="footer.svc3">Software &amp; dashboards</a></li>
+            <li><a href="#services" data-i18n="footer.svc4">Data analysis</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
+            reserved.</span></span>
+        <span><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
+            href="impressum.html" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="contact.html"
+            data-i18n="footer.contact">Contact</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

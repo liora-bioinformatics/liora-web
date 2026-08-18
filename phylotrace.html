@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhyloTrace — Liora Bioinformatics</title>
+  <meta name="description"
+    content="Power analysis and sample size calculation for experiments, diagnostic studies, and clinical evaluations." />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>
+    fetch('https://api.github.com/repos/liora-bioinformatics/PhyloTrace/releases/latest')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('repo-version').textContent = data.tag_name || 'k. A.';
+      })
+      .catch(() => {
+        document.getElementById('repo-version').textContent = 'Fehler beim Laden';
+      });
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand brand-img" aria-label="Liora Bioinformatics home"><img
+          src="assets/img/liora-logo.png" alt="Liora Bioinformatics" /></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="phylotrace.html" class="active">PhyloTrace</a></li>
+          <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="index.html#products" data-i18n="nav.products">Software</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <div class="lang-switch" role="group" aria-label="Language / Sprache"><button class="lang-btn" data-lang="en"
+            type="button">EN</button><button class="lang-btn" data-lang="de" type="button">DE</button></div>
+        <!-- <a href="index.html" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
+        <button class="nav-toggle" aria-label="Menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container pkg-hero">
+      <img class="pkg-logo phylotrace-logo" src="assets/img/PhyloTrace_3d.png" alt="PhyloTrace logo" />
+      <div>
+        <div class="pkg-cats"><span data-i18n="pkg.phylotrace.cat">Bacterial Population Monitoring</span></div>
+        <h1>PhyloTrace</h1>
+        <p class="pkg-tagline" data-i18n="pkg.phylotrace.tag">The Next-Generation platform for decentralized pathogen
+          monitoring and epidemiological surveillance. PhyloTrace is an open-source desktop application with graphical
+          interface and team collaboration features.</p>
+        <p class="phylotrace-call" data-i18n="pkg.phylotrace.call">
+          Upon request, binary installation files are provided free of charge.
+        </p>
+        <div class="resource-btns">
+          <a class="btn btn-primary" href="contact.html" rel="noopener"> <span
+              data-i18n="contact.cta1">Contact</span></a>
+          <a class="btn btn-gh" href="https://github.com/liora-bioinformatics/PhyloTrace" target="_blank"
+            rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" />
+            </svg> <span data-i18n="pkg.gh">View on GitHub</span></a>
+          <a class="btn btn-ghost" href="https://github.com/liora-bioinformatics/PhyloTrace/releases"
+            target="_blank">Current Version <span id="repo-version">Lade
+              Version...</span> </a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:26px;">
+    <div class="container">
+      <div class="phylotrace-description">
+        <ul class="feature-list">
+          <li><a href="#feature-cgmlst" data-i18n="pkg.phylotrace.f1">Core-Genome Multilocus Sequence Typing (cgMLST
+              and
+              MLST)</a></li>
+          <li><a href="#feature-screening" data-i18n="pkg.phylotrace.f2">Resistance, Virulence and Point Mutation
+              Screening</a></li>
+          <li><a href="#feature-db-management" data-i18n="pkg.phylotrace.f3">Integrated database management</a></li>
+          <li><a href="#feature-import-export" data-i18n="pkg.phylotrace.f4">Easy data sharing for collaborative
+              surveillance</a></li>
+          <li><a href="#feature-trees-networks" data-i18n="pkg.phylotrace.f5">Network and phylogenetic tree graphs</a>
+          </li>
+          <li><a href="#feature-spatial-temporal" data-i18n="pkg.phylotrace.f6">Spatial and temporal mapping</a></li>
+          <!-- <li><a href="#feature-provenance" data-i18n="pkg.phylotrace.f7">Hashed genomical data and provenance
+              record</a>
+          </li> -->
+          <li><a href="#feature-annotation" data-i18n="pkg.phylotrace.f8">Support for custom data annotation</a></li>
+          <li><a href="#analysis-dashboard" data-i18n="pkg.phylotrace.f9">Dashboard for reproducible analyses</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Detail Sections -->
+  <section class="feature-details-wrapper" style="padding: 20px 0;">
+
+    <!-- Feature 1 -->
+    <section class="feature-detail-item" id="feature-cgmlst" style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f1.title">Core-Genome Multilocus Sequence
+          Typing (cgMLST and MLST)</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;">
+          <span data-i18n="pkg.f1.desc_start">High-resolution strain typing using standardized cgMLST and classical MLST
+            schemes. Currently all 38 bacterial schemes can be interfaced with </span>
+          <a href="https://www.cgmlst.org" target="_blank" rel="noopener noreferrer"
+            style="color: #2563eb; text-decoration: underline;">cgMLST.org</a>
+          <span data-i18n="pkg.f1.desc_end"> and are continously updated. Support for custom schemes or other databases
+            like </span> <a href="https://www.pubmlst.org" target="_blank" rel="noopener noreferrer"
+            style="color: #2563eb; text-decoration: underline;">PubMLST</a>
+          <span data-i18n="pkg.f1.desc_pubmlst"> will soon be added.</span>
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/typing-initiation.png" alt="cgMLST and MLST interface screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/browse-schemes.png" alt="cgMLST and MLST interface screenshot 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/typing-results.png" alt="cgMLST and MLST interface screenshot 3" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 2 -->
+    <section class="feature-detail-item" id="feature-screening"
+      style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f2.title">Resistance, Virulence and Point
+          Mutation Screening</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f2.desc">
+          Screen genomic assemblies against curated resistance gene databases, virulence factor registries, and point
+          mutation panels to detect antimicrobial resistance mechanisms immediately.
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/amr_heatmap.png" alt="Resistance and virulence screening screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/amr_database.png" alt="Resistance and virulence screening screenshot 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/amr_heatmap_2.png" alt="Resistance and virulence screening screenshot 3" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 3 -->
+    <section class="feature-detail-item" id="feature-db-management"
+      style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f3.title">Integrated Database Management</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f3.desc">
+          Centralized local or server-based storage allowing scalable in-app data management. Simple interface for
+          isolate storage, indexing, seamless background synchronizations and more without reliance on external
+          utilities.
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/browse-entries.png" alt="Database management dashboard screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/cgmlst-scheme-info.png" alt="Database management dashboard screenshot 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/cgmlst-loci-info.png" alt="Database management dashboard screenshot 3" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 4 -->
+    <section class="feature-detail-item" id="feature-import-export"
+      style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f4.title">Collaborative data import and
+          export function
+        </h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f4.desc">
+          The data exchange interface enables seamless transfer between partner labs using SQLite and other standard
+          formats. Users choose which data to share—including privacy-sensitive details. Because PhyloTrace
+          runs locally without public servers, private data stays secure.
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/export.png" alt="Import and Export collaborative surveillance screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/import-collisions.png"
+                alt="Import and Export collaborative surveillance screenshot 2" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 5 -->
+    <section class="feature-detail-item" id="feature-trees-networks"
+      style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f5.title">Network and Phylogenetic Tree
+          Graphs</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f5.desc">
+          Track transmission patterns and population dynamics with interactive visualization of single-linkage networks
+          (MST) and hierarchical trees (NJ, UPGMA). With fully customizable layouts, clustering and variable mapping.
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/viz-tab-layout.png" alt="Phylogenetic tree and network graph screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/tree.png" alt="Phylogenetic tree and network graph screenshot 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/tree_circular.png" alt="Phylogenetic tree and network graph screenshot 3" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 6 -->
+    <section class="feature-detail-item" id="feature-spatial-temporal"
+      style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f6.title">Spatial and Temporal Mapping</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f6.desc">
+          Track transmission events in geographic and temporal contexts. View interactive and time-resolved map overlays
+          and epidemic curves to trace pathogen dynamics. The sophisticated visualisation interface helps to
+          uncover patterns that might otherwise remain hidden in spreadsheets.
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/heatmap_map.png" alt="Spatial and Temporal Mapping screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/epi.png" alt="Spatial and Temporal Mapping screenshot 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/charts_map.png" alt="Spatial and Temporal Mapping screenshot 3" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 7 -->
+    <!-- <section class="feature-detail-item" id="feature-provenance"
+      style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f7.title">Hashed Genomical Data and
+          Provenance Record</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f7.desc">
+          Cryptographic hashing guarantees data integrity and tamper-proof sample tracking. Full audit logs preserve
+          provenance records for compliance and regulatory standard enforcement.
+        </p>
+        <div class="screenshot-container">
+          <img src="assets/img/screenshots/data-provenance.png"
+            alt="Hashed genomic data and provenance log screenshot" />
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Feature 8 -->
+    <section class="feature-detail-item" id="feature-annotation"
+      style="padding: 40px 0; border-bottom: 1px solid #e5e7eb;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f8.title">Support for Custom Data
+          Annotation</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f8.desc">
+          Declare custom metadata of any kind, e.g. clinical metadata, environmental variables, numerical data, etc.
+          to sample records to dynamically group and enrich analyses with important context. Custom variables can be
+          added to every visualization (trees, network graphs, geographical maps, epidemic curves).
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/custom-variables.png" alt="Custom data annotation UI screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/cust-var-tree.png" alt="Custom data annotation UI screenshot 2" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 9 -->
+    <section class="feature-detail-item" id="analysis-dashboard" style="padding: 40px 0;">
+      <div class="container">
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f9.title">Analysis Dashboard</h3>
+        <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f9.desc">
+          Routine surveillance or retrospective analyses can be managed and grouped with the analysis dashboard.
+          Subsetting available isolates or snapshoting current database states makes analyses reproducible and
+          shareable.
+        </p>
+        <div class="carousel" data-carousel>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="assets/img/analysis-dashboard.png" alt="Analysis dashboard screenshot 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/img/viz-new-plot.png" alt="Analysis dashboard screenshot 2" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
+          <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next Slide">&rsaquo;</button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;margin:0;padding:0;">
+        <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
+            reserved.</span></span>
+        <span><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
+            href="impressum.html" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="contact.html"
+            data-i18n="footer.contact">Contact</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/cranstats.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
