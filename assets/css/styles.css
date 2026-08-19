@@ -3,6 +3,30 @@
    Clean corporate blue theme with a bioinformatics green accent
    ========================================================= */
 
+/* ---------------------------------------------------------
+   Inter, self-hosted (SIL Open Font License 1.1 — see
+   assets/fonts/OFL.txt). Served from our own origin so that
+   no visitor data is sent to Google on page load. Variable
+   font: covers the 400-800 weights used across the site.
+   --------------------------------------------------------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   --blue-900: #0b2545;
   --blue-800: #12386b;
@@ -434,14 +458,65 @@ img {
   position: relative;
   padding: 104px 0 92px;
   background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 800' width='100%25' height='100%25' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='60' y1='120' x2='1380' y2='120' stroke='%2394a3b8' stroke-opacity='0.12' stroke-dasharray='2 8' stroke-width='1' /%3E%3Cline x1='60' y1='600' x2='1380' y2='600' stroke='%2394a3b8' stroke-opacity='0.12' stroke-dasharray='2 8' stroke-width='1' /%3E%3Cline x1='140' y1='40' x2='140' y2='760' stroke='%2394a3b8' stroke-opacity='0.25' stroke-dasharray='4 6' stroke-width='1.2' /%3E%3Cpath d='M 140 40 C 220 100, 220 200, 140 260 C 60 320, 60 420, 140 480 C 220 540, 220 640, 140 700' stroke='%232563eb' stroke-opacity='0.6' stroke-width='1.8' /%3E%3Cpath d='M 140 40 C 60 100, 60 200, 140 260 C 220 320, 220 420, 140 480 C 60 540, 60 640, 140 700' stroke='%233b82f6' stroke-opacity='0.35' stroke-width='1.4' stroke-dasharray='4 4' /%3E%3Cline x1='80' y1='150' x2='200' y2='150' stroke='%232563eb' stroke-opacity='0.25' stroke-width='1' /%3E%3Cline x1='80' y1='370' x2='200' y2='370' stroke='%232563eb' stroke-opacity='0.25' stroke-width='1' /%3E%3Cline x1='80' y1='590' x2='200' y2='590' stroke='%232563eb' stroke-opacity='0.25' stroke-width='1' /%3E%3Ccircle cx='200' cy='150' r='3.5' fill='%232563eb' fill-opacity='0.8' /%3E%3Ccircle cx='80' cy='150' r='3' fill='%233b82f6' fill-opacity='0.6' /%3E%3Ccircle cx='140' cy='260' r='3.5' fill='%232563eb' fill-opacity='0.9' /%3E%3Ccircle cx='80' cy='370' r='3.5' fill='%232563eb' fill-opacity='0.8' /%3E%3Ccircle cx='200' cy='370' r='3' fill='%233b82f6' fill-opacity='0.6' /%3E%3Ccircle cx='140' cy='480' r='3.5' fill='%232563eb' fill-opacity='0.9' /%3E%3Ccircle cx='200' cy='590' r='3.5' fill='%232563eb' fill-opacity='0.8' /%3E%3Ccircle cx='80' cy='590' r='3' fill='%233b82f6' fill-opacity='0.6' /%3E%3Ccircle cx='140' cy='700' r='3.5' fill='%232563eb' fill-opacity='0.9' /%3E%3Cline x1='1360' y1='40' x2='1360' y2='760' stroke='%2394a3b8' stroke-opacity='0.25' stroke-dasharray='4 6' stroke-width='1.2' /%3E%3Cpath d='M 1360 80 C 1360 220, 1190 280, 1190 400 C 1190 520, 1360 580, 1360 720 Z' fill='%2310b981' fill-opacity='0.04' /%3E%3Cpath d='M 1360 80 C 1360 220, 1190 280, 1190 400 C 1190 520, 1360 580, 1360 720' stroke='%2310b981' stroke-opacity='0.55' stroke-width='1.8' /%3E%3Cline x1='1242' y1='260' x2='1380' y2='260' stroke='%2394a3b8' stroke-opacity='0.2' stroke-dasharray='3 3' stroke-width='1' /%3E%3Cline x1='1190' y1='400' x2='1380' y2='400' stroke='%2310b981' stroke-opacity='0.3' stroke-dasharray='3 3' stroke-width='1' /%3E%3Cline x1='1242' y1='540' x2='1380' y2='540' stroke='%2394a3b8' stroke-opacity='0.2' stroke-dasharray='3 3' stroke-width='1' /%3E%3Ccircle cx='1190' cy='400' r='4' fill='%2310b981' fill-opacity='0.9' /%3E%3Ccircle cx='1242' cy='260' r='3' fill='%2310b981' fill-opacity='0.7' /%3E%3Ccircle cx='1242' cy='540' r='3' fill='%2310b981' fill-opacity='0.7' /%3E%3C/g%3E%3C/svg%3E"),
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%20800%27%20preserveAspectRatio%3D%27none%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cline%20x1%3D%270%27%20y1%3D%27120%27%20x2%3D%271440%27%20y2%3D%27120%27%20stroke%3D%27%2394a3b8%27%20stroke-opacity%3D%270.12%27%20stroke-dasharray%3D%272%208%27%20stroke-width%3D%271%27%2F%3E%3Cline%20x1%3D%270%27%20y1%3D%27600%27%20x2%3D%271440%27%20y2%3D%27600%27%20stroke%3D%27%2394a3b8%27%20stroke-opacity%3D%270.12%27%20stroke-dasharray%3D%272%208%27%20stroke-width%3D%271%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
     radial-gradient(850px 450px at 85% -5%, var(--blue-50, #eff6ff), transparent 70%),
     radial-gradient(750px 450px at 5% 105%, #eef8f2, transparent 70%);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover, auto, auto;
+  background-size: 100% 100%, auto, auto;
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Hero decorations.
+   These were previously one SVG drawn as a background with
+   preserveAspectRatio='slice' and background-size:cover, which scaled the
+   artwork to COVER the hero and cropped the overflow. The curves sit near the
+   left and right edges of a 1440x800 viewBox, so whenever the viewport was
+   narrower than that 1.8 ratio the crop removed them entirely — visible only
+   in a wide fullscreen window, exactly as reported.
+
+   As separate elements anchored to their own edge and scaled by HEIGHT, they
+   cannot be cropped at any aspect ratio. They are hidden below 940px, where
+   the text spans the full width and there is no room beside it. */
+.hero-company::before,
+.hero-company::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+/* The hero decorations need clear space either side of the 900px text column.
+   Verified by screenshot: clean at 1200px, marginal at 1100px, and the heading
+   runs into the helix at 1024px. German headings are longer than English, so
+   the cut-off is set at the width that is comfortably clear in both. */
+@media (max-width: 1199px) {
+
+  .hero-company::before,
+  .hero-company::after {
+    display: none;
+  }
+}
+
+
+.hero-company::before {
+  left: 4%;
+  aspect-ratio: 160 / 800;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%2760%200%20160%20800%27%20preserveAspectRatio%3D%27xMidYMid%20meet%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cline%20x1%3D%27140%27%20y1%3D%2740%27%20x2%3D%27140%27%20y2%3D%27760%27%20stroke%3D%27%2394a3b8%27%20stroke-opacity%3D%270.25%27%20stroke-dasharray%3D%274%206%27%20stroke-width%3D%271.2%27%2F%3E%3Cpath%20d%3D%27M%20140%2040%20C%20220%20100%2C%20220%20200%2C%20140%20260%20C%2060%20320%2C%2060%20420%2C%20140%20480%20C%20220%20540%2C%20220%20640%2C%20140%20700%27%20stroke%3D%27%232563eb%27%20stroke-opacity%3D%270.6%27%20stroke-width%3D%271.8%27%2F%3E%3Cpath%20d%3D%27M%20140%2040%20C%2060%20100%2C%2060%20200%2C%20140%20260%20C%20220%20320%2C%20220%20420%2C%20140%20480%20C%2060%20540%2C%2060%20640%2C%20140%20700%27%20stroke%3D%27%233b82f6%27%20stroke-opacity%3D%270.35%27%20stroke-width%3D%271.4%27%20stroke-dasharray%3D%274%204%27%2F%3E%3Cline%20x1%3D%2780%27%20y1%3D%27150%27%20x2%3D%27200%27%20y2%3D%27150%27%20stroke%3D%27%232563eb%27%20stroke-opacity%3D%270.25%27%20stroke-width%3D%271%27%2F%3E%3Cline%20x1%3D%2780%27%20y1%3D%27370%27%20x2%3D%27200%27%20y2%3D%27370%27%20stroke%3D%27%232563eb%27%20stroke-opacity%3D%270.25%27%20stroke-width%3D%271%27%2F%3E%3Cline%20x1%3D%2780%27%20y1%3D%27590%27%20x2%3D%27200%27%20y2%3D%27590%27%20stroke%3D%27%232563eb%27%20stroke-opacity%3D%270.25%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%27200%27%20cy%3D%27150%27%20r%3D%273.5%27%20fill%3D%27%232563eb%27%20fill-opacity%3D%270.8%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%27150%27%20r%3D%273%27%20fill%3D%27%233b82f6%27%20fill-opacity%3D%270.6%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%27260%27%20r%3D%273.5%27%20fill%3D%27%232563eb%27%20fill-opacity%3D%270.9%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%27370%27%20r%3D%273.5%27%20fill%3D%27%232563eb%27%20fill-opacity%3D%270.8%27%2F%3E%3Ccircle%20cx%3D%27200%27%20cy%3D%27370%27%20r%3D%273%27%20fill%3D%27%233b82f6%27%20fill-opacity%3D%270.6%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%27480%27%20r%3D%273.5%27%20fill%3D%27%232563eb%27%20fill-opacity%3D%270.9%27%2F%3E%3Ccircle%20cx%3D%27200%27%20cy%3D%27590%27%20r%3D%273.5%27%20fill%3D%27%232563eb%27%20fill-opacity%3D%270.8%27%2F%3E%3Ccircle%20cx%3D%2780%27%20cy%3D%27590%27%20r%3D%273%27%20fill%3D%27%233b82f6%27%20fill-opacity%3D%270.6%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%27700%27%20r%3D%273.5%27%20fill%3D%27%232563eb%27%20fill-opacity%3D%270.9%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.hero-company::after {
+  right: 3%;
+  aspect-ratio: 210 / 800;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%271180%200%20210%20800%27%20preserveAspectRatio%3D%27xMidYMid%20meet%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cline%20x1%3D%271360%27%20y1%3D%2740%27%20x2%3D%271360%27%20y2%3D%27760%27%20stroke%3D%27%2394a3b8%27%20stroke-opacity%3D%270.25%27%20stroke-dasharray%3D%274%206%27%20stroke-width%3D%271.2%27%2F%3E%3Cpath%20d%3D%27M%201360%2080%20C%201360%20220%2C%201190%20280%2C%201190%20400%20C%201190%20520%2C%201360%20580%2C%201360%20720%20Z%27%20fill%3D%27%2310b981%27%20fill-opacity%3D%270.04%27%2F%3E%3Cpath%20d%3D%27M%201360%2080%20C%201360%20220%2C%201190%20280%2C%201190%20400%20C%201190%20520%2C%201360%20580%2C%201360%20720%27%20stroke%3D%27%2310b981%27%20stroke-opacity%3D%270.55%27%20stroke-width%3D%271.8%27%2F%3E%3Cline%20x1%3D%271242%27%20y1%3D%27260%27%20x2%3D%271380%27%20y2%3D%27260%27%20stroke%3D%27%2394a3b8%27%20stroke-opacity%3D%270.2%27%20stroke-dasharray%3D%273%203%27%20stroke-width%3D%271%27%2F%3E%3Cline%20x1%3D%271190%27%20y1%3D%27400%27%20x2%3D%271380%27%20y2%3D%27400%27%20stroke%3D%27%2310b981%27%20stroke-opacity%3D%270.3%27%20stroke-dasharray%3D%273%203%27%20stroke-width%3D%271%27%2F%3E%3Cline%20x1%3D%271242%27%20y1%3D%27540%27%20x2%3D%271380%27%20y2%3D%27540%27%20stroke%3D%27%2394a3b8%27%20stroke-opacity%3D%270.2%27%20stroke-dasharray%3D%273%203%27%20stroke-width%3D%271%27%2F%3E%3Ccircle%20cx%3D%271190%27%20cy%3D%27400%27%20r%3D%274%27%20fill%3D%27%2310b981%27%20fill-opacity%3D%270.9%27%2F%3E%3Ccircle%20cx%3D%271242%27%20cy%3D%27260%27%20r%3D%273%27%20fill%3D%27%2310b981%27%20fill-opacity%3D%270.7%27%2F%3E%3Ccircle%20cx%3D%271242%27%20cy%3D%27540%27%20r%3D%273%27%20fill%3D%27%2310b981%27%20fill-opacity%3D%270.7%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
 .hero-company .container {
@@ -1424,7 +1499,9 @@ table.compare tbody tr:last-child td {
 
   .hero-company {
     padding: 64px 0 56px;
+    min-height: 0;
   }
+
 
   .section {
     padding: 60px 0;
@@ -1943,4 +2020,66 @@ a.tool:hover h4 {
   font-weight: bold;
   width: fit-content;
   font-size: 1.2em;
+}
+
+/* Regulatory intended-purpose notice (IVDR): keep visible wherever
+   PhyloTrace is presented. See impressum.html for attributions. */
+.ruo-note {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--line);
+  background: #fbfbfb;
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.5;
+  max-width: 85ch;
+  text-align: justify;
+}
+
+/* Keyboard focus. Custom controls (hamburger, language switch, carousel
+   buttons and dots) had no focus styling of their own and fell back to the
+   browser default, which is easy to lose against these backgrounds.
+   :focus-visible keeps pointer clicks unaffected. */
+.btn:focus-visible,
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible,
+.lang-btn:focus-visible,
+.carousel-btn:focus-visible,
+.carousel-dot:focus-visible,
+.prose a:focus-visible,
+.info-item a:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 3px;
+}
+
+.carousel-dot:focus-visible {
+  outline-offset: 4px;
+}
+
+/* On dark grounds the blue ring loses contrast — use white instead. */
+.bg-navy .btn:focus-visible,
+.bg-navy a:focus-visible,
+.site-footer a:focus-visible,
+.site-footer .btn:focus-visible {
+  outline-color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* CRAN panel: "as of" stamp. The figures are refreshed by
+   tools/update-cran-stats.py rather than fetched live, so the date they
+   were taken is stated instead of implying they are current. */
+.cran-asof {
+  margin-top: 6px;
+  font-size: .78rem;
+  color: var(--muted);
 }

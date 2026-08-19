@@ -4,46 +4,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content-Security-Policy. Delivered as a meta tag because GitHub Pages
+       cannot set response headers. Note that frame-ancestors is ignored in
+       meta form, so clickjacking protection still requires a real header. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self' https://formcarry.com https://api.github.com;
+    form-action 'self' https://formcarry.com;
+  " />
   <title>PhyloTrace — Liora Bioinformatics</title>
   <meta name="description"
-    content="Power analysis and sample size calculation for experiments, diagnostic studies, and clinical evaluations." />
+    content="PhyloTrace is an open-source desktop platform for decentralized bacterial population monitoring and epidemiological surveillance, with cgMLST typing and antimicrobial resistance screening. For research use only." />
   <link rel="icon" href="assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&display=swap"
-    rel="stylesheet" />
+  <link rel="canonical" href="https://liora-bioinformatics.com/phylotrace" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <script>
-    fetch('https://api.github.com/repos/liora-bioinformatics/PhyloTrace/releases/latest')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('repo-version').textContent = data.tag_name || 'k. A.';
-      })
-      .catch(() => {
-        document.getElementById('repo-version').textContent = 'Fehler beim Laden';
-      });
-  </script>
 </head>
 
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand brand-img" aria-label="Liora Bioinformatics home"><img
-          src="assets/img/liora-logo.png" alt="Liora Bioinformatics" /></a>
+      <a href="/" class="brand brand-img" aria-label="Liora Bioinformatics home"><img src="assets/img/liora-logo.png"
+          alt="Liora Bioinformatics" /></a>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#dna" data-i18n="nav.about">About</a></li>
-          <li><a href="phylotrace.html" class="active">PhyloTrace</a></li>
-          <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
-          <li><a href="index.html#products" data-i18n="nav.products">Software</a></li>
-          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="/phylotrace" class="active">PhyloTrace</a></li>
+          <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/#products" data-i18n="nav.products">Software</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
         <div class="lang-switch" role="group" aria-label="Language / Sprache"><button class="lang-btn" data-lang="en"
             type="button">EN</button><button class="lang-btn" data-lang="de" type="button">DE</button></div>
-        <!-- <a href="index.html" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
+        <!-- <a href="/" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
         <button class="nav-toggle" aria-label="Menu"
           aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
@@ -59,20 +61,23 @@
         <p class="pkg-tagline" data-i18n="pkg.phylotrace.tag">The Next-Generation platform for decentralized pathogen
           monitoring and epidemiological surveillance. PhyloTrace is an open-source desktop application with graphical
           interface and team collaboration features.</p>
-        <p class="phylotrace-call" data-i18n="pkg.phylotrace.call">
+        <!-- <p class="phylotrace-call" data-i18n="pkg.phylotrace.call">
           Upon request, binary installation files are provided free of charge.
+        </p> -->
+        <p class="ruo-note" data-i18n="pkg.phylotrace.ruo">
+          For research use only. PhyloTrace is not a medical device and is not intended for use in diagnostic
+          procedures, for guiding treatment decisions, or for the management of individual patients.
         </p>
         <div class="resource-btns">
-          <a class="btn btn-primary" href="contact.html" rel="noopener"> <span
-              data-i18n="contact.cta1">Contact</span></a>
+          <a class="btn btn-primary" href="/contact" rel="noopener"> <span data-i18n="contact.cta1">Contact</span></a>
           <a class="btn btn-gh" href="https://github.com/liora-bioinformatics/PhyloTrace" target="_blank"
             rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path
                 d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" />
             </svg> <span data-i18n="pkg.gh">View on GitHub</span></a>
-          <a class="btn btn-ghost" href="https://github.com/liora-bioinformatics/PhyloTrace/releases"
-            target="_blank">Current Version <span id="repo-version">Lade
-              Version...</span> </a>
+          <a class="btn btn-ghost" href="https://github.com/liora-bioinformatics/PhyloTrace/releases" target="_blank"
+            rel="noopener"><span data-i18n="pkg.version">Current version</span> <span
+              id="repo-version">&hellip;</span></a>
         </div>
       </div>
     </div>
@@ -114,7 +119,7 @@
           Typing (cgMLST and MLST)</h3>
         <p style="margin-bottom: 24px; color: #4b5563;">
           <span data-i18n="pkg.f1.desc_start">High-resolution strain typing using standardized cgMLST and classical MLST
-            schemes. Currently all 38 bacterial schemes can be interfaced with </span>
+            schemes. Currently 38 bacterial schemes can be interfaced with </span>
           <a href="https://www.cgmlst.org" target="_blank" rel="noopener noreferrer"
             style="color: #2563eb; text-decoration: underline;">cgMLST.org</a>
           <span data-i18n="pkg.f1.desc_end"> and are continously updated. Support for custom schemes or other databases
@@ -158,7 +163,8 @@
         <div class="carousel" data-carousel>
           <div class="carousel-slides">
             <div class="carousel-slide active">
-              <img src="assets/img/amr_heatmap.png" alt="Resistance and virulence screening screenshot 1" />
+              <img src="assets/img/amr_heatmap.png"
+                alt="Resistance screening heatmap showing detected resistance genes per isolate" />
             </div>
             <div class="carousel-slide">
               <img src="assets/img/amr_database.png" alt="Resistance and virulence screening screenshot 2" />
@@ -391,12 +397,13 @@
       <div class="footer-bottom" style="border:none;margin:0;padding:0;">
         <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
             reserved.</span></span>
-        <span><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
-            href="impressum.html" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="contact.html"
+        <span><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/impressum"
+            data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="/contact"
             data-i18n="footer.contact">Contact</a></span>
       </div>
     </div>
   </footer>
+  <script src="assets/js/release-version.js"></script>
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/cranstats.js"></script>
   <script src="assets/js/main.js"></script>

@@ -1,0 +1,7 @@
+# https://liora-bioinformatics.com/.well-known/security.txt
+# Security contact for Liora Bioinformatics (RFC 9116).
+
+Contact: mailto:marian.freisleben@liora-bioinformatics.com
+Expires: 2027-08-19T00:00:00.000Z
+Preferred-Languages: en, de
+Canonical: https://liora-bioinformatics.com/.well-known/security.txt

@@ -77,9 +77,14 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCarousel(prevIndex);
     };
 
+    // Respect a reduced-motion preference: never auto-advance. The prev/next
+    // buttons, dots, swipe and arrow keys all still work.
+    const prefersReducedMotion = window.matchMedia
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Auto-advance timer management
     const startAutoSlide = () => {
-      if (autoRotationStopped || !isCarouselVisible) return;
+      if (prefersReducedMotion || autoRotationStopped || !isCarouselVisible) return;
       stopAutoSlideTimer();
       autoSlideTimer = setInterval(nextSlide, intervalTime);
     };

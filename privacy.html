@@ -4,14 +4,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content-Security-Policy. Delivered as a meta tag because GitHub Pages
+       cannot set response headers. Note that frame-ancestors is ignored in
+       meta form, so clickjacking protection still requires a real header. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self' https://formcarry.com https://api.github.com;
+    form-action 'self' https://formcarry.com;
+  " />
   <title>Privacy Policy — Liora Bioinformatics</title>
   <meta name="description"
     content="Privacy Policy for Liora Bioinformatics, in accordance with the GDPR and German BDSG." />
   <link rel="icon" href="assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&display=swap"
-    rel="stylesheet" />
+  <link rel="canonical" href="https://liora-bioinformatics.com/privacy" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
@@ -19,17 +31,17 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand brand-img" aria-label="Liora Bioinformatics home">
+      <a href="/" class="brand brand-img" aria-label="Liora Bioinformatics home">
         <img src="assets/img/liora-logo.png" alt="Liora Bioinformatics" />
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#dna" data-i18n="nav.about">About</a></li>
-          <li><a href="phylotrace.html">PhyloTrace</a></li>
-          <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
-          <li><a href="index.html#products" data-i18n="nav.products">Software</a></li>
-          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="/phylotrace">PhyloTrace</a></li>
+          <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/#products" data-i18n="nav.products">Software</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
@@ -37,7 +49,7 @@
           <button class="lang-btn" data-lang="en" type="button">EN</button>
           <button class="lang-btn" data-lang="de" type="button">DE</button>
         </div>
-        <!-- <a href="index.html" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
+        <!-- <a href="/" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
         <button class="nav-toggle" aria-label="Menu"
           aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
@@ -48,6 +60,7 @@
     <div class="container prose">
       <span class="eyebrow" data-i18n="pp.eyebrow">GDPR &middot; BDSG</span>
       <h1 data-i18n="footer.privacy">Privacy Policy</h1>
+      <p data-i18n="pp.updated">Last updated: 19 August 2026</p>
     </div>
   </section>
 
@@ -61,6 +74,8 @@
       <p data-i18n-html="pp.controller">Marian Freisleben<br /> 78054
         Villingen-Schwenningen<br /> Germany<br /> Email: <a
           href="mailto:marian.freisleben@liora-bioinformatics.com">marian.freisleben@liora-bioinformatics.com</a></p>
+      <p data-i18n="pp.dpo">We are not required to appoint a Data Protection Officer under Art. 37 GDPR or
+        &sect; 38 BDSG. Please direct any questions regarding data protection to the contact details above.</p>
 
       <h2 data-i18n="pp.s2h">2. Scope of this Privacy Policy</h2>
       <p data-i18n="pp.s2p1">This Privacy Policy informs you about the nature, scope, and purpose of the processing of
@@ -128,32 +143,66 @@
           statutory limitation periods.</li>
       </ul>
 
+      <h3 data-i18n="pp.s3ch">c) Cookies and Local Storage</h3>
+      <p data-i18n="pp.s3cp1">We do not use cookies, and we do not use any analytics, tracking, profiling, or
+        advertising technologies on this website. We store no information on your device for those purposes.</p>
+      <p data-i18n="pp.s3cp2">Our website stores exactly one entry in your browser&rsquo;s local storage, which is
+        purely functional:</p>
+      <ul>
+        <li data-i18n-html="pp.ls1"><code>liora-lang</code> &mdash; records whether you selected English or German using
+          the language switch, so that your choice is retained on subsequent pages and visits. It contains nothing
+          but the value <code>en</code> or <code>de</code>.</li>
+      </ul>
+      <p data-i18n-html="pp.s3c.legal"><strong>Legal Basis:</strong> This entry is strictly necessary to provide a
+        service you have expressly requested, and is therefore exempt from the consent requirement under
+        &sect; 25(2) no. 2 TDDDG. Because we set no cookies or storage requiring consent, this website does not
+        display a consent banner.</p>
+      <p data-i18n="pp.s3c.delete">You can delete this locally stored information at any time through your
+        browser&rsquo;s settings. Doing so has no effect other than resetting your language preference.</p>
+
       <h2 data-i18n="pp.s4h">4. Disclosure of Data to Third Parties</h2>
       <p data-i18n="pp.s4p">We will only transfer your personal data to third parties if this is necessary for the
         purposes mentioned above, if there is another legal basis for such transfer, or if you have given your explicit
         consent.</p>
       <ul>
-        <li data-i18n-html="pp.s4l1"><strong>Hosting Provider:</strong> Our website is hosted with a third-party
-          provider. This provider processes server log data on our behalf. We have entered into, or will enter into, a
-          data processing agreement with our hosting provider to ensure compliance with GDPR requirements.</li>
-        <li data-i18n-html="pp.s4l2"><strong>Form Processing:</strong> Contact form submissions are processed via a
-          third-party form-delivery service (Formcarry) acting as a processor on our behalf, solely to deliver your
-          message to us by email.</li>
-        <li data-i18n-html="pp.s4l3"><strong>Spam Protection:</strong> We use Google reCAPTCHA to protect the contact
-          form against automated abuse. Its use may transfer data to Google; please refer to Google&rsquo;s privacy
-          policy for details.</li>
-        <li data-i18n-html="pp.s4l4"><strong>Download statistics:</strong> On our software package pages, we load public
-          download counts from the cranlogs service (cranlogs.r-pkg.org). This involves a request from your browser to
-          that third-party service.</li>
+        <li data-i18n-html="pp.s4l1"><strong>Hosting Provider:</strong> This website is hosted on GitHub Pages,
+          operated by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. GitHub processes the
+          server log data described above when delivering our pages. GitHub, Inc. is certified under the EU&ndash;US
+          Data Privacy Framework.</li>
+        <li data-i18n-html="pp.s4l2"><strong>Form Processing:</strong> Contact form submissions are processed on our
+          behalf by Teijal, Inc. d/b/a Formcarry, 3 Germay Dr, Unit 4 #1278, Wilmington, DE 19804, USA, solely to
+          deliver your message to us by email. Submitted data is stored on servers within the European Union
+          (Frankfurt am Main, Germany). A data processing agreement including the European Commission&rsquo;s Standard
+          Contractual Clauses forms part of that provider&rsquo;s terms of service. The provider engages further
+          sub-processors, including Amazon Web Services for storage and Automattic (Akismet) for spam filtering.</li>
+        <li data-i18n-html="pp.s4l3"><strong>Spam Protection:</strong> Our contact form is protected against automated
+          abuse by a hidden form field evaluated in your browser and by the spam filtering of our form-delivery
+          processor. We do not use Google reCAPTCHA or any comparable third-party captcha service, and no data is
+          transmitted to Google for this purpose.</li>
+        <li data-i18n-html="pp.s4l4"><strong>Download statistics:</strong> The download figures shown on our software
+          package pages originate from the public cranlogs service (cranlogs.r-pkg.org). We retrieve them in advance and
+          serve them from our own web space, so your browser does not contact that service and no data about you is
+          transmitted to it.</li>
+        <li data-i18n-html="pp.s4l5"><strong>Software version information:</strong> On our PhyloTrace page, your browser
+          requests the current release number from the GitHub API (api.github.com), operated by GitHub, Inc. Your IP
+          address is transmitted to GitHub as part of that request.</li>
+        <li data-i18n-html="pp.s4l6"><strong>Fonts and other assets:</strong> All fonts, stylesheets, scripts, and
+          images used on this website are delivered from our own web space. We do not embed Google Fonts or any
+          comparable external font, script, or content delivery service, so no data is transmitted to such providers
+          when you visit our pages.</li>
       </ul>
 
       <h2 data-i18n="pp.s5h">5. International Data Transfers</h2>
-      <p data-i18n="pp.s5p">Where our hosting or service providers are operated by companies based in the United States,
-        your personal data (specifically server log data) may be transferred to the USA. For such transfers to a third
-        country outside the European Union or European Economic Area, we ensure that appropriate safeguards are in place
-        to guarantee a level of data protection equivalent to that within the EU, in accordance with Art. 44 et seq.
-        GDPR. This may include reliance on Standard Contractual Clauses (SCCs) approved by the European Commission,
-        provided that supplementary measures ensure an adequate level of protection.</p>
+      <p data-i18n="pp.s5p1">Some of the providers named above are companies based in the United States, so your
+        personal data (in particular your IP address and server log data) may be transferred there. For such transfers
+        to a third country outside the European Union or European Economic Area, we ensure that appropriate safeguards
+        are in place in accordance with Art. 44 et seq. GDPR.</p>
+      <p data-i18n="pp.s5p2">For GitHub, Inc. we rely on the adequacy decision adopted by the European Commission on
+        10 July 2023 for the EU&ndash;US Data Privacy Framework, under which certified US companies are deemed to offer
+        an adequate level of protection. Where a recipient is not certified under that framework, transfers are based on
+        the Standard Contractual Clauses approved by the European Commission. Contact form data is stored within the
+        European Union; access by our form provider&rsquo;s US personnel is covered by those Standard Contractual
+        Clauses.</p>
 
       <h2 data-i18n="pp.s6h">6. Your Data Protection Rights under GDPR</h2>
       <p data-i18n="pp.s6p">As a data subject under the GDPR, you have comprehensive rights regarding your personal
@@ -179,6 +228,16 @@
         <li data-i18n-html="pp.r8"><strong>Right to Lodge a Complaint (Art. 77 GDPR):</strong> to lodge a complaint with
           a supervisory authority.</li>
       </ul>
+
+      <h3 data-i18n="pp.objh">Separate notice regarding your right to object (Art. 21 GDPR)</h3>
+      <p data-i18n-html="pp.objp"><strong>Where we process your personal data on the basis of our legitimate interests
+        pursuant to Art. 6(1)(f) GDPR &mdash; namely the server log data and general enquiries described above &mdash;
+        you have the right to object to that processing at any time on grounds relating to your particular
+        situation.</strong> If you object, we will no longer process the data concerned unless we can demonstrate
+        compelling legitimate grounds that override your interests, rights, and freedoms, or unless the processing
+        serves to establish, exercise, or defend legal claims. An objection requires no particular form; an email to
+        the address given in section 1 is sufficient.</p>
+
       <p data-i18n="pp.s6auth">The competent supervisory authority for Liora Bioinformatics is:</p>
       <p data-i18n-html="pp.authaddr">Landesbeauftragter f&uuml;r den Datenschutz und die Informationsfreiheit
         Baden-W&uuml;rttemberg (LfDI Baden-W&uuml;rttemberg)<br /> Lautenschlagerstra&szlig;e 20<br /> 70173
@@ -204,8 +263,8 @@
       <div class="footer-bottom" style="border:none;margin:0;padding:0;">
         <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
             reserved.</span></span>
-        <span><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
-            href="impressum.html" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="contact.html"
+        <span><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
+            href="/impressum" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="/contact"
             data-i18n="footer.contact">Contact</a></span>
       </div>
     </div>

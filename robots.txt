@@ -1,0 +1,5 @@
+# https://liora-bioinformatics.com/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://liora-bioinformatics.com/sitemap.xml

@@ -4,36 +4,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content-Security-Policy. Delivered as a meta tag because GitHub Pages
+       cannot set response headers. Note that frame-ancestors is ignored in
+       meta form, so clickjacking protection still requires a real header. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self' https://formcarry.com https://api.github.com;
+    form-action 'self' https://formcarry.com;
+  " />
   <title>rmx — Liora Bioinformatics</title>
   <meta name="description"
     content="Radius-minimax (RMX) estimators — optimally robust estimation for parametric models." />
   <link rel="icon" href="assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&display=swap"
-    rel="stylesheet" />
+  <link rel="canonical" href="https://liora-bioinformatics.com/rmx" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand brand-img" aria-label="Liora Bioinformatics home"><img
+      <a href="/" class="brand brand-img" aria-label="Liora Bioinformatics home"><img
           src="assets/img/liora-logo.png" alt="Liora Bioinformatics" /></a>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#dna" data-i18n="nav.about">About</a></li>
-          <li><a href="phylotrace.html">PhyloTrace</a></li>
-          <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
-          <li><a href="index.html#products" data-i18n="nav.products">Software</a></li>
-          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="/phylotrace">PhyloTrace</a></li>
+          <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/#products" data-i18n="nav.products">Software</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
         <div class="lang-switch" role="group" aria-label="Language / Sprache"><button class="lang-btn" data-lang="en"
             type="button">EN</button><button class="lang-btn" data-lang="de" type="button">DE</button></div>
-        <!-- <a href="index.html" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
+        <!-- <a href="/" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
         <button class="nav-toggle" aria-label="Menu"
           aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
@@ -75,7 +87,7 @@
       </p>
       <h2 data-i18n="pkg.install" style="font-size:1.25rem;margin-top:36px;">Installation</h2>
       <pre class="code-block"><span class="c-prompt">&gt; </span>remotes::install_github("stamats/rmx")</pre>
-      <p style="margin-top:36px;"><a class="back-link" href="index.html#products">&larr; <span data-i18n="pkg.back">Back
+      <p style="margin-top:36px;"><a class="back-link" href="/#products">&larr; <span data-i18n="pkg.back">Back
             to all software</span></a></p>
     </div>
   </section>
@@ -84,8 +96,8 @@
       <div class="footer-bottom" style="border:none;margin:0;padding:0;">
         <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
             reserved.</span></span>
-        <span><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
-            href="impressum.html" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="contact.html"
+        <span><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
+            href="/impressum" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="/contact"
             data-i18n="footer.contact">Contact</a></span>
       </div>
     </div>

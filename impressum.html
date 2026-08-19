@@ -4,13 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content-Security-Policy. Delivered as a meta tag because GitHub Pages
+       cannot set response headers. Note that frame-ancestors is ignored in
+       meta form, so clickjacking protection still requires a real header. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self' https://formcarry.com https://api.github.com;
+    form-action 'self' https://formcarry.com;
+  " />
   <title>Impressum — Liora Bioinformatics</title>
   <meta name="description" content="Legal notice (Impressum) for Liora Bioinformatics under German law." />
   <link rel="icon" href="assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&display=swap"
-    rel="stylesheet" />
+  <link rel="canonical" href="https://liora-bioinformatics.com/impressum" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
@@ -18,17 +30,17 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand brand-img" aria-label="Liora Bioinformatics home">
+      <a href="/" class="brand brand-img" aria-label="Liora Bioinformatics home">
         <img src="assets/img/liora-logo.png" alt="Liora Bioinformatics" />
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#dna" data-i18n="nav.about">About</a></li>
-          <li><a href="phylotrace.html">PhyloTrace</a></li>
-          <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
-          <li><a href="index.html#products" data-i18n="nav.products">Software</a></li>
-          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="/phylotrace">PhyloTrace</a></li>
+          <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/#products" data-i18n="nav.products">Software</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
@@ -36,7 +48,7 @@
           <button class="lang-btn" data-lang="en" type="button">EN</button>
           <button class="lang-btn" data-lang="de" type="button">DE</button>
         </div>
-        <!-- <a href="index.html" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
+        <!-- <a href="/" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
         <button class="nav-toggle" aria-label="Menu"
           aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
@@ -52,7 +64,7 @@
 
   <section class="section" style="padding-top:8px;">
     <div class="container prose">
-      <h2 data-i18n="imp.s1h">Information according to &sect; 5 Telemedia Act (TMG)</h2>
+      <h2 data-i18n="imp.s1h">Information according to &sect; 5 Digital Services Act (DDG)</h2>
       <p data-i18n-html="imp.provider"><strong>Service Provider:</strong><br /> Marian Freisleben<br />
         78054 Villingen-Schwenningen<br /> Germany</p>
 
@@ -60,25 +72,21 @@
       <p data-i18n-html="imp.contactp">Email: <a
           href="mailto:marian.freisleben@liora-bioinformatics.com">marian.freisleben@liora-bioinformatics.com</a></p>
 
-      <h2 data-i18n="imp.vath">VAT ID (Value Added Tax Identification Number)</h2>
-      <p data-i18n="imp.vatp">Gem&auml;&szlig; &sect; 19 UStG wird keine Umsatzsteuer berechnet.</p>
+      <h2 data-i18n="imp.vath">Value Added Tax</h2>
+      <p data-i18n="imp.vatp">In accordance with &sect; 19 UStG (small business regulation), no value added tax is
+        charged and none is shown on our invoices.</p>
 
       <h2 data-i18n="imp.resph">Responsible for Content according to &sect; 18 Abs. 2 State Media Treaty (MStV)</h2>
       <p data-i18n-html="imp.respp">Marian Freisleben<br /> 78054
         Villingen-Schwenningen<br /> Germany</p>
 
       <h2 data-i18n="imp.disph">Dispute Resolution</h2>
-      <p data-i18n-html="imp.dispp1">The European Commission provides a platform for online dispute resolution (OS):
-        <a href="https://ec.europa.eu/consumers/odr/" target="_blank"
-          rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
-        Our email address can be found above in the Impressum.
-      </p>
       <p data-i18n="imp.dispp2">We are not willing or obliged to participate in dispute resolution proceedings before a
         consumer arbitration board.</p>
 
       <h2 data-i18n="imp.conth">Liability for Content</h2>
       <p data-i18n="imp.contp1">As a service provider, we are responsible for our own content on these pages in
-        accordance with general laws pursuant to Section 7 (1) TMG. However, pursuant to Sections 8 to 10 TMG, we as a
+        accordance with general laws pursuant to Section 7 (1) DDG. However, pursuant to Sections 8 to 10 DDG, we as a
         service provider are not obliged to monitor transmitted or stored third-party information or to investigate
         circumstances that indicate illegal activity.</p>
       <p data-i18n="imp.contp2">Obligations to remove or block the use of information under general laws remain
@@ -104,6 +112,19 @@
         third parties are respected. In particular, third-party content is marked as such. Should you nevertheless
         become aware of a copyright infringement, please inform us accordingly. Should we become aware of any
         infringements, we will immediately remove such content.</p>
+
+      <h2 data-i18n="imp.attrh">Attributions and Third-Party Licences</h2>
+      <p data-i18n-html="imp.attr.r">The R logo is &copy; 2016 The R Foundation. It is used here unmodified under the
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons
+          Attribution-ShareAlike 4.0 International licence</a>. Its use does not imply endorsement by The R Foundation.
+      </p>
+      <p data-i18n-html="imp.attr.py">&ldquo;Python&rdquo; and the Python logo are trademarks of the Python Software
+        Foundation, used here to indicate the technology our software is built with, in accordance with the
+        <a href="https://www.python.org/psf/trademarks/" target="_blank" rel="noopener">PSF Trademark Usage
+          Policy</a>. Their use does not imply endorsement by the Python Software Foundation.</p>
+      <p data-i18n-html="imp.attr.inter">The Inter typeface is &copy; The Inter Project Authors and is used under the
+        <a href="https://openfontlicense.org/" target="_blank" rel="noopener">SIL Open Font License 1.1</a>. A copy of
+        the licence is provided at <a href="assets/fonts/OFL.txt">assets/fonts/OFL.txt</a>.</p>
     </div>
   </section>
 
@@ -112,8 +133,8 @@
       <div class="footer-bottom" style="border:none;margin:0;padding:0;">
         <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
             reserved.</span></span>
-        <span><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
-            href="impressum.html" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="contact.html"
+        <span><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
+            href="/impressum" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="/contact"
             data-i18n="footer.contact">Contact</a></span>
       </div>
     </div>

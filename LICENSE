@@ -1,0 +1,40 @@
+Copyright (c) 2026 Marian Freisleben / Liora Bioinformatics.
+All rights reserved.
+
+This repository contains the source of the Liora Bioinformatics website
+(https://liora-bioinformatics.com). It is published openly so the site can be
+hosted on GitHub Pages and so its behaviour is inspectable — not as a grant of
+licence.
+
+The text, design, layout, photographs, screenshots, logos and other branding in
+this repository are protected by copyright and trade mark law. No permission is
+given to reproduce, adapt, redistribute or otherwise exploit them beyond the
+limits of applicable copyright law. Downloading and copying for private,
+non-commercial use is permitted, as stated in the Impressum.
+
+If you would like to reuse any part of this repository, please ask:
+marian.freisleben@liora-bioinformatics.com
+
+THIRD-PARTY COMPONENTS
+
+The following are the property of their respective owners and remain governed
+by their own licences, not by the terms above:
+
+  Inter (assets/fonts/)
+    (c) The Inter Project Authors.
+    SIL Open Font License 1.1 — full text at assets/fonts/OFL.txt
+
+  R logo (assets/img/R_logo.png)
+    (c) 2016 The R Foundation.
+    Creative Commons Attribution-ShareAlike 4.0 International.
+    https://creativecommons.org/licenses/by-sa/4.0/
+    Used unmodified. Use does not imply endorsement by The R Foundation.
+
+  Python logo (assets/img/Python_logo.png)
+    "Python" and the Python logo are trade marks of the Python Software
+    Foundation, used in accordance with the PSF Trademark Usage Policy.
+    https://www.python.org/psf/trademarks/
+    Use does not imply endorsement by the Python Software Foundation.
+
+Liora's own open-source software is released separately, under its own licences,
+at https://github.com/liora-bioinformatics

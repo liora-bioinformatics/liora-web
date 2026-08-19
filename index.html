@@ -4,15 +4,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content-Security-Policy. Delivered as a meta tag because GitHub Pages
+       cannot set response headers. Note that frame-ancestors is ignored in
+       meta form, so clickjacking protection still requires a real header. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self' https://formcarry.com https://api.github.com;
+    form-action 'self' https://formcarry.com;
+  " />
   <title data-i18n="doc.title">Liora Bioinformatics — Next-Gen Solutions for Life Science Data</title>
   <meta name="description" data-i18n-attr="content:meta.desc"
     content="Liora Bioinformatics builds custom pipelines, software, and analysis solutions for life science research. When experiments scale, analysis must too." />
   <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="canonical" href="https://liora-bioinformatics.com/" />
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600;650;700;750;800&display=swap"
-    rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
@@ -20,18 +32,18 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand brand-img" aria-label="Liora Bioinformatics home">
+      <a href="/" class="brand brand-img" aria-label="Liora Bioinformatics home">
         <img src="assets/img/liora-logo.png" alt="Liora Bioinformatics" />
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
+          <li><a href="/#home">Home</a></li>
           <li><a href="#dna" data-i18n="nav.about">About</a></li>
-          <li><a href="phylotrace.html">PhyloTrace</a></li>
+          <li><a href="/phylotrace">PhyloTrace</a></li>
           <li><a href="#services" data-i18n="nav.services">Services</a></li>
           <li><a href="#products" data-i18n="nav.products">Software</a></li>
           <!-- <li><a href="#team" data-i18n="nav.team">Team</a></li> -->
-          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
@@ -39,7 +51,7 @@
           <button class="lang-btn" data-lang="en" type="button">EN</button>
           <button class="lang-btn" data-lang="de" type="button">DE</button>
         </div>
-        <!-- <a href="contact.html" class="btn btn-primary" data-i18n="nav.getintouch">Get in touch</a> -->
+        <!-- <a href="/contact" class="btn btn-primary" data-i18n="nav.getintouch">Get in touch</a> -->
         <button class="nav-toggle" aria-label="Menu"
           aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
@@ -75,7 +87,7 @@
         pipelines, build dependable software, and deliver analysis you can trust — bridging rigorous science and
         real-world impact.</p>
       <div class="btn-row">
-        <a href="phylotrace.html" class="btn btn-primary btn-lg" data-i18n="hero.cta3">PhyloTrace</a>
+        <a href="/phylotrace" class="btn btn-primary btn-lg" data-i18n="hero.cta3">PhyloTrace</a>
         <a href="#products" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">See our software</a>
         <a href="#services" class="btn btn-ghost btn-lg" data-i18n="hero.cta1">Explore our services</a>
       </div>
@@ -138,35 +150,37 @@
             surveillance. PhyloTrace brings together a toolkit of analyses — including hashed cgMLST typing and
             antimicrobial resistance screening — in one intuitive interface.</p>
           <div class="btn-row">
-            <a href="phylotrace.html" class="btn btn-light btn-lg tool" data-i18n="prod.cta1">View the software
+            <a href="/phylotrace" class="btn btn-light btn-lg tool" data-i18n="prod.cta1">View the software
               portrait</a>
-            <a href="contact.html" class="btn btn-outline-light tool" data-i18n="prod.cta2">Request a demo</a>
+            <a href="/contact" class="btn btn-outline-light tool" data-i18n="prod.cta2">Request a demo</a>
           </div>
         </div>
         <div class="container">
           <div class="carousel" data-carousel>
             <div class="carousel-slides">
               <div class="carousel-slide active">
-                <img src="assets/img/mst_transparent.png" alt="Resistance and virulence screening screenshot 1" />
+                <img src="assets/img/mst_transparent.png"
+                  alt="PhyloTrace minimum spanning tree showing isolate clusters connected by allelic distance" />
               </div>
               <div class="carousel-slide">
-                <img src="assets/img/amr_heatmap_3.png" alt="Resistance and virulence screening screenshot 1" />
+                <img src="assets/img/amr_heatmap_3.png"
+                  alt="Antimicrobial resistance heatmap with isolates in rows and resistance genes in columns" />
               </div>
               <div class="carousel-slide">
                 <img src="assets/img/heatmap_map.png" class="screenshot"
-                  alt="Resistance and virulence screening screenshot 1" />
+                  alt="Geographic map view plotting sampling locations alongside a resistance heatmap" />
               </div>
               <div class="carousel-slide">
                 <img src="assets/img/typing-initiation.png" class="screenshot"
-                  alt="Resistance and virulence screening screenshot 1" />
+                  alt="cgMLST typing run being configured, with scheme and input genome selection" />
               </div>
               <div class="carousel-slide">
                 <img src="assets/img/cust-var-tree.png" class="screenshot"
-                  alt="Resistance and virulence screening screenshot 1" />
+                  alt="Phylogenetic tree with branches coloured by a user-defined metadata variable" />
               </div>
               <div class="carousel-slide">
                 <img src="assets/img/browse-entries.png" class="screenshot"
-                  alt="Resistance and virulence screening screenshot 1" />
+                  alt="Sample database browser listing stored isolate entries and their metadata" />
               </div>
             </div>
             <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous Slide">&lsaquo;</button>
@@ -184,54 +198,54 @@
       </div>
 
       <div class="product-grid" style="margin-top:26px;">
-        <a class="tool" href="mkinfer.html">
+        <a class="tool" href="/mkinfer">
           <img class="tool-logo" src="assets/img/hex-MKinfer.png" alt="MKinfer logo" />
           <div class="cat" data-i18n-html="tool.mkinfer.cat">Statistics &middot; Clinical Trials</div>
           <h4>MKinfer</h4>
           <p data-i18n="tool.mkinfer.p">Comprehensive suite of methods for statistical analysis of clinical data and
             biomedical experiments.</p>
         </a>
-        <a class="tool" href="mkdescr.html">
+        <a class="tool" href="/mkdescr">
           <img class="tool-logo" src="assets/img/hex-MKdescr.png" alt="MKdescr logo" />
           <div class="cat" data-i18n-html="tool.mkdescr.cat">Statistics &middot; Descriptive</div>
           <h4>MKdescr</h4>
           <p data-i18n="tool.mkdescr.p">Functions to compute and visualize robust and standardized descriptive
             statistics.</p>
         </a>
-        <a class="tool" href="mkpower.html">
+        <a class="tool" href="/mkpower">
           <img class="tool-logo" src="assets/img/hex-MKpower.png" alt="MKpower logo" />
           <div class="cat" data-i18n-html="tool.mkpower.cat">Statistics &middot; Study Design</div>
           <h4>MKpower</h4>
           <p data-i18n="tool.mkpower.p">Power analysis and sample size calculation for experiments, diagnostic studies,
             and clinical evaluations.</p>
         </a>
-        <a class="tool" href="mkomics.html">
+        <a class="tool" href="/mkomics">
           <img class="tool-logo" src="assets/img/hex-MKomics.png" alt="MKomics logo" />
           <div class="cat" data-i18n-html="tool.mkomics.cat">Omics &middot; Processing &middot; QC</div>
           <h4>MKomics</h4>
           <p data-i18n="tool.mkomics.p">Toolkit enabling quality control, processing, and evaluation of Omics
             experiments.</p>
         </a>
-        <a class="tool" href="rmx.html">
+        <a class="tool" href="/rmx">
           <img class="tool-logo" src="assets/img/hex-rmx.png" alt="rmx logo" />
           <div class="cat" data-i18n-html="tool.rmx.cat">Statistics &middot; Robust estimation</div>
           <h4>rmx</h4>
           <p data-i18n="tool.rmx.p">Fast, optimally robust estimators for reliable parameter estimation under model
             deviations.</p>
         </a>
-        <a class="tool" href="lfapp.html">
+        <a class="tool" href="/lfapp">
           <img class="tool-logo" src="assets/img/hex-LFApp.png" alt="LFApp logo" />
           <div class="cat" data-i18n-html="tool.lfapp.cat">Image Analysis &middot; Lateral Flow</div>
           <h4>LFApp</h4>
           <p data-i18n="tool.lfapp.p">Modular application for quantitative image analysis of lateral flow assays.</p>
         </a>
-        <a class="tool" href="madapp.html">
+        <a class="tool" href="/madapp">
           <img class="tool-logo" src="assets/img/hex-MADApp.png" alt="MADapp logo" />
           <div class="cat" data-i18n-html="tool.madapp.cat">Micro-Arrays &middot; Image Analysis</div>
           <h4>MADapp</h4>
           <p data-i18n="tool.madapp.p">Intuitive workflow for image-based analysis of microarrays.</p>
         </a>
-        <!-- <a class="tool" href="kiwims.html">
+        <!-- <a class="tool" href="/kiwims">
           <img class="tool-logo" src="assets/img/KiwiFlow.png" alt="KiwiMS logo" />
           <div class="cat" data-i18n-html="tool.kiwiflow.cat">Mass Spectrometry &middot; Proteomics</div>
           <h4>KiwiMS</h4>
@@ -366,7 +380,7 @@
         <p data-i18n="contact.p">Whether you need a pipeline, a piece of software, or a research partner, we'd like to
           hear what you're working on.</p>
         <div class="btn-row center" style="margin-top:24px; justify-content: center;">
-          <a href="contact.html" class="btn btn-light btn-lg tool" data-i18n="contact.cta1">Contact us</a>
+          <a href="/contact" class="btn btn-light btn-lg tool" data-i18n="contact.cta1">Contact us</a>
           <a href="#services" class="btn btn-light btn-lg tool" data-i18n="contact.cta2">Explore services</a>
         </div>
       </div>
@@ -377,7 +391,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="brand brand-img"><img src="assets/img/Liora_rect_white.png"
+          <a href="/" class="brand brand-img"><img src="assets/img/Liora_rect_white.png"
               alt="Liora Bioinformatics" /></a>
           <p style="margin-top:14px; text-align: justify;" data-i18n="footer.tagline">Next-gen bioinformatics solutions
             for life-science
@@ -388,14 +402,14 @@
           <ul>
             <li><a href="#dna" data-i18n="footer.about">About</a></li>
             <!-- <li><a href="#team" data-i18n="footer.team">Team</a></li> -->
-            <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
+            <li><a href="/contact" data-i18n="footer.contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.products">Software</h4>
           <ul>
-            <li><a href="phylotrace.html">PhyloTrace</a></li>
-            <li><a href="index.html#products" data-i18n="footer.allsoftware">All software</a></li>
+            <li><a href="/phylotrace">PhyloTrace</a></li>
+            <li><a href="/#products" data-i18n="footer.allsoftware">All software</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -411,8 +425,8 @@
       <div class="footer-bottom">
         <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
             reserved.</span></span>
-        <span><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
-            href="impressum.html" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="contact.html"
+        <span><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a
+            href="/impressum" data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="/contact"
             data-i18n="footer.contact">Contact</a></span>
       </div>
     </div>
