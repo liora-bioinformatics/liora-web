@@ -243,7 +243,7 @@
 
     "pkg.f1.title": "Core-Genome Multilocus Sequence Typing (cgMLST und MLST)",
     "pkg.f1.desc": "Hochauflösende Stammtypisierung mittels standardisierter cgMLST- und klassischer MLST-Schemata. Automatische Profilierung von Zielgen-Loci zur Identifizierung von Subspezies-Liniendifferenzierungen und Ausbruchs-Clustern.",
-    "pkg.f1.desc_start": "Hochauflösende Stammtypisierung mittels standardisierter cgMLST- und klassischer MLST-Schemata. Derzeit können alle 38 bakteriellen Schemata mit ",
+    "pkg.f1.desc_start": "Hochauflösende Stammtypisierung mittels standardisierter cgMLST- und klassischer MLST-Schemata. Derzeit können alle 40 bakteriellen Schemata mit ",
     "pkg.f1.desc_end": " verbunden werden und werden kontinuierlich aktualisiert. Unterstützung für benutzerdefinierte Schemata oder andere Datenbanken wie ",
     "pkg.f1.desc_pubmlst": " wird in Kürze hinzugefügt.",
     "pkg.f2.title": "Screening auf Resistenzen, Virulenz und Punktmutationen",
