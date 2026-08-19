@@ -229,7 +229,7 @@
 
     /* --- PhyloTrace Translations --- */
     "pkg.phylotrace.cat": "Überwachung bakterieller Populationen",
-    "pkg.phylotrace.tag": "PhyloTrace ist eine Next-Gen-Plattform für dezentrale Erregerüberwachung und epidemiologische Surveillance. Mit grafischer Benutzeroberfläche und Funktionen für die Team-Zusammenarbeit.",
+    "pkg.phylotrace.tag": "Die Next-Gen-Plattform für dezentrale Erregerüberwachung und epidemiologische Surveillance. PhyloTrace ist eine Open-Source-Desktopanwendung mit grafischer Benutzeroberfläche und Funktionen für die Zusammenarbeit im Team.",
     "pkg.phylotrace.call": "Auf Anfrage werden binäre Installationsdateien kostenlos zur Verfügung gestellt.",
     "pkg.phylotrace.f1": "Core-Genome Multilocus Sequence Typing (cgMLST und MLST)",
     "pkg.phylotrace.f2": "Screening auf Resistenzen, Virulenz und Punktmutationen",
@@ -250,12 +250,12 @@
     "pkg.f2.desc": "Durchsuchen Sie Genomassemblies gegen kuratierte Resistenzgen-Datenbanken, Virulenzfaktor-Register und Punktmutations-Panels, um antimikrobielle Resistenzmechanismen sofort zu erkennen.",
     "pkg.f3.title": "Integrierte Datenbankverwaltung",
     "pkg.f3.desc": "Zentrale lokale oder serverbasierte Speicherung für skalierbare Isolatverwaltung, Indizierung, schnelle Abfragen und nahtlose Hintergrundsynchronisationen ohne externe Abhängigkeiten.",
-    "pkg.f4.title": "Einfacher Datenaustausch für kollaborative Surveillance",
-    "pkg.f4.desc": "Tauschen Sie Daten sicher zwischen regionalen oder nationalen Public-Health-Teams über Standardformate (FASTA, VCF, CSV, JSON) und verschlüsselte Exportpakete aus.",
-    "pkg.f5.title": "Netzwerk- und phylogenetische Stammbaum-Graphen",
-    "pkg.f5.desc": "Interaktive Visualisierung von Minimum Spanning Trees (MST), Neighbor-Joining-Bäumen und Übertragungsnetzwerken mit anpassbaren Knoten-Layouts, Farbcodierungen und Schwellenwert-Filtern.",
+    "pkg.f4.title": "Kollaborativer Datenimport und -export",
+    "pkg.f4.desc": "Die Schnittstelle für den Datenaustausch ermöglicht einen nahtlosen Transfer zwischen Partnerlaboren über SQLite und weitere Standardformate. Sie entscheiden selbst, welche Daten Sie teilen – auch datenschutzrelevante Angaben. Da PhyloTrace lokal und ohne öffentliche Server läuft, bleiben private Daten geschützt.",
+    "pkg.f5.title": "Netzwerk- und phylogenetische Baumdiagramme",
+    "pkg.f5.desc": "Verfolgen Sie Übertragungsmuster und Populationsdynamiken mit interaktiven Visualisierungen von Single-Linkage-Netzwerken (MST) und hierarchischen Bäumen (NJ, UPGMA) – mit frei anpassbaren Layouts, Clustering und flexibler Variablenzuordnung.",
     "pkg.f6.title": "Räumliche und zeitliche Kartierung",
-    "pkg.f6.desc": "Verfolgen Sie Übertragungsereignisse in geografischen und zeitlichen Kontexten. Nutzen Sie interaktive Karten-Overlays im Einklang mit Epidemiekurven, um die Entwicklung von Clustern im Zeitverlauf zu verfolgen.",
+    "pkg.f6.desc": "Verfolgen Sie Übertragungsereignisse in geografischen und zeitlichen Kontexten. Nutzen Sie interaktive, zeitaufgelöste Karten-Overlays und Epidemiekurven, um die Dynamik von Erregern nachzuvollziehen. Die durchdachte Visualisierungsoberfläche hilft dabei, Muster aufzudecken, die in Tabellenkalkulationen sonst verborgen blieben.",
     "pkg.f7.title": "Gehashte Genomdaten und Herkunftsnachweis",
     "pkg.f7.desc": "Kryptographisches Hashing garantiert Datenintegrität und manipulationssichere Probenverfolgung. Vollständige Audit-Logs bewahren den Herkunftsnachweis für die Einhaltung von Compliance- und Regulierungskriterien.",
     "pkg.f8.title": "Unterstützung für benutzerdefinierte Datenannotation",
@@ -402,9 +402,25 @@
     } catch (e) { }
   }
 
+  // No stored preference yet: fall back to the browser's own language
+  // setting (navigator.languages) rather than always defaulting to English.
+  // This reads a setting the browser already exposes locally — no IP
+  // geolocation and no network request, so it changes nothing about what
+  // data leaves the visitor's device.
+  function detectLang() {
+    var prefs = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || "en"];
+    for (var i = 0; i < prefs.length; i++) {
+      if (/^de\b/i.test(prefs[i])) return "de";
+    }
+    return "en";
+  }
+
   function init() {
-    var lang = "en";
-    try { lang = localStorage.getItem(STORAGE_KEY) || "en"; } catch (e) { }
+    var stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) { }
+    var lang = stored || detectLang();
     apply(lang);
     document.querySelectorAll(".lang-btn").forEach(function (b) {
       b.addEventListener("click", function () { apply(b.getAttribute("data-lang")); });

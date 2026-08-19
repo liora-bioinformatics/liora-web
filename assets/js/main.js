@@ -2,18 +2,80 @@
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
+
   if (toggle && links) {
+    var backdrop = document.createElement("div");
+    backdrop.className = "nav-backdrop";
+    document.body.appendChild(backdrop);
+
+    var isOpen = function () { return links.classList.contains("open"); };
+
+    var openMenu = function () {
+      links.classList.add("open");
+      backdrop.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("nav-locked");
+    };
+
+    var closeMenu = function (returnFocus) {
+      links.classList.remove("open");
+      backdrop.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("nav-locked");
+      if (returnFocus) toggle.focus();
+    };
+
     toggle.addEventListener("click", function () {
-      links.classList.toggle("open");
-      var expanded = links.classList.contains("open");
-      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      if (isOpen()) closeMenu(); else openMenu();
     });
-    // Close menu when a link is clicked (mobile)
+
+    // Click outside (on the dimmed backdrop) closes the menu
+    backdrop.addEventListener("click", function () { closeMenu(); });
+
+    // Escape closes the menu and returns focus to the toggle
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && isOpen()) closeMenu(true);
+    });
+
+    // Close menu when a nav link is clicked (mobile)
     links.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        links.classList.remove("open");
-      });
+      a.addEventListener("click", function () { closeMenu(); });
     });
+
+    var mq = window.matchMedia("(max-width: 940px)");
+    var addMqListener = function (fn) {
+      if (mq.addEventListener) mq.addEventListener("change", fn);
+      else mq.addListener(fn); // Safari < 14
+    };
+
+    // Collapse the mobile menu if the viewport grows past the breakpoint
+    // (e.g. rotating a tablet to landscape) so it isn't left open and
+    // hidden behind the now-inline desktop nav.
+    addMqListener(function (e) { if (!e.matches) closeMenu(); });
+
+    // Move the language switcher into the mobile dropdown below the
+    // breakpoint, and back into the top bar above it. This relocates the
+    // single existing control rather than keeping two copies in the DOM.
+    var langSwitch = document.querySelector(".nav-cta .lang-switch");
+    if (langSwitch) {
+      var desktopParent = langSwitch.parentNode;
+      var desktopNextSibling = langSwitch.nextSibling;
+      var mobileHolder = document.createElement("li");
+      mobileHolder.className = "nav-lang-item";
+
+      var placeLangSwitch = function (mobile) {
+        if (mobile) {
+          mobileHolder.appendChild(langSwitch);
+          links.appendChild(mobileHolder);
+        } else {
+          desktopParent.insertBefore(langSwitch, desktopNextSibling);
+          if (mobileHolder.parentNode) mobileHolder.parentNode.removeChild(mobileHolder);
+        }
+      };
+
+      placeLangSwitch(mq.matches);
+      addMqListener(function (e) { placeLangSwitch(e.matches); });
+    }
   }
 
   // Set current year in footer

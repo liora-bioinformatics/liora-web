@@ -368,6 +368,9 @@ img {
 }
 
 .lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border: none;
   background: transparent;
   padding: 7px 11px;
@@ -393,12 +396,30 @@ img {
   color: #fff;
 }
 
+.flag {
+  flex-shrink: 0;
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 0 1px rgba(11, 37, 69, .18) inset;
+}
+
+.flag-gb {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Crect width='60' height='30' fill='%2300247d'/%3E%3Cpath d='M0,0 60,30 M60,0 0,30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0,0 25,12.5 M35,12.5 60,0 M0,30 25,17.5 M35,17.5 60,30' stroke='%23cf142b' stroke-width='4'/%3E%3Cpath d='M30,0 30,30 M0,15 60,15' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30,0 30,30 M0,15 60,15' stroke='%23cf142b' stroke-width='6'/%3E%3C/svg%3E");
+}
+
+.flag-de {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 36'%3E%3Crect width='60' height='12' y='0' fill='%23000'/%3E%3Crect width='60' height='12' y='12' fill='%23dd0000'/%3E%3Crect width='60' height='12' y='24' fill='%23ffce00'/%3E%3C/svg%3E");
+}
+
 .nav-toggle {
   display: none;
   background: none;
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 8px;
+  padding: 12px;
   cursor: pointer;
 }
 
@@ -494,6 +515,7 @@ img {
   pointer-events: none;
   z-index: 0;
 }
+
 /* The hero decorations need clear space either side of the 900px text column.
    Verified by screenshot: clean at 1200px, marginal at 1100px, and the heading
    runs into the helix at 1024px. German headings are longer than English, so
@@ -1380,7 +1402,7 @@ table.compare tbody tr:last-child td {
 
 .site-footer p {
   color: #93aacb;
-  font-size: .92rem;
+  font-size: 1.1rem;
 }
 
 .footer-col {
@@ -1469,6 +1491,7 @@ table.compare tbody tr:last-child td {
 
   .nav {
     height: 56px;
+    margin-top: 0 !important;
   }
 
   .brand.brand-img img {
@@ -1541,6 +1564,24 @@ table.compare tbody tr:last-child td {
 
   .nav-toggle {
     display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .nav-toggle span {
+    transition: transform .2s ease, opacity .15s ease;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
 
   .nav-links {
@@ -1550,24 +1591,80 @@ table.compare tbody tr:last-child td {
     right: 0;
     flex-direction: column;
     align-items: stretch;
-    gap: 2px;
+    gap: 4px;
     background: #fff;
     border-bottom: 1px solid var(--line);
-    padding: 12px 20px;
+    padding: 12px 20px 16px;
     box-shadow: var(--shadow-md);
-    display: none;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
   }
 
   .nav-links.open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity .18s ease, transform .18s ease;
   }
 
   .nav-links a {
-    padding: 12px 14px;
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
   }
 
   .nav .nav-cta .btn-ghost {
     display: none;
+  }
+
+  /* The language switcher lives in .nav-cta by default; main.js moves it
+     into .nav-links (as .nav-lang-item) below this breakpoint so it opens
+     with the rest of the menu instead of crowding the top bar. Hide it in
+     its default slot here so there's no flash in the old spot before JS
+     runs. */
+  .nav-cta .lang-switch {
+    display: none;
+  }
+
+  .nav-lang-item {
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-lang-item .lang-switch {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-lang-item .lang-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 13px 14px;
+  }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 37, 69, .4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility 0s linear .2s;
+    z-index: 45;
+  }
+
+  .nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .2s ease;
+  }
+
+  body.nav-locked {
+    overflow: hidden;
   }
 
   .cta-band {
@@ -1905,9 +2002,18 @@ a.tool:hover h4 {
   }
 
   .container {
-    grid-column: 1 / span 2;
     padding: 0;
     width: unset;
+
+    /* Only spans 2 columns on the desktop 2-column layout. Below 940px
+       .product-hero collapses to a single explicit column (see the
+       @media (max-width: 940px) rule above), so an unconditional span
+       here would force an implicit second column into existence and
+       starve the real column down to 0px — collapsing the logo image
+       that lives in it. */
+    @media (min-width: 941px) {
+      grid-column: 1 / span 2;
+    }
   }
 
   .carousel-slide img {
@@ -2083,6 +2189,7 @@ a.tool:hover h4 {
     scroll-behavior: auto !important;
   }
 }
+
 /* CRAN panel: "as of" stamp. The figures are refreshed by
    tools/update-cran-stats.py rather than fetched live, so the date they
    were taken is stated instead of implying they are current. */
