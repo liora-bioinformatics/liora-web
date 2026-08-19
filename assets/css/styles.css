@@ -1467,6 +1467,14 @@ table.compare tbody tr:last-child td {
 /* Responsive */
 @media (max-width: 940px) {
 
+  .nav {
+    height: 56px;
+  }
+
+  .brand.brand-img img {
+    height: 26px;
+  }
+
   .hero-grid,
   .split,
   .grid-3,
@@ -1537,7 +1545,7 @@ table.compare tbody tr:last-child td {
 
   .nav-links {
     position: absolute;
-    top: 68px;
+    top: 56px;
     left: 0;
     right: 0;
     flex-direction: column;
