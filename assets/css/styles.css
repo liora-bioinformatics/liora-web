@@ -2103,6 +2103,9 @@ a.tool:hover h4 {
 }
 
 .carousel-dot {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
