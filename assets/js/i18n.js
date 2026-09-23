@@ -324,7 +324,7 @@
     "cran.week": "Letzte 7 Tage",
     "cran.trend": "Monatliche Downloads, letzte 12 Monate",
     "pp.s4l4": "<strong>Download-Statistiken:</strong> Die auf unseren Softwarepaket-Seiten angezeigten Download-Zahlen stammen vom öffentlichen Dienst cranlogs (cranlogs.r-pkg.org). Wir rufen sie vorab ab und liefern sie von unserem eigenen Webspace aus; Ihr Browser kontaktiert diesen Dienst daher nicht und es werden keine Daten über Sie an ihn übermittelt.",
-    "pp.updated": "Zuletzt aktualisiert: 19. August 2026",
+    "pp.updated": "Zuletzt aktualisiert: 23. September 2026",
     "pp.dpo": "Wir sind nicht verpflichtet, einen Datenschutzbeauftragten nach Art. 37 DSGVO bzw. § 38 BDSG zu benennen. Bitte richten Sie Fragen zum Datenschutz an die oben genannten Kontaktdaten.",
     "pp.s3ch": "c) Cookies und lokale Speicherung",
     "pp.s3cp1": "Wir verwenden keine Cookies und setzen auf dieser Website keinerlei Analyse-, Tracking-, Profiling- oder Werbetechnologien ein. Zu diesen Zwecken speichern wir keine Informationen auf Ihrem Endgerät.",
