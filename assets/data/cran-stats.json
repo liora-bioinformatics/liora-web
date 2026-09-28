@@ -1,10 +1,10 @@
 {
-  "generated": "2026-09-21",
+  "generated": "2026-09-28",
   "packages": {
     "LFApp": {
       "days_reported": 413,
-      "last30": 319,
-      "last7": 56,
+      "last30": 354,
+      "last7": 86,
       "months": [
         241,
         255,
@@ -19,12 +19,12 @@
         248,
         241
       ],
-      "total": 14897
+      "total": 15003
     },
     "MKdescr": {
       "days_reported": 422,
-      "last30": 1010,
-      "last7": 204,
+      "last30": 1047,
+      "last7": 192,
       "months": [
         2467,
         2498,
@@ -39,12 +39,12 @@
         900,
         907
       ],
-      "total": 71713
+      "total": 71959
     },
     "MKinfer": {
       "days_reported": 422,
-      "last30": 992,
-      "last7": 194,
+      "last30": 1041,
+      "last7": 198,
       "months": [
         2151,
         2574,
@@ -59,12 +59,12 @@
         956,
         945
       ],
-      "total": 204417
+      "total": 204661
     },
     "MKomics": {
       "days_reported": 415,
-      "last30": 249,
-      "last7": 37,
+      "last30": 285,
+      "last7": 90,
       "months": [
         281,
         245,
@@ -79,12 +79,12 @@
         204,
         228
       ],
-      "total": 22497
+      "total": 22602
     },
     "MKpower": {
       "days_reported": 422,
-      "last30": 577,
-      "last7": 128,
+      "last30": 589,
+      "last7": 100,
       "months": [
         1125,
         968,
@@ -99,7 +99,7 @@
         570,
         502
       ],
-      "total": 46822
+      "total": 46949
     }
   },
   "source": "cranlogs.r-pkg.org (RStudio/Posit CRAN mirror)"
