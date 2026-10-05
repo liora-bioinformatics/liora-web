@@ -1,12 +1,11 @@
 {
-  "generated": "2026-09-28",
+  "generated": "2026-10-05",
   "packages": {
     "LFApp": {
-      "days_reported": 413,
-      "last30": 354,
-      "last7": 86,
+      "days_reported": 414,
+      "last30": 348,
+      "last7": 67,
       "months": [
-        241,
         255,
         189,
         187,
@@ -17,16 +16,16 @@
         313,
         271,
         248,
-        241
+        241,
+        359
       ],
-      "total": 15003
+      "total": 15079
     },
     "MKdescr": {
       "days_reported": 422,
-      "last30": 1047,
-      "last7": 192,
+      "last30": 1010,
+      "last7": 188,
       "months": [
-        2467,
         2498,
         1922,
         2204,
@@ -37,16 +36,16 @@
         1212,
         1140,
         900,
-        907
+        907,
+        1091
       ],
-      "total": 71959
+      "total": 72188
     },
     "MKinfer": {
       "days_reported": 422,
-      "last30": 1041,
-      "last7": 198,
+      "last30": 1222,
+      "last7": 313,
       "months": [
-        2151,
         2574,
         1788,
         2228,
@@ -57,16 +56,16 @@
         1041,
         1013,
         956,
-        945
+        945,
+        1223
       ],
-      "total": 204661
+      "total": 205116
     },
     "MKomics": {
       "days_reported": 415,
-      "last30": 285,
-      "last7": 90,
+      "last30": 281,
+      "last7": 56,
       "months": [
-        281,
         245,
         141,
         193,
@@ -77,16 +76,16 @@
         304,
         273,
         204,
-        228
+        228,
+        281
       ],
-      "total": 22602
+      "total": 22668
     },
     "MKpower": {
       "days_reported": 422,
-      "last30": 589,
-      "last7": 100,
+      "last30": 573,
+      "last7": 113,
       "months": [
-        1125,
         968,
         912,
         836,
@@ -97,9 +96,10 @@
         725,
         737,
         570,
-        502
+        502,
+        629
       ],
-      "total": 46949
+      "total": 47100
     }
   },
   "source": "cranlogs.r-pkg.org (RStudio/Posit CRAN mirror)"
