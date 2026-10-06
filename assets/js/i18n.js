@@ -87,15 +87,6 @@
     "why3.title": "Langfristig unterstützt",
     "why3.p": "Wir pflegen, was wir bauen, und halten Tools weit über die erste Lieferung hinaus gesund und sicher.",
 
-    "team.eyebrow": "Die Menschen",
-    "team.title": "Gründer, die Wissenschaft und Software verbinden.",
-    "team.mk.role": "Wissenschaftlicher Senior-Berater",
-    "team.mk.p": "Als anerkannter Experte für Mathematik in Biologie und Medizin leitet Matthias unsere Initiativen in Statistik und Data Science. Er hat mehrere Bücher verfasst und pflegt über 30 Software-Pakete — neben seiner Professur und Forschungsgruppe am Institut für Präzisionsmedizin der Hochschule Furtwangen.",
-    "team.fp.role": "Chief Technology Officer",
-    "team.fp.p": "Als Mediziner und Datenanalyst verbindet Filip biomedizinische Forschung mit wissenschaftlichem Rechnen. Mit einem Hintergrund in der Medizin und einem Promotionsschwerpunkt in biomedizinischer Bildanalyse entwickelt er interaktive Anwendungen und reproduzierbare Workflows in R und Python.",
-    "team.mf.role": "Chief Executive Officer",
-    "team.mf.p": "Marian bringt eine vielseitige Leidenschaft für Wissenschaft, Technologie und Innovation ein. Mit einem Hintergrund in personalisierter Medizin und Bioinformatik — von Hochdurchsatz-Wirkstoffforschung bis zu mikrobieller Genomik — prägt sein interdisziplinäres Denken die Ausrichtung des Unternehmens.",
-
     "contact.title": "Sprechen wir über Ihre Datenherausforderung.",
     "contact.p": "Ob Sie eine Pipeline, eine Software oder einen Forschungspartner brauchen — wir hören gern, woran Sie arbeiten.",
     "contact.cta1": "Kontakt aufnehmen",
