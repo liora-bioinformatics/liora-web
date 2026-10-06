@@ -11,8 +11,10 @@
 
   var ENDPOINT = "https://formcarry.com/s/0R8D2qqyRrw";
 
+  // i18n.js sets <html lang> on load and on every switch, including when the
+  // language was detected from the browser rather than stored.
   function lang() {
-    try { return localStorage.getItem("liora-lang") || "en"; } catch (e) { return "en"; }
+    return document.documentElement.getAttribute("lang") === "de" ? "de" : "en";
   }
 
   var T = {

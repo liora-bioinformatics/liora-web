@@ -1,0 +1,54 @@
+name: Update PhyloTrace release version
+
+# The release tag shown on the PhyloTrace page is committed to the repo rather
+# than fetched in the browser, so visitors' IP addresses are never sent to the
+# GitHub API. This job keeps the committed copy fresh.
+#
+# Note: GitHub disables scheduled workflows in a repository that has had no
+# activity for 60 days. If the version ever stops updating, check the Actions
+# tab first — that is the usual cause.
+
+on:
+  schedule:
+    - cron: '43 5 * * *'   # daily, 05:43 UTC
+  workflow_dispatch:        # and on demand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-release-version
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Fetch latest release tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/update-release-version.py
+
+      - name: Commit if the version changed
+        run: |
+          # Compare the tag only: the "generated" date changes every run and
+          # would otherwise produce a pointless daily commit.
+          if git cat-file -e HEAD:assets/data/phylotrace-release.json 2>/dev/null; then
+            old=$(git show HEAD:assets/data/phylotrace-release.json | python3 -c 'import json,sys; print(json.load(sys.stdin)["tag_name"])')
+            new=$(python3 -c 'import json; print(json.load(open("assets/data/phylotrace-release.json"))["tag_name"])')
+            if [ "$old" = "$new" ]; then
+              echo "Still $new — nothing to commit."
+              exit 0
+            fi
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/phylotrace-release.json
+          git commit -m "Update PhyloTrace release version"
+          git push

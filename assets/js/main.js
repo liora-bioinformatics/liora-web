@@ -1,3 +1,13 @@
+// Clickjacking mitigation. GitHub Pages cannot send X-Frame-Options or a CSP
+// frame-ancestors header, and frame-ancestors is ignored in the meta-tag CSP,
+// so refuse to be shown inside a frame: break out to the top window, and if a
+// sandboxed frame blocks that, hide the page. Best effort only; a real
+// response header is the proper fix once the site has a host that allows one.
+if (window.top !== window.self) {
+  try { window.top.location = window.self.location.href; } catch (e) { }
+  document.documentElement.style.display = "none";
+}
+
 // Mobile nav toggle
 document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".nav-toggle");

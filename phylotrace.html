@@ -16,7 +16,7 @@
     style-src 'self' 'unsafe-inline';
     img-src 'self' data:;
     font-src 'self';
-    connect-src 'self' https://formcarry.com https://api.github.com;
+    connect-src 'self' https://formcarry.com;
     form-action 'self' https://formcarry.com;
   " />
   <title>PhyloTrace — Liora Bioinformatics</title>
@@ -323,8 +323,8 @@
         <h3 style="font-size: 1.5rem; margin-bottom: 12px;" data-i18n="pkg.f7.title">Hashed Genomical Data and
           Provenance Record</h3>
         <p style="margin-bottom: 24px; color: #4b5563;" data-i18n="pkg.f7.desc">
-          Cryptographic hashing guarantees data integrity and tamper-proof sample tracking. Full audit logs preserve
-          provenance records for compliance and regulatory standard enforcement.
+          Cryptographic checksums make later changes to genomic data detectable and support traceable sample
+          tracking. Audit logs record the origin and processing steps of every sample.
         </p>
         <div class="screenshot-container">
           <img src="assets/img/screenshots/data-provenance.png"
@@ -404,8 +404,8 @@
       </div>
     </div>
   </footer>
-  <script src="assets/js/release-version.js"></script>
   <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/release-version.js"></script>
   <script src="assets/js/cranstats.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

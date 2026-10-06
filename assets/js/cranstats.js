@@ -17,8 +17,10 @@
 
   var SOURCE = "assets/data/cran-stats.json";
 
+  // i18n.js sets <html lang> on load and on every switch, including when the
+  // language was detected from the browser rather than stored.
   function lang() {
-    try { return localStorage.getItem("liora-lang") || "en"; } catch (e) { return "en"; }
+    return document.documentElement.getAttribute("lang") === "de" ? "de" : "en";
   }
 
   function asOf(iso) {
