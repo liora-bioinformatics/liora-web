@@ -146,8 +146,6 @@
     "imp.provider": "<strong>Diensteanbieter:</strong><br /> Liora Bioinformatics UG (haftungsbeschränkt)<br /> Armlederstrasse 17<br /> 78628 Rottweil<br /> Deutschland<br /><br /> <strong>Vertreten durch:</strong><br /> Geschäftsführer: Marian Freisleben<br /><br /> <strong>Registereintrag:</strong><br /> Registergericht: Amtsgericht Stuttgart<br /> Registernummer: HRB 807677",
     "imp.contacth": "Kontakt",
     "imp.contactp": "E-Mail: <a href=\"mailto:marian.freisleben@liora-bioinformatics.com\">marian.freisleben@liora-bioinformatics.com</a>",
-    "imp.vath": "Umsatzsteuer",
-    "imp.vatp": "Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer berechnet und in unseren Rechnungen nicht ausgewiesen.",
     "imp.resph": "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV",
     "imp.respp": "Marian Freisleben<br /> c/o Liora Bioinformatics UG (haftungsbeschränkt)<br /> Armlederstrasse 17<br /> 78628 Rottweil<br /> Deutschland",
     "imp.disph": "Streitschlichtung",
