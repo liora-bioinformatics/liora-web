@@ -23,14 +23,18 @@
       okTitle: "Message sent",
       okBody: "Thank you for reaching out. We’ll get back to you within 24 hours.",
       again: "Send another message",
-      err: "Something went wrong. Please try again, or email us directly at info@liora-bioinformatics.com."
+      err: "Something went wrong. Please try again, or email us directly at info@liora-bioinformatics.com.",
+      required: "Please fill in this field.",
+      email: "Please enter a valid email address, e.g. jane.doe@example.com."
     },
     de: {
       sending: "Wird gesendet…",
       okTitle: "Nachricht gesendet",
       okBody: "Vielen Dank für Ihre Nachricht. Wir melden uns innerhalb von 24 Stunden.",
       again: "Weitere Nachricht senden",
-      err: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@liora-bioinformatics.com."
+      err: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@liora-bioinformatics.com.",
+      required: "Bitte füllen Sie dieses Feld aus.",
+      email: "Bitte geben Sie eine gültige E-Mail-Adresse ein, z. B. max.mustermann@example.com."
     }
   };
   function t(key) { return (T[lang()] || T.en)[key]; }
@@ -47,6 +51,22 @@
       statusEl.textContent = msg;
       statusEl.className = "form-status" + (msg ? " show " + (kind || "") : "");
     }
+
+    // The browser's built-in validation bubbles follow the browser's UI
+    // language, not the page's. Swap in our own text in the current page
+    // language whenever a field fails validation. "invalid" does not bubble,
+    // so listen in the capture phase.
+    form.addEventListener("invalid", function (e) {
+      var el = e.target;
+      el.setCustomValidity("");
+      if (el.validity.valueMissing) el.setCustomValidity(t("required"));
+      else if (el.validity.typeMismatch && el.type === "email") el.setCustomValidity(t("email"));
+    }, true);
+    // A custom message keeps the field invalid until it is cleared, so clear
+    // it as soon as the visitor edits the field; it is re-checked on submit.
+    function clearCustom(e) { if (e.target.setCustomValidity) e.target.setCustomValidity(""); }
+    form.addEventListener("input", clearCustom);
+    form.addEventListener("change", clearCustom);
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
