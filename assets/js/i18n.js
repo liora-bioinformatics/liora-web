@@ -249,7 +249,7 @@
     "pkg.f4.title": "Kollaborativer Datenimport und -export",
     "pkg.f4.desc": "Die Schnittstelle für den Datenaustausch ermöglicht einen nahtlosen Transfer zwischen Partnerlaboren über SQLite und weitere Standardformate. Sie entscheiden selbst, welche Daten Sie teilen – auch datenschutzrelevante Angaben. Da PhyloTrace lokal und ohne öffentliche Server läuft, bleiben private Daten geschützt.",
     "pkg.f5.title": "Netzwerk- und Tree-Diagramme",
-    "pkg.f5.desc": "Verfolgen Sie Übertragungsmuster und Populationsdynamiken mit interaktiven Visualisierungen von Single-Linkage-Netzwerken (MST) und hierarchischen Bäumen (NJ, UPGMA) – mit frei anpassbaren Layouts, Clustering und flexibler Variablenzuordnung.",
+    "pkg.f5.desc": "Verfolgen Sie Übertragungsmuster und Populationsdynamiken mit interaktiven Visualisierungen von Single-Linkage-Netzwerken (MST) und hierarchischen Trees (NJ, UPGMA) – mit frei anpassbaren Layouts, Clustering und flexibler Variablenzuordnung.",
     "pkg.f6.title": "Räumliche und zeitliche Kartierung",
     "pkg.f6.desc": "Verfolgen Sie Übertragungsereignisse in geografischen und zeitlichen Kontexten. Nutzen Sie interaktive, zeitaufgelöste Kartenebenen und Epidemiekurven, um die Dynamik von Erregern nachzuvollziehen. Die übersichtliche Darstellung hilft dabei, Muster aufzudecken, die in Tabellenkalkulationen sonst verborgen blieben.",
     "pkg.f7.title": "Gehashte Genomdaten und Herkunftsnachweis",
