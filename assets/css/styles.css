@@ -358,6 +358,29 @@ img {
   gap: 10px;
 }
 
+.nav-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--muted);
+}
+
+.nav-linkedin svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-linkedin:hover,
+.nav-linkedin:focus-visible {
+  color: #0a66c2;
+  border-color: #0a66c2;
+}
+
 /* Language switcher */
 .lang-switch {
   display: inline-flex;
