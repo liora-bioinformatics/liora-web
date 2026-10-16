@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content-Security-Policy. Delivered as a meta tag because GitHub Pages
+       cannot set response headers. frame-ancestors is ignored in meta form,
+       so account.js refuses to run inside a frame instead.
+       http://127.0.0.1:5000 is the local development API (README of liora-accounts). -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self' https://account.liora-bioinformatics.com http://127.0.0.1:5000;
+    form-action 'self';
+  " />
+  <!-- The sign-in token arrives in the URL fragment; never leak the URL. -->
+  <meta name="referrer" content="no-referrer" />
+  <title>Downloads — Liora Bioinformatics</title>
+  <meta name="description"
+    content="Sign in with your email to download Liora Bioinformatics software, manuals and updates." />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="canonical" href="https://liora-bioinformatics.com/downloads" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand brand-img" aria-label="Liora Bioinformatics home">
+        <img src="assets/img/liora-logo.png" alt="Liora Bioinformatics" />
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="/phylotrace">PhyloTrace</a></li>
+          <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/#products" data-i18n="nav.products">Software</a></li>
+          <li><a href="/downloads" class="active" data-i18n="nav.downloads">Downloads</a></li>
+          <!-- <li><a href="/#team" data-i18n="nav.team">Team</a></li> -->
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <div class="lang-switch" role="group" aria-label="Language / Sprache">
+          <button class="lang-btn" data-lang="en" type="button"><span class="flag flag-gb" aria-hidden="true"></span>EN</button>
+          <button class="lang-btn" data-lang="de" type="button"><span class="flag flag-de" aria-hidden="true"></span>DE</button>
+        </div>
+        <!-- <a href="/" class="btn btn-ghost" data-i18n="nav.backhome">Home</a> -->
+        <button class="nav-toggle" aria-label="Menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container dl-wrap">
+      <span class="eyebrow" data-i18n="dl.eyebrow">Downloads</span>
+      <h1 data-i18n="dl.title">Software, manuals and updates.</h1>
+      <p class="lead" data-i18n="dl.lead">Sign in with your email address to download installers, manuals and
+        early releases. No password needed: we email you a sign-in link.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px;">
+    <div class="container dl-wrap">
+
+      <noscript>
+        <div class="form-status show err" data-i18n="dl.noscript">The download area needs JavaScript.</div>
+      </noscript>
+
+      <!-- State 1: sign in -->
+      <div class="form-card" id="dl-signin" hidden>
+        <form id="login-form" novalidate aria-label="Sign in">
+          <div class="field">
+            <label for="dl-email" data-i18n="dl.email">Your email</label>
+            <input type="email" id="dl-email" name="email" required autocomplete="email"
+              placeholder="jane.doe@example.com" data-i18n-attr="placeholder:cf.email.ph" />
+          </div>
+          <button type="submit" id="login-btn" class="btn btn-primary btn-lg" data-i18n="dl.submit">Email me a
+            sign-in link</button>
+          <div id="login-status" class="form-status" role="status" aria-live="polite"></div>
+          <p class="form-note" style="margin-top:16px;" data-i18n-html="dl.privacy">We use your email address only to
+            sign you in and to check which downloads you can access. It is deleted when you sign out, or after 30
+            days at the latest. See our <a href="/privacy">Privacy Policy</a>.</p>
+        </form>
+      </div>
+
+      <!-- State 2: link sent -->
+      <div class="form-card center" id="dl-sent" hidden>
+        <h3 data-i18n="dl.sent.title">Check your inbox</h3>
+        <p><span data-i18n="dl.sent.p1">We sent a sign-in link to</span> <strong id="dl-sent-email"></strong>.
+          <span data-i18n="dl.sent.p2">It works once and expires in 15 minutes. Nothing there? Check your spam
+            folder.</span></p>
+        <button type="button" class="btn btn-ghost" id="dl-restart" data-i18n="dl.sent.again">Use a different
+          email</button>
+      </div>
+
+      <!-- Server unreachable: the sign-in form stays hidden -->
+      <div class="form-card center" id="dl-offline" hidden>
+        <h3 data-i18n="dl.offline.title">Downloads are unavailable right now</h3>
+        <p data-i18n-html="dl.offline.p">Our download server can't be reached at the moment. Please try again in a few
+          minutes, or email us at <a href="mailto:info@liora-bioinformatics.com">info@liora-bioinformatics.com</a>.</p>
+        <button type="button" class="btn btn-ghost" id="dl-retry" data-i18n="dl.offline.retry">Try again</button>
+      </div>
+
+      <!-- State 3: signed in -->
+      <div id="dl-account" hidden>
+        <div class="dl-bar">
+          <p><span data-i18n="dl.signedin">Signed in as</span> <strong id="dl-user"></strong></p>
+          <button type="button" class="btn btn-ghost" id="dl-logout" data-i18n="dl.logout">Sign out</button>
+        </div>
+        <div id="account-status" class="form-status" role="status" aria-live="polite"></div>
+        <div id="dl-files" aria-live="polite"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="brand brand-img"><img src="assets/img/Liora_rect_white.png"
+              alt="Liora Bioinformatics" /></a>
+          <p style="margin-top:14px; text-align: justify;" data-i18n="footer.tagline">Next-gen bioinformatics solutions
+            for life-science
+            research. Made in Germany.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="/#dna" data-i18n="footer.about">About</a></li>
+            <!-- <li><a href="/#team" data-i18n="footer.team">Team</a></li> -->
+            <li><a href="/contact" data-i18n="footer.contact">Contact</a></li>
+            <li><a href="https://www.linkedin.com/company/liorabioinformatics/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.products">Software</h4>
+          <ul>
+            <li><a href="/phylotrace">PhyloTrace</a></li>
+            <li><a href="/#products" data-i18n="footer.allsoftware">All software</a></li>
+            <li><a href="/downloads" data-i18n="footer.downloads">Downloads</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">Services</h4>
+          <ul>
+            <li><a href="/#services" data-i18n="footer.svc1">Custom Pipelines</a></li>
+            <li><a href="/#services" data-i18n="footer.svc2">Consulting &amp; Research</a></li>
+            <li><a href="/#services" data-i18n="footer.svc3">Software &amp; Dashboards</a></li>
+            <li><a href="/#services" data-i18n="footer.svc4">Data Analysis</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
+            reserved.</span></span>
+        <span><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/impressum"
+            data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="/contact"
+            data-i18n="footer.contact">Contact</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/account.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
