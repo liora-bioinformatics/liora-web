@@ -1,12 +1,11 @@
 {
-  "generated": "2026-10-26",
+  "generated": "2026-11-02",
   "packages": {
     "LFApp": {
-      "days_reported": 414,
-      "last30": 301,
-      "last7": 60,
+      "days_reported": 421,
+      "last30": 280,
+      "last7": 48,
       "months": [
-        255,
         189,
         187,
         192,
@@ -17,16 +16,16 @@
         271,
         248,
         241,
-        359
+        359,
+        335
       ],
-      "total": 15304
+      "total": 15407
     },
     "MKdescr": {
-      "days_reported": 422,
-      "last30": 1004,
-      "last7": 231,
+      "days_reported": 429,
+      "last30": 1025,
+      "last7": 207,
       "months": [
-        2498,
         1922,
         2204,
         1350,
@@ -37,16 +36,16 @@
         1140,
         900,
         907,
-        1091
+        1091,
+        1146
       ],
-      "total": 72963
+      "total": 73658
     },
     "MKinfer": {
-      "days_reported": 422,
-      "last30": 1561,
-      "last7": 303,
+      "days_reported": 429,
+      "last30": 1463,
+      "last7": 285,
       "months": [
-        2574,
         1788,
         2228,
         1534,
@@ -57,16 +56,16 @@
         1013,
         956,
         945,
-        1223
+        1223,
+        1656
       ],
-      "total": 206222
+      "total": 207095
     },
     "MKomics": {
-      "days_reported": 416,
-      "last30": 216,
-      "last7": 43,
+      "days_reported": 423,
+      "last30": 194,
+      "last7": 38,
       "months": [
-        245,
         141,
         193,
         195,
@@ -77,16 +76,16 @@
         273,
         204,
         228,
-        281
+        281,
+        241
       ],
-      "total": 22818
+      "total": 23006
     },
     "MKpower": {
-      "days_reported": 422,
-      "last30": 604,
-      "last7": 148,
+      "days_reported": 429,
+      "last30": 601,
+      "last7": 113,
       "months": [
-        968,
         912,
         836,
         650,
@@ -97,9 +96,10 @@
         737,
         570,
         502,
-        629
+        629,
+        680
       ],
-      "total": 47553
+      "total": 47784
     }
   },
   "source": "cranlogs.r-pkg.org (RStudio/Posit CRAN mirror)"
