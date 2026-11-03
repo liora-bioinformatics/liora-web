@@ -63,7 +63,22 @@
         <ul class="nav-links">
           <li><a href="/#home">Home</a></li>
           <li><a href="/#dna" data-i18n="nav.about">About</a></li>
-          <li><a href="/phylotrace" class="active">PhyloTrace</a></li>
+          <li><a href="/phylotrace" class="active">PhyloTrace</a>
+            <ul class="nav-sub" aria-label="On this page" data-i18n-attr="aria-label:pt.toc.label">
+              <li><a href="#why" data-i18n="pt.toc.why">The challenge</a></li>
+              <li><a href="#pillars" data-i18n="pt.toc.pillars">Overview</a></li>
+              <li><a href="#use-cases" data-i18n="pt.toc.use-cases">Use cases</a></li>
+              <li><a href="#platform" data-i18n="pt.toc.platform">Platform</a></li>
+              <li><a href="#features" data-i18n="pt.toc.features">Features</a></li>
+              <li><a href="#proof" data-i18n="pt.toc.proof">Case study</a></li>
+              <li><a href="#compare" data-i18n="pt.toc.compare">Comparison</a></li>
+              <li><a href="#trust" data-i18n="pt.toc.trust">Trust</a></li>
+              <li><a href="#support" data-i18n="pt.toc.support">Support</a></li>
+              <li><a href="#specs" data-i18n="pt.toc.specs">Specifications</a></li>
+              <li><a href="#get-started" data-i18n="pt.toc.get-started">Get started</a></li>
+              <li><a href="#contact-cta" data-i18n="pt.toc.contact-cta">Contact</a></li>
+            </ul>
+          </li>
           <li><a href="/#services" data-i18n="nav.services">Services</a></li>
           <li><a href="/#products" data-i18n="nav.products">Software</a></li>
           <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
@@ -79,9 +94,34 @@
     </div>
   </header>
 
-  <!-- ============ Hero (navy, MST silhouette, frosted strips behind the text) ============ -->
+  <!-- Floating table of contents: a dot rail that opens on hover/focus. Desktop only; below
+       941 px the same links live in the mobile menu, under PhyloTrace. -->
+  <nav class="pt-toc" aria-label="On this page" data-i18n-attr="aria-label:pt.toc.label">
+    <ol>
+      <li><a href="#why"><span class="lbl" data-i18n="pt.toc.why">The challenge</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#pillars"><span class="lbl" data-i18n="pt.toc.pillars">Overview</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#use-cases"><span class="lbl" data-i18n="pt.toc.use-cases">Use cases</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#platform"><span class="lbl" data-i18n="pt.toc.platform">Platform</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#features"><span class="lbl" data-i18n="pt.toc.features">Features</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#proof"><span class="lbl" data-i18n="pt.toc.proof">Case study</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#compare"><span class="lbl" data-i18n="pt.toc.compare">Comparison</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#trust"><span class="lbl" data-i18n="pt.toc.trust">Trust</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#support"><span class="lbl" data-i18n="pt.toc.support">Support</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#specs"><span class="lbl" data-i18n="pt.toc.specs">Specifications</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#get-started"><span class="lbl" data-i18n="pt.toc.get-started">Get started</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#contact-cta"><span class="lbl" data-i18n="pt.toc.contact-cta">Contact</span><i class="dot" aria-hidden="true"></i></a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ Hero (navy, MST silhouette, soft behind the text) ============
+       MST use on this page is sparing: three sections, never next to each other, and never
+       placed alike. Other sections stay plain (the dark case study uses .mst-off).
+         hero      upright,    zoom 1,    centred,  hub line along the bottom
+         features  upright,    compact (whole tree, 86 % high) on the right, blur only behind the text
+         cta       mirrored,   zoom 1.45, left,     hub line along the bottom (pale, so it
+                   does not run into the navy footer)
+       The numbers live in styles.css (#features, #contact-cta). -->
   <section class="pt-hero mst-dark">
-    <div class="blur-band">
       <div class="container pt-hero-main">
         <img class="pt-hero-logo" src="assets/img/PhyloTrace_3d.webp" width="865" height="994" alt="PhyloTrace logo" />
         <div>
@@ -90,9 +130,6 @@
           <p class="pt-sub" data-i18n="pt.sub">Connect genomes with epidemiological data to monitor, investigate and look back — in clinical, food and environmental settings.</p>
         </div>
       </div>
-    </div>
-    <div class="pt-sharp" aria-hidden="true"></div>
-    <div class="blur-band lower">
       <div class="container">
         <div class="pt-keys">
           <div class="pt-key"><strong data-i18n="pt.k1.t">Open source</strong><span data-i18n="pt.k1.d">Free software under GPLv3</span></div>
@@ -114,21 +151,16 @@
         </div>
         <p class="ruo-note" data-i18n="pkg.phylotrace.ruo">For research use only. PhyloTrace is not a medical device and is not intended for use in diagnostic procedures, for guiding treatment decisions, or for the management of individual patients.</p>
       </div>
-    </div>
   </section>
 
   <!-- ============ The challenge (light MST) ============ -->
-  <section class="pt-sec mst-light" id="why">
-    <div class="blur-band">
+  <section class="pt-sec bg-soft" id="why">
     <div class="container">
       <div class="pt-head">
         <span class="eyebrow" data-i18n="pt.ch.eyebrow">The challenge</span>
         <h2 data-i18n="pt.ch.title">Sequencing has scaled. Analysis hasn’t.</h2>
         <p class="lead" data-i18n="pt.ch.lead">Whole-genome sequencing shows how pathogens spread — through hospitals, food chains and the environment — often long before observation alone would. Many laboratories can now generate genomes routinely. Far fewer can interpret them together with their epidemiological data.</p>
       </div>
-    </div>
-    </div>
-    <div class="container mst-gap">
       <div class="pt-stats">
         <div class="pt-stat"><div class="num" data-i18n="pt.st1.n">7.7 M</div><p data-i18n-html="pt.st1">deaths associated with bacterial infections in 2019 — more than one in eight deaths worldwide<sup>1</sup></p></div>
         <div class="pt-stat"><div class="num" data-i18n="pt.st2.n">1.27 M</div><p data-i18n-html="pt.st2">deaths directly attributable to antimicrobial resistance in 2019<sup>2</sup></p></div>
@@ -139,12 +171,8 @@
         <div class="pt-problem"><h3 data-i18n="pt.p2.t">Comparability depends on a central server.</h3><p data-i18n="pt.p2.d">Standard cgMLST keeps allele numbers consistent only if every laboratory stays synchronised with a shared nomenclature server. Every participant depends on it.</p></div>
         <div class="pt-problem"><h3 data-i18n="pt.p3.t">Sharing becomes a governance problem.</h3><p data-i18n="pt.p3.d">Pooling data in one place means sensitive metadata — about patients, producers or sites — has to move too.</p></div>
       </div>
-    </div>
-    <div class="blur-band">
-    <div class="container">
       <p class="pt-quote" data-i18n="pt.quote">The bottleneck is no longer sequencing or algorithms. It’s software that laboratories can run themselves.</p>
       <p class="pt-fn" data-i18n-html="pt.ch.fn"><sup>1</sup> Ikuta et al. (GBD 2019 Antimicrobial Resistance Collaborators), <em>The Lancet</em>, 2022, <a href="https://doi.org/10.1016/S0140-6736(22)02185-7" target="_blank" rel="noopener">doi:10.1016/S0140-6736(22)02185-7</a>. &middot; <sup>2</sup> Antimicrobial Resistance Collaborators (Murray et al.), <em>The Lancet</em>, 2022, <a href="https://doi.org/10.1016/S0140-6736(21)02724-0" target="_blank" rel="noopener">doi:10.1016/S0140-6736(21)02724-0</a>. &middot; <sup>3</sup> WHO, <em>Estimates of the global burden of foodborne diseases</em>, 2015.</p>
-    </div>
     </div>
   </section>
 
@@ -220,8 +248,7 @@
   </section>
 
   <!-- ============ Features ============ -->
-  <section class="pt-sec mst-light" id="features">
-    <div class="blur-band">
+  <section class="pt-sec mst-light mst-compact" id="features">
     <div class="container">
       <div class="pt-head">
         <span class="eyebrow" data-i18n="pt.ft.eyebrow">Features</span>
@@ -240,7 +267,6 @@
           <li><a href="#analysis-dashboard" data-i18n="pt.f9.t">Analysis dashboard</a></li>
         </ul>
       </div>
-    </div>
     </div>
   </section>
   <div class="pt-features">
@@ -432,8 +458,7 @@
   </div>
 
   <!-- ============ Proof (navy, mirrored MST) ============ -->
-  <section class="pt-sec mst-dark-mirror" id="proof">
-    <div class="blur-band">
+  <section class="pt-sec mst-dark mst-off" id="proof">
     <div class="container">
       <div class="pt-head">
         <span class="eyebrow" data-i18n="pt.pr.eyebrow">Proven on real data · retrospective analysis</span>
@@ -453,7 +478,6 @@
       </ul>
       <p class="pt-proof-cta"><a class="btn btn-light" href="#documents" data-i18n="pt.pr.more">Full details in the application note (PDF, coming soon) →</a></p>
       <p class="pt-fn" data-i18n-html="pt.pr.fn"><sup>1</sup> Stribling W, Hall LR, Powell A, et al. Detecting, mapping, and suppressing the spread of a decade-long <em>Pseudomonas aeruginosa</em> nosocomial outbreak with genomics. <em>eLife</em> 2024;13:RP93181 (Version of Record 29 October 2025), <a href="https://doi.org/10.7554/eLife.93181" target="_blank" rel="noopener">doi:10.7554/eLife.93181</a>. Data: <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA852179" target="_blank" rel="noopener">NCBI BioProject PRJNA852179</a>. PhyloTrace manuscript in preparation.</p>
-    </div>
     </div>
   </section>
 
@@ -620,11 +644,10 @@
   </section>
 
   <!-- ============ Closing call to action (navy, mirrored MST) ============ -->
-  <section class="pt-cta mst-dark-mirror" id="contact-cta">
-    <div class="blur-band">
+  <section class="pt-cta mst-light mst-fx" id="contact-cta">
       <div class="container">
         <h2 data-i18n="pt.cta.t">Ready to bring pathogen surveillance into your lab?</h2>
-        <p class="lead" style="color:#c8d8ee;" data-i18n="pt.cta.p">See PhyloTrace with your own questions in mind. We’ll show you how it fits your laboratory or network.</p>
+        <p class="lead" data-i18n="pt.cta.p">See PhyloTrace with your own questions in mind. We’ll show you how it fits your laboratory or network.</p>
         <p><a class="mail" href="mailto:info@liora-bioinformatics.com">info@liora-bioinformatics.com</a></p>
         <div class="btn-row">
           <a class="btn btn-primary btn-lg" href="/contact?topic=demo&amp;src=phylotrace-cta" data-i18n="prod.cta2">Request a demo</a>
@@ -633,7 +656,6 @@
         </div>
         <p class="ruo-box" data-i18n="pkg.phylotrace.ruo">For research use only. PhyloTrace is not a medical device and is not intended for use in diagnostic procedures, for guiding treatment decisions, or for the management of individual patients.</p>
       </div>
-    </div>
   </section>
 
   <footer class="site-footer">
@@ -683,6 +705,7 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/release-version.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/pt-toc.js"></script>
 </body>
 
 </html>

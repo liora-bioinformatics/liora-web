@@ -2203,153 +2203,354 @@ a.tool:hover h4 {
 }
 
 /* =========================================================
-   MST theme: a real PhyloTrace minimum-spanning-tree export
-   (assets/img/mst_transparent.png, recoloured by
-   tools/make-mst-bg.sh) behind a section, as on the brochure
-   cover. Reusable on any section.
-     .mst-dark / .mst-dark-mirror   navy sections (white text)
-     .mst-light                     white / pale sections
-     .blur-band                     full-width frosted strip that
-                                    wraps the text of the section,
-                                    so the tree stays sharp above and
-                                    below it and soft behind the words
-   Per-section tuning: --mst-pos (where the tree sits) and
-   --mst-size (how large it is), set on the section.
+   MST theme: a real PhyloTrace minimum-spanning-tree export behind a section,
+   as on the brochure cover. Sources are in tools/mst-src, built into
+   assets/img/mst-*.webp by tools/make-mst-bg.sh.
+     .mst-dark    navy sections (white text)
+     .mst-light   white / pale sections
+   Two layers sit behind the content. ::before is the sharp tree. ::after is a small,
+   pre-blurred copy of the same tree that fades in towards the middle of the section,
+   where the text is, so the tree stays sharp in the strips at the top and bottom and
+   is soft behind the words. The blur is baked into the image (no backdrop-filter),
+   which makes the fade continuous and identical in every browser.
+   Phones (<= 720 px) get a plain background and download neither image.
+
+   RULE: no two sections may show the tree the same way. Give every use its own
+   orientation, zoom and crop (see the placement table in phylotrace.html's comments):
+     .mst-fx / .mst-fy / .mst-fxy   mirror horizontally / vertically / both (= 180 deg);
+                                    a vertically flipped tree has its hubs in the TOP strip
+     --zoom      tree width as a multiple of the section width (1 = whole tree)
+     --mx        which part of a zoomed tree shows: 0 % = left, 100 % = right
+                 (measured before any mirroring)
+     --hub-d     distance of the hub line from the sharp edge, in px
+     --sharp-top / --sharp-bot   strips that stay sharp, in px (visual, after flipping)
    ========================================================= */
-.mst-dark,
-.mst-dark-mirror,
-.mst-light {
-  position: relative;
-  isolation: isolate;
-  --mst-pos: 50% 48%;
-  --mst-size: cover;
-  /* No overflow:hidden here: it disables backdrop-filter (.blur-band) in Firefox.
-     The background pseudo-element is clipped to this box anyway. */
-}
-
-.mst-dark::before,
-.mst-dark-mirror::before,
-.mst-light::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--mst-img) var(--mst-pos) / var(--mst-size) no-repeat;
-  opacity: var(--mst-op);
-}
-
-.mst-dark,
-.mst-dark-mirror {
-  --mst-img: url("../img/mst-dark.webp");
-  --mst-op: .62;
+.mst-dark {
   background-color: var(--blue-900);
   color: #dbe6f4;
 }
 
-.mst-dark-mirror::before {
-  transform: scaleX(-1);
-}
-
 .mst-light {
-  --mst-img: url("../img/mst-light.webp");
-  --mst-op: .6;
   background-color: var(--bg-soft);
 }
 
 .mst-dark h1,
 .mst-dark h2,
-.mst-dark h3,
-.mst-dark-mirror h1,
-.mst-dark-mirror h2,
-.mst-dark-mirror h3 {
+.mst-dark h3 {
   color: #fff;
 }
 
-.mst-dark p,
-.mst-dark-mirror p {
+.mst-dark p {
   color: #c2d2e6;
 }
 
-.mst-dark .eyebrow,
-.mst-dark-mirror .eyebrow {
+.mst-dark .eyebrow {
   color: #7fd3a4;
 }
 
-/* Frosted strip. Two backdrop-filter layers give a feathered edge: the outer one
-   (whole box) blurs lightly, the inner one (inset by --feather) blurs more. The
-   padding keeps every line of text inside the inner layer, so no word ever sits on
-   the sharp tree. (mask-image on a backdrop-filter element is avoided: Firefox drops
-   the blur.) */
-.blur-band {
-  --feather: 32px;
-  --tint-out: rgba(11, 37, 69, .22);
-  --tint-in: rgba(11, 37, 69, .30);
-  position: relative;
-  padding-block: calc(var(--feather) + 22px);
+/* Phones: no tree, a quiet gradient instead. */
+@media (max-width: 720px) {
+  .mst-dark {
+    background-image: linear-gradient(165deg, #0e2f57 0%, var(--blue-900) 60%);
+  }
 }
 
-.mst-light .blur-band {
-  --tint-out: rgba(247, 249, 252, .35);
-  --tint-in: rgba(247, 249, 252, .60);
-}
-
-.blur-band::before,
-.blur-band::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.blur-band::before {
-  top: 0;
-  bottom: 0;
-  background: var(--tint-out);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-}
-
-.blur-band::after {
-  top: var(--feather);
-  bottom: var(--feather);
-  background: var(--tint-in);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-}
-
-.blur-band>* {
-  position: relative;
-  z-index: 1;
-}
-
-.blur-band .pt-head:last-child,
-.blur-band .pt-head.center:last-child {
-  margin-bottom: 0;
-}
-
-/* Sharp stretch of tree around and between bands: themed sections keep only a
-   short outer padding, the bands inside carry the reading space. */
-.pt-sec.mst-light,
-.pt-sec.mst-dark-mirror {
-  padding-block: 26px;
-}
-
-.mst-gap {
-  padding-block: 22px;
-}
-
-/* Phones: "cover" would zoom a tall, narrow section onto a thin slice of the tree, so
-   show it smaller instead and keep a hub in view. */
-@media (max-width: 600px) {
+@media (min-width: 721px) {
 
   .mst-dark,
-  .mst-dark-mirror,
   .mst-light {
-    --mst-size: auto 70%;
-    --mst-pos: 44% 50%;
+    position: relative;
+    isolation: isolate;
+    --zoom: 1;
+    --mx: 50%;
+    --hub-d: 52px;
+    --sharp-top: 24px;
+    --sharp-bot: 56px;
+    --fade: 56px;
+    --flip: none;
+    /* The tree is drawn --zoom x the section's width and bottom-anchored so that its hubs
+       (about 68.5 % down the image, which is 0.795 x its width tall) land --hub-d above
+       the bottom edge, inside the sharp strip; the long arms rise behind the text.
+       y = (1 - 0.685) x 0.795 x zoom x 100vw - --hub-d, from the bottom-aligned image. */
+    --mst-size: calc(100% * var(--zoom)) auto;
+    --mst-pos: var(--mx) calc(100% + 25vw * var(--zoom) - var(--hub-d));
+    /* The mask belongs to the layer, so it flips with it; these say which strip is where. */
+    --mt: var(--sharp-top);
+    --mb: var(--sharp-bot);
+    /* Horizontally the blur covers only the text column: --bw px from the content's left
+       edge (--tl), softened by --hf at both ends. 5000px = edge to edge (the default). */
+    --tl: max(24px, calc(50% - 545px));
+    --bw: 5000px;
+    --hf: 150px;
+    --hdir: to right;
+  }
+
+  .mst-dark {
+    --mst-img: url("../img/mst-dark.webp");
+    --mst-blur: url("../img/mst-dark-blur.webp");
+    --mst-op: .85;
+  }
+
+  .mst-light {
+    --mst-img: url("../img/mst-light.webp");
+    --mst-blur: url("../img/mst-light-blur.webp");
+    --mst-op: .7;
+  }
+
+  .mst-fx {
+    --flip: scaleX(-1);
+    --hdir: to left;
+  }
+
+  .mst-fy {
+    --flip: scaleY(-1);
+    --sharp-top: 56px;
+    --sharp-bot: 24px;
+    --mt: var(--sharp-bot);
+    --mb: var(--sharp-top);
+  }
+
+  .mst-fxy {
+    --flip: scale(-1, -1);
+    --hdir: to left;
+    --sharp-top: 56px;
+    --sharp-bot: 24px;
+    --mt: var(--sharp-bot);
+    --mb: var(--sharp-top);
+  }
+
+  /* Compact: the whole tree, smaller, beside the text instead of behind all of it.
+     Sits on the right; combined with .mst-fx it is mirrored onto the left. */
+  .mst-compact {
+    --mst-size: auto 86%;
+    --mst-pos: right 14px center;
+  }
+
+  .mst-dark::before,
+  .mst-dark::after,
+  .mst-light::before,
+  .mst-light::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: var(--mst-pos);
+    background-size: var(--mst-size);
+    transform: var(--flip);
+  }
+
+  .mst-dark::before,
+  .mst-light::before {
+    z-index: -2;
+    background-image: var(--mst-img);
+    opacity: var(--mst-op);
+  }
+
+  .mst-dark::after,
+  .mst-light::after {
+    z-index: -1;
+    background-image: var(--mst-blur);
+    -webkit-mask-image: linear-gradient(to bottom, transparent var(--mt), #000 calc(var(--mt) + var(--fade)), #000 calc(100% - var(--mb) - var(--fade)), transparent calc(100% - var(--mb))), linear-gradient(var(--hdir), transparent calc(var(--tl) - var(--hf)), #000 var(--tl), #000 calc(var(--tl) + var(--bw)), transparent calc(var(--tl) + var(--bw) + var(--hf)));
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to bottom, transparent var(--mt), #000 calc(var(--mt) + var(--fade)), #000 calc(100% - var(--mb) - var(--fade)), transparent calc(100% - var(--mb))), linear-gradient(var(--hdir), transparent calc(var(--tl) - var(--hf)), #000 var(--tl), #000 calc(var(--tl) + var(--bw)), transparent calc(var(--tl) + var(--bw) + var(--hf)));
+    mask-composite: intersect;
+  }
+
+  /* .mst-off: a navy section without the tree (the tree is used sparingly). */
+  .mst-off::before,
+  .mst-off::after {
+    display: none;
+  }
+
+  /* Reading space: the text starts only where the blur is complete. */
+  .pt-sec.mst-light,
+  .pt-sec.mst-dark,
+  .pt-cta {
+    padding-block: calc(var(--sharp-top) + var(--fade) + 20px) calc(var(--sharp-bot) + var(--fade) + 20px);
+  }
+
+  .pt-sec.mst-off {
+    padding-block: 76px;
+  }
+}
+
+/* Placement of the tree per section on the PhyloTrace page. Keep every one different. */
+@media (min-width: 721px) {
+  /* One column of text on the left, the whole tree beside it on the right. */
+  #features {
+    --bw: 520px;
+    min-height: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #features .feature-list {
+    columns: 1;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 940px) {
+  #features {
+    --mst-size: auto 54%;
+    --mst-pos: right 14px bottom 28px;
+  }
+
+  #contact-cta {
+    --zoom: 1.45;
+    --mx: 15%;
+    --hub-d: 46px;
+    --bw: 730px;
+  }
+}
+
+/* =========================================================
+   Table of contents: floating dot rail on desktop, sub-list in the
+   mobile menu. Markup in phylotrace.html, highlighting in pt-toc.js.
+   ========================================================= */
+/* Anchor targets on the PhyloTrace page stop below the sticky header (about 70 px). */
+.pt-sec[id],
+.pt-cta[id] {
+  scroll-margin-top: 64px;
+}
+
+.pt-toc {
+  display: none;
+}
+
+.nav-sub {
+  display: none;
+}
+
+@media (min-width: 941px) {
+
+  /* Collapsed: a 20 px pill of dots anchored to the right edge. Hovering or
+     tabbing into it widens it leftwards and shows the labels. */
+  .pt-toc {
+    display: block;
+    position: fixed;
+    right: 6px;
+    top: 50%;
+    z-index: 40;
+    width: 20px;
+    padding: 8px 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-50%);
+    transition: width .2s ease, opacity .25s ease, box-shadow .2s ease;
+  }
+
+  .pt-toc:hover,
+  .pt-toc:focus-within {
+    width: 196px;
+    box-shadow: 0 10px 28px rgba(16, 32, 54, .16);
+  }
+
+  .pt-toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pt-toc a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 5px 5px 5px 14px;
+    color: var(--slate);
+    font-size: .8rem;
+    font-weight: 550;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .pt-toc .lbl {
+    opacity: 0;
+    transition: opacity .15s ease;
+  }
+
+  .pt-toc:hover .lbl,
+  .pt-toc:focus-within .lbl {
+    opacity: 1;
+  }
+
+  .pt-toc .dot {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #c3cedd;
+    transition: background-color .15s ease, transform .15s ease;
+  }
+
+  .pt-toc a:hover,
+  .pt-toc a:focus-visible {
+    color: var(--blue-800);
+  }
+
+  .pt-toc a:hover .dot,
+  .pt-toc a:focus-visible .dot {
+    background: var(--blue-600);
+  }
+
+  .pt-toc a.is-current {
+    color: var(--blue-900);
+    font-weight: 700;
+  }
+
+  .pt-toc a.is-current .dot {
+    background: var(--accent);
+    transform: scale(1.35);
+  }
+}
+
+@media (min-width: 941px) and (max-height: 440px) {
+  .pt-toc {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pt-toc,
+  .pt-toc .lbl,
+  .pt-toc .dot {
+    transition: none;
+  }
+}
+
+/* Mobile menu: the page's sections, indented under the PhyloTrace entry. */
+@media (max-width: 940px) {
+  .nav-sub {
+    display: block;
+    list-style: none;
+    margin: 2px 0 8px 18px;
+    padding: 0 0 0 10px;
+    border-left: 2px solid var(--line);
+  }
+
+  .nav-links .nav-sub a {
+    padding: 9px 12px;
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .nav-links .nav-sub a:hover {
+    color: var(--blue-800);
+    background: var(--blue-50);
+  }
+
+  .nav-links .nav-sub a.is-current {
+    color: var(--blue-800);
+    background: var(--blue-100);
+    font-weight: 650;
   }
 }
 
@@ -2405,8 +2606,7 @@ a.tool:hover h4 {
   text-decoration: underline;
 }
 
-.mst-dark .pt-fn,
-.mst-dark-mirror .pt-fn {
+.mst-dark .pt-fn {
   color: #9db3cf;
   border-color: rgba(255, 255, 255, .18);
 }
@@ -2418,6 +2618,22 @@ a.tool:hover h4 {
 /* ---- Hero ---- */
 .pt-hero {
   color: #dbe6f4;
+  padding: 56px 0 48px;
+}
+
+.pt-hero>.container+.container {
+  margin-top: 44px;
+}
+
+@media (min-width: 721px) {
+  .pt-hero {
+    --sharp-top: 0px;
+    --sharp-bot: 100px;
+    --hub-d: 80px;
+    --fade: 50px;
+    padding-top: 64px;
+    padding-bottom: calc(var(--sharp-bot) + var(--fade) + 20px);
+  }
 }
 
 .pt-hero-main {
@@ -2458,10 +2674,6 @@ a.tool:hover h4 {
   font-size: 1.15rem;
   max-width: 58ch;
   margin: 0;
-}
-
-.pt-sharp {
-  height: clamp(60px, 11vw, 150px);
 }
 
 .pt-keys {
@@ -3330,11 +3542,7 @@ a.pt-doc:hover {
 
 /* ---- Closing call to action ---- */
 .pt-cta {
-  padding: 26px 0;
-}
-
-.pt-cta .blur-band {
-  padding-block: calc(var(--feather) + 44px);
+  padding: 56px 0;
 }
 
 .pt-cta h2 {
@@ -3345,18 +3553,7 @@ a.pt-doc:hover {
 .pt-cta .mail {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
-}
-
-.pt-cta .btn-ghost {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255, 255, 255, .4);
-}
-
-.pt-cta .btn-ghost:hover {
-  background: rgba(255, 255, 255, .1);
-  color: #fff;
+  color: var(--blue-800);
 }
 
 .ruo-box {
@@ -3372,9 +3569,7 @@ a.pt-doc:hover {
 
 .ruo-box strong,
 .mst-dark .ruo-box,
-.mst-dark-mirror .ruo-box,
-.mst-dark p.ruo-box,
-.mst-dark-mirror p.ruo-box {
+.mst-dark p.ruo-box {
   color: #5c4a1d;
 }
 

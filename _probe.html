@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Content-Security-Policy. Delivered as a meta tag because GitHub Pages
+       cannot set response headers. Note that frame-ancestors is ignored in
+       meta form, so clickjacking protection still requires a real header. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    base-uri 'self';
+    object-src 'none';
+    frame-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self' https://formcarry.com;
+    form-action 'self' https://formcarry.com;
+  " />
+  <title>PhyloTrace — Open-Source Pathogen Surveillance Platform | Liora Bioinformatics</title>
+  <meta name="description"
+    content="PhyloTrace is an open-source platform for pathogen surveillance and monitoring. It connects cgMLST typing and resistance screening with epidemiological metadata — ongoing and retrospective, on your own hardware. For research use only." />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="canonical" href="https://liora-bioinformatics.com/phylotrace" />
+  <!-- Open Graph / link previews (LinkedIn etc.). Must stay static HTML: crawlers do not run JS. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Liora Bioinformatics" />
+  <meta property="og:url" content="https://liora-bioinformatics.com/phylotrace" />
+  <meta property="og:title" content="PhyloTrace – Decentralised Pathogen Surveillance, Under Your Control" />
+  <meta property="og:description" content="Open-source platform that connects genomes with epidemiological data — in clinical, food and environmental settings. For research use only." />
+  <meta property="og:image" content="https://liora-bioinformatics.com/assets/img/phylotrace-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <meta property="og:image:alt" content="PhyloTrace logo over a heatmap of bacterial isolate density across Europe, with the settings sidebar of the PhyloTrace interface" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Structured data for search engines. A data block, not a script, so the CSP does not apply. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PhyloTrace",
+    "applicationCategory": "ScientificApplication",
+    "operatingSystem": "Linux",
+    "description": "Open-source platform for pathogen surveillance and monitoring that integrates genomic typing (cgMLST, MLST), antimicrobial resistance screening and epidemiological metadata. For research use only.",
+    "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+    "isAccessibleForFree": true,
+    "url": "https://liora-bioinformatics.com/phylotrace",
+    "sameAs": ["https://github.com/liora-bioinformatics/PhyloTrace", "https://doi.org/10.5281/zenodo.10996423"],
+    "publisher": { "@type": "Organization", "name": "Liora Bioinformatics UG (haftungsbeschränkt)", "url": "https://liora-bioinformatics.com" }
+  }
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand brand-img" aria-label="Liora Bioinformatics home"><img src="assets/img/liora-logo.png"
+          alt="Liora Bioinformatics" /></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#dna" data-i18n="nav.about">About</a></li>
+          <li><a href="/phylotrace" class="active">PhyloTrace</a>
+            <ul class="nav-sub" aria-label="On this page" data-i18n-attr="aria-label:pt.toc.label">
+              <li><a href="#why" data-i18n="pt.toc.why">The challenge</a></li>
+              <li><a href="#pillars" data-i18n="pt.toc.pillars">Overview</a></li>
+              <li><a href="#use-cases" data-i18n="pt.toc.use-cases">Use cases</a></li>
+              <li><a href="#platform" data-i18n="pt.toc.platform">Platform</a></li>
+              <li><a href="#features" data-i18n="pt.toc.features">Features</a></li>
+              <li><a href="#proof" data-i18n="pt.toc.proof">Case study</a></li>
+              <li><a href="#compare" data-i18n="pt.toc.compare">Comparison</a></li>
+              <li><a href="#trust" data-i18n="pt.toc.trust">Trust</a></li>
+              <li><a href="#support" data-i18n="pt.toc.support">Support</a></li>
+              <li><a href="#specs" data-i18n="pt.toc.specs">Specifications</a></li>
+              <li><a href="#get-started" data-i18n="pt.toc.get-started">Get started</a></li>
+              <li><a href="#contact-cta" data-i18n="pt.toc.contact-cta">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="/#products" data-i18n="nav.products">Software</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <div class="lang-switch" role="group" aria-label="Language / Sprache"><button class="lang-btn" data-lang="en"
+            type="button"><span class="flag flag-gb" aria-hidden="true"></span>EN</button><button class="lang-btn"
+            data-lang="de" type="button"><span class="flag flag-de" aria-hidden="true"></span>DE</button></div>
+        <button class="nav-toggle" aria-label="Menu"
+          aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Floating table of contents: a dot rail that opens on hover/focus. Desktop only; below
+       941 px the same links live in the mobile menu, under PhyloTrace. -->
+  <nav class="pt-toc" aria-label="On this page" data-i18n-attr="aria-label:pt.toc.label">
+    <ol>
+      <li><a href="#why"><span class="lbl" data-i18n="pt.toc.why">The challenge</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#pillars"><span class="lbl" data-i18n="pt.toc.pillars">Overview</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#use-cases"><span class="lbl" data-i18n="pt.toc.use-cases">Use cases</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#platform"><span class="lbl" data-i18n="pt.toc.platform">Platform</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#features"><span class="lbl" data-i18n="pt.toc.features">Features</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#proof"><span class="lbl" data-i18n="pt.toc.proof">Case study</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#compare"><span class="lbl" data-i18n="pt.toc.compare">Comparison</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#trust"><span class="lbl" data-i18n="pt.toc.trust">Trust</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#support"><span class="lbl" data-i18n="pt.toc.support">Support</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#specs"><span class="lbl" data-i18n="pt.toc.specs">Specifications</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#get-started"><span class="lbl" data-i18n="pt.toc.get-started">Get started</span><i class="dot" aria-hidden="true"></i></a></li>
+      <li><a href="#contact-cta"><span class="lbl" data-i18n="pt.toc.contact-cta">Contact</span><i class="dot" aria-hidden="true"></i></a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ Hero (navy, MST silhouette, soft behind the text) ============
+       MST use on this page is sparing: three sections, never next to each other, and never
+       placed alike. Other sections stay plain (the dark case study uses .mst-off).
+         hero      upright,    zoom 1,    centred,  hub line along the bottom
+         features  upright,    compact (whole tree, 86 % high) on the right, blur only behind the text
+         cta       mirrored,   zoom 1.45, left,     hub line along the bottom (pale, so it
+                   does not run into the navy footer)
+       The numbers live in styles.css (#features, #contact-cta). -->
+  <section class="pt-hero mst-dark">
+      <div class="container pt-hero-main">
+        <img class="pt-hero-logo" src="assets/img/PhyloTrace_3d.webp" width="865" height="994" alt="PhyloTrace logo" />
+        <div>
+          <span class="pt-chip" data-i18n="pt.chip">Pathogen surveillance and monitoring</span>
+          <h1 class="pt-promise" data-i18n="pt.promise">Decentralised pathogen surveillance — under your control.</h1>
+          <p class="pt-sub" data-i18n="pt.sub">Connect genomes with epidemiological data to monitor, investigate and look back — in clinical, food and environmental settings.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pt-keys">
+          <div class="pt-key"><strong data-i18n="pt.k1.t">Open source</strong><span data-i18n="pt.k1.d">Free software under GPLv3</span></div>
+          <div class="pt-key"><strong data-i18n="pt.k2.t">No coding</strong><span data-i18n="pt.k2.d">One graphical, all-in-one platform</span></div>
+          <div class="pt-key"><strong data-i18n="pt.k3.t">Runs locally</strong><span data-i18n="pt.k3.d">Your data never leaves your lab</span></div>
+          <div class="pt-key"><strong data-i18n="pt.k4.t">Comparable</strong><span data-i18n="pt.k4.d">Across labs, without a central server</span></div>
+        </div>
+        <div class="resource-btns">
+          <a class="btn btn-primary btn-lg" href="/contact?topic=demo&amp;src=phylotrace-hero" data-i18n="prod.cta2">Request a demo</a>
+          <a class="btn btn-ghost btn-lg" href="#download" data-i18n="pt.btn.dl">Download</a>
+          <a class="btn btn-gh btn-lg" href="https://github.com/liora-bioinformatics/PhyloTrace" target="_blank"
+            rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" />
+            </svg> <span data-i18n="pkg.gh">View on GitHub</span></a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/liora-bioinformatics/PhyloTrace/releases"
+            target="_blank" rel="noopener"><span data-i18n="pkg.version">Current version</span> <span
+              id="repo-version">&hellip;</span></a>
+        </div>
+        <p class="ruo-note" data-i18n="pkg.phylotrace.ruo">For research use only. PhyloTrace is not a medical device and is not intended for use in diagnostic procedures, for guiding treatment decisions, or for the management of individual patients.</p>
+      </div>
+  </section>
+
+  <!-- ============ The challenge (light MST) ============ -->
+  <section class="pt-sec bg-soft" id="why">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.ch.eyebrow">The challenge</span>
+        <h2 data-i18n="pt.ch.title">Sequencing has scaled. Analysis hasn’t.</h2>
+        <p class="lead" data-i18n="pt.ch.lead">Whole-genome sequencing shows how pathogens spread — through hospitals, food chains and the environment — often long before observation alone would. Many laboratories can now generate genomes routinely. Far fewer can interpret them together with their epidemiological data.</p>
+      </div>
+      <div class="pt-stats">
+        <div class="pt-stat"><div class="num" data-i18n="pt.st1.n">7.7 M</div><p data-i18n-html="pt.st1">deaths associated with bacterial infections in 2019 — more than one in eight deaths worldwide<sup>1</sup></p></div>
+        <div class="pt-stat"><div class="num" data-i18n="pt.st2.n">1.27 M</div><p data-i18n-html="pt.st2">deaths directly attributable to antimicrobial resistance in 2019<sup>2</sup></p></div>
+        <div class="pt-stat"><div class="num" data-i18n="pt.st3.n">600 M</div><p data-i18n-html="pt.st3">people fall ill after eating contaminated food each year — all hazards, bacterial and other<sup>3</sup></p></div>
+      </div>
+      <div class="pt-problems">
+        <div class="pt-problem"><h3 data-i18n="pt.p1.t">Genomes leave the lab to be analysed.</h3><p data-i18n="pt.p1.d">Results return late, while an investigation loses value by the day — and epidemiological judgement concentrates in a few institutions.</p></div>
+        <div class="pt-problem"><h3 data-i18n="pt.p2.t">Comparability depends on a central server.</h3><p data-i18n="pt.p2.d">Standard cgMLST keeps allele numbers consistent only if every laboratory stays synchronised with a shared nomenclature server. Every participant depends on it.</p></div>
+        <div class="pt-problem"><h3 data-i18n="pt.p3.t">Sharing becomes a governance problem.</h3><p data-i18n="pt.p3.d">Pooling data in one place means sensitive metadata — about patients, producers or sites — has to move too.</p></div>
+      </div>
+      <p class="pt-quote" data-i18n="pt.quote">The bottleneck is no longer sequencing or algorithms. It’s software that laboratories can run themselves.</p>
+      <p class="pt-fn" data-i18n-html="pt.ch.fn"><sup>1</sup> Ikuta et al. (GBD 2019 Antimicrobial Resistance Collaborators), <em>The Lancet</em>, 2022, <a href="https://doi.org/10.1016/S0140-6736(22)02185-7" target="_blank" rel="noopener">doi:10.1016/S0140-6736(22)02185-7</a>. &middot; <sup>2</sup> Antimicrobial Resistance Collaborators (Murray et al.), <em>The Lancet</em>, 2022, <a href="https://doi.org/10.1016/S0140-6736(21)02724-0" target="_blank" rel="noopener">doi:10.1016/S0140-6736(21)02724-0</a>. &middot; <sup>3</sup> WHO, <em>Estimates of the global burden of foodborne diseases</em>, 2015.</p>
+    </div>
+  </section>
+
+  <!-- ============ Four pillars ============ -->
+  <section class="pt-sec" id="pillars">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.pi.eyebrow">PhyloTrace at a glance</span>
+        <h2 data-i18n="pt.pi.title">Genomes and epidemiology in one platform.</h2>
+        <p class="lead" data-i18n="pt.pi.lead">PhyloTrace is an open-source platform for pathogen surveillance and monitoring. It integrates genomic data with epidemiological metadata, so you can follow what is happening now and look back at what has already happened — in clinical, food-associated and environmental settings, on your own hardware and without bioinformatics staff.</p>
+      </div>
+      <div class="pt-pillars">
+        <div class="pt-pillar"><span class="n">1</span><div><h3 data-i18n="pt.pi1.t">Genomes and epidemiology together</h3><p data-i18n="pt.pi1.d">Typing results, resistance findings and your own metadata — time, place, source, any variable — are analysed side by side in one place.</p></div></div>
+        <div class="pt-pillar"><span class="n">2</span><div><h3 data-i18n="pt.pi2.t">Ongoing and retrospective</h3><p data-i18n="pt.pi2.d">Monitor continuously as isolates arrive, or analyse existing collections after the fact. Saved analyses reopen exactly as you left them.</p></div></div>
+        <div class="pt-pillar"><span class="n">3</span><div><h3 data-i18n="pt.pi3.t">Comparable without a central server</h3><p data-i18n="pt.pi3.d">Every allele is identified by a fingerprint of its sequence, so partner laboratories get identical results without coordinating.</p></div></div>
+        <div class="pt-pillar"><span class="n">4</span><div><h3 data-i18n="pt.pi4.t">Verifiable and under your control</h3><p data-i18n="pt.pi4.d">Every result keeps its provenance. GPLv3 open source on your own hardware — nothing leaves your laboratory unless you share it.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Use cases ============ -->
+  <section class="pt-sec bg-soft" id="use-cases">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.uc.eyebrow">Use cases</span>
+        <h2 data-i18n="pt.uc.title">From routine monitoring to looking back.</h2>
+        <p class="lead" data-i18n="pt.uc.lead">PhyloTrace works the same way whether you watch for what is emerging or investigate what has already happened — in clinical, food-associated and environmental settings.</p>
+      </div>
+      <div class="pt-uc">
+        <div class="h clin" data-i18n="pt.uc.clin">Clinical</div>
+        <div class="c clin r1" data-i18n-attr="data-mode:pt.uc.r1" data-mode="Ongoing monitoring"><h3 data-i18n="pt.uc.c1t">Spot clusters early</h3><p data-i18n="pt.uc.c1d">Routine typing of ward isolates reveals unnoticed clusters before they become outbreaks.</p></div>
+        <div class="c clin r2" data-i18n-attr="data-mode:pt.uc.r2" data-mode="Retrospective analysis"><h3 data-i18n="pt.uc.c2t">Re-examine an outbreak</h3><p data-i18n="pt.uc.c2d">Add isolates or metadata to a past outbreak and confirm or rule out transmission routes.</p></div>
+        <div class="h food" data-i18n="pt.uc.food">Food-associated</div>
+        <div class="c food r1" data-i18n-attr="data-mode:pt.uc.r1" data-mode="Ongoing monitoring"><h3 data-i18n="pt.uc.f1t">Watch for recurring strains</h3><p data-i18n="pt.uc.f1d">Monitor isolates from production sites and products to see whether the same strain keeps returning.</p></div>
+        <div class="c food r2" data-i18n-attr="data-mode:pt.uc.r2" data-mode="Retrospective analysis"><h3 data-i18n="pt.uc.f2t">Trace back a contamination</h3><p data-i18n="pt.uc.f2d">Compare historical product and patient isolates to find the likely source.</p></div>
+        <div class="h env" data-i18n="pt.uc.env">Environmental</div>
+        <div class="c env r1" data-i18n-attr="data-mode:pt.uc.r1" data-mode="Ongoing monitoring"><h3 data-i18n="pt.uc.e1t">Track reservoirs over time</h3><p data-i18n="pt.uc.e1d">Follow resistant strains in water, surfaces or drains to find reservoirs before they cause harm.</p></div>
+        <div class="c env r2" data-i18n-attr="data-mode:pt.uc.r2" data-mode="Retrospective analysis"><h3 data-i18n="pt.uc.e2t">Test a suspected reservoir</h3><p data-i18n="pt.uc.e2d">Check whether an environmental source, such as a sink drain, was linked to an earlier clinical cluster.</p></div>
+        <div class="row r1"><span data-i18n="pt.uc.r1">Ongoing monitoring</span><small data-i18n="pt.uc.r1s">Saved analyses reopen as new isolates arrive.</small></div>
+        <div class="row r2"><span data-i18n="pt.uc.r2">Retrospective analysis</span><small data-i18n="pt.uc.r2s">Bring in existing collections and explore them at any time.</small></div>
+      </div>
+      <div class="pt-callout">
+        <strong data-i18n="pt.uc.co.t">Across all settings: one platform, one comparable language.</strong>
+        <p data-i18n="pt.uc.co.d">Because alleles are identified by a fingerprint of their sequence, laboratories from clinical, food and environmental settings can compare results without pooling their data.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Inside the platform ============ -->
+  <section class="pt-sec" id="platform">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.pl.eyebrow">Inside the platform</span>
+        <h2 data-i18n="pt.pl.title">Everything in one place.</h2>
+        <p class="lead" data-i18n="pt.pl.lead">PhyloTrace covers the whole surveillance routine in five areas and keeps everything together in a single portable file. Work wherever you need — start a new collection, keep an ongoing one up to date, or bring in existing data and look back.</p>
+      </div>
+      <div class="pt-areas" aria-hidden="true">
+        <span data-i18n="pt.pl.a1">Set up</span><span data-i18n="pt.pl.a2">Type &amp; screen</span><span data-i18n="pt.pl.a3">Curate</span><span data-i18n="pt.pl.a4">Analyse</span><span data-i18n="pt.pl.a5">Share</span>
+      </div>
+      <div class="pt-dbbar" data-i18n="pt.pl.file">One portable file</div>
+      <div class="pt-area-list">
+        <div><h3 data-i18n="pt.pl.a1">Set up</h3><p data-i18n="pt.pl.a1d">Choose from 42 bacterial species schemes, available straight from cgMLST.org. Nothing to download or convert by hand.</p></div>
+        <div><h3 data-i18n="pt.pl.a2">Type &amp; screen</h3><p data-i18n="pt.pl.a2d">Add genomes one at a time or as a folder, including whole existing collections. Each is typed and screened for resistance and virulence in a single run.</p></div>
+        <div><h3 data-i18n="pt.pl.a3">Curate</h3><p data-i18n="pt.pl.a3d">Add epidemiological information — wards, specimen or food sources, sampling sites — and any variable you define. A quality indicator is shown for every isolate.</p></div>
+        <div><h3 data-i18n="pt.pl.a4">Analyse</h3><p data-i18n="pt.pl.a4d">Explore relatedness, time and place with trees, epidemic curves, maps and resistance heatmaps. Save analyses for routine monitoring, or revisit historical collections at any time.</p></div>
+        <div><h3 data-i18n="pt.pl.a5">Share</h3><p data-i18n="pt.pl.a5d">Exchange results with partner laboratories and decide exactly which information goes with them.</p></div>
+      </div>
+      <div class="pt-callout">
+        <strong data-i18n="pt.pl.co.t">One file holds everything.</strong>
+        <p data-i18n="pt.pl.co.d">Genomes, metadata, results and saved analyses all live in one portable file. To back up, copy it. To share, send it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Features ============ -->
+  <section class="pt-sec mst-light mst-compact" id="features">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.ft.eyebrow">Features</span>
+        <h2 data-i18n="pt.ft.title">See what your genomes are telling you.</h2>
+      </div>
+      <div class="pt-features-nav">
+        <ul class="feature-list">
+          <li><a href="#feature-cgmlst" data-i18n="pt.f1.t">cgMLST and MLST typing</a></li>
+          <li><a href="#feature-screening" data-i18n="pt.f2.t">Resistance, virulence and point mutations</a></li>
+          <li><a href="#feature-db-management" data-i18n="pt.f3.t">One portable file and built-in quality control</a></li>
+          <li><a href="#feature-import-export" data-i18n="pt.f4.t">Collaborate without centralising</a></li>
+          <li><a href="#feature-trees-networks" data-i18n="pt.f5.t">Networks and trees</a></li>
+          <li><a href="#feature-spatial-temporal" data-i18n="pt.f6.t">Maps and epidemic curves</a></li>
+          <li><a href="#feature-provenance" data-i18n="pt.f7.t">Provenance and reproducibility</a></li>
+          <li><a href="#feature-annotation" data-i18n="pt.f8.t">Your metadata, your variables</a></li>
+          <li><a href="#analysis-dashboard" data-i18n="pt.f9.t">Analysis dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="pt-features">
+
+    <section class="pt-feature" id="feature-cgmlst">
+      <div class="container">
+        <h3 data-i18n="pt.f1.t">cgMLST and MLST typing</h3>
+        <p data-i18n-html="pt.f1.d">High-resolution strain typing with standardised cgMLST and classical MLST schemes: 42 bacterial species schemes are available straight from <a href="https://www.cgmlst.org" target="_blank" rel="noopener noreferrer">cgMLST.org</a> and are updated continuously. Only intact coding sequences become new alleles, and classical sequence types are added automatically — <strong>so every comparison starts from clean data and links to published types.</strong> Support for custom schemes and other databases such as <a href="https://www.pubmlst.org" target="_blank" rel="noopener noreferrer">PubMLST</a> will soon be added.</p>
+        
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/typing-initiation.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Typing run being configured: scheme and input genomes selected" /></div>
+    <div class="carousel-slide"><img src="assets/img/browse-schemes.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Browser of the available cgMLST species schemes" /></div>
+    <div class="carousel-slide"><img src="assets/img/typing-results.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Typing results per assembly with loci found, completeness and MLST type" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+    <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="pt-feature" id="feature-screening">
+      <div class="container">
+        <h3 data-i18n="pt.f2.t">Resistance, virulence and point mutations</h3>
+        <p data-i18n-html="pt.f2.d">Every assembly is screened with NCBI AMRFinderPlus for resistance genes, virulence factors, stress, biocide and metal tolerance, and species-specific resistance mutations. Resistance heatmaps show results by gene, by drug class or as ranked prevalence — <strong>so resistance is part of every analysis, not a separate project, and emerging resistance stands out across your collection.</strong></p>
+        
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/amr_heatmap.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Resistance heatmap showing detected resistance genes per isolate" /></div>
+    <div class="carousel-slide"><img src="assets/img/amr_database.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Resistance and virulence screening results stored per isolate" /></div>
+    <div class="carousel-slide"><img src="assets/img/amr_heatmap_2.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Resistance heatmap grouped by drug class" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+    <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="pt-feature" id="feature-db-management">
+      <div class="container">
+        <h3 data-i18n="pt.f3.t">One portable file and built-in quality control</h3>
+        <p data-i18n-html="pt.f3.d">Genomes, metadata, results and saved analyses live in one portable file per project: to back up, copy it; to share, send it. Every isolate gets a completeness score that flags fragmented or contaminated assemblies, and duplicates are caught before typing starts — <strong>so weak or repeated data never distorts your clusters.</strong></p>
+        
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/browse-entries.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Database browser listing stored isolates and their metadata" /></div>
+    <div class="carousel-slide"><img src="assets/img/cgmlst-scheme-info.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Information page of a cgMLST scheme" /></div>
+    <div class="carousel-slide"><img src="assets/img/cgmlst-loci-info.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Loci overview of a cgMLST scheme" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+    <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="pt-feature" id="feature-import-export">
+      <div class="container">
+        <h3 data-i18n="pt.f4.t">Collaborate without centralising</h3>
+        <p data-i18n-html="pt.f4.d">Alleles are identified by a fingerprint of their sequence, so partner laboratories get identical identifiers without coordinating — no renumbering, no central nomenclature server. Exchange a database file (merged only if species and scheme match, with automatic backup and a label showing each isolate’s origin) or a profile table (partner isolates still appear in your trees and networks). You choose field by field which metadata travels — <strong>so you share relatedness while patient identifiers stay in your lab.</strong></p>
+        <div class="pt-net">
+          <figure><svg viewBox="0 0 300 190" role="img" aria-label="Central hub: five laboratories connected only to one hub">
+            <g stroke="#b3bccb" stroke-width="3"><line x1="150" y1="95" x2="50" y2="40"/><line x1="150" y1="95" x2="150" y2="22"/><line x1="150" y1="95" x2="250" y2="40"/><line x1="150" y1="95" x2="60" y2="160"/><line x1="150" y1="95" x2="240" y2="160"/></g>
+            <g fill="#6f7a8d"><circle cx="50" cy="40" r="15"/><circle cx="150" cy="22" r="15"/><circle cx="250" cy="40" r="15"/><circle cx="60" cy="160" r="15"/><circle cx="240" cy="160" r="15"/></g>
+            <rect x="122" y="77" width="56" height="36" rx="8" fill="#475467"/><text x="150" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#fff" font-family="Inter, sans-serif">HUB</text>
+          </svg><figcaption><strong data-i18n="pt.net.hub">Central hub</strong><span data-i18n="pt.net.hubd">All data and analysis flow to one place</span></figcaption></figure>
+          <figure><svg viewBox="0 0 300 190" role="img" aria-label="PhyloTrace network: laboratories exchange directly with each other">
+            <g stroke="#2f9e5f" stroke-width="3"><line x1="50" y1="40" x2="250" y2="40"/><line x1="50" y1="40" x2="150" y2="95"/><line x1="250" y1="40" x2="150" y2="95"/><line x1="60" y1="160" x2="150" y2="95"/><line x1="240" y1="160" x2="150" y2="95"/><line x1="60" y1="160" x2="240" y2="160"/><line x1="50" y1="40" x2="60" y2="160"/><line x1="250" y1="40" x2="240" y2="160"/></g>
+            <g fill="#2563a8"><circle cx="50" cy="40" r="16"/><circle cx="250" cy="40" r="16"/><circle cx="150" cy="95" r="16"/><circle cx="60" cy="160" r="16"/><circle cx="240" cy="160" r="16"/></g>
+          </svg><figcaption><strong data-i18n="pt.net.pt">PhyloTrace network</strong><span data-i18n="pt.net.ptd">Labs analyse locally and exchange directly</span></figcaption></figure>
+        </div>
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/export.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Export dialog: choose isolates and which metadata fields leave the lab" /></div>
+    <div class="carousel-slide"><img src="assets/img/import-collisions.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Import dialog showing collisions between a partner file and the local database" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="pt-feature" id="feature-trees-networks">
+      <div class="container">
+        <h3 data-i18n="pt.f5.t">Networks and trees</h3>
+        <p data-i18n-html="pt.f5.d">Identical profiles are grouped in minimum spanning trees, every edge is labelled with its allelic distance, and clusters are called at the scheme’s published threshold. Neighbour-joining and UPGMA trees come rectangular or circular, with resistance findings beside the tips and any metadata variable mapped onto them — <strong>so you see at a glance which isolates belong together, and lineage and resistance are read side by side.</strong></p>
+        
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/viz-tab-layout.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Visualisation tab with plot layout and settings" /></div>
+    <div class="carousel-slide"><img src="assets/img/tree.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Neighbour-joining tree with resistance panel" /></div>
+    <div class="carousel-slide"><img src="assets/img/tree_circular.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Circular tree with metadata mapped onto the tips" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+    <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="pt-feature" id="feature-spatial-temporal">
+      <div class="container">
+        <h3 data-i18n="pt.f6.t">Maps and epidemic curves</h3>
+        <p data-i18n-html="pt.f6.d">Bin cases by day, week, month or year and play epidemic curves and maps forward through time, with interactive overlays of any variable — <strong>so you see when and where transmission happened and uncover patterns that might otherwise stay hidden in spreadsheets.</strong></p>
+        
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/heatmap_map.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Geographic map of sampling locations next to a resistance heatmap" /></div>
+    <div class="carousel-slide"><img src="assets/img/epi.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Epidemic curve with cumulative cases and moving average" /></div>
+    <div class="carousel-slide"><img src="assets/img/charts_map.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Map with pie charts per sampling location" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+    <button class="carousel-dot" data-carousel-dot="2" aria-label="Go to slide 3"></button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="pt-feature" id="feature-provenance">
+      <div class="container">
+        <h3 data-i18n="pt.f7.t">Provenance and reproducibility</h3>
+        <p data-i18n-html="pt.f7.d">Every result keeps its provenance: the scheme version, thresholds and tool versions it was produced with are stored alongside it, and alleles are identified by a hash of their sequence — <strong>so results can be verified and reproduced later, by you or by a partner.</strong></p>
+        <div class="pt-prov">
+          <div><strong data-i18n="pt.pv1.t">Stored with every result</strong><span data-i18n="pt.pv1.d">Scheme version, thresholds, tool versions</span></div>
+          <div><strong data-i18n="pt.pv2.t">Sequence fingerprints</strong><span data-i18n="pt.pv2.d">Alleles named by a hash of their sequence</span></div>
+          <div><strong data-i18n="pt.pv3.t">Open and archived</strong><span data-i18n="pt.pv3.d">GPLv3 code on GitHub, archived on Zenodo</span></div>
+        </div>
+        
+      </div>
+    </section>
+    <section class="pt-feature" id="feature-annotation">
+      <div class="container">
+        <h3 data-i18n="pt.f8.t">Your metadata, your variables</h3>
+        <p data-i18n-html="pt.f8.d">Standard fields such as date, source and location, plus custom variables of any kind — wards, environmental data, numerical values, susceptibility results. Any variable can be put on any graph (trees, networks, maps, epidemic curves); PhyloTrace picks a fitting colour scheme and encoding — <strong>so relatedness is always read in its epidemiological context, and you explore hypotheses instead of formatting plots.</strong></p>
+        
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/custom-variables.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Dialog for declaring custom metadata variables" /></div>
+    <div class="carousel-slide"><img src="assets/img/cust-var-tree.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Tree with branches coloured by a user-defined variable" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+  </div>
+</div>
+      </div>
+    </section>
+    <section class="pt-feature" id="analysis-dashboard">
+      <div class="container">
+        <h3 data-i18n="pt.f9.t">Analysis dashboard</h3>
+        <p data-i18n-html="pt.f9.d">Saved analyses reopen exactly as you left them, flag data changes and export as PDF, SVG or PNG. Routine groups grow with newly added isolates, and subsets or snapshots of the database state make analyses reproducible and shareable — <strong>so routine surveillance takes a click, not a project.</strong></p>
+        
+        <div class="carousel" data-carousel>
+  <div class="carousel-slides">
+    <div class="carousel-slide active"><img src="assets/img/analysis-dashboard.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Analysis dashboard with saved analyses and a routine group" /></div>
+    <div class="carousel-slide"><img src="assets/img/viz-new-plot.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="Creating a new plot inside an analysis" /></div>
+  </div>
+  <button class="carousel-btn prev" data-carousel-btn="prev" aria-label="Previous slide">&lsaquo;</button>
+  <button class="carousel-btn next" data-carousel-btn="next" aria-label="Next slide">&rsaquo;</button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-carousel-dot="0" aria-label="Go to slide 1"></button>
+    <button class="carousel-dot" data-carousel-dot="1" aria-label="Go to slide 2"></button>
+  </div>
+</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ Proof (navy, mirrored MST) ============ -->
+  <section class="pt-sec mst-dark mst-off" id="proof">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.pr.eyebrow">Proven on real data · retrospective analysis</span>
+        <h2 data-i18n="pt.pr.title">A decade-long outbreak, typed in 49 minutes.</h2>
+        <p class="lead" style="color:#c8d8ee;" data-i18n-html="pt.pr.lead">We analysed a published, independently studied collection retrospectively: a <em>Pseudomonas aeruginosa</em> outbreak in a 425-bed US hospital, spread across 26 wards over ten years and sustained by reservoirs in sink drains.<sup>1</sup></p>
+      </div>
+      <div class="pt-kpis">
+        <div class="pt-kpi"><div class="num">253</div><span data-i18n="pt.pr.k1">genomes</span></div>
+        <div class="pt-kpi"><div class="num" data-i18n="pt.pr.n2">3,867</div><span data-i18n="pt.pr.k2">cgMLST loci</span></div>
+        <div class="pt-kpi"><div class="num" data-i18n="pt.pr.n3">49 min</div><span data-i18n="pt.pr.k3">on a desktop workstation</span></div>
+      </div>
+      <ul class="pt-checks">
+        <li data-i18n="pt.pr.c1">All 253 genomes typed at default settings, with no manual tuning.</li>
+        <li data-i18n="pt.pr.c2">Resolved into one outbreak cluster at the scheme’s published threshold.</li>
+        <li data-i18n="pt.pr.c3">Reproduced the resistance changes previously reported for the outbreak’s subclones.</li>
+        <li data-i18n="pt.pr.c4">Wards, patients and time mapped onto the results with the same tools a laboratory uses routinely.</li>
+      </ul>
+      <p class="pt-proof-cta"><a class="btn btn-light" href="#documents" data-i18n="pt.pr.more">Full details in the application note (PDF, coming soon) →</a></p>
+      <p class="pt-fn" data-i18n-html="pt.pr.fn"><sup>1</sup> Stribling W, Hall LR, Powell A, et al. Detecting, mapping, and suppressing the spread of a decade-long <em>Pseudomonas aeruginosa</em> nosocomial outbreak with genomics. <em>eLife</em> 2024;13:RP93181 (Version of Record 29 October 2025), <a href="https://doi.org/10.7554/eLife.93181" target="_blank" rel="noopener">doi:10.7554/eLife.93181</a>. Data: <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA852179" target="_blank" rel="noopener">NCBI BioProject PRJNA852179</a>. PhyloTrace manuscript in preparation.</p>
+    </div>
+  </section>
+
+  <!-- ============ Comparison by tool category ============ -->
+  <section class="pt-sec" id="compare">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.cp.eyebrow">How PhyloTrace compares</span>
+        <h2 data-i18n="pt.cp.title">The integrated experience of commercial software — open and decentralised.</h2>
+      </div>
+      <div class="pt-table-wrap">
+        <table class="pt-compare">
+          <thead>
+            <tr><th></th><th data-i18n="pt.cp.h1">Command-line tools</th><th data-i18n="pt.cp.h2">Visualisation tools</th><th data-i18n="pt.cp.h3">Web platforms</th><th data-i18n="pt.cp.h4">Commercial desktop software</th><th class="pt">PhyloTrace</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="pt.cp.r1">Graphical interface, no coding</td><td>–</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="pt y">✓</td></tr>
+            <tr><td data-i18n="pt.cp.r2">Types genomes itself</td><td class="y">✓</td><td>–</td><td class="y">✓</td><td class="y">✓</td><td class="pt y">✓</td></tr>
+            <tr><td data-i18n="pt.cp.r3">Resistance screening built in</td><td>–</td><td>–</td><td class="v" data-i18n="pt.cp.var">varies</td><td class="v" data-i18n="pt.cp.var">varies</td><td class="pt y">✓</td></tr>
+            <tr><td data-i18n="pt.cp.r4">Metadata and epi views in one tool</td><td>–</td><td>◐</td><td class="y">✓</td><td class="y">✓</td><td class="pt y">✓</td></tr>
+            <tr><td data-i18n="pt.cp.r5">Data stays in your lab</td><td class="y">✓</td><td class="y">✓</td><td>–</td><td class="y">✓</td><td class="pt y">✓</td></tr>
+            <tr><td data-i18n="pt.cp.r6">Comparable without a central server</td><td class="v" data-i18n="pt.cp.var">varies</td><td>n/a</td><td>–</td><td>–</td><td class="pt y">✓</td></tr>
+            <tr><td data-i18n="pt.cp.r7">Open source</td><td class="y">✓</td><td class="y">✓</td><td>◐</td><td>–</td><td class="pt y">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pt-legend" data-i18n="pt.cp.leg">✓ typically yes · ◐ partly · – typically no · varies: differs between products</p>
+      <p class="max-60" style="max-width:90ch;" data-i18n="pt.cp.p">Command-line tools are powerful but leave everything after allele calling to the user. Web platforms provide valuable public context, but require uploading your data to a service you don’t operate. Commercial desktop software typically offers an integrated experience, but is closed-source, licence-based and tied to a central nomenclature server.</p>
+      <p class="pt-quote" data-i18n="pt.cp.q">PhyloTrace combines the integration with openness and independence.</p>
+      <p class="pt-fn" data-i18n="pt.cp.fn">Comparison by tool category, based on publicly available information; individual products may differ.</p>
+    </div>
+  </section>
+
+  <!-- ============ Trust & sustainability ============ -->
+  <section class="pt-sec bg-soft" id="trust">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.tr.eyebrow">Trust &amp; sustainability</span>
+        <h2 data-i18n="pt.tr.title">Open, local — and here to stay.</h2>
+        <p class="lead" data-i18n="pt.tr.lead">Surveillance software is a long-term decision. PhyloTrace is built so that your data stays yours and the software stays available.</p>
+      </div>
+      <div class="pt-twocol">
+        <div>
+          <div class="pt-colhead" data-i18n="pt.tr.c1">Your data, your jurisdiction</div>
+          <div class="pt-trust"><h3 data-i18n="pt.tr1.t">Local by design</h3><p data-i18n="pt.tr1.d">All analysis runs on your own hardware. Genomes and patient-related metadata leave your laboratory only if you share them.</p></div>
+          <div class="pt-trust"><h3 data-i18n="pt.tr2.t">No data sent to Liora</h3><p data-i18n="pt.tr2.d">PhyloTrace sends no data to Liora or to a cloud service.</p></div>
+          <div class="pt-trust"><h3 data-i18n="pt.tr3.t">Made in Germany</h3><p data-i18n="pt.tr3.d">Developed and supported by Liora Bioinformatics in Rottweil, with research roots at Furtwangen University.</p></div>
+          <div class="pt-trust"><h3 data-i18n="pt.tr4.t">Research use only</h3><p data-i18n="pt.tr4.d">PhyloTrace is not a medical device. Any accreditation of your own procedures remains the laboratory’s responsibility.</p></div>
+        </div>
+        <div>
+          <div class="pt-colhead" data-i18n="pt.tr.c2">Open source that lasts</div>
+          <div class="pt-trust"><h3 data-i18n="pt.tr5.t">Yours to keep</h3><p data-i18n="pt.tr5.d">Licensed under GPLv3 — the source code stays available to you, whatever happens.</p></div>
+          <div class="pt-trust"><h3 data-i18n="pt.tr6.t">Public and archived</h3><p data-i18n-html="pt.tr6.d">Code on <a href="https://github.com/liora-bioinformatics/PhyloTrace" target="_blank" rel="noopener">GitHub</a>, archived on Zenodo (DOI <a href="https://doi.org/10.5281/zenodo.10996423" target="_blank" rel="noopener">10.5281/zenodo.10996423</a>).</p></div>
+          <div class="pt-trust"><h3 data-i18n="pt.tr7.t">Academic backing</h3><p data-i18n="pt.tr7.d">Developed with Furtwangen University (HFU) and the Medical University of Graz (MUG); peer-reviewed publication in preparation.</p></div>
+        </div>
+      </div>
+      <div class="pt-partners">
+        <p data-i18n="pt.tr.partners">Academic roots and community</p>
+        <img src="assets/img/partners_logo_round.svg" width="760" height="81" loading="lazy"
+          alt="Hochschule Furtwangen University (HFU), ShinyConf 2024, R/Medicine 2024, Medical University of Graz" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Services & support ============ -->
+  <section class="pt-sec" id="support">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.su.eyebrow">Services &amp; support by Liora</span>
+        <h2 data-i18n="pt.su.title">Free to use. Supported when you need it.</h2>
+        <p class="lead" data-i18n="pt.su.lead">PhyloTrace is and will remain open source. Our subscriptions give your laboratory the reliability of a supported product: someone who keeps it running, answers your questions and grows it with your needs.</p>
+      </div>
+      <div class="pt-support">
+        <div class="pt-svc"><small data-i18n="pt.su.tag1">Subscription</small><h3 data-i18n="pt.su1.t">Support &amp; maintenance</h3><p data-i18n="pt.su1.d">Updates, scheme and database updates, and a direct line to the developers when something doesn’t work.</p></div>
+        <div class="pt-svc"><small data-i18n="pt.su.tag1">Subscription</small><h3 data-i18n="pt.su2.t">Onboarding &amp; training</h3><p data-i18n="pt.su2.d">Installation on your infrastructure and hands-on training for your team, so routine surveillance runs without bioinformatics staff.</p></div>
+        <div class="pt-svc"><small data-i18n="pt.su.tag2">Networks</small><h3 data-i18n="pt.su3.t">Surveillance networks</h3><p data-i18n="pt.su3.d">We help you connect partner laboratories: aligning schemes, setting up data-exchange workflows and agreeing on what is shared.</p></div>
+        <div class="pt-svc"><small data-i18n="pt.su.tag3">Projects</small><h3 data-i18n="pt.su4.t">Custom development</h3><p data-i18n="pt.su4.d">Additional analyses, integrations into your laboratory systems, and custom analysis solutions — built by the team behind PhyloTrace.</p></div>
+      </div>
+      <div class="pt-why">
+        <div class="eyebrow" data-i18n="pt.su.why">Why subscribe if the software is free?</div>
+        <div class="pt-why-cols">
+          <div><strong data-i18n="pt.sw1.t">Reliable operation</strong><span data-i18n="pt.sw1.d">Updates, scheme changes and problems are handled for you, with a direct line to the developers.</span></div>
+          <div><strong data-i18n="pt.sw2.t">Faster routine</strong><span data-i18n="pt.sw2.d">Onboarding and training get your team productive without building in-house bioinformatics.</span></div>
+          <div><strong data-i18n="pt.sw3.t">Sustained development</strong><span data-i18n="pt.sw3.d">Subscriptions fund the maintenance and further development of PhyloTrace as open source.</span></div>
+        </div>
+      </div>
+      <p style="margin-top:22px;" class="note" data-i18n="pt.su.note">Plans, prices and service levels are available on request.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="/contact?topic=support&amp;src=phylotrace-support" data-i18n="pt.su.cta">Ask about support</a></div>
+    </div>
+  </section>
+
+  <!-- ============ Specs ============ -->
+  <section class="pt-sec bg-soft" id="specs" style="padding:56px 0;">
+    <div class="container">
+      <h2 data-i18n="pt.sp.title">Technical specifications</h2>
+      <table class="pt-spec">
+        <tbody>
+          <tr><th data-i18n="pt.sp1.t">Runs on</th><td data-i18n="pt.sp1.d">Linux; Windows support planned. Ordinary desktop workstation.</td></tr>
+          <tr><th data-i18n="pt.sp2.t">Interface</th><td data-i18n="pt.sp2.d">Local application in your web browser; all computation and data stay on your machine.</td></tr>
+          <tr><th data-i18n="pt.sp3.t">Installation</th><td data-i18n="pt.sp3.d">One installer for PhyloTrace and all analysis tools it uses.</td></tr>
+          <tr><th data-i18n="pt.sp4.t">Input</th><td data-i18n="pt.sp4.d">Bacterial genome assemblies (FASTA). Integrated genome assembly is planned.</td></tr>
+          <tr><th data-i18n="pt.sp5.t">Typing</th><td data-i18n="pt.sp5.d">cgMLST (42 schemes via cgMLST.org), classical MLST</td></tr>
+          <tr><th data-i18n="pt.sp6.t">Screening</th><td data-i18n="pt.sp6.d">NCBI AMRFinderPlus: resistance genes, virulence, stress/biocide/metal tolerance, point mutations</td></tr>
+          <tr><th data-i18n="pt.sp7.t">Data</th><td data-i18n="pt.sp7.d">One portable database file per project</td></tr>
+          <tr><th data-i18n="pt.sp8.t">Exchange &amp; figures</th><td data-i18n="pt.sp8.d">Database file, Excel, CSV/TSV, FASTA · PDF, SVG, PNG</td></tr>
+          <tr><th data-i18n="pt.sp9.t">Licence</th><td data-i18n="pt.sp9.d">GNU GPL v3 · Zenodo DOI 10.5281/zenodo.10996423</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ Getting started + download placeholder ============ -->
+  <section class="pt-sec" id="get-started">
+    <div class="container">
+      <div class="pt-head">
+        <span class="eyebrow" data-i18n="pt.gs.eyebrow">Getting started</span>
+        <h2 data-i18n="pt.gs.title">From first look to routine use.</h2>
+        <p class="lead" data-i18n="pt.gs.lead">Four steps, at your pace. You can stop at any of them — the software stays yours.</p>
+      </div>
+      <div class="pt-steps">
+        <div class="pt-step"><span class="n">1</span><h3 data-i18n="pt.gs1.t">Download</h3><p data-i18n="pt.gs1.d">Install PhyloTrace for free on a Linux workstation and try it with your own genomes.</p></div>
+        <div class="pt-step"><span class="n">2</span><h3 data-i18n="pt.gs2.t">Demo</h3><p data-i18n="pt.gs2.d">We show you PhyloTrace with your own questions in mind — for your laboratory or your network.</p></div>
+        <div class="pt-step"><span class="n">3</span><h3 data-i18n="pt.gs3.t">Pilot</h3><p data-i18n="pt.gs3.d">Run PhyloTrace on your data for a defined period, with onboarding and direct support. Ask us for details.</p></div>
+        <div class="pt-step"><span class="n">4</span><h3 data-i18n="pt.gs4.t">Subscription</h3><p data-i18n="pt.gs4.d">Choose the support that fits your laboratory or network and move into routine use.</p></div>
+      </div>
+      <div class="pt-need">
+        <div><i aria-hidden="true">✓</i><p style="margin:0;"><strong data-i18n="pt.nd1.t">A desktop workstation</strong><span data-i18n="pt.nd1.d">Linux today; Windows support is planned. No server or cloud account required.</span></p></div>
+        <div><i aria-hidden="true">✓</i><p style="margin:0;"><strong data-i18n="pt.nd2.t">Genome assemblies</strong><span data-i18n="pt.nd2.d">Bacterial assemblies in FASTA format — from your own sequencing or a service provider.</span></p></div>
+      </div>
+
+      <div class="pt-dl" id="download">
+        <!-- Placeholder for the registered-download flow (sign-in link by email), see branch user_auth:
+             downloads.html + assets/js/account.js. Everything is disabled until the account server is live.
+             When it is, replace this card with the sign-in states from downloads.html. -->
+        <div class="form-card">
+          <span class="pt-soon" data-i18n="pt.dl.soon">Coming soon</span>
+          <h3 data-i18n="pt.dl.t">Download PhyloTrace</h3>
+          <p data-i18n="pt.dl.p">Sign in with your email address to download installers, manuals and updates. No password needed: we email you a sign-in link.</p>
+          <form aria-label="Sign in (not yet available)" onsubmit="return false;" novalidate>
+            <fieldset disabled style="border:0;padding:0;margin:0;">
+              <div class="field">
+                <label for="pt-dl-email" data-i18n="pt.dl.email">Your email</label>
+                <input type="email" id="pt-dl-email" placeholder="jane.doe@example.com" data-i18n-attr="placeholder:cf.email.ph" />
+              </div>
+              <button type="button" class="btn btn-primary btn-lg" disabled data-i18n="pt.dl.btn">Email me a sign-in link</button>
+            </fieldset>
+          </form>
+          <p class="pt-dl-alt" data-i18n-html="pt.dl.note">Registered downloads launch soon. Until then, <a href="/contact?topic=download&amp;src=phylotrace-download">get in touch</a> and we will help you get started, or follow the <a href="https://github.com/liora-bioinformatics/PhyloTrace/releases" target="_blank" rel="noopener">releases and source code on GitHub</a>.</p>
+        </div>
+
+        <div id="documents">
+          <h3 data-i18n="pt.dl.docs">Documents</h3>
+          <!-- To publish a document: put the final PDF in assets/docs/ and replace its <span class="pt-doc" ...>
+               by <a class="pt-doc" href="assets/docs/<file>.pdf" download> with <span class="pdf">PDF</span> instead of the
+               "coming soon" badge. Only publish versions without [TBD] placeholders. -->
+          <ul class="pt-docs">
+            <li><span class="pt-doc" aria-disabled="true"><span><strong data-i18n="pt.dd1.t">Datasheet</strong><span data-i18n="pt.dd1.d">2 pages · specifications and requirements</span></span><em data-i18n="pt.dl.soon">Coming soon</em></span></li>
+            <li><span class="pt-doc" aria-disabled="true"><span><strong data-i18n="pt.dd2.t">Application note</strong><span data-i18n="pt.dd2.d">2 pages · retrospective analysis of a decade-long outbreak</span></span><em data-i18n="pt.dl.soon">Coming soon</em></span></li>
+            <li><span class="pt-doc" aria-disabled="true"><span><strong data-i18n="pt.dd3.t">Product brochure</strong><span data-i18n="pt.dd3.d">16 pages · the full case for PhyloTrace</span></span><em data-i18n="pt.dl.soon">Coming soon</em></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Closing call to action (navy, mirrored MST) ============ -->
+  <section class="pt-cta mst-light mst-fx" id="contact-cta">
+      <div class="container">
+        <h2 data-i18n="pt.cta.t">Ready to bring pathogen surveillance into your lab?</h2>
+        <p class="lead" data-i18n="pt.cta.p">See PhyloTrace with your own questions in mind. We’ll show you how it fits your laboratory or network.</p>
+        <p><a class="mail" href="mailto:info@liora-bioinformatics.com">info@liora-bioinformatics.com</a></p>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-lg" href="/contact?topic=demo&amp;src=phylotrace-cta" data-i18n="prod.cta2">Request a demo</a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/liora-bioinformatics/PhyloTrace" target="_blank"
+            rel="noopener" data-i18n="pkg.gh">View on GitHub</a>
+        </div>
+        <p class="ruo-box" data-i18n="pkg.phylotrace.ruo">For research use only. PhyloTrace is not a medical device and is not intended for use in diagnostic procedures, for guiding treatment decisions, or for the management of individual patients.</p>
+      </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="brand brand-img"><img src="assets/img/Liora_rect_white.png"
+              alt="Liora Bioinformatics" /></a>
+          <p style="margin-top:14px; text-align: justify;" data-i18n="footer.tagline">Next-gen bioinformatics solutions
+            for life-science
+            research. Made in Germany.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.company">Company</h4>
+          <ul>
+            <li><a href="/#dna" data-i18n="footer.about">About</a></li>
+            <li><a href="/contact" data-i18n="footer.contact">Contact</a></li>
+            <li><a href="https://www.linkedin.com/company/liorabioinformatics/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.products">Software</h4>
+          <ul>
+            <li><a href="/phylotrace">PhyloTrace</a></li>
+            <li><a href="/#products" data-i18n="footer.allsoftware">All software</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">Services</h4>
+          <ul>
+            <li><a href="/#services" data-i18n="footer.svc1">Custom Pipelines</a></li>
+            <li><a href="/#services" data-i18n="footer.svc2">Consulting &amp; Research</a></li>
+            <li><a href="/#services" data-i18n="footer.svc3">Software &amp; Dashboards</a></li>
+            <li><a href="/#services" data-i18n="footer.svc4">Data Analysis</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> <span data-i18n="footer.rights">Liora Bioinformatics. All rights
+            reserved.</span></span>
+        <span><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/impressum"
+            data-i18n="footer.imprint">Impressum</a> &nbsp;&middot;&nbsp; <a href="/contact"
+            data-i18n="footer.contact">Contact</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/release-version.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/pt-toc.js"></script>
+<script src="_probe.js"></script></body>
+
+</html>
