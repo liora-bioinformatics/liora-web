@@ -46,6 +46,40 @@
     var submitBtn = document.getElementById("submit-btn");
     var statusEl = document.getElementById("form-status");
 
+    // Deep links from the PhyloTrace page and from printed material:
+    //   /contact?topic=demo|support|download|pilot   pre-fills the topic field
+    //   /contact?src=brochure-16p                     adds a "source" field to the message
+    // "src" only says which link or QR code the visitor used; nothing about the visitor is
+    // collected, and it is sent only if they submit the form.
+    var TOPICS = {
+      demo: { en: "Demo request: PhyloTrace", de: "Demo-Anfrage: PhyloTrace" },
+      support: { en: "Support and subscription: PhyloTrace", de: "Support und Abonnement: PhyloTrace" },
+      download: { en: "Download access: PhyloTrace", de: "Download-Zugang: PhyloTrace" },
+      pilot: { en: "Pilot programme: PhyloTrace", de: "Pilotprogramm: PhyloTrace" }
+    };
+    var params = new URLSearchParams(window.location.search);
+    var topicKey = params.get("topic");
+    var topicEl = document.getElementById("topic");
+    if (topicEl && topicKey && Object.prototype.hasOwnProperty.call(TOPICS, topicKey)) {
+      var autoValue = TOPICS[topicKey][lang()];
+      topicEl.value = autoValue;
+      // Follow a language switch, but never overwrite what the visitor has typed.
+      document.addEventListener("liora:langchange", function () {
+        if (topicEl.value === autoValue) {
+          autoValue = TOPICS[topicKey][lang()];
+          topicEl.value = autoValue;
+        }
+      });
+    }
+    var src = params.get("src");
+    if (src && /^[a-z0-9_-]{1,40}$/i.test(src)) {
+      var srcEl = document.createElement("input");
+      srcEl.type = "hidden";
+      srcEl.name = "source";
+      srcEl.value = src;
+      form.appendChild(srcEl);
+    }
+
     function showStatus(msg, kind) {
       if (!statusEl) return;
       statusEl.textContent = msg;
