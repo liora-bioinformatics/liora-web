@@ -33,7 +33,13 @@
 
     // This element deliberately carries no data-i18n attribute: i18n.js would
     // overwrite the fetched version number on load and on every language switch.
-    el.textContent = t("loading");
+    // The state is kept instead, so the status words can be re-rendered when the
+    // visitor switches language (the version number itself is language-neutral).
+    var state = "loading";
+    var tag = "";
+    function render() { el.textContent = state === "ok" ? tag : t(state); }
+    render();
+    document.addEventListener("liora:langchange", render);
 
     fetch(SOURCE)
       .then(function (r) {
@@ -41,10 +47,13 @@
         return r.json();
       })
       .then(function (data) {
-        el.textContent = (data && data.tag_name) || t("unavailable");
+        tag = (data && data.tag_name) || "";
+        state = tag ? "ok" : "unavailable";
+        render();
       })
       .catch(function () {
-        el.textContent = t("failed");
+        state = "failed";
+        render();
       });
   }
 
