@@ -525,7 +525,6 @@
     "pt.dd4.d": "4 Seiten · PhyloTrace im Überblick",
     "pt.dd5.t": "Pilotangebot",
     "pt.dd5.d": "1 Seite · sechsmonatiger Pilot: Umfang, Gebühr und Bedingungen",
-    "pt.dl.docn": "Jedes Dokument gibt es auf Deutsch und Englisch; geöffnet wird die Version in der Sprache der Seite — direkt im Browser.",
     "pt.cta.t": "Bereit, Erregerüberwachung ins Labor zu bringen?",
     "pt.cta.p": "Lernen Sie PhyloTrace anhand Ihrer eigenen Fragestellungen kennen. Wir zeigen, wie es zu Ihrem Labor oder Netzwerk passt.",
     "pt.pr.n4": "4.176",
