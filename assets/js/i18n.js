@@ -530,10 +530,10 @@
     "pt.pr.n4": "4.176",
     "pt.pr.k4": "Resistenzgene und Mutationen nachgewiesen",
     "pt.pdf.app": "assets/sheets/PhyloTrace_AppNote_DE_4p_DRAFT_v0.8.pdf",
-    "pt.pdf.b16": "assets/sheets/PhyloTrace_Brochure_DE_16p_DRAFT_v0.12.pdf",
+    "pt.pdf.b16": "assets/sheets/PhyloTrace_Brochure_DE_16p_DRAFT_v0.13.pdf",
     "pt.pdf.b4": "assets/sheets/PhyloTrace_Brochure_DE_4p_DRAFT_v0.7.pdf",
-    "pt.pdf.ds": "assets/sheets/PhyloTrace_Datasheet_DE_2p_DRAFT_v0.7.pdf",
-    "pt.pdf.pilot": "assets/sheets/PhyloTrace_PilotOffer_DE_1p_DRAFT_v0.6.pdf",
+    "pt.pdf.ds": "assets/sheets/PhyloTrace_Datasheet_DE_2p_DRAFT_v0.8.pdf",
+    "pt.pdf.pilot": "assets/sheets/PhyloTrace_PilotOffer_DE_1p_DRAFT_v0.7.pdf",
 
     "tool.mkdescr.cat": "Statistik &middot; Deskriptive Statistik",
     "tool.mkdescr.p": "Funktionen zur Berechnung und Visualisierung robuster, standardisierter deskriptiver Statistiken.",
