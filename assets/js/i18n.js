@@ -251,7 +251,7 @@
     "pt.p2.d": "Lokal vergebene Allelnummern laufen zwischen Laboren auseinander, wenn sie nicht mit einer zentralen Instanz synchronisiert werden — dadurch hängt jeder Beteiligte von ihr ab.",
     "pt.p3.t": "Datenaustausch wird zum Governance-Problem.",
     "pt.p3.d": "Wer Daten an einer Stelle bündelt, muss auch sensible Metadaten — zu Patienten, Erzeugern oder Standorten — dorthin übertragen.",
-    "pt.quote": "Fachleute fordern Analysekapazität in den Laboren, die Proben sammeln.<sup>4</sup> Dafür braucht es Software, die sie selbst betreiben können.",
+    "pt.quote": "Fachleute fordern den Aufbau von Kapazitäten für die Genomanalyse sowie Schulungen für alle, die Surveillance durchführen.<sup>4</sup> Dafür braucht es Software, die sie selbst betreiben können.",
     "pt.ch.fn": "<sup>1</sup> Ikuta et al. (GBD 2019 Antimicrobial Resistance Collaborators), <em>The Lancet</em>, 2022, <a href=\"https://doi.org/10.1016/S0140-6736(22)02185-7\" target=\"_blank\" rel=\"noopener\">doi:10.1016/S0140-6736(22)02185-7</a>. &middot; <sup>2</sup> Antimicrobial Resistance Collaborators (Murray et al.), <em>The Lancet</em>, 2022, <a href=\"https://doi.org/10.1016/S0140-6736(21)02724-0\" target=\"_blank\" rel=\"noopener\">doi:10.1016/S0140-6736(21)02724-0</a>. &middot; <sup>3</sup> WHO, <em>Estimates of the global burden of foodborne diseases</em>, 2015 (31 Gefahren: Bakterien, Viren, Parasiten, Toxine, Chemikalien). &middot; <sup>4</sup> Baker, Jauneikaite et al., <em>The Lancet Microbe</em> 4(12), 2023, <a href=\"https://doi.org/10.1016/S2666-5247(23)00281-1\" target=\"_blank\" rel=\"noopener\">doi:10.1016/S2666-5247(23)00281-1</a>.",
     "pt.toc.label": "Auf dieser Seite",
     "pt.toc.why": "Die Herausforderung",
